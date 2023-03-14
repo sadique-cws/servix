@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('staff', function (Blueprint $table) {
             $table->id();
             $table->string("name");
-            $table->string("email");
-            $table->string("contact");
+            $table->string("email")->unique();
+            $table->string("contact")->unique();
             $table->string("salary");
             $table->string("type");
             $table->string("status");

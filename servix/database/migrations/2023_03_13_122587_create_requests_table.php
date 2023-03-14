@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('requests', function (Blueprint $table) {
             $table->id();
-            $table->string("user_id");
-            $table->string("technician_id");
+            $table->foreignId("user_id")->constrained()->onDelete("cascade");
+            $table->foreignId("technician_id")->constrained("staff")->onDelete("cascade");
             $table->string("service_code")->unique();
             $table->string("product_name");
             $table->string("brand");
@@ -25,11 +25,11 @@ return new class extends Migration
             $table->string("problem");
             $table->string("remark");
             $table->string("status");
-            $table->timestamp('last_update')->nullable();   
-            $table->timestamp('delivered_by')->nullable();   
-            $table->timestamps("estimate_delivery");
-            $table->timestamp('date_of_delivery')->nullable();   
-            $table->timestamps("date_of_creation");
+            $table->datetime('last_update')->nullable();   
+            $table->datetime('delivered_by')->nullable();   
+            $table->datetime("estimate_delivery");
+            $table->datetime('date_of_delivery')->nullable();   
+            $table->datetime("date_of_creation");
             // $table->timestamps();
         });
     }
