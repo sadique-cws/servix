@@ -15,6 +15,9 @@ class HomeController extends Controller
     public function login():View{
         return view('login');
     }
+    public function adminlogin():View{
+        return view('adminLogin');
+    }
     public function register():View{
         return view('register');
     }

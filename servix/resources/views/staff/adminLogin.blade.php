@@ -1,7 +1,7 @@
 @extends('layout')
 
 
-<!-- Login Form -->
+<!-- Admin Login Form -->
 @section('contents')
 <div class="h1 pb-10 flex bg-gray-900 min-h-screen justify-center items-center mt-12">
     <div class="container justify-around ">
@@ -12,30 +12,14 @@
                         <div class="md:flex w-full">
                             <div class="w-full py-10 px-5 md:px-10">
                                 <div class="text-center mb-10">
-                                    <h1 class="font-bold text-3xl text-gray-900">Register</h1>
+                                    <h1 class="font-bold text-3xl text-gray-900">Admin Login</h1>
                                 </div>
                             <div>
                             <div class="flex -mx-3">
                                 <div class="w-full px-3 mb-5">
-                                    <label for="" class="text-xs font-semibold px-1">Name</label>
-                                    <div class="flex">
-                                        <input type="name" class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex -mx-3">
-                                <div class="w-full px-3 mb-5">
-                                    <label for="" class="text-xs font-semibold px-1">Contact</label>
-                                    <div class="flex">
-                                        <input type="number" class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex -mx-3">
-                                <div class="w-full px-3 mb-5">
                                     <label for="" class="text-xs font-semibold px-1">Email</label>
                                     <div class="flex">
-                                        <input type="email" class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="indu@example.com">
+                                        <input type="email" class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="example@gmail.com">
                                     </div>
                                 </div>
                             </div>
@@ -49,14 +33,14 @@
                             </div>
                               <div class="flex -mx-3">
                                 <div class="w-full px-3 mb-5">
-                                    <button class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">Register</button>
+                                    <button class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">LOGIN</button>
                                 </div>
                               </div>
                               <div class="flex -mx-3">
                               <div class="w-full px-3 mb-5">
                                     <div class="text-center items-center flex justify-center">
-                                        <span class="text-xs">Already have an account.</span>
-                                        <span class="font-semibold text-blue-600 mx-2"><a href="{{route('login')}}">Login Now</a></span>
+                                        <span class="text-xs">I'm new here.</span>
+                                        <span class="font-semibold text-blue-600 mx-2"><a href="{{route('register')}}">Register Now</a></span>
                                     </div>
                                 </div>
                             </div>
