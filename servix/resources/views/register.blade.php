@@ -33,46 +33,6 @@
                             </div>
                             <div class="flex -mx-3">
                                 <div class="w-full px-3 mb-5">
-                                    <label for="" class="text-xs font-semibold px-1">Salary</label>
-                                    <div class="flex">
-                                        <input type="text" class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex -mx-3">
-                                <div class="w-full px-3 mb-5">
-                                    <label for="" class="text-xs font-semibold px-1">Type</label>
-                                    <div class="flex">
-                                        <input type="text" class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
-                                    </div>
-                                </div>
-                            </div>                           
-                             <div class="flex -mx-3">
-                                <div class="w-full px-3 mb-5">
-                                    <label for="" class="text-xs font-semibold px-1">Addhar</label>
-                                    <div class="flex">
-                                        <input type="number" class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex -mx-3">
-                                <div class="w-full px-3 mb-5">
-                                    <label for="" class="text-xs font-semibold px-1">Pan</label>
-                                    <div class="flex">
-                                        <input type="text" class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex -mx-3">
-                                <div class="w-full px-3 mb-5">
-                                    <label for="" class="text-xs font-semibold px-1">Address</label>
-                                    <div class="flex">
-                                        <input type="text" class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex -mx-3">
-                                <div class="w-full px-3 mb-5">
                                     <label for="" class="text-xs font-semibold px-1">Email</label>
                                     <div class="flex">
                                         <input type="email" class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="indu@example.com">
