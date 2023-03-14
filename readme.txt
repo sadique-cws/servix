@@ -21,6 +21,6 @@ Schema
 4. admin
 	id, name, email, password
 
-5. feedback.
+5. feedback. 
 	id, request_id, user_id, content,date_of_creation.
  
