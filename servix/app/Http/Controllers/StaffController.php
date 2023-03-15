@@ -18,4 +18,8 @@ class StaffController extends Controller
          }
         return view('staff.staffLogin');
     }
+
+    public function destroy(){
+        return view('home');
+    }
 }
