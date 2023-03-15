@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\StaffController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,3 +22,4 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/login', [HomeController::class, 'login'])->name('login');
 Route::match(["post","get"],'/admin/login', [HomeController::class, 'adminlogin'])->name('admin.login');
 Route::get('/register', [HomeController::class, 'register'])->name('register');
+Route::get('/staff/requestForm', [StaffController::class, 'requestForm'])->name('request.form');

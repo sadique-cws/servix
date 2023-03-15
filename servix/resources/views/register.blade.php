@@ -14,7 +14,7 @@
                                 <div class="text-center mb-10">
                                     <h1 class="font-bold text-3xl text-gray-900">Register</h1>
                                 </div>
-                            <div>
+                            <div>  
                             <div class="flex -mx-3">
                                 <div class="w-full px-3 mb-5">
                                     <label for="" class="text-xs font-semibold px-1">Name</label>
