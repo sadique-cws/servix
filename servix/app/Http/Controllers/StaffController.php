@@ -8,18 +8,27 @@ class StaffController extends Controller
 {
     public function requestForm(){
         
-         return view('staff.requestForm');
+        return view('staff.requestForm');
     }
     public function stafLogin(Request $req){
         if($req->method() == "POST"){
-            
-            
-                 return ["success"];
+            return ["success"];
          }
         return view('staff.staffLogin');
     }
 
-    public function destroy(){
-        return view('home');
+    public function store(Request $request)
+    {
+        $data = $request -> validate([
+            'name' => 'required',
+            'email' => 'required|unique:App\Models\Student,email|email',
+            'contact' => 'required|integer|unique:App\Models\Student,contact|digits:10',
+            'status' => 'required',
+        ]);
+
+        Customer::create($data);
+        return redirect()->route('home');
     }
+
+    
 }
