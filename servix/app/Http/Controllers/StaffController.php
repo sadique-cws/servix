@@ -3,14 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\View\View;
+
 
 class StaffController extends Controller
 {
-    public function requestForm(){
+    public function requestForm():View{
+        
         return view('staff.requestForm');
-    }
-    
-    public function stafLogin(Request $req){
+    } 
+    public function staffLogin(Request $req):View{
         if($req->method() == "POST"){
             return ["success"];
          }
@@ -30,5 +32,6 @@ class StaffController extends Controller
         return redirect()->route('home');
     }
 
-
+    
 }
+ 

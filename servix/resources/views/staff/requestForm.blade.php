@@ -115,7 +115,7 @@
                               <div class="w-full px-3 mb-5">
                                     <div class="text-center items-center flex justify-center">
                                         <span class="text-xs">Is New user ? </span>
-                                        <span class="font-semibold text-blue-600 mx-2"><a href="{{route('register')}}">- Register User</a></span>
+                                        <span class="font-semibold text-blue-600 mx-2"><a href="{{route('register')}}">-    Register User</a></span>
                                     </div>
                                 </div>
                             </div>
