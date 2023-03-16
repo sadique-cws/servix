@@ -11,7 +11,7 @@ class StaffController extends Controller
     public function requestForm():View{
         
         return view('staff.requestForm');
-    }
+    } 
     public function staffLogin(Request $req):View{
         if($req->method() == "POST"){
             return ["success"];
