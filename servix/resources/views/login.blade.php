@@ -3,7 +3,7 @@
 
 <!-- Login Form -->
 @section('contents')
-<div class="h1 pb-10 flex bg-gray-900 min-h-screen justify-center items-center mt-12">
+<div class="h1 pb-10 flex bg-gray-900 min-h-screen justify-center items-center">
     <div class="container justify-around ">
         <div class="w-full justify-around items-center  flex">
             <div class="card bg-black w-2/6 rounded overflow-hidden mt-7">
@@ -12,7 +12,7 @@
                         <div class="md:flex w-full">
                             <div class="w-full py-10 px-5 md:px-10">
                                 <div class="text-center mb-10">
-                                    <h1 class="font-bold text-3xl text-gray-900">Login</h1>
+                                    <h1 class="font-bold text-3xl text-gray-900">User Login</h1>
                                 </div>
                             <div>
                             <div class="flex -mx-3">
