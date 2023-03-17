@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @extends('admin.layout.layout')
 
 
@@ -253,3 +254,6 @@
 </div>
 
 @endsection
+=======
+@extends('layouts.layout')
+>>>>>>> a97cc4c00520d872e9b33c7775e744532ea1a861
