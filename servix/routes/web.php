@@ -24,6 +24,5 @@ Route::get('/register', [HomeController::class, 'register'])->name('register');
 
 Route::get('/admin/panel',[AdminController::class, 'adminpanel'])->name('admin.panel');
 
-Route::match(["post","get"],'/staff/login', [StaffController::class, 'stafLogin'])->name('staf.login');
+Route::match(["post","get"],'/staff/login', [StaffController::class, 'staffLogin'])->name('staf.login');
 Route::get('/staff/requestForm', [StaffController::class, 'requestForm'])->name('request.form');
-Route::get('/staff/panel',[StaffController::class, 'staffpanel'])->name('staff.panel');
