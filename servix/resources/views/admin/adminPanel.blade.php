@@ -174,7 +174,7 @@
                             </button>
 
                         </div>
-                    </div>
+                    </div> 
                 </div>
                 <!-- Update Contentss according to links -->
                 <div class="container-fluid">
