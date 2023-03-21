@@ -6,26 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
 </head>
 <body>
     <!-- Header Section -->
     @section('header')
-    <header class="text-gray-600 body-font">
+    <header class="text-white bg-[#222021] body-font">
       <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
           <a href="{{route('home')}}">
-          <span class="ml-3 text-xl">Servix</span>
+          <span class="ml-3 text-xl hover:text-gray-300">Servix</span>
           </a>
         </a>
         <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-          <a class="mr-5 hover:text-gray-900">Mobile</a>
-          <a class="mr-5 hover:text-gray-900">Laptop</a>
-          <a class="mr-5 hover:text-gray-900">Tv</a>
-          <a class="mr-5 hover:text-gray-900">Accessories</a>
+          <a class="mr-5 hover:text-gray-300">Mobile</a>
+          <a class="mr-5 hover:text-gray-300">Laptop</a>
+          <a class="mr-5 hover:text-gray-300">Tv</a>
+          <a class="mr-5 hover:text-gray-300">Accessories</a>
         </nav>
-        <a href="{{route('login')}}" class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
-            Login
-        </a>
+
+<div class="">
+    <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center" type="button" data-dropdown-toggle="dropdown">Login <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+    <!-- Dropdown menu -->
+    {{-- <div class="hidden bg-white text-base z-50 list-none divide-y divide-gray-100 rounded shadow my-4" id="dropdown">
+        <div class="px-4 py-3">
+        </div>
+        <ul class="py-1" aria-labelledby="dropdown">
+        <li>
+            <a href="{{route('staf.login')}}" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Staff Login</a>
+        </li>
+        <li>
+            <a href="{{route('admin.login')}}" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Admin Login</a>
+        </li>
+        <li>
+            <a href="" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Sign out</a>
+        </li>
+        </ul>
+    </div> --}}
+</div>
+      <script src="https://unpkg.com/@themesberg/flowbite@latest/dist/flowbite.bundle.js"></script> 
       </div>
     </header>
     @show
@@ -38,40 +57,23 @@
     
     <!-- Footer Section -->
     @section('footer')
-    <footer class="text-gray-600 body-font">
+    <footer class="text-gray-600 body-font bg-gray-600 text-gray-200">
       <div class="container px-5 py-24 mx-auto">
         <div class="flex flex-wrap md:text-left text-center order-first">
           <div class="lg:w-1/4 md:w-1/2 w-full px-4">
             <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
             <nav class="list-none mb-10">
               <li>
-                <a class="text-gray-600 hover:text-gray-800">First Link</a>
+                <a class="text-gray-200 hover:text-gray-300">First Link</a>
               </li>
               <li>
-                <a class="text-gray-600 hover:text-gray-800">Second Link</a>
+                <a class="text-gray-200 hover:text-gray-300">Second Link</a>
               </li>
               <li>
-                <a class="text-gray-600 hover:text-gray-800">Third Link</a>
+                <a class="text-gray-200 hover:text-gray-300">Third Link</a>
               </li>
               <li>
-                <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
-              </li>
-            </nav>
-          </div>
-          <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-            <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
-            <nav class="list-none mb-10">
-              <li>
-                <a class="text-gray-600 hover:text-gray-800">First Link</a>
-              </li>
-              <li>
-                <a class="text-gray-600 hover:text-gray-800">Second Link</a>
-              </li>
-              <li>
-                <a class="text-gray-600 hover:text-gray-800">Third Link</a>
-              </li>
-              <li>
-                <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+                <a class="text-gray-200 hover:text-gray-300">Fourth Link</a>
               </li>
             </nav>
           </div>
@@ -79,16 +81,33 @@
             <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
             <nav class="list-none mb-10">
               <li>
-                <a class="text-gray-600 hover:text-gray-800">First Link</a>
+                <a class="text-gray-200 hover:text-gray-300">First Link</a>
               </li>
               <li>
-                <a class="text-gray-600 hover:text-gray-800">Second Link</a>
+                <a class="text-gray-200 hover:text-gray-300">Second Link</a>
               </li>
               <li>
-                <a class="text-gray-600 hover:text-gray-800">Third Link</a>
+                <a class="text-gray-200 hover:text-gray-300">Third Link</a>
               </li>
               <li>
-                <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+                <a class="text-gray-200 hover:text-gray-300">Fourth Link</a>
+              </li>
+            </nav>
+          </div>
+          <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+            <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
+            <nav class="list-none mb-10">
+              <li>
+                <a class="text-gray-200 hover:text-gray-300">First Link</a>
+              </li>
+              <li>
+                <a class="text-gray-200 hover:text-gray-300">Second Link</a>
+              </li>
+              <li>
+                <a class="text-gray-200 hover:text-gray-300">Third Link</a>
+              </li>
+              <li>
+                <a class="text-gray-200 hover:text-gray-300">Fourth Link</a>
               </li>
             </nav>
           </div>
@@ -110,8 +129,6 @@
 
     </footer>
     @show
-
-
 
 </body>
 </html>

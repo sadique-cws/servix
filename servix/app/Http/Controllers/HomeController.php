@@ -15,32 +15,7 @@ class HomeController extends Controller
     public function login():View{
         return view('login');
     }
-    public function adminlogin(Request $req){
-        if($req->method() == "POST"){
-           $data = $req->only(["email","password"]);
-           
-           if(Auth::guard("admin")->attempt($data)){
-                return ["success"];
-           }
-           else{
-                return ["fail"];
-           }
-        }
-        return view('admin.adminLogin');
-    }
-    public function stafflogin(Request $req){
-        if($req->method() == "POST"){
-            $data = $req->only(["email","password"]);
-            
-            if(Auth::guard("staff")->attempt($data)){
-                 return ["success"];
-            }
-            else{
-                 return ["fail"];
-            }
-         }
-        return view('staff.staffLogin');
-    }
+    
     public function register():View{
         return view('register');
     }
