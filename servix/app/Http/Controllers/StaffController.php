@@ -28,7 +28,7 @@ class StaffController extends Controller
             'status' => 'required',
         ]);
 
-        Customer::create($data);
+        User::create($data);
         return redirect()->route('home');
     }
 
