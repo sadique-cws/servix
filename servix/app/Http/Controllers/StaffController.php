@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use App\Models\User;
+use Auth;
 
 class StaffController extends Controller
 {
@@ -17,7 +18,14 @@ class StaffController extends Controller
     }
     public function staffLogin(Request $req){
         if($req->method() == "POST"){
-            return ["success"];
+            $data = $req->only(["email","password"]);
+           
+           if(Auth::guard("staff")->attempt($data)){
+                return redirect()->route("staff.panel");
+           }
+           else{
+                return redirect()->back();
+           }
          }
         return view('staff.staffLogin');
     }
