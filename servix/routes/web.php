@@ -17,12 +17,37 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/login', [HomeController::class, 'login'])->name('login');
-Route::match(["post","get"],'/admin/login', [HomeController::class, 'adminlogin'])->name('admin.login');
-Route::get('/register', [HomeController::class, 'register'])->name('register');
+Route::controller(HomeController::class)->group(function () {
+    Route::get('/', 'index')->name('home');
+    Route::get('/login', 'login')->name('login');
+    Route::get('/register', 'register')->name('register');
+});
 
-Route::get('/admin/panel',[AdminController::class, 'adminpanel'])->name('admin.panel');
+
+Route::prefix("admin")->group(function () {
+    Route::controller(AdminController::class)->group(function () {
+        //without auth middleware
+        Route::match(["post", "get"], '/login', 'adminlogin')->name('admin.login');
+
+        Route::middleware('auth:admin')->group(function () {
+            Route::get('/', 'index')->name('admin.panel');
+        });
+    });
+});
+
+
+Route::prefix("staff")->group(function () {
+    Route::controller(StaffController::class)->group(function () {
+        // without auth middleware 
+        Route::match(["post", "get"], '/login', 'staffLogin')->name('staff.login');
+
+        // with middle staff login required
+        // Route::middleware("auth")->group(function () {
+            Route::get('/requestForm', 'requestForm')->name('request.form');
+            Route::get('/', 'index')->name('staff.panel');
+        // });
+    });
+});
 
 Route::match(["post","get"],'/staff/login', [StaffController::class, 'stafLogin'])->name('staf.login');
 Route::get('/staff/requestForm', [StaffController::class, 'requestForm'])->name('request.form');

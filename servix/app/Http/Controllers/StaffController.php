@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-
+use App\Models\User;
 
 class StaffController extends Controller
 {
@@ -12,13 +12,17 @@ class StaffController extends Controller
         
         return view('staff.requestForm');
     } 
-    public function staffLogin(Request $req):View{
+    public function index(){
+        return view("staff.staffPanel");
+    }
+    public function staffLogin(Request $req){
         if($req->method() == "POST"){
             return ["success"];
          }
         return view('staff.staffLogin');
     }
 
+    // debatable
     public function store(Request $request)
     {
         $data = $request -> validate([
