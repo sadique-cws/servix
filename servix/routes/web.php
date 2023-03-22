@@ -28,9 +28,13 @@ Route::prefix("admin")->group(function () {
     Route::controller(AdminController::class)->group(function () {
         //without auth middleware
         Route::match(["post", "get"], '/login', 'adminlogin')->name('admin.login');
+        Route::get('/logout', 'adminlogout')->name('admin.logout');
 
+        // routes with middleware
         Route::middleware('auth:admin')->group(function () {
             Route::get('/', 'index')->name('admin.panel');
+            Route::get("/staff/manage","manageStaff")->name("admin.staff.manage");
+            Route::get("/staff/create","insertStaff")->name("admin.staff.create");
         });
     });
 });
@@ -42,13 +46,12 @@ Route::prefix("staff")->group(function () {
         Route::match(["post", "get"], '/login', 'staffLogin')->name('staff.login');
 
         // with middle staff login required
-        // Route::middleware("auth")->group(function () {
+        Route::middleware("auth:staff")->group(function () {
             Route::get('/requestForm', 'requestForm')->name('request.form');
             Route::get('/', 'index')->name('staff.panel');
-        // });
+        });
     });
 });
 
-Route::match(["post","get"],'/staff/login', [StaffController::class, 'stafLogin'])->name('staf.login');
 Route::get('/staff/requestForm', [StaffController::class, 'requestForm'])->name('request.form');
 Route::get('/staff/panel',[StaffController::class, 'staffpanel'])->name('staff.panel');

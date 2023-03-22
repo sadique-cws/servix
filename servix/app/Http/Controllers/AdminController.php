@@ -29,6 +29,10 @@ class AdminController extends Controller
         return view('admin.adminLogin');
     }
 
+    public function adminlogout(Request $req){
+        Auth::guard("admin")->logout();
+        return redirect()->back();
+    }
     public function staffupload(Request $request)
     {
         $data = $request -> validate([
@@ -50,6 +54,16 @@ class AdminController extends Controller
     {
         Staff::where('id', $id)->delete();
         return redirect()->route('home');
+    }
+
+
+    public function manageStaff(Request $req){
+        $data['staffs'] = Staff::all();
+        return view('admin/manageStaff',$data);
+    }
+
+    public function insertStaff(Request $req){
+        return view("admin.insertStaff");
     }
 }
     
