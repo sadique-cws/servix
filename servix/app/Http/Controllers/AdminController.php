@@ -12,7 +12,7 @@ class AdminController extends Controller
 {
     public function index(Request $req): View
     {
-        
+
         return view('admin.adminPanel');
     }
 
@@ -39,13 +39,14 @@ class AdminController extends Controller
     {
         $data = $request -> validate([
             'name' => 'required',
-            'email' => 'required|unique:App\Models\Student,email|email',
-            'contact' => 'required|integer|unique:App\Models\Student,contact|digits:10',
+            'email' => 'required|unique:App\Models\Staff,email|email',
+            'contact' => 'required|integer|unique:App\Models\Staff,contact|digits:10',
             'salary' => 'required',
             'addhar' => 'required',
             'pan' => 'required',
             'address' => 'required',
             'status' => 'required',
+            'password' => 'required',
         ]);
 
         Staff::create($data);
