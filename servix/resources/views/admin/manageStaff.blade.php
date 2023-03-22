@@ -29,10 +29,14 @@
           <thead>
             <tr>
               <th>ID</th>
-              <th>User</th>
-              <th>Date</th>
-              <th>Status</th>
-              <th>Reason</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Contact</th>
+              <th>Salary</th>
+              <th>Addhar</th>
+              <th>Pan No</th>
+              <th>Address</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
