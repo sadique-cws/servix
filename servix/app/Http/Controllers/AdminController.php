@@ -12,6 +12,7 @@ class AdminController extends Controller
 {
     public function index(Request $req): View
     {
+        
         return view('admin.adminPanel');
     }
 
@@ -33,6 +34,7 @@ class AdminController extends Controller
         Auth::guard("admin")->logout();
         return redirect()->back();
     }
+
     public function staffupload(Request $request)
     {
         $data = $request -> validate([
