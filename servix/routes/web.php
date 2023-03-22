@@ -34,7 +34,7 @@ Route::prefix("admin")->group(function () {
         Route::middleware('auth:admin')->group(function () {
             Route::get('/', 'index')->name('admin.panel');
             Route::get("/staff/manage","manageStaff")->name("admin.staff.manage");
-            Route::get("/staff/create","insertStaff")->name("admin.staff.create");
+            Route::post("/staff/create","insertStaff")->name("admin.staff.create");
         });
     });
 });

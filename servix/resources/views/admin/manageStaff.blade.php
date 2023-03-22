@@ -66,14 +66,12 @@
                                     <td class="border border-slate-700 p-1.5 pl-10">{{$item.pan}}</td>
                                     <td class="border border-slate-700 p-1.5 pl-10">{{$item.address}}</td>
                                     <td class="border border-slate-700 p-1.5  items-center justify-center flex ">
-                                    <button class=" bg-green-200 rounded p-1 px-2 text-gray-700">Edit</button>
-                                    <button class=" bg-green-200 rounded p-1 px-2 text-gray-700">View</button>
-                                    <button class=" bg-green-200 rounded p-1 px-2 text-gray-700">Delete</button>
+                                      <button class=" bg-green-200 rounded p-1 px-2 text-gray-700">Edit</button>
+                                      <button class=" bg-green-200 rounded p-1 px-2 text-gray-700">View</button>
+                                      <button class=" bg-green-200 rounded p-1 px-2 text-gray-700">Delete</button>
                                     </td>
                                 </tr>
                             @endforeach
-                          
-                         
                         </tbody>
                       </table>
                   </div>

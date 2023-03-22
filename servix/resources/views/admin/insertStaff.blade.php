@@ -42,7 +42,7 @@
                   <div class=" w-full h-[300px] bg-gray-800 px-12 py-10">
                      {{-- form here --}}
                      
-                                              <form action="" method="post">
+                                              <form action="{{route('admin.staff.create')}}" method="post">
                                                   @csrf
                                                   <div class="flex">
                                                       <div class="w-full px-3 mb-5">
@@ -74,7 +74,7 @@
                                                       <div class="w-full px-3 mb-5">
                                                           <label for="" class="text-xs font-semibold px-1 text-white">Addhar no</label>
                                                           <div class="flex">
-                                                              <input type="text" name="addhar" class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="example@gmail.com">
+                                                              <input type="text" name="addhar" class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="">
                                                           </div>
                                                       </div>
                                                       <div class="w-full px-3 mb-5">
@@ -88,10 +88,26 @@
                                                       <div class="w-full px-3 mb-5">
                                                           <label for="" class="text-xs font-semibold px-1 text-white">Address</label>
                                                           <div class="flex">
-                                                              <textarea type="text" name="address" class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="">
+                                                              <input type="text" name="salary" class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="">
                                                           </div>
                                                       </div>
                                                   </div>
+                                                  <div class="flex">
+                                                      <div class="w-full px-3 mb-5">
+                                                          <label for="" class="text-xs font-semibold px-1 text-white">Password</label>
+                                                          <div class="flex">
+                                                              <input type="password" name="password" class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="">
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="flex">
+                                                      <div class="w-full px-3 mb-5">
+                                                          <div class="flex">
+                                                            <input type="submit" name="submit" class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold"/>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                
                                               </form>
                                          
                      {{-- form end --}}
