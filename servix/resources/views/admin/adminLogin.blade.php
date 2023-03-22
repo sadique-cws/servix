@@ -3,7 +3,7 @@
 
 <!-- Admin Login Form -->
 @section('contents')
-<div class="h1 pb-10 flex bg-gray-900 min-h-screen justify-center items-center mt-12">
+<div class="h1 pb-10 flex bg-gray-900 min-h-screen justify-center items-center">
     <div class="container justify-around ">
         <div class="w-full justify-around items-center  flex">
             <div class="card bg-black w-2/6 rounded overflow-hidden mt-7">

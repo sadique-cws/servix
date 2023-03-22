@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string("salary");
             $table->string("type");
             $table->string("status");
-            $table->string("adhar");
+            $table->string("aadhar");
             $table->string("pan");
             $table->string("address");
             $table->string("password");
