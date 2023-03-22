@@ -43,10 +43,14 @@
                       <table class="border-collapse border border-slate-500 w-full text-gray-400">
                         <thead>
                           <tr>
-                            <th class="border border-slate-600 ...">Product Id</th>
-                            <th class="border border-slate-600 ...">Product Name</th>
-                            <th class="border border-slate-600 ...">Product Type</th>
-                            <th class="border border-slate-600 ...">serial no</th>
+                            <th class="border border-slate-600 ...">Id</th>
+                            <th class="border border-slate-600 ...">Name</th>
+                            <th class="border border-slate-600 ...">email</th>
+                            <th class="border border-slate-600 ...">contact</th>
+                            <th class="border border-slate-600 ...">Salary</th>
+                            <th class="border border-slate-600 ...">Addhar</th>
+                            <th class="border border-slate-600 ...">Pan</th>
+                            <th class="border border-slate-600 ...">Address</th>
                             <th class="border border-slate-600 ...">Action</th>
                           </tr>
                         </thead>
@@ -54,11 +58,17 @@
                             @foreach ($staffs as $item)
                                 <tr>
                                     <td class="border border-slate-700 p-1.5 pl-10">{{$item.id}}</td>
-                                    <td class="border border-slate-700 p-1.5 pl-10">Realme</td>
-                                    <td class="border border-slate-700 p-1.5 pl-10">Mobile phone</td>
-                                    <td class="border border-slate-700 p-1.5 pl-10">M987 xyz...</td>
+                                    <td class="border border-slate-700 p-1.5 pl-10">{{$item.name}}</td>
+                                    <td class="border border-slate-700 p-1.5 pl-10">{{$item.email}}</td>
+                                    <td class="border border-slate-700 p-1.5 pl-10">{{$item.contact}}</td>
+                                    <td class="border border-slate-700 p-1.5 pl-10">{{$item.salary}}</td>
+                                    <td class="border border-slate-700 p-1.5 pl-10">{{$item.addhar}}</td>
+                                    <td class="border border-slate-700 p-1.5 pl-10">{{$item.pan}}</td>
+                                    <td class="border border-slate-700 p-1.5 pl-10">{{$item.address}}</td>
                                     <td class="border border-slate-700 p-1.5  items-center justify-center flex ">
-                                    <button class=" bg-green-200 rounded p-1 px-2 text-gray-700">View details</button>
+                                    <button class=" bg-green-200 rounded p-1 px-2 text-gray-700">Edit</button>
+                                    <button class=" bg-green-200 rounded p-1 px-2 text-gray-700">View</button>
+                                    <button class=" bg-green-200 rounded p-1 px-2 text-gray-700">Delete</button>
                                     </td>
                                 </tr>
                             @endforeach

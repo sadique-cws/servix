@@ -38,9 +38,63 @@
                   <div class="flex justify-between">
                     <h2 class="text-2xl text-white">Insert Staff</h2>
                     <a href="{{route('admin.staff.manage')}}" class="bg-teal-600 text-white px-3 py-2 rounded">Go Back</a>
-                </div>
+                  </div>
                   <div class=" w-full h-[300px] bg-gray-800 px-12 py-10">
                      {{-- form here --}}
+                     
+                                              <form action="" method="post">
+                                                  @csrf
+                                                  <div class="flex">
+                                                      <div class="w-full px-3 mb-5">
+                                                          <label for="" class="text-xs font-semibold px-1 text-white">Name</label>
+                                                          <div class="flex">
+                                                              <input type="text" name="name" class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="">
+                                                          </div>
+                                                      </div>
+                                                      <div class="w-full px-3 mb-5">
+                                                          <label for="" class="text-xs font-semibold px-1 text-white">Email</label>
+                                                          <div class="flex">
+                                                              <input type="email" name="email" class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="example@gmail.com">
+                                                          </div>
+                                                      </div>
+                                                      <div class="w-full px-3 mb-5">
+                                                          <label for="" class="text-xs font-semibold px-1 text-white">Contact</label>
+                                                          <div class="flex">
+                                                              <input type="number" name="contact" class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="">
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="flex">
+                                                      <div class="w-full px-3 mb-5">
+                                                          <label for="" class="text-xs font-semibold px-1 text-white">Salary</label>
+                                                          <div class="flex">
+                                                              <input type="number" name="salary" class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="">
+                                                          </div>
+                                                      </div>
+                                                      <div class="w-full px-3 mb-5">
+                                                          <label for="" class="text-xs font-semibold px-1 text-white">Addhar no</label>
+                                                          <div class="flex">
+                                                              <input type="text" name="addhar" class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="example@gmail.com">
+                                                          </div>
+                                                      </div>
+                                                      <div class="w-full px-3 mb-5">
+                                                          <label for="" class="text-xs font-semibold px-1 text-white">Pan card no</label>
+                                                          <div class="flex">
+                                                              <input type="text" name="pan" class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="">
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="flex">
+                                                      <div class="w-full px-3 mb-5">
+                                                          <label for="" class="text-xs font-semibold px-1 text-white">Address</label>
+                                                          <div class="flex">
+                                                              <textarea type="text" name="address" class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="">
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </form>
+                                         
+                     {{-- form end --}}
 
                   </div>
                 </div>
