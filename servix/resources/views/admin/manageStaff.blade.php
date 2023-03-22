@@ -43,11 +43,14 @@
                       <table class="border-collapse border border-slate-500 w-full text-gray-400">
                         <thead>
                           <tr>
-                            <th class="border border-slate-600 ...">Product Id</th>
-                            <th class="border border-slate-600 ...">Product Name</th>
-                            <th class="border border-slate-600 ...">Product Type</th>
-                            <th class="border border-slate-600 ...">serial no</th>
-                            <th class="border border-slate-600 ...">Action</th>
+                            <th class="border border-slate-600 ...">Id</th>
+                            <th class="border border-slate-600 ...">Name</th>
+                            <th class="border border-slate-600 ...">email</th>
+                            <th class="border border-slate-600 ...">contact</th>
+                            <th class="border border-slate-600 ...">Salary</th>
+                            <th class="border border-slate-600 ...">Addhar</th>
+                            <th class="border border-slate-600 ...">Pan</th>
+                            <th class="border border-slate-600 ...">Address</th>
                           </tr>
                         </thead>
                         <tbody>
