@@ -28,15 +28,17 @@ Route::prefix("admin")->group(function () {
     Route::controller(AdminController::class)->group(function () {
         //without auth middleware
         Route::match(["post", "get"], '/login', 'adminlogin')->name('admin.login');
-        Route::get('/logout', 'adminlogout')->name('admin.logout');
 
         // routes with middleware
         Route::middleware('auth:admin')->group(function () {
             Route::get('/', 'index')->name('admin.panel');
             Route::get("/staff/manage","manageStaff")->name("admin.staff.manage");
-            Route::post("/staff/create","insertStaff")->name("admin.staff.create");
+            Route::get("/staff/create","insertStaff")->name("admin.staff.create");
+            Route::post("/staff/create","staffUpload")->name("admin.staff.store");
             Route::post("/staff/destroy","deleteStaff")->name("admin.staff.delete");
             Route::post("/staff/edit","editStaff")->name("admin.staff.edit");
+            Route::get('/logout', 'adminlogout')->name('admin.logout');
+
         });
     });
 });

@@ -66,7 +66,7 @@
                                     <td class="border border-slate-700 p-1.5 pl-10">{{$item->pan}}</td>
                                     <td class="border border-slate-700 p-1.5 pl-10">{{$item->address}}</td>
                                     <td class="border border-slate-700 p-1.5  items-center justify-center flex ">
-                                      <a href="{{route('student.edit',$item->id)}}" class="h-5 w-5  mt-1"><img src="https://images.onlinelabels.com/images/clip-art/biswajyotim/biswajyotim_Pen.png" class="hover:h-8 hover:w-10"/></a>
+                                      <a href="{{route('admin.staff.edit',$item->id)}}" class="h-5 w-5  mt-1"><img src="https://images.onlinelabels.com/images/clip-art/biswajyotim/biswajyotim_Pen.png" class="hover:h-8 hover:w-10"/></a>
                                       <button class=" bg-green-200 rounded p-1 px-2 text-gray-700">View</button>
                                       <form action="{{route('admin.staff.delete',$item)}}" method="POST">
                                         @csrf

@@ -42,7 +42,7 @@
                   <div class=" w-full h-[300px] bg-gray-800 px-12 py-10">
                      {{-- form here --}}
                      
-                                              <form action="{{route('admin.staff.create')}}" method="post">
+                                              <form action="{{route('admin.staff.store')}}" method="post">
                                                   @csrf
                                                   <div class="flex">
                                                       <div class="w-full px-3 mb-5">
