@@ -51,17 +51,24 @@
                             <th class="border border-slate-600 ...">Addhar</th>
                             <th class="border border-slate-600 ...">Pan</th>
                             <th class="border border-slate-600 ...">Address</th>
+                            <th class="border border-slate-600 ...">Action</th>
                           </tr>
                         </thead>
                         <tbody>
                             @foreach ($staffs as $item)
                                 <tr>
                                     <td class="border border-slate-700 p-1.5 pl-10">{{$item.id}}</td>
-                                    <td class="border border-slate-700 p-1.5 pl-10">Realme</td>
-                                    <td class="border border-slate-700 p-1.5 pl-10">Mobile phone</td>
-                                    <td class="border border-slate-700 p-1.5 pl-10">M987 xyz...</td>
+                                    <td class="border border-slate-700 p-1.5 pl-10">{{$item.name}}</td>
+                                    <td class="border border-slate-700 p-1.5 pl-10">{{$item.email}}</td>
+                                    <td class="border border-slate-700 p-1.5 pl-10">{{$item.contact}}</td>
+                                    <td class="border border-slate-700 p-1.5 pl-10">{{$item.salary}}</td>
+                                    <td class="border border-slate-700 p-1.5 pl-10">{{$item.addhar}}</td>
+                                    <td class="border border-slate-700 p-1.5 pl-10">{{$item.pan}}</td>
+                                    <td class="border border-slate-700 p-1.5 pl-10">{{$item.address}}</td>
                                     <td class="border border-slate-700 p-1.5  items-center justify-center flex ">
-                                    <button class=" bg-green-200 rounded p-1 px-2 text-gray-700">View details</button>
+                                    <button class=" bg-green-200 rounded p-1 px-2 text-gray-700">Edit</button>
+                                    <button class=" bg-green-200 rounded p-1 px-2 text-gray-700">View</button>
+                                    <button class=" bg-green-200 rounded p-1 px-2 text-gray-700">Delete</button>
                                     </td>
                                 </tr>
                             @endforeach
