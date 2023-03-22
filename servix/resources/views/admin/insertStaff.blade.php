@@ -68,7 +68,7 @@
                                                       <div class="w-full px-3 mb-5">
                                                           <label for="" class="text-xs font-semibold px-1 text-white">Salary</label>
                                                           <div class="flex">
-                                                              <input type="number" name="salary" class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="">
+                                                              <input type="text" name="salary" class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="">
                                                           </div>
                                                       </div>
                                                       <div class="w-full px-3 mb-5">

@@ -35,6 +35,8 @@ Route::prefix("admin")->group(function () {
             Route::get('/', 'index')->name('admin.panel');
             Route::get("/staff/manage","manageStaff")->name("admin.staff.manage");
             Route::post("/staff/create","insertStaff")->name("admin.staff.create");
+            Route::post("/staff/destroy","deleteStaff")->name("admin.staff.delete");
+            Route::post("/staff/edit","editStaff")->name("admin.staff.edit");
         });
     });
 });

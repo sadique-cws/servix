@@ -13,9 +13,13 @@ class StaffController extends Controller
         
         return view('staff.requestForm');
     } 
+
+    
     public function index(){
         return view("staff.staffPanel");
     }
+
+
     public function staffLogin(Request $req){
         if($req->method() == "POST"){
             $data = $req->only(["email","password"]);

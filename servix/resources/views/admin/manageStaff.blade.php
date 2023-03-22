@@ -57,18 +57,23 @@
                         <tbody>
                             @foreach ($staffs as $item)
                                 <tr>
-                                    <td class="border border-slate-700 p-1.5 pl-10">{{$item.id}}</td>
-                                    <td class="border border-slate-700 p-1.5 pl-10">{{$item.name}}</td>
-                                    <td class="border border-slate-700 p-1.5 pl-10">{{$item.email}}</td>
-                                    <td class="border border-slate-700 p-1.5 pl-10">{{$item.contact}}</td>
-                                    <td class="border border-slate-700 p-1.5 pl-10">{{$item.salary}}</td>
-                                    <td class="border border-slate-700 p-1.5 pl-10">{{$item.addhar}}</td>
-                                    <td class="border border-slate-700 p-1.5 pl-10">{{$item.pan}}</td>
-                                    <td class="border border-slate-700 p-1.5 pl-10">{{$item.address}}</td>
+                                    <td class="border border-slate-700 p-1.5 pl-10">{{$item->id}}</td>
+                                    <td class="border border-slate-700 p-1.5 pl-10">{{$item->name}}</td>
+                                    <td class="border border-slate-700 p-1.5 pl-10">{{$item->email}}</td>
+                                    <td class="border border-slate-700 p-1.5 pl-10">{{$item->contact}}</td>
+                                    <td class="border border-slate-700 p-1.5 pl-10">{{$item->salary}}</td>
+                                    <td class="border border-slate-700 p-1.5 pl-10">{{$item->addhar}}</td>
+                                    <td class="border border-slate-700 p-1.5 pl-10">{{$item->pan}}</td>
+                                    <td class="border border-slate-700 p-1.5 pl-10">{{$item->address}}</td>
                                     <td class="border border-slate-700 p-1.5  items-center justify-center flex ">
-                                      <button class=" bg-green-200 rounded p-1 px-2 text-gray-700">Edit</button>
+                                      <a href="{{route('student.edit',$item->id)}}" class="h-5 w-5  mt-1"><img src="https://images.onlinelabels.com/images/clip-art/biswajyotim/biswajyotim_Pen.png" class="hover:h-8 hover:w-10"/></a>
                                       <button class=" bg-green-200 rounded p-1 px-2 text-gray-700">View</button>
-                                      <button class=" bg-green-200 rounded p-1 px-2 text-gray-700">Delete</button>
+                                      <form action="{{route('admin.staff.delete',$item)}}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <input type='submit' value=''/>
+                                        <svg width="20" height="20" viewBox="0 0 24 24" class="-mt-5 cursor-pointer"><path fill='#FF0000' d="M15 4V3H9v1H4v2h1v13c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V6h1V4h-5zm2 15H7V6h10v13z"></path><path fill='#FF0000' d="M9 8h2v9H9zm4 0h2v9h-2z"></path></svg>
+                                      </form>
                                     </td>
                                 </tr>
                             @endforeach

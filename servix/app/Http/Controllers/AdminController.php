@@ -56,7 +56,7 @@ class AdminController extends Controller
     public function destroy(Request $req, $id):RedirectResponse
     {
         Staff::where('id', $id)->delete();
-        return redirect()->route('home');
+        return redirect()->route('admin.panel');
     }
 
 
