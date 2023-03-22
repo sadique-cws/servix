@@ -13,7 +13,7 @@ class AdminController extends Controller
     public function index(Request $req): View
     {
 
-        return view('admin.adminPanel');
+        return view('admin.dashboard');
     }
 
     public function adminlogin(Request $req){

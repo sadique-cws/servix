@@ -23,7 +23,7 @@ class StaffFactory extends Factory
             'salary' => fake()->randomDigit(),
             'type' => 'mobile',
             'status' => fake()->boolean(),
-            'addhar' => fake()->randomDigit(),
+            'aadhar' => fake()->randomDigit(),
             'pan' => fake()->randomDigit(),
             'address' => fake()->address(),
             'password' => fake()->password(),
