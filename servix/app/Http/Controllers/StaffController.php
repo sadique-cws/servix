@@ -1,38 +1,39 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use App\Models\User;
 use Auth;
+use App\Models\Staff;
 
 class StaffController extends Controller
-{
-    public function requestForm():View{
-        
-        return view('staff.requestForm');
-    } 
-
-    
-    public function index(){
-        return view("staff.staffPanel");
+{   
+    public function index(Request $req): View
+    {
+        return view('staff.dashboard');
     }
 
-
-    public function staffLogin(Request $req){
+    public function stafflogin(Request $req){
         if($req->method() == "POST"){
-            $data = $req->only(["email","password"]);
+           $data = $req->only(["email","password"]);
            
            if(Auth::guard("staff")->attempt($data)){
                 return redirect()->route("staff.panel");
            }
            else{
-                return redirect()->back();
+                return redirect()->route("home");
            }
-         }
+        }
         return view('staff.staffLogin');
     }
+
+    public function stafflogout(Request $req){
+        Auth::guard("staff")->logout();
+        return redirect()->route("home");
+    }
+
 
     // debatable
     public function store(Request $request)

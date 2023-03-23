@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Staff;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -33,7 +32,7 @@ class AdminController extends Controller
 
     public function adminlogout(Request $req){
         Auth::guard("admin")->logout();
-        return redirect()->back();
+        return redirect()->route("home");
     }
 
     public function staffUpload(Request $request)
@@ -55,12 +54,11 @@ class AdminController extends Controller
         return redirect()->route('admin.staff.manage');
     }
 
-    public function destroy(Request $req, $id):RedirectResponse
+    public function delete($id):RedirectResponse
     {
         Staff::where('id', $id)->delete();
-        return redirect()->route('admin.staff.manage');
+        return redirect()->route('admin.staff.manage');        
     }
-
 
     public function manageStaff(Request $req){
         $data['staffs'] = Staff::all();
@@ -74,6 +72,11 @@ class AdminController extends Controller
     public function editStaff($id){
         $data=Staff::where('id',$id)->first();
         return view("admin.editStaff",compact('data'));
+    }
+
+    public function viewStaff($id){
+        $data=Staff::where('id',$id)->first();
+        return view("admin.viewStaff",compact('data'));
     }
 
 
