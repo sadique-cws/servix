@@ -13,6 +13,7 @@
 
         <div class="card-tools">
           <div class="input-group input-group-sm" style="width: 150px;">
+            <button class="mr-12">Staff Add</button>
             <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
 
             <div class="input-group-append">
