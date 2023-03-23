@@ -255,6 +255,7 @@
                 <a href="{{ route('admin.staff.manage')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Manage Staff</p>
+                  {{-- <P class='ml-4'>{{$staffs->count()}}</P> --}}
                 </a>
               </li>
               <li class="nav-item">
@@ -758,21 +759,9 @@
           </li>
           <li class="nav-header">LABELS</li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ route("admin.logout") }}" class="nav-link">
               <i class="nav-icon far fa-circle text-danger"></i>
-              <p class="text">Important</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon far fa-circle text-warning"></i>
-              <p>Warning</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon far fa-circle text-info"></i>
-              <p>Informational</p>
+              <p class="text">Logout</p>
             </a>
           </li>
         </ul>

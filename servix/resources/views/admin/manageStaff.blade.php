@@ -34,6 +34,7 @@
               <th>Email</th>
               <th>Contact</th>
               <th>Salary</th>
+              <th>Type</th>
               <th>Addhar</th>
               <th>Pan No</th>
               <th>Address</th>
@@ -48,17 +49,19 @@
                 <td>{{$item->email}}</td>
                 <td class="border border-slate-700 p-1.5 pl-10">{{$item->contact}}</td>
                 <td class="border border-slate-700 p-1.5 pl-10">{{$item->salary}}</td>
-                <td>{{$item->addhar}}</td>
+                <td class="border border-slate-700 p-1.5 pl-10">{{$item->type}}</td>
+                <td>{{$item->aadhar}}</td>
                 <td>{{$item->pan}}</td>
                 <td>{{$item->address}}</td>
                 <td class="border border-slate-700 p-1.5  items-center justify-center flex ">
-                  <a href="{{route('admin.staff.edit',$item->id)}}" class="h-5 w-5  mt-1">
-                    <button>View</button>
+                  <a href="{{route('admin.staff.edit',$item->id)}}" class="">Edit</a>
+                  <a href="" class="">View</a>
                   <form action="{{route('admin.staff.delete',$item)}}" method="POST">
                     @csrf
                     @method('delete')
-                    <input type='submit' value=''/>
-                    </form>
+                    <input type='submit' value='delete'/>
+                  </form>
+                    
                 </td>
             </tr>
         @endforeach

@@ -42,9 +42,15 @@
                                           </div>
                                       </div>
                                       <div class="w-full px-3 mb-5">
+                                          <label for="" class="text-black-100">Type</label>
+                                          <div class="flex">
+                                              <input type="text" name="type" class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="">
+                                          </div>
+                                      </div>
+                                      <div class="w-full px-3 mb-5">
                                           <label for="" class="text-black-100">Addhar no</label>
                                           <div class="flex">
-                                              <input type="text" name="addhar" class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="">
+                                              <input type="text" name="aadhar" class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="">
                                           </div>
                                       </div>
                                       <div class="w-full px-3 mb-5">
@@ -58,13 +64,13 @@
                                       <div class="w-full px-3 mb-5">
                                           <label for="" class="text-black-100">Address</label>
                                           <div class="flex">
-                                              <input type="text" name="salary" class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="">
+                                              <input type="text" name="address" class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="">
                                           </div>
                                       </div>
                                       <div class="w-full px-3 mb-5">
                                           <label for="" class="text-black-100">Status</label>
                                           <div class="flex">
-                                              <input type="text" name="salary" class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="">
+                                              <input type="text" name="status" class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="">
                                           </div>
                                       </div>
                                   </div>

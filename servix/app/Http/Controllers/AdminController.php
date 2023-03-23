@@ -12,8 +12,9 @@ class AdminController extends Controller
 {
     public function index(Request $req): View
     {
-
-        return view('admin.dashboard');
+        $data=Staff::all();
+        $count=$data->count();
+        return view('admin.dashboard',['staffs'=>$data]);
     }
 
     public function adminlogin(Request $req){
@@ -35,14 +36,15 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
-    public function staffupload(Request $request)
+    public function staffUpload(Request $request)
     {
         $data = $request -> validate([
             'name' => 'required',
             'email' => 'required|unique:App\Models\Staff,email|email',
             'contact' => 'required|integer|unique:App\Models\Staff,contact|digits:10',
             'salary' => 'required',
-            'addhar' => 'required',
+            'type' => 'required',
+            'aadhar' => 'required',
             'pan' => 'required',
             'address' => 'required',
             'status' => 'required',
@@ -56,7 +58,7 @@ class AdminController extends Controller
     public function destroy(Request $req, $id):RedirectResponse
     {
         Staff::where('id', $id)->delete();
-        return redirect()->route('admin.panel');
+        return redirect()->route('admin.staff.manage');
     }
 
 
@@ -67,6 +69,32 @@ class AdminController extends Controller
 
     public function insertStaff(Request $req){
         return view("admin.insertStaff");
+    }
+
+    public function editStaff($id){
+        $data=Staff::where('id',$id)->first();
+        return view("admin.editStaff",compact('data'));
+    }
+
+
+    public function update(Request $req)
+    {
+        $data = $req->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'contact' => 'required',
+            'salary' => 'required',
+            'type' => 'required',
+            'aadhar' => 'required',
+            'pan' => 'required',
+            'address' => 'required',
+            'status' => 'required',
+            'password' => 'required',
+        ]);
+
+        $id=$req->id;
+        Staff::where('id',$id)->update($data);
+        return redirect()->route('admin.staff.manage');
     }
 }
     

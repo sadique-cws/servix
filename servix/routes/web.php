@@ -24,8 +24,9 @@ Route::prefix("admin")->group(function () {
             Route::get("/staff/manage","manageStaff")->name("admin.staff.manage");
             Route::get("/staff/create","insertStaff")->name("admin.staff.create");
             Route::post("/staff/create","staffUpload")->name("admin.staff.store");
-            Route::post("/staff/destroy","deleteStaff")->name("admin.staff.delete");
-            Route::post("/staff/edit","editStaff")->name("admin.staff.edit");
+            Route::post("/staff/destroy","destroy")->name("admin.staff.delete");
+            Route::get("/staff/edit/{id}","editStaff")->name('admin.staff.edit');
+            Route::post("/staff/update/{id}","update")->name('admin.staff.update');
             Route::get('/logout', 'adminlogout')->name('admin.logout');
 
         });
