@@ -50,7 +50,7 @@ class AdminController extends Controller
         ]);
 
         Staff::create($data);
-        return redirect()->route('home');
+        return redirect()->route('admin.staff.manage');
     }
 
     public function destroy(Request $req, $id):RedirectResponse
