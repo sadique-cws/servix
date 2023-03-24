@@ -2,7 +2,7 @@
 
 
 
-@section('contents')
+@section('content')
 
 <div class="container-fluid flex">
   <div class="w-full bg-gray-300">

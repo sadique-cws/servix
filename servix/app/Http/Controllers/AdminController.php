@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Staff;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -12,8 +11,9 @@ class AdminController extends Controller
 {
     public function index(Request $req): View
     {
-
-        return view('admin.dashboard');
+        $data=Staff::all();
+        $count=$data->count();
+        return view('admin.dashboard',['staffs'=>$data]);
     }
 
     public function adminlogin(Request $req){
@@ -32,7 +32,7 @@ class AdminController extends Controller
 
     public function adminlogout(Request $req){
         Auth::guard("admin")->logout();
-        return redirect()->back();
+        return redirect()->route("home");
     }
 
     public function staffUpload(Request $request)
@@ -43,6 +43,10 @@ class AdminController extends Controller
             'email' => 'required|unique:App\Models\Staff,email|email',
             'contact' => 'required|integer|unique:App\Models\Staff,contact|digits:10',
             'salary' => 'required',
+<<<<<<< HEAD
+=======
+            'type' => 'required',
+>>>>>>> 0cae50aa0842721e8095cfa40eaaede63fcba4b7
             'aadhar' => 'required',
             'pan' => 'required',
             'address' => 'required',
@@ -57,12 +61,11 @@ class AdminController extends Controller
         
     }
 
-    public function destroy(Request $req, $id):RedirectResponse
+    public function delete($id):RedirectResponse
     {
         Staff::where('id', $id)->delete();
-        return redirect()->route('admin.panel');
+        return redirect()->route('admin.staff.manage');        
     }
-
 
     public function manageStaff(Request $req){
         $data['staffs'] = Staff::all();
@@ -71,6 +74,37 @@ class AdminController extends Controller
 
     public function insertStaff(Request $req){
         return view("admin.insertStaff");
+    }
+
+    public function editStaff($id){
+        $data=Staff::where('id',$id)->first();
+        return view("admin.editStaff",compact('data'));
+    }
+
+    public function viewStaff($id){
+        $data=Staff::where('id',$id)->first();
+        return view("admin.viewStaff",compact('data'));
+    }
+
+
+    public function update(Request $req)
+    {
+        $data = $req->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'contact' => 'required',
+            'salary' => 'required',
+            'type' => 'required',
+            'aadhar' => 'required',
+            'pan' => 'required',
+            'address' => 'required',
+            'status' => 'required',
+            'password' => 'required',
+        ]);
+
+        $id=$req->id;
+        Staff::where('id',$id)->update($data);
+        return redirect()->route('admin.staff.manage');
     }
 }
     
