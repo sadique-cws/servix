@@ -76,14 +76,6 @@
                                   </div>
                                   <div class="row">
                                       <div class="w-full px-3 mb-5">
-                                          <label for="" class="text-black-100">Password</label>
-                                          <div class="flex">
-                                              <input type="password" name="password" class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="">
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="row">
-                                      <div class="w-full px-3 mb-5">
                                           <div class="flex">
                                             <input type="submit" name="submit" class="text-black-100"/>
                                           </div>
