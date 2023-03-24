@@ -35,22 +35,26 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
-    public function staffupload(Request $request)
+    public function staffUpload(Request $request)
     {
+       
         $data = $request -> validate([
             'name' => 'required',
             'email' => 'required|unique:App\Models\Staff,email|email',
             'contact' => 'required|integer|unique:App\Models\Staff,contact|digits:10',
             'salary' => 'required',
-            'addhar' => 'required',
+            'aadhar' => 'required',
             'pan' => 'required',
             'address' => 'required',
             'status' => 'required',
+            'type' => 'required',
             'password' => 'required',
         ]);
 
+    //   dd($data);
         Staff::create($data);
         return redirect()->route('admin.staff.manage');
+        
     }
 
     public function destroy(Request $req, $id):RedirectResponse
