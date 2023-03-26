@@ -9,18 +9,20 @@
   <div class="col-12">
     <div class="card">
       <div class="card-header">
-        <h3 class="card-title">Responsive Hover Table</h3>
+        <h3 class="card-title">All Staffs</h3>
 
         <div class="card-tools">
-          <div class="input-group input-group-sm" style="width: 150px;">
-            <button class="mr-12">Staff Add</button>
-            <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+          <div class="input-group input-group-sm" style="width: 300px;">
+            <a href="{{ route('admin.staff.create') }}" role="button" class="mr-12 btn btn-secondary btn-sm">Staff Add</a>
+            
+              <input type="text" name="table_search" class="form-control float-right w-25" placeholder="Search">
 
             <div class="input-group-append">
               <button type="submit" class="btn btn-default">
                 <i class="fas fa-search"></i>
               </button>
             </div>
+            
           </div>
         </div>
       </div>

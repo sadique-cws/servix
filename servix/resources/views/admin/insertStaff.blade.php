@@ -5,11 +5,15 @@
 @section('content')
     <div class="ml-40">
 
-        <div class="row">
-            <h2 class="text-black-100">Insert Staff</h2>
-            <a href="{{ route('admin.staff.manage') }}" class="text-black-100">Go Back</a>
-        </div>
         <div class="container">
+            <div class="d-flex justify-content-between ">
+                <div class=" mt-2">
+                    <h2 class="text-black-100">Insert Staff</h2>
+                </div>
+                <div class="mt-3">
+                    <a href="{{ route('admin.staff.manage') }}" role="button" class="btn btn-primary btn-sm">Go Back</a>
+                </div>
+            </div>
             {{-- form here --}}
 
 
