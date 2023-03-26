@@ -149,9 +149,9 @@
                 </div>
                 <div class="row">
                     <div class="w-full px-3 mb-5">
-                        <div class="flex">
-                            <input type="submit" name="submit" class="text-black-100" />
-                        </div>
+                        
+                            <input type="submit" name="submit" class="btn btn-success w-100" />
+                     
                     </div>
                 </div>
 
