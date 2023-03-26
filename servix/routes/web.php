@@ -8,8 +8,8 @@ use App\Http\Controllers\AdminController;
 
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('home');
-    Route::get('/login', 'login')->name('login');
-    Route::get('/register', 'register')->name('register');
+   
+    Route::get('/requestForm','requestForm')->name('request.form');
 });
 
 
@@ -45,7 +45,7 @@ Route::prefix("staff")->group(function () {
             Route::get('/requestForm', 'requestForm')->name('request.form');
             Route::get('/', 'index')->name('staff.panel');
             Route::get('/logout', 'stafflogout')->name('staff.logout');
-            Route::get('/requestForm','requestForm')->name('request.form');
+            
         });
     });
 });
