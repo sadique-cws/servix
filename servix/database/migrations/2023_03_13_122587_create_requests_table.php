@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId("user_id")->constrained()->onDelete("cascade");
             $table->foreignId("technician_id")->constrained("staff")->onDelete("cascade");
             $table->string("service_code")->unique();
+            $table->string("owner_name");
             $table->string("product_name");
             $table->string("brand");
             $table->string("type");
