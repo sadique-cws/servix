@@ -37,6 +37,7 @@ class AdminController extends Controller
 
     public function staffUpload(Request $request)
     {
+       
         $data = $request -> validate([
             'name' => 'required',
             'email' => 'required|unique:App\Models\Staff,email|email',
@@ -50,8 +51,10 @@ class AdminController extends Controller
             'password' => 'required',
         ]);
 
+    //   dd($data);
         Staff::create($data);
         return redirect()->route('admin.staff.manage');
+        
     }
 
     public function delete($id):RedirectResponse
