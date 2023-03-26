@@ -51,7 +51,6 @@ class AdminController extends Controller
             'password' => 'required',
         ]);
 
-    //   dd($data);
         Staff::create($data);
         return redirect()->route('admin.staff.manage');
         
@@ -101,6 +100,12 @@ class AdminController extends Controller
         $id=$req->id;
         Staff::where('id',$id)->update($data);
         return redirect()->route('admin.staff.manage');
+    }
+
+    public function search(Request  $req):View{
+        $search = $req->search;
+        $data=Staff::where('name','LIKE',"%$search%")->get();
+        return view('admin/manageStaff',['staffs'=>$data]);
     }
 }
     

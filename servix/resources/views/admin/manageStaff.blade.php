@@ -10,20 +10,22 @@
                     <h3 class="card-title">All Staffs</h3>
 
                     <div class="card-tools">
-                        <div class="input-group input-group-sm" style="width: 300px;">
-                            <a href="{{ route('admin.staff.create') }}" role="button"
-                                class="mr-12 btn btn-secondary btn-sm">Staff Add</a>
+                        <form action="{{ route('admin.staff.search') }}">
+                            <div class="input-group input-group-sm" style="width: 300px;">
+                                <a href="{{ route('admin.staff.create') }}"
+                                    role="button"class="mr-12 btn btn-secondary btn-sm">Staff Add</a>
 
-                            <input type="text" name="table_search" class="form-control float-right w-25"
-                                placeholder="Search">
+                                <input type="text" name="table_search"
+                                    class="form-control float-right w-25"placeholder="Search">
 
-                            <div class="input-group-append">
-                                <button type="submit" class="btn btn-default">
-                                    <i class="fas fa-search"></i>
-                                </button>
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-default">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+
                             </div>
-
-                        </div>
+                        </form>
                     </div>
                 </div>
                 <!-- /.card-header -->
@@ -114,11 +116,11 @@
                                                                 </div>
 
                                                             </div>
-                                                          </div>
-                                                          <div class="text-center border">
-                                                              <label for="">Address</label>
-                                                              <h5>{{ $item->address }}</h5>
-                                                          </div>
+                                                        </div>
+                                                        <div class="text-center border">
+                                                            <label for="">Address</label>
+                                                            <h5>{{ $item->address }}</h5>
+                                                        </div>
                                                     </div>
 
                                                 </div>
