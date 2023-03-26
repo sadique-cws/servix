@@ -21,7 +21,7 @@
                                     <div class="w-full px-3 mb-5">
                                         <label for="" class="text-xs font-semibold px-1">Owner Name</label>
                                         <div class="flex">
-                                            <input type="text" name="owner_name" class="w-full  pl-5 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
+                                            <input type="text" name="" class="w-full  pl-5 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
                                         </div>
                                     </div>
                                 </div>

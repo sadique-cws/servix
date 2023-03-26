@@ -10,6 +10,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('home');
    
     Route::get('/requestForm','requestForm')->name('request.form');
+    // Route::get('/register','register')->name('register');
 });
 
 
