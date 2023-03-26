@@ -43,15 +43,11 @@ class AdminController extends Controller
             'email' => 'required|unique:App\Models\Staff,email|email',
             'contact' => 'required|integer|unique:App\Models\Staff,contact|digits:10',
             'salary' => 'required',
-<<<<<<< HEAD
-=======
             'type' => 'required',
->>>>>>> 0cae50aa0842721e8095cfa40eaaede63fcba4b7
             'aadhar' => 'required',
             'pan' => 'required',
             'address' => 'required',
             'status' => 'required',
-            'type' => 'required',
             'password' => 'required',
         ]);
 
