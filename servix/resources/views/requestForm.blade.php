@@ -16,36 +16,50 @@
                                         <h1 class="font-bold text-3xl text-gray-900">Service Request</h1>
                                     </div>
                                     <div>
-                                        <form action="" method="POST">
+                                        <form action="{{route('request.create') }}" method="POST">
                                             @csrf
+                                            
                                             <div class="flex -mx-3">
                                                 <div class="w-full px-3 mb-5">
-                                                    <label for="" class="text-xs font-semibold px-1">Owner
-                                                        Name</label>
+                                                    <label for="" class="text-xs font-semibold px-1">User Id</label>
                                                     <div class="flex">
-                                                        <input type="text" name=""
-                                                            class="w-full  pl-5 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
+                                                        <input type="text" name="user_id" class="w-full  pl-5 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
+                                                    </div>
+                                                </div>
+                                                <div class="w-full px-3 mb-4">
+                                                    <label for="" class="text-xs font-semibold px-1">Technician Id</label>
+                                                    <div class="flex">
+                                                        <input type="text" name="technician_id" class="w-full  pl-3 pr-1 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
+                                                    </div>
+                                                </div>
+                                                <div class="w-full px-3 mb-4">
+                                                    <label for="" class="text-xs font-semibold px-1">Service Code</label>
+                                                    <div class="flex">
+                                                        <input type="text" name="service_code" class="w-full  pl-3 pr-1 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="flex -mx-3">
-                                                <div class="w-full px-3 mb-4">
-                                                    <label for="" class="text-xs font-semibold px-1">Product
-                                                        Name</label>
+                                                <div class="w-full px-3 mb-5">
+                                                    <label for="" class="text-xs font-semibold px-1">Owner Name</label>
                                                     <div class="flex">
-                                                        <input type="text" name="product_name"
-                                                            class="w-full  pl-3 pr-1 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
+                                                        <input type="text" name="owner_name" class="w-full  pl-5 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
                                                     </div>
                                                 </div>
                                                 <div class="w-full px-3 mb-4">
+                                                    <label for="" class="text-xs font-semibold px-1">Product Name</label>
+                                                    <div class="flex">
+                                                        <input type="text" name="product_name" class="w-full  pl-3 pr-1 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex -mx-3">
+                                                <div class="w-full px-3 mb-5">
                                                     <label for="" class="text-xs font-semibold px-1">Brand</label>
                                                     <div class="flex">
-                                                        <input type="text" name="brand"
-                                                            class="w-full  pl-3 pr-1 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
+                                                        <input type="text" name="brand" class="w-full  pl-5 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="flex -mx-3">
                                                 <div class="w-full px-3 mb-4">
                                                     <label for="inputState" class="text-black-100">Type</label>
                                                     <div class="flex w-full">
@@ -60,28 +74,58 @@
                                                     </div>
                                                 </div>
                                                 <div class="w-full px-3 mb-4">
-                                                    <label for="" class="text-xs font-semibold px-1">Color</label>
+                                                    <label for="" class="text-xs font-semibold px-1">Serial No</label>
                                                     <div class="flex">
-                                                        <input type="text" name="color"
-                                                            class="w-full  pl-3 pr-1 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
-                                                    </div>
-                                                </div>
-                                                <div class="w-full px-3 mb-4">
-                                                    <label for="" class="text-xs font-semibold px-1">Serial
-                                                        No.</label>
-                                                    <div class="flex">
-                                                        <input type="text" name="serial_no"
-                                                            class="w-full  pl-3 pr-1 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
+                                                        <input type="text" name="serial_no" class="w-full  pl-3 pr-1 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
                                                     </div>
                                                 </div>
                                             </div>
-
-
                                             <div class="flex -mx-3">
-                                                <div class="w-full px-3 mb-4">
+                                                <div class="w-full px-3 mb-5">
                                                     <label for="" class="text-xs font-semibold px-1">MAC</label>
                                                     <div class="flex">
-                                                        <input type="text" name="mac"
+                                                        <input type="text" name="MAC" class="w-full  pl-5 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
+                                                    </div>
+                                                </div>
+                                                <div class="w-full px-3 mb-5">
+                                                    <label for="" class="text-xs font-semibold px-1">Delvired By</label>
+                                                    <div class="flex">
+                                                        <input type="text" name="delivered_by" class="w-full  pl-5 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
+                                                    </div>
+                                                </div>
+                                                <div class="w-full px-3 mb-4">
+                                                    <label for="" class="text-xs font-semibold px-1">Estimate Delivery</label>
+                                                    <div class="flex">
+                                                        <input type="text" name="estimate_delivery" class="w-full  pl-3 pr-1 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex -mx-3">
+                                                <div class="w-full px-3 mb-5">
+                                                    <label for="" class="text-xs font-semibold px-1">Data Of Delivery</label>
+                                                    <div class="flex">
+                                                        <input type="text" name="date_of_delivery" class="w-full  pl-5 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
+                                                    </div>
+                                                </div>
+                                                <div class="w-full px-3 mb-5">
+                                                    <label for="" class="text-xs font-semibold px-1">Data Of Creation</label>
+                                                    <div class="flex">
+                                                        <input type="text" name="date_of_creation" class="w-full  pl-5 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
+                                                    </div>
+                                                </div>
+                                                <div class="w-full px-3 mb-4">
+                                                    <label for="" class="text-xs font-semibold px-1">Last Update</label>
+                                                    <div class="flex">
+                                                        <input type="text" name="last_update" class="w-full  pl-3 pr-1 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex -mx-3">
+                                                
+                                                <div class="w-full px-3 mb-4">
+                                                    <label for="" class="text-xs font-semibold px-1">Color</label>
+                                                    <div class="flex">
+                                                        <input type="text" name="color"
                                                             class="w-full  pl-3 pr-1 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
                                                     </div>
                                                 </div>
@@ -94,18 +138,9 @@
                                                     </div>
                                                 </div>
                                                 <div class="w-full px-3 mb-4">
-                                                    <label for="" class="text-xs font-semibold px-1">Date of
-                                                        Creation</label>
+                                                    <label for="" class="text-xs font-semibold px-1">Remark</label>
                                                     <div class="flex">
-                                                        <input type="text" name="date_of_creation"
-                                                            class="w-full  pl-3 pr-1 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
-                                                    </div>
-                                                </div>
-                                                <div class="w-full px-3 mb-4">
-                                                    <label for="" class="text-xs font-semibold px-1">Estimated
-                                                        Delihivery</label>
-                                                    <div class="flex">
-                                                        <input type="text" name="estimate_delivery_date"
+                                                        <input type="text" name="remark"
                                                             class="w-full  pl-3 pr-1 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
                                                     </div>
                                                 </div>
@@ -116,18 +151,6 @@
                                                     <div class="flex">
                                                         <textarea type="text" name="problem"
                                                             class="w-full cols-12 pl-3 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"></textarea>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="flex w-full justify-center items-center text-center">
-                                                <div class="flex ">
-                                                    <div class="w-full px-3 mb-5">
-                                                        <label for="" class="text-xs font-semibold px-1">Technician
-                                                            Id</label>
-                                                        <div class="flex">
-                                                            <input type="text" name="technician_id"
-                                                                class=" pl-3 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
-                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

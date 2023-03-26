@@ -10,13 +10,14 @@ use App\Http\Controllers\AdminController;
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('home');
    
- 
-    // Route::get('/register','register')->name('register');
 });
+
+
 Route::controller(RequestController::class)->group(function () {
  
     Route::get('/requestForm','requestForm')->name('request.form');
-    // Route::get('/register','register')->name('register');
+    Route::post( '/requestForm', 'requestCreate')->name('request.create');
+    
 });
 
 
@@ -36,6 +37,7 @@ Route::prefix("admin")->group(function () {
             Route::get("/staff/view/{id}","viewStaff")->name('admin.staff.view');
             Route::post("/staff/update/{id}","update")->name('admin.staff.update');
             Route::get('/logout', 'adminlogout')->name('admin.logout');
+            Route::get('/staff/search',"search")->name('admin.staff.search');
 
         });
     });
