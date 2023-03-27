@@ -11,18 +11,18 @@
 <body>
     <!-- Header Section -->
     @section('header')
-    <header class="text-white bg-[#222021] body-font">
+    <header class="text-black  body-font sticky top-0">
       <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
           <a href="{{route('home')}}">
-          <span class="ml-3 text-2xl hover:text-gray-300 font-bold">Servix</span>
+          <span class="ml-3 text-3xl hover:text-gray-300 font-bold">Servix</span>
           </a>
         </a>
         <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-          <a class="mr-5 hover:text-gray-300 text-sm">Mobile</a>
-          <a class="mr-5 hover:text-gray-300 text-sm">Laptop</a>
-          <a class="mr-5 hover:text-gray-300 text-sm">Tv</a>
-          <a class="mr-5 hover:text-gray-300 text-sm">Accessories</a>
+          <a class="mr-5 hover:text-gray-300 text-base cursor-pointer">Mobile</a>
+          <a class="mr-5 hover:text-gray-300 text-base cursor-pointer">Laptop</a>
+          <a class="mr-5 hover:text-gray-300 text-base cursor-pointer">Tv</a>
+          <a class="mr-5 hover:text-gray-300 text-base cursor-pointer">Accessories</a>
         </nav>
 
         <div class="">
