@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Request;
 use Illuminate\View\View;
-use Illuminate\Http\Request;
+
 
 class RequestController extends Controller
 {
@@ -40,5 +40,10 @@ class RequestController extends Controller
         Request::create($data);
         return redirect()->route('home');
 
+    }
+    public function allRequests(){
+        
+        $data['requests'] = Request::all();
+        return view('staff/requests',$data);
     }
 }

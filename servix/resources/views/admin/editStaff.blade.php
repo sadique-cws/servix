@@ -54,12 +54,20 @@
                         </div>
                     </div>
                     <div class="w-full px-3 mb-5">
-                        <label for="" class="text-black-100">Type</label>
-                        <div class="flex">
-                            <input type="text" name="type" value="{{ $data->type }}"
-                                class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                                placeholder="">
+
+                        <label for="inputState" class="text-black-100">Type</label>
+                        <div class="flex w-full">
+                            {{-- <input type="text" name="type" class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder=""> --}}
+                            <select id="inputState" name="type"
+                                class=" w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
+                                <option selected>Choose...</option>
+                                <option>Mobile</option>
+                                <option>Laptop</option>
+                                <option>Assessories</option>
+                            </select>
                         </div>
+
+
                     </div>
                     <div class="w-full px-3 mb-5">
                         <label for="" class="text-black-100">Addhar no</label>
