@@ -3,10 +3,10 @@
 
 <!-- Homepage Contents are here -->
 @section('contents')
-<section class="text-gray-600 body-font mt-5">
-  <div class="container mx-auto flex flex-col px-5 pb-24 pt-10 justify-center items-center">
-    <div class="h-[520px] w-full bg-green-800 items-center justify-center">
-        <img class="w-full mb-10 object-cover object-center rounded w-full bg-green-700 items-center justify-center h-full" alt="logo" src="{{asset('img/servixhomeImg.jpg')}}">
+<section class="text-gray-600 body-font bg-slate-400">
+  <div class="mx-auto flex flex-col justify-center items-center">
+    <div class="h-full w-full bg-green-800 items-center justify-center">
+        <img class="w-full object-cover object-center rounded w-full bg-green-700 items-center justify-center h-full rounded-lg" alt="logo" src="{{asset('img/servix.jpg')}}">
     </div>
     <div class="w-full md:w-5/6 flex flex-col mb-16 items-center justify-center text-center">
       <h1 class="title-font lg:4xl text- text-[40px] mb-2 mt-10 font-medium text-gray-900">WHY CHOOSE US</h1>

@@ -15,19 +15,18 @@
       <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
           <a href="{{route('home')}}">
-          <span class="ml-3 text-xl hover:text-gray-300">Servix</span>
+          <span class="ml-3 text-2xl hover:text-gray-300 font-bold">Servix</span>
           </a>
         </a>
         <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-          <a class="mr-5 hover:text-gray-300">Mobile</a>
-          <a class="mr-5 hover:text-gray-300">Laptop</a>
-          <a class="mr-5 hover:text-gray-300">Tv</a>
-          <a class="mr-5 hover:text-gray-300">Accessories</a>
+          <a class="mr-5 hover:text-gray-300 text-sm">Mobile</a>
+          <a class="mr-5 hover:text-gray-300 text-sm">Laptop</a>
+          <a class="mr-5 hover:text-gray-300 text-sm">Tv</a>
+          <a class="mr-5 hover:text-gray-300 text-sm">Accessories</a>
         </nav>
 
         <div class="">
-          <a href="{{route('request.form')}}" class="">Request Form</a>
-          {{-- <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center" type="button" data-dropdown-toggle="dropdown">Login <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button> --}}
+          <a href="{{route('request.form')}}" class="text-sm px-2 py-2 rounded-lg bg-teal-400">Request Form</a>
         </div>
         <script src="https://unpkg.com/@themesberg/flowbite@latest/dist/flowbite.bundle.js"></script> 
       </div>
