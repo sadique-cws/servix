@@ -39,7 +39,7 @@
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item mr-4 pt-2 justify-content-end">
-                            <a class="nav_link "  href="{{route('request.form')}}">insert form</a>
+                            <a class="nav_link "  href="{{route('request.form')}}">Request form</a>
                         </li>
                         <!-- <li class="nav-item mr-4 pt-2 mb-2">
                             <a class="nav_link" href="Home.html">Service</a>
