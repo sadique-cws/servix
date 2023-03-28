@@ -40,6 +40,7 @@
                                 <th>Contact</th>
                                 <th>Salary</th>
                                 <th>Type</th>
+                                <th>Status</th>
                                 <th>Addhar</th>
                                 <th>Pan No</th>
                                 <th>Address</th>
@@ -55,14 +56,16 @@
                                     <td class="border border-slate-700 p-1.5 pl-10">{{ $item->contact }}</td>
                                     <td class="border border-slate-700 p-1.5 pl-10">{{ $item->salary }}</td>
                                     <td class="border border-slate-700 p-1.5 pl-10">{{ $item->type }}</td>
+                                    <td class="border border-slate-700 p-1.5 pl-10">{{ $item->status }}</td>
                                     <td>{{ $item->aadhar }}</td>
                                     <td>{{ $item->pan }}</td>
                                     <td>{{ $item->address }}</td>
                                     <td class="border border-slate-700 p-1.5  items-center justify-center flex btn-group"
                                         role="group">
-                                        {{-- edit button  --}}
-                                        <a role="button" class="btn btn-warning"
-                                            href="{{ route('admin.staff.edit', $item->id) }}">Edit</a>
+                                        {{-- status button  --}}
+                                        <a role="button" class="btn btn-info" href="{{ route('admin.staff.status',$item->status)}}">Active</a>
+                                        {{-- edit button --}}
+                                        <a role="button" class="btn btn-warning" href="{{ route('admin.staff.edit', $item->id) }}">Edit</a>
                                         {{-- View button  --}}
                                         <a data-toggle="modal" data-target="#view{{ $item->id }}" role="button"
                                             class=" btn btn-info">View</a>
