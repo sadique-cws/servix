@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Request;
+use Auth;
 use Illuminate\View\View;
 
 
@@ -42,8 +43,9 @@ class RequestController extends Controller
 
     }
     public function allRequests(){
-        
-        $data['requests'] = Request::all();
-        return view('staff/requests',$data);
+        $type = Auth::user()->id;
+        dd($type);
+        // $data['requests'] = Request::where("type_id",$type)->get();
+        // return view('staff/requests',$data);
     }
 }

@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string("product_name");
             $table->string("brand");
             $table->foreignId("type_id")->constrained();
-            $table->string("serial_no");
-            $table->string("MAC");
+            $table->string("serial_no")->nullable();
+            $table->string("MAC")->nullable();
             $table->string("color");
             $table->string("problem");
             $table->string("remark");
