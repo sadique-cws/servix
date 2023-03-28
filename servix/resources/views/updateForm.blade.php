@@ -108,7 +108,6 @@
                                                 </div>
                                             </div>
                                             <div class="flex -mx-3">
-                                                
                                                 <div class="w-full px-3 mb-4">
                                                     <label for="" class="text-xs font-semibold px-1">Color</label>
                                                     <div class="flex">
