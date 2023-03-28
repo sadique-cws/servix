@@ -10,7 +10,7 @@
 </head>
 <body>
     
-<div class="h1 pb-10 flex bg-gray-900 min-h-screen justify-center items-center">
+<div class="h1 pb-10 flex bg-gray-900 min-h-screen justify-center items-center mt-12">
         <div class="container justify-around ">
             <div class="w-full justify-around items-center  flex">
                 <div class="card bg-black w-5/6 rounded overflow-hidden mt-7">
@@ -47,7 +47,7 @@
                                                         <input type="text" name="brand" class="w-full  pl-5 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
                                                     </div>
                                                 </div>
-                                                <!-- <div class="w-full px-3 mb-4">
+                                                <div class="w-full px-3 mb-4">
                                                     <label for="inputState" class="text-black-100">Type</label>
                                                     <div class="flex w-full">
                                                         {{-- <input type="text" name="type" class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder=""> --}}
@@ -59,10 +59,15 @@
                                                             <option>Assessories</option>
                                                         </select>
                                                     </div>
-                                                </div> -->
-                                            
+                                                </div>
+                                                <div class="w-full px-3 mb-4">
+                                                    <label for="" class="text-xs font-semibold px-1">Serial No</label>
+                                                    <div class="flex">
+                                                        <input type="text" name="serial_no" class="w-full  pl-3 pr-1 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <!-- <div class="flex -mx-3">
+                                            <div class="flex -mx-3">
                                                 <div class="w-full px-3 mb-5">
                                                     <label for="" class="text-xs font-semibold px-1">MAC</label>
                                                     <div class="flex">
@@ -81,15 +86,27 @@
                                                         <input type="text" name="estimate_delivery" class="w-full  pl-3 pr-1 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
                                                     </div>
                                                 </div>
-                                            </div> -->
-                                            <!-- <div class="flex -mx-3">
+                                            </div>
+                                            <div class="flex -mx-3">
+                                                <div class="w-full px-3 mb-5">
+                                                    <label for="" class="text-xs font-semibold px-1">Data Of Delivery</label>
+                                                    <div class="flex">
+                                                        <input type="text" name="date_of_delivery" class="w-full  pl-5 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
+                                                    </div>
+                                                </div>
+                                                <div class="w-full px-3 mb-5">
+                                                    <label for="" class="text-xs font-semibold px-1">Data Of Creation</label>
+                                                    <div class="flex">
+                                                        <input type="text" name="date_of_creation" class="w-full  pl-5 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
+                                                    </div>
+                                                </div>
                                                 <div class="w-full px-3 mb-4">
                                                     <label for="" class="text-xs font-semibold px-1">Last Update</label>
                                                     <div class="flex">
                                                         <input type="text" name="last_update" class="w-full  pl-3 pr-1 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
                                                     </div>
                                                 </div>
-                                            </div> -->
+                                            </div>
                                             <div class="flex -mx-3">
                                                 
                                                 <div class="w-full px-3 mb-4">
@@ -99,7 +116,21 @@
                                                             class="w-full  pl-3 pr-1 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
                                                     </div>
                                                 </div>
-                                               
+                                                <div class="w-full px-3 mb-4">
+                                                    <label for="" class="text-xs font-semibold px-1">Status</label>
+                                                    <div class="flex">
+                                                        <input type="text" name="status"
+                                                            class="w-full  pl-3 pr-1 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                                                            value="processing..">
+                                                    </div>
+                                                </div>
+                                                <div class="w-full px-3 mb-4">
+                                                    <label for="" class="text-xs font-semibold px-1">Remark</label>
+                                                    <div class="flex">
+                                                        <input type="text" name="remark"
+                                                            class="w-full  pl-3 pr-1 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="flex -mx-3">
                                                 <div class="w-full px-3 mb-5">
