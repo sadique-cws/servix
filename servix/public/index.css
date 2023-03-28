@@ -1,0 +1,632 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn_primary {
+    border: 1px solid #000 !important;
+    border-radius: 2rem !important;
+    font-size: 20px !important;
+    box-shadow: none !important;
+}
+
+.main_logo_image{
+   width: 23%; 
+}
+
+.main_logo_image1{
+    width: 23%;
+ }
+
+.it_repair {
+    font-size: 55px !important;
+}
+
+.benifit_data {
+    font-size: 21px !important;
+}
+
+.link_contact {
+    text-decoration: none !important;
+}
+
+.experience_back {
+    background-color: #f5f5f5;
+}
+
+.nav_link {
+    text-decoration: none !important;
+    font-size: 20px;
+    color: #000 !important;
+}
+
+.main_background {
+    background-color: #fff;
+}
+
+.arrow_first {
+    /* width: 5px; */
+    font-weight: 900;
+}
+
+.ser_vices {
+    font-size: 80px;
+}
+
+.Ad_vance {
+    font-size: 60px;
+}
+
+.ser_vicess {
+    font-size: 60px;
+    font-weight: 700;
+}
+
+.ser_vices1 {
+    font-size: 80px;
+    line-height: 0.5;
+    font-weight: 700;
+}
+
+.ser_vices11 {
+    font-size: 60px;
+    line-height: 0.8;
+}
+
+.all_service {
+    font-size: 30px;
+}
+
+.ser_provide {
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.ser_pro_data {
+    border-left: 5px solid #e87605 !important;
+    height: 86px !important;
+}
+
+.pro_vide {
+    font-size: 50px;
+}
+
+.img_banner {
+    transform: scale(1.3) !important;
+    transition: all 0.3s ease-out !important;
+}
+
+.card_big_image:hover .img_banner {
+    transform: scale(1.1) !important;
+    cursor: pointer;
+}
+
+
+.card_big_image {
+    border-radius: 0 !important;
+    overflow: hidden !important;
+    position: relative !important;
+    /* width: auto; */
+    /* height: 300px; */
+}
+
+
+.pro_vide1 {
+    font-size: 40px;
+    padding-left: 60px !important;
+    font-weight: 900 !important;
+}
+
+.title_serv {
+    padding-left: 60px !important;
+}
+
+.img-logo {
+    height: auto;
+    width: 200px;
+}
+
+.benifit_image {
+    width: auto;
+    height: 80px;
+}
+
+.card_service {
+    border-radius: 100px !important;
+    background-color: #ffe6df !important;
+    border: 0 !important;
+}
+
+.card_service1 {
+    border-radius: 100px !important;
+    background-color: #e1e1ff !important;
+    border: 0 !important;
+    margin-top: 120px;
+}
+
+.card_printer {
+    border-radius: 100px !important;
+    background-color: #e1f7ff !important;
+    border: 0 !important;
+}
+
+.card_mobile {
+    border-radius: 100px !important;
+    background-color: #fde3ff !important;
+    border: 0 !important;
+    margin-top: 120px;
+}
+
+.card_lcd {
+    border-radius: 100px !important;
+    background-color: #efe6e8 !important;
+    border: 0 !important;
+}
+
+.card_tablet {
+    border-radius: 100px !important;
+    background-color: #cdeecd !important;
+    border: 0 !important;
+    margin-top: 110px;
+}
+
+.img_first {
+    margin-top: -120px;
+}
+
+.img_first1 {
+    margin-top: -120px;
+}
+
+.img_first2 {
+    margin-top: -160px;
+}
+
+.lcs_section {
+    margin-top: 100px;
+}
+
+.printer_section {
+    margin-top: 80px;
+}
+
+.laptop_section {
+    margin-top: 200px;
+}
+
+.background-footer {
+    background-color: #f5f5f5;
+    color: #fff;
+}
+
+.footer--art {
+    text-decoration: none !important;
+    font-size: 19px;
+    font-weight: 600;
+    color: #000;
+}
+
+.footer--art:hover {
+    text-decoration: none !important;
+    font-size: 19px;
+    font-weight: 600;
+    color: red;
+}
+
+.footer--art1 {
+    text-decoration: none !important;
+    font-size: 16px;
+    font-weight: 500;
+    color: #000;
+}
+
+.balagi-media {
+    font-size: 25px;
+    color: #000;
+}
+
+.balagi-media:hover {
+    color: #0879e9 !important;
+
+}
+
+.balagi-media1 {
+    font-size: 25px;
+    color: #000;
+}
+
+.balagi-media1:hover {
+    font-size: 25px;
+    color: #f60778 !important;
+}
+
+.balagi-media2 {
+    font-size: 25px;
+    color: #000;
+}
+
+.balagi-media3 {
+    font-size: 25px;
+    color: #000;
+}
+
+.balagi-media3:hover {
+    font-size: 25px;
+    color: red !important;
+}
+
+.balagi-media2:hover {
+    font-size: 25px;
+    color: #1da1f2 !important;
+}
+
+
+.con_tent {
+    font-size: 24px;
+}
+
+.content_details {
+    padding-top: 35px;
+}
+
+.benifit_card {
+    border-radius: 0 !important;
+    background-color: #c4f6f7 !important;
+    border: none !important;
+}
+
+.benifit_card1 {
+    border-radius: 0 !important;
+    background-color: #fbf5ca !important;
+    border: none !important;
+}
+
+.benifit_card2 {
+    border-radius: 0 !important;
+    background-color: #caf9c5 !important;
+    border: none !important;
+}
+
+.benifit_card3 {
+    border-radius: 0 !important;
+    background-color: #efe5f8 !important;
+    border: none !important;
+}
+
+.benifit_card4 {
+    border-radius: 0 !important;
+    background-color: #ffdbd8 !important;
+    border: none !important;
+}
+
+.benifit_card5 {
+    border-radius: 0 !important;
+    background-color: #dbe7db !important;
+    border: none !important;
+}
+
+
+
+.con_tent2 {
+    font-size: 28px !important;
+}
+
+@media screen and (max-width:767px) {
+    .ser_vices {
+        font-size: 50px;
+    }
+
+    .Ad_vance {
+        font-size: 35px;
+    }
+
+    .ser_vicess {
+        font-size: 35px;
+    }
+
+    .all_text-center {
+        text-align: center !important;
+    }
+
+    .social_media_data {
+        text-align: center !important;
+        justify-content: center !important;
+    }
+
+    .con_tent2 {
+        font-size: 22px !important;
+    }
+
+    .it_repair {
+        font-size: 28px !important;
+    }
+
+    .benifit_data {
+        font-size: 17px !important;
+    }
+
+    .pro_vide {
+        font-size: 40px;
+    }
+
+    .ser_pro_data {
+        border-left: 5px solid red !important;
+        height: 70px !important;
+    }
+
+    .ser_vices1 {
+        font-size: 40px;
+    }
+
+    .ser_vices11 {
+        font-size: 35px;
+    }
+
+    .all_service {
+        font-size: 24px !important;
+    }
+
+    .pro_vide1 {
+        font-size: 22px;
+        padding-left: 15px !important;
+    }
+
+    .title_serv {
+        padding-left: 15px !important;
+    }
+
+    .main_logo_image {
+        width: 12% !important;
+    }
+
+
+
+    .card_service {
+        border-radius: 50px !important;
+    }
+
+    .card_service1 {
+        border-radius: 50px !important;
+        margin-top: 70px;
+    }
+
+    .card_printer {
+        border-radius: 50px !important;
+    }
+
+    .card_mobile {
+        border-radius: 50px !important;
+        margin-top: 70px;
+    }
+
+    .card_lcd {
+        border-radius: 50px !important;
+        margin-top: 40px;
+    }
+
+    .card_tablet {
+        border-radius: 50px !important;
+        margin-top: 70px !important;
+    }
+
+    .img_first {
+        margin-top: -80px;
+    }
+
+    .img_first1 {
+        margin-top: -70px;
+    }
+
+    .img_first2 {
+        margin-top: -75px;
+    }
+
+    .title_serv {
+        font-size: 18px;
+    }
+
+    .lcs_section {
+        margin-top: 15px;
+    }
+
+    .printer_section {
+        margin-top: 10px;
+    }
+
+    .laptop_section {
+        margin-top: 100px;
+    }
+
+    .ser_provide {
+        font-size: 23px;
+    }
+
+    .con_tent {
+        font-size: 18px;
+    }
+
+    .content_details {
+        margin-top: -30px;
+    }
+
+    .look_ing {
+        font-size: 28px !important;
+    }
+
+    .train_ing {
+        font-size: 16px !important;
+    }
+    .look_ing2 {
+        font-size: 28px !important;
+    }
+
+    .train_ing2 {
+        font-size: 18px !important;
+        text-align: center !important;
+    }
+
+    .zila_school{
+        font-size: 22px !important;
+    }
+
+
+
+}
+
+@media screen and (min-width : 768px) and (max-width:991px) {
+    .ser_vices {
+        font-size: 65px;
+    }
+
+    .Ad_vance {
+        font-size: 50px;
+    }
+
+    .ser_vicess {
+        font-size: 50px;
+    }
+
+    .look_ing {
+        font-size: 37px !important;
+    }
+
+    .look_ing2 {
+        font-size: 37px !important;
+    }
+
+    .train_ing {
+        font-size: 18px !important;
+    }
+
+    .train_ing2 {
+        font-size: 22px !important;
+        text-align: center !important;
+    }
+
+
+    .it_repair {
+        font-size: 45px !important;
+    }
+
+    .ser_vices1 {
+        font-size: 65px;
+    }
+
+    .ser_vices11 {
+        font-size: 50px;
+    }
+
+    .all_service {
+        font-size: 27px;
+    }
+
+    .con_tent {
+        font-size: 20px;
+    }
+
+    .pro_vide1 {
+        font-size: 30px;
+    }
+
+    .card_service {
+        border-radius: 70px !important;
+    }
+
+    .card_service1 {
+        border-radius: 70px !important;
+    }
+
+    .card_printer {
+        border-radius: 70px !important;
+    }
+
+    .card_mobile {
+        border-radius: 70px !important;
+    }
+
+    .card_lcd {
+        border-radius: 70px !important;
+    }
+
+    .card_tablet {
+        border-radius: 70px !important;
+    }
+
+    .lcs_section {
+        margin-top: 40px !important;
+    }
+
+    .printer_section {
+        margin-top: 50px;
+    }
+
+    .main_logo_image {
+        width: 7%;
+    }
+
+}
+
+.main_logo_image {
+    transition: all 0.3s;
+}
+
+.main_logo_image1 {
+    transition: all 0.3s;
+}
+
+.btn_primary:hover .main_logo_image {
+    transform: translateX(10px);
+}
+
+.btn_primary:hover .main_logo_image1 {
+    transform: translateX(6px);
+}
+
+.look_ing {
+    font-size: 53px;
+}
+
+.look_ing2 {
+    font-size: 53px;
+}
+
+.train_ing {
+    font-size: 21px;
+}
+
+.train_ing2 {
+    font-size: 25px;
+    text-align: center;
+}
+
+.card_contact{
+    border-radius: 0 !important;
+    background-color: #ffe6df !important;
+    border: 0 !important;
+}
+
+.card_contact1{
+    border-radius: 0 !important;
+    background-color: #e1e1ff !important;
+    border: 0 !important;
+}
+
+.card_contact2{
+    border-radius: 0 !important;
+    background-color: #e1f7ff !important;
+    border: 0 !important;
+}
+
+.img_whats{
+    height: auto;
+    width: 30px;
+}
+
+.img_whats2{
+    height: auto;
+    width: 50px;
+}
+
+.training_padding{
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
