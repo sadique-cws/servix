@@ -107,5 +107,20 @@ class AdminController extends Controller
         $data=Staff::where('name','LIKE',"%$search%")->get();
         return view('admin/manageStaff',['staffs'=>$data]);
     }
+
+
+
+    public function status(Request $req, Staff $staff){
+        // $data=Staff::where('status',$status);
+        // // return view("admin.staff.manage");
+
+        // if($status == 1){
+        //     echo 'Active';
+        // } 
+        // else{
+        //     echo 'Inactive';
+        // } 
+        dd($staff->name);
+    }
 }
     
