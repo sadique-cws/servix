@@ -55,8 +55,14 @@ Route::prefix("staff")->group(function () {
             // Route::get('/requestForm', 'requestForm')->name('request.form');
             Route::get('/', 'index')->name('staff.panel');
             Route::get('/logout', 'stafflogout')->name('staff.logout');
-            
+                
         });
+    });
+});
+
+Route::prefix("Requests")->group(function(){
+    Route::controller(RequestController::class)->group(function(){
+        Route::get('/all', 'allRequests')->name('request.all');
     });
 });
 

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string("owner_name");
             $table->string("product_name");
             $table->string("brand");
-            $table->string("type");
+            $table->foreignId("type_id")->constrained();
             $table->string("serial_no");
             $table->string("MAC");
             $table->string("color");

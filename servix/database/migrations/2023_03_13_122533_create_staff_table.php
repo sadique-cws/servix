@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string("email")->unique();
             $table->string("contact")->unique();
             $table->string("salary");
-            $table->string("type");
+            $table->foreignId("type_id")->constrained();
             $table->string("status");
             $table->string("aadhar");
             $table->string("pan");
