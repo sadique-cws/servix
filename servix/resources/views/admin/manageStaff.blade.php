@@ -62,7 +62,8 @@
                                     <td class="border border-slate-700 p-1.5  items-center justify-center flex btn-group"
                                         role="group">
                                         {{-- status button  --}}
-                                        <a role="button" class="btn btn-info" href="{{ route('admin.staff.status',$item->status)}}">Active</a>
+                                        {{-- <input type="button" id="status" name="status" value="{{$staff->status ? 'Active' : 'Inactive' }}"> --}}
+                                        <a role="button" class="btn btn-info" href="{{ route('admin.staff.status',$item)}}">{{($item->status==1)?"Active":"DeActive"}}</a>
                                         {{-- edit button --}}
                                         <a role="button" class="btn btn-warning" href="{{ route('admin.staff.edit', $item->id) }}">Edit</a>
                                         {{-- View button  --}}
