@@ -5,13 +5,12 @@
     
 <div class="container mt-5">
             <div class="row mt-5 py-5">
-                <div class="col-6 card mx-auto mt-5">
+                <div class="col-6 card p-5 mx-auto mt-5 rounded-5">
                     <div class="d-flex justify-content-center">
-                        <h1 class="font-bold text-3xl text-gray-900">Service Request</h1>
+                        <h1 class="font-bold text-3xl text-gray-900 mb-4">Service Request</h1>
                     </div>
                     <form action="{{route('request.create') }}" method="POST">
                         @csrf
-
                         <div class="row">
                             <div class="mb-3 col-6">
                                 <label for="" class="text-xs font-semibold px-1">Owner Name</label>
@@ -45,15 +44,15 @@
                                     class="btn btn-success w-100">Raise Request</button>
                             </div>
                     </form>
-                    <div class="d-flex mt-5">
-                        <div class="w-full px-3 mb-5">
-                            <div class="text-center items-center flex justify-center">
+                    <div class="d-flex mt-5 ">
+                        <div class="w-100 ">
+                            <div class="text-center ">
                                 <span class="text-xs">Is New user ? </span>
-                                <span class="font-semibold text-blue-600 mx-2"><a href="">-
-                                        Register User</a></span>
+                                <span class="font-semibold text-blue-600 mx-2"><a href="" >Register User</a></span>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
