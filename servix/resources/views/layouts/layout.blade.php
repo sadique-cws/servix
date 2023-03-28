@@ -9,14 +9,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Service App</title>
-    <link href="../unpkg.com/aos%402.3.1/dist/aos.css" rel="stylesheet">
-    <script src="../unpkg.com/aos%402.3.1/dist/aos.js"></script>
+    {{-- <link href="../unpkg.com/aos%402.3.1/dist/aos.css" rel="stylesheet">
+    <script src="../unpkg.com/aos%402.3.1/dist/aos.js"></script> --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
-    <script src="../cdn.jsdelivr.net/npm/jquery%403.5.1/dist/jquery.slim.min.js"integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"crossorigin="anonymous"></script><script src="../kit.fontawesome.com/20cdb0d9fc.js" crossorigin="anonymous"></script>
-    <script src="../cdn.jsdelivr.net/npm/bootstrap%404.6.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
-        crossorigin="anonymous"></script>
+    {{-- <script src="../cdn.jsdelivr.net/npm/jquery%403.5.1/dist/jquery.slim.min.js"integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"crossorigin="anonymous"></script><script src="../kit.fontawesome.com/20cdb0d9fc.js" crossorigin="anonymous"></script> --}}
+    {{-- <script src="../cdn.jsdelivr.net/npm/bootstrap%404.6.2/dist/js/bootstrap.bundle.min.js" --}}
+        {{-- integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" --}}
+        {{-- crossorigin="anonymous"></script> --}}
     <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700;800;900&amp;display=swap"
@@ -24,12 +24,10 @@
 </head>
 
 <body>
-    <!-- Header Section -->
-  @section('header')
   <div class="main_background fixed-top py-1">
-        <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light ">
-                <a class="navbar-brand" href="#">
+            <div class="container">
+                <a href="{{route('home')}}" class="navbar-brand" href="#">
                     <img src="Assets/logo-black.png" class="img-logo" alt="logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
@@ -37,9 +35,11 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-                        <li class="nav-item mr-4 pt-2 justify-content-end">
-                            <a class="nav_link "  href="{{route('request.form')}}">Request form</a>
+                    <ul class="navbar-nav justify-content-end float ms-auto">
+                        <li class=" pt-2 float-right ">
+                            <button class="btn " style="background-color: #e87605;">
+                                <a class="nav_link text-white"  href="{{route('request.form')}}">Request form</a>
+                            </button>
                         </li>
                         <!-- <li class="nav-item mr-4 pt-2 mb-2">
                             <a class="nav_link" href="Home.html">Service</a>
@@ -56,7 +56,7 @@
         </div>
     </div>
 
-  @show
+
 
     <!-- Page Contents -->
     @section('contents')
