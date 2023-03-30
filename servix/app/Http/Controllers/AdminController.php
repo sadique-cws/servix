@@ -120,7 +120,17 @@ class AdminController extends Controller
         // else{
         //     echo 'Inactive';
         // } 
-        dd($staff->name);
+        $id=$staff->id;
+        $status=$staff->status;
+        if($status==1){
+            Staff::where('id',$id)->update(["status","0"]);
+            return redirect()->route('admin.staff.manage');
+         }
+        else{
+            Staff::where('id',$id)->update(["status","1"]);
+            return redirect()->route('admin.staff.manage');
+        }
+       
     }
 }
     
