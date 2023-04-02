@@ -110,17 +110,10 @@ class AdminController extends Controller
 
 
 
-    public function status(Request $req, Staff $staff){
-        // $data=Staff::where('status',$status);
-        // // return view("admin.staff.manage");
-
-        // if($status == 1){
-        //     echo 'Active';
-        // } 
-        // else{
-        //     echo 'Inactive';
-        // } 
-        dd($staff->name);
+    public function status(Request $req, Staff $staff):View{
+        
+        return view("admin.staff.status,$staff->status");
+        // dd($staff->status);
     }
 }
     
