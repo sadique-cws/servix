@@ -13,7 +13,7 @@
                         @csrf
                         <div class="row">
                             <div class="mb-3 col-6">
-                                <label for="" class="text-xs font-semibold px-1">Owner Name</label>
+                                <label for="" class="text-xs font-semibold px-1">Name</label>
                                 <input type="text" name="owner_name" class="form-control">
                             </div>
                             <div class="mb-3 col-6">
@@ -21,17 +21,36 @@
                                 <input type="text" name="product_name" class="form-control">
                             </div>
                         </div>
-                        <div class="row ">
+                        <div class="row">
                             <div class="mb-3 col-6">
+                                <label for="" class="text-xs font-semibold px-1">Contact</label>
+                                <input type="number" name="number" class="form-control">
+                            </div>
+                            <div class="mb-3 col-6">
+                                <label for="" class="text-xs font-semibold px-1">Email</label>
+                                <input type="email" name="email" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="mb-3 col-4">
                                 <label for="" class="text-xs font-semibold px-1">Brand</label>
                                 <input type="text" name="brand" class="form-control">
                             </div>
-                            <div class="mb-3 col-6">
+                            <div class="mb-3 col-4">
                                 <label for="" class="text-xs font-semibold px-1">Color</label>
                                 <div class="flex">
                                     <input type="text" name="color" class="form-control">
                                 </div>
                             </div> 
+                            <div class="mb-3 col-4">
+                                <label for="" class="text-xs font-semibold px-1">Type</label>
+                                <select class="form-select font-semibold text-xs px-1">
+                                    <option value="1">Mobile</option>
+                                    <option value="2">Laptop</option>
+                                    <option value="3">T.V</option>
+                                  </select>
+                            </div> 
+                             
                         </div>
                        
                             <div class="mb-3">
@@ -44,15 +63,6 @@
                                     class="btn btn-success w-100">Raise Request</button>
                             </div>
                     </form>
-                    <div class="d-flex mt-5 ">
-                        <div class="w-100 ">
-                            <div class="text-center ">
-                                <span class="text-xs">Is New user ? </span>
-                                <span class="font-semibold text-blue-600 mx-2"><a href="" >Register User</a></span>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>

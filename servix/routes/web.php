@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\AdminController;
+use Illuminate\Support\Facades\Storage; //This is for image upload, 
 
 
 Route::controller(HomeController::class)->group(function () {
@@ -65,5 +66,13 @@ Route::prefix("Requests")->group(function(){
     });
 });
 
-// Route::get('/staff/requestForm', [StaffController::class, 'requestForm'])->name('request.form');
-// Route::get('/staff/panel',[StaffController::class, 'staffpanel'])->name('staff.panel');
+
+
+// This is route is for image upload.
+Route::post('/upload', function (Illuminate\Http\Request $request) {
+    $path = $request->file('image')->store('images', 's3');
+    return back()
+        ->with('success','Image uploaded successfully.')
+        ->with('image',$path);
+});
+
