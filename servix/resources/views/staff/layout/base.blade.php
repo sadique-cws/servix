@@ -250,7 +250,7 @@
                                 <li class="nav-item">
                                     <a href="pages/layout/top-nav.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p> Total Painding</p>
+                                        <p> Total Pending</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -262,7 +262,7 @@
                                 <li class="nav-item">
                                     <a href="pages/layout/top-nav.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p> Delevered</p>
+                                        <p> Delivered</p>
                                     </a>
                                 </li>
                                

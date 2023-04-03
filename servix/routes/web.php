@@ -52,7 +52,7 @@ Route::prefix("staff")->group(function () {
 
         // with middle staff login required
         Route::middleware("auth:staff")->group(function () {
-            // Route::get('/requestForm', 'requestForm')->name('request.form');
+            Route::get('/request/all', [RequestController::class,'allRequests'])->name('request.all');
             Route::get('/', 'index')->name('staff.panel');
             Route::get('/logout', 'stafflogout')->name('staff.logout');
                 
@@ -60,11 +60,7 @@ Route::prefix("staff")->group(function () {
     });
 });
 
-Route::prefix("Requests")->group(function(){
-    Route::controller(RequestController::class)->group(function(){
-        Route::get('/all', 'allRequests')->name('request.all');
-    });
-});
+
 
 // Route::get('/staff/requestForm', [StaffController::class, 'requestForm'])->name('request.form');
 // Route::get('/staff/panel',[StaffController::class, 'staffpanel'])->name('staff.panel');

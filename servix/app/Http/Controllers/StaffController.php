@@ -23,7 +23,7 @@ class StaffController extends Controller
                 return redirect()->route("staff.panel");
            }
            else{
-                return redirect()->route("home");
+                return redirect()->route("staff.login");
            }
         }
         return view('staff.staffLogin');
