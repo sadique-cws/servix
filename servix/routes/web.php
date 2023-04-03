@@ -39,6 +39,7 @@ Route::prefix("admin")->group(function () {
             Route::post("/staff/update/{id}","update")->name('admin.staff.update');
             Route::get('/logout', 'adminlogout')->name('admin.logout');
             Route::get('/staff/search',"search")->name('admin.staff.search');
+            Route::get('/staff/status/{staff}',"status")->name('admin.staff.status');
 
         });
     });

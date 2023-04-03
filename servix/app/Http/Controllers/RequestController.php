@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 
@@ -42,8 +43,17 @@ class RequestController extends Controller
 
     }
     public function allRequests(){
+        if (auth()->check()) {
+            // User is logged in
+            $user = auth()->user();
+            $email = $user->email;
+            dd($email);
+            // $data['requests'] = Request::where("type_id",$type)->get();
+            // return view('staff/requests',$data);
+        } else {
+            
+            dd("hello");
+        }
         
-        $data['requests'] = Request::all();
-        return view('staff/requests',$data);
     }
 }

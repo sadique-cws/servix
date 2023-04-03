@@ -40,6 +40,7 @@
                                 <th>Contact</th>
                                 <th>Salary</th>
                                 <th>Type</th>
+                                <th>Status</th>
                                 <th>Addhar</th>
                                 <th>Pan No</th>
                                 <th>Address</th>
@@ -54,15 +55,17 @@
                                     <td>{{ $item->email }}</td>
                                     <td class="border border-slate-700 p-1.5 pl-10">{{ $item->contact }}</td>
                                     <td class="border border-slate-700 p-1.5 pl-10">{{ $item->salary }}</td>
-                                    <td class="border border-slate-700 p-1.5 pl-10">{{ $item->type->typename }}</td>
+                                    <td class="border border-slate-700 p-1.5 pl-10">{{ $item->type }}</td>
                                     <td>{{ $item->aadhar }}</td>
                                     <td>{{ $item->pan }}</td>
                                     <td>{{ $item->address }}</td>
                                     <td class="border border-slate-700 p-1.5  items-center justify-center flex btn-group"
                                         role="group">
-                                        {{-- edit button  --}}
-                                        <a role="button" class="btn btn-warning"
-                                            href="{{ route('admin.staff.edit', $item->id) }}">Edit</a>
+                                        {{-- status button  --}}
+                                        {{-- <input type="button" id="status" name="status" value="{{$staff->status ? 'Active' : 'Inactive' }}"> --}}
+                                        <a role="button" class="btn btn-info" href="{{ route('admin.staff.status',$item)}}">{{($item->status==1)?"Active":"DeActive"}}</a>
+                                        {{-- edit button --}}
+                                        <a role="button" class="btn btn-warning" href="{{ route('admin.staff.edit', $item->id) }}">Edit</a>
                                         {{-- View button  --}}
                                         <a data-toggle="modal" data-target="#view{{ $item->id }}" role="button"
                                             class=" btn btn-info">View</a>
