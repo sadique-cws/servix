@@ -3,7 +3,7 @@
 @section('content')
     
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
@@ -48,7 +48,7 @@
               <div class="inner">
                 <h3>53<sup style="font-size: 20px">%</sup></h3>
 
-                <p>Bounce Rate</p>
+                <p>Conform Order</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -63,7 +63,7 @@
               <div class="inner">
                 <h3>44</h3>
 
-                <p>User Registrations</p>
+                <p>Reject X</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
@@ -605,5 +605,5 @@
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
-  </div>
+
 @endsection

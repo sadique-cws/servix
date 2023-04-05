@@ -34,21 +34,7 @@ class StaffController extends Controller
         return redirect()->route("home");
     }
 
+  
 
-    // debatable
-    public function store(Request $request)
-    {
-        $data = $request -> validate([
-            'name' => 'required',
-            'email' => 'required|unique:App\Models\Student,email|email',
-            'contact' => 'required|integer|unique:App\Models\Student,contact|digits:10',
-            'status' => 'required',
-        ]);
-
-        User::create($data);
-        return redirect()->route('home');
-    }
-
-    
 }
  

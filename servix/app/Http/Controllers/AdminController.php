@@ -37,6 +37,7 @@ class AdminController extends Controller
 
     public function staffUpload(Request $request)
     {
+       
         $data = $request -> validate([
             'name' => 'required',
             'email' => 'required|unique:App\Models\Staff,email|email',
@@ -52,6 +53,7 @@ class AdminController extends Controller
 
         Staff::create($data);
         return redirect()->route('admin.staff.manage');
+        
     }
 
     public function delete($id):RedirectResponse
@@ -98,6 +100,27 @@ class AdminController extends Controller
         $id=$req->id;
         Staff::where('id',$id)->update($data);
         return redirect()->route('admin.staff.manage');
+    }
+
+    public function search(Request  $req):View{
+        $search = $req->search;
+        $data=Staff::where('name','LIKE',"%$search%")->get();
+        return view('admin/manageStaff',['staffs'=>$data]);
+    }
+
+
+
+    public function status(Request $req, Staff $staff){
+        // $data=Staff::where('status',$status);
+        // // return view("admin.staff.manage");
+
+        // if($status == 1){
+        //     echo 'Active';
+        // } 
+        // else{
+        //     echo 'Inactive';
+        // } 
+        dd($staff->name);
     }
 }
     

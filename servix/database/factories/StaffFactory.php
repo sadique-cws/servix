@@ -21,12 +21,12 @@ class StaffFactory extends Factory
             'email' => fake()->email(),
             'contact' => fake()->phonenumber(),
             'salary' => fake()->randomDigit(),
-            'type' => 'mobile',
+            'type_id' => fake()->numberBetween(1,4),
             'status' => fake()->boolean(),
             'aadhar' => fake()->randomDigit(),
             'pan' => fake()->randomDigit(),
             'address' => fake()->address(),
-            'password' => fake()->password(),
+            'password' => "12345",
         ];
     }
 }

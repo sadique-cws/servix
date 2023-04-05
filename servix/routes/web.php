@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RequestController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StaffController;
@@ -8,8 +9,15 @@ use App\Http\Controllers\AdminController;
 
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('home');
-    Route::get('/login', 'login')->name('login');
-    Route::get('/register', 'register')->name('register');
+   
+});
+
+
+Route::controller(RequestController::class)->group(function () {
+ 
+    Route::get('/requestForm','requestForm')->name('request.form');
+    Route::post( '/requestForm', 'requestCreate')->name('request.create');
+    
 });
 
 
@@ -29,6 +37,8 @@ Route::prefix("admin")->group(function () {
             Route::get("/staff/view/{id}","viewStaff")->name('admin.staff.view');
             Route::post("/staff/update/{id}","update")->name('admin.staff.update');
             Route::get('/logout', 'adminlogout')->name('admin.logout');
+            Route::get('/staff/search',"search")->name('admin.staff.search');
+            Route::get('/staff/status/{staff}',"status")->name('admin.staff.status');
 
         });
     });
@@ -42,11 +52,17 @@ Route::prefix("staff")->group(function () {
 
         // with middle staff login required
         Route::middleware("auth:staff")->group(function () {
-            Route::get('/requestForm', 'requestForm')->name('request.form');
+            // Route::get('/requestForm', 'requestForm')->name('request.form');
             Route::get('/', 'index')->name('staff.panel');
             Route::get('/logout', 'stafflogout')->name('staff.logout');
-            Route::get('/requestForm','requestForm')->name('request.form');
+                
         });
+    });
+});
+
+Route::prefix("Requests")->group(function(){
+    Route::controller(RequestController::class)->group(function(){
+        Route::get('/all', 'allRequests')->name('request.all');
     });
 });
 

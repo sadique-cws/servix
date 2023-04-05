@@ -72,15 +72,7 @@
           </div>
         </form>
   
-        <div class="social-auth-links text-center mb-3">
-          <p>- OR -</p>
-          <a href="#" class="btn btn-block btn-primary">
-            <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
-          </a>
-          <a href="#" class="btn btn-block btn-danger">
-            <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
-          </a>
-        </div>
+       
         <!-- /.social-auth-links -->
   
         <p class="mb-1">
@@ -103,7 +95,7 @@
 <script>
   $.widget.bridge('uibutton', $.ui.button)
 </script>
-<!-- Bootstrap 4 -->
+<!-- Bootstrap 4 --> 
 <script src="{{ asset("plugins/bootstrap/js/bootstrap.bundle.min.js") }}"></script>
 <!-- ChartJS -->
 <script src="{{ asset("plugins/chart.js/Chart.min.js") }}"></script>
@@ -126,7 +118,7 @@
 <!-- AdminLTE App -->
 <script src="{{ asset("dist/js/adminlte.js") }}"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="{{ asset("dist/js/demo.js") }}"></script>
+{{-- <script src="{{ asset("dist/js/demo.js") }}"></script> --}}
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset("dist/js/pages/dashboard.js")}}"></script>
 </body>
