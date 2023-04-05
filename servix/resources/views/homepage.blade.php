@@ -4,7 +4,7 @@
 
     <div class="container" style="margin-top: 200px;">
         <div class="text-center">
-            <h1 class="ser_vices"><span style="color: #e87605; font-weight: 400;">All Services</span> Under</h1>
+            <h1 class="ser_vices"><span style="color:#e87605; font-weight: 400;">All Services</span> Under</h1>
             <h1 class="ser_vices1">one roof</h1>
             <div class="row justify-content-center">
                 <div class="col-lg-7 col-md-10 col-12">

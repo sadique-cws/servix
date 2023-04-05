@@ -43,17 +43,8 @@ class RequestController extends Controller
 
     }
     public function allRequests(){
-        if (auth()->check()) {
-            // User is logged in
-            $user = auth()->user();
-            $email = $user->email;
-            dd($email);
-            // $data['requests'] = Request::where("type_id",$type)->get();
-            // return view('staff/requests',$data);
-        } else {
-            
-            dd("hello");
-        }
-        
+        $userType = Auth::guard('staff')->user()->type;
+        $data['requests'] = Request::where('type',$userType)->get();
+        return view("staff.requests",$data);
     }
 }

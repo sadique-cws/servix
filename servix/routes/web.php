@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\AdminController;
+use Illuminate\Support\Facades\Storage; //This is for image upload, 
 
 
 Route::controller(HomeController::class)->group(function () {
@@ -52,7 +53,7 @@ Route::prefix("staff")->group(function () {
 
         // with middle staff login required
         Route::middleware("auth:staff")->group(function () {
-            // Route::get('/requestForm', 'requestForm')->name('request.form');
+            Route::get('/request/all', [RequestController::class,'allRequests'])->name('request.all');
             Route::get('/', 'index')->name('staff.panel');
             Route::get('/logout', 'stafflogout')->name('staff.logout');
                 
@@ -60,11 +61,15 @@ Route::prefix("staff")->group(function () {
     });
 });
 
-Route::prefix("Requests")->group(function(){
-    Route::controller(RequestController::class)->group(function(){
-        Route::get('/all', 'allRequests')->name('request.all');
-    });
+
+
+
+
+// This is route is for image upload.
+Route::post('/upload', function (Illuminate\Http\Request $request) {
+    $path = $request->file('image')->store('images', 's3');
+    return back()
+        ->with('success','Image uploaded successfully.')
+        ->with('image',$path);
 });
 
-// Route::get('/staff/requestForm', [StaffController::class, 'requestForm'])->name('request.form');
-// Route::get('/staff/panel',[StaffController::class, 'staffpanel'])->name('staff.panel');

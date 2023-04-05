@@ -20,10 +20,16 @@ class StaffController extends Controller
            $data = $req->only(["email","password"]);
            
            if(Auth::guard("staff")->attempt($data)){
-                return redirect()->route("staff.panel");
+                $staff =  Auth::guard('staff')->user();
+                if($staff->status){
+                    return redirect()->route("staff.panel");
+                }
+                else{
+                    return "your account is disabled";
+                }
            }
            else{
-                return redirect()->route("home");
+                return redirect()->route("staff.login");
            }
         }
         return view('staff.staffLogin');
