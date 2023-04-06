@@ -116,6 +116,12 @@ class AdminController extends Controller
         return view('admin/manageStaff',['staffs'=>$data]);
     }
 
+    public function searchRequest(Request  $req):View{
+        $search = $req->search;
+        $data=RequestModel::where('name','LIKE',"%$search%")->get();
+        return view('admin.newRequest.manage',['new'=>$data]);
+    }
+
 
 
     public function status(Request $req, Staff $staff){

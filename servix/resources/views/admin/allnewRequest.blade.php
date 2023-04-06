@@ -10,11 +10,9 @@
                     <h3 class="card-title">All New Request</h3>
 
                     <div class="card-tools">
-                        <form action="{{ route('admin.staff.search') }}">
+                        <form action="{{ route('admin.request.search') }}">
                             
                             <div class="input-group input-group-sm" style="width: 300px;">
-                                {{-- <a href="{{ route('admin.staff.create') }}"
-                                    role="button"class="mr-12 btn btn-secondary btn-sm">Staff Add</a> --}}
 
                                 <input type="text" name="search"
                                     class="form-control float-right w-25"placeholder="Search">
