@@ -33,14 +33,15 @@ Route::prefix("admin")->group(function () {
             Route::get("/staff/manage","manageStaff")->name("admin.staff.manage");
             Route::get("/staff/create","insertStaff")->name("admin.staff.create");
             Route::post("/staff/create","staffUpload")->name("admin.staff.store");
-            Route::post("/staff/delete","delete")->name("admin.staff.delete");
+            Route::get("/staff/delete/{id}","delete")->name("admin.staff.delete");
             Route::get("/staff/edit/{id}","editStaff")->name('admin.staff.edit');
             Route::get("/staff/view/{id}","viewStaff")->name('admin.staff.view');
             Route::post("/staff/update/{id}","update")->name('admin.staff.update');
             Route::get('/logout', 'adminlogout')->name('admin.logout');
             Route::get('/staff/search',"search")->name('admin.staff.search');
             Route::get('/staff/status/{staff}',"status")->name('admin.staff.status');
-
+            Route::get("/staff/newRequest","allnewRequest")->name("admin.newRequest.manage");
+            Route::get("/request/delete/{id}","deleteRequest")->name("admin.request.delete");
         });
     });
 });

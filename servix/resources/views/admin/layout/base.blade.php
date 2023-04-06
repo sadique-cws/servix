@@ -222,7 +222,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/widgets.html" class="nav-link">
+                            <a href="{{ route('admin.newRequest.manage') }}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     New Request
@@ -236,7 +236,7 @@
                                 <p>
                                     Request
                                     <i class="fas fa-angle-left right"></i>
-                                    <span class="badge badge-info right">6</span>
+                                    <span class="badge badge-info right"></span>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
