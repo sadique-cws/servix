@@ -15,33 +15,26 @@ class RequestController extends Controller
 
     public function requestCreate(Request $request)
     {
-
-        $data = $request->validate([
-            'user_id' => 'required',
-            'technician_id' => 'required',
-            'service_code' => 'required',
+       
+        $data = $request -> validate([
             'owner_name' => 'required',
             'product_name' => 'required',
-            'brand' => 'required',
+            'email' => 'required|unique:App\Models\Staff,email|email',
+            'contact' => 'required|integer|unique:App\Models\Staff,contact|digits:10',
+            'salary' => 'required',
             'type' => 'required',
-            'serial_no' => 'required',
-            'MAC' => 'required',
-            'delivered_by' => 'required',
-            'estimate_delivery' => 'required',
-            'date_of_delivery' => 'required',
-            'date_of_creation' => 'required',
-            'last_update' => 'required',
-            'color' => 'required',
+            'aadhar' => 'required',
+            'pan' => 'required',
+            'address' => 'required',
             'status' => 'required',
-            'remark' => 'required',
-            'problem' => 'required',
-
-        ]);
+            'password' => 'required',
+        ]);php 
 
         Request::create($data);
         return redirect()->route('home');
-
+        
     }
+    
     public function allRequests(){
         $userType = Auth::guard('staff')->user()->type;
         $data['requests'] = Request::where('type',$userType)->get();
