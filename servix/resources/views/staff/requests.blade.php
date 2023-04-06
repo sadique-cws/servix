@@ -31,31 +31,31 @@
                     <table class="table table-hover text-nowrap">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Email</th>
+                                <th>id</th>
+                                <th>owner_name</th>
+                                <th>product_name</th>
                                 <th>Contact</th>
-                                <th>Salary</th>
+                                <th>email</th>
                                 <th>Type</th>
-                                <th>Addhar</th>
-                                <th>Pan No</th>
-                                <th>Address</th>
+                                <th>color</th>
+                                <th>brand</th>
+                                <th>problem</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                           @foreach ($requests as $item)
+                           @foreach ($allRequests as $item)
                            <tr>
-                            <th>requst id</th>
-                            <th>name</th>
-                            <th>Email</th>
-                            <th>Contact</th>
-                            <th>Salary</th>
-                            <th>Type</th>
-                            <th>Addhar</th>
-                            <th>Pan No</th>
-                            <th>Address</th>
-                            <th>Action</th>
+                            <td>{{$item->service_code}}</td>
+                            <td>{{$item->owner_name}}</td>
+                            <td>{{$item->product_name}}</td>
+                            <td>{{$item->contact}}</td>
+                            <td>{{$item->email}}</td>
+                            <td>{{$item->type}}</td>
+                            <td>{{$item->color}}</td>
+                            <td>{{$item->brand}}</td>
+                            <td>{{$item->problem}}</td>
+                            
                         </tr>
                                
                            @endforeach
