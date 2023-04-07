@@ -41,8 +41,33 @@ class RequestController extends Controller
     }
     
     public function allRequests(){
-        $userType = Auth::guard('staff')->user()->type_id;
-        $data['allRequests'] = RequestModel::where('type_id',$userType)->get();
+        $user = Auth::guard('staff')->user();
+        $data['allRequests'] = RequestModel::where('type_id',$user->type_id)->where('technician_id',$user->id)->get();
+        $data['title'] = "All Request";
         return view("staff.requests",$data);
     }
+
+    public function newRequests(){
+        $user = Auth::guard('staff')->user();
+        $data['allRequests'] = RequestModel::where('type_id',$user->type_id)
+                                        ->where('technician_id',NULL)->get();
+        $data['title'] = "New Request";
+        return view("staff.requests",$data);
+    }
+
+    public function confirmRequest(Request $req, $id){
+        $user = Auth::guard('staff')->user();
+        $request = RequestModel::where('type_id',$user->type_id)
+                                ->where('technician_id',NULL)
+                                ->where('id',$id)->first();
+
+        $request->technician_id = $user->id;
+        $request->save();
+        return redirect()->back();
+    }
+
+    // public function totalRequest(){
+    //     $data['total_Request']=RequestModel::all();
+    //     return view('')
+    // }
 }

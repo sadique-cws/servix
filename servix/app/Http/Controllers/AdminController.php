@@ -135,6 +135,11 @@ class AdminController extends Controller
         $data['new'] = RequestModel::all();
         return view('admin/allnewRequest',$data);
     }
-
+    public function manageRequest(){
+        $data['totalRequest']=RequestModel::all();
+        $data['staffs'] = Staff::all();
+        
+        return view('admin.manageRequest',$data);
+    }
 }
     
