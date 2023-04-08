@@ -13,25 +13,27 @@ return new class extends Migration
     {
         Schema::create('requests', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("user_id")->constrained()->onDelete("cascade");
-            $table->foreignId("technician_id")->constrained("staff")->onDelete("cascade");
+            $table->foreignId("user_id")->constrained()->onDelete("cascade")->nullable();
+            $table->foreignId("technician_id")->constrained("staff")->onDelete("cascade")->nullable();
             $table->string("service_code")->unique();
             $table->string("owner_name");
             $table->string("product_name");
+            $table->string("email");
+            $table->string("contact");
             $table->string("brand");
             $table->foreignId("type_id")->constrained();
             $table->string("serial_no")->nullable();
             $table->string("MAC")->nullable();
             $table->string("color");
             $table->string("problem");
-            $table->string("remark");
-            $table->string("status");
+            $table->string("remark")->nullable();
+            $table->string("status")->default(0);
             $table->datetime('last_update')->nullable();   
             $table->datetime('delivered_by')->nullable();   
-            $table->datetime("estimate_delivery");
+            $table->datetime("estimate_delivery")->nullable();
             $table->datetime('date_of_delivery')->nullable();   
             $table->datetime("date_of_creation");
-            // $table->timestamps();
+            
         });
     }
 

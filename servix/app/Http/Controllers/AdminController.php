@@ -4,17 +4,19 @@ namespace App\Http\Controllers;
 use App\Models\Staff;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use App\Models\Request as RequestModel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class AdminController extends Controller
 {
     public function index(Request $req): View
-    {
-        $data=Staff::all();
+    {   
+        $data=RequestModel::all();
         $count=$data->count();
         return view('admin.dashboard',['staffs'=>$data]);
     }
+
 
     public function adminlogin(Request $req){
         if($req->method() == "POST"){
@@ -60,6 +62,12 @@ class AdminController extends Controller
     {
         Staff::where('id', $id)->delete();
         return redirect()->route('admin.staff.manage');        
+    }
+
+    public function deleteRequest($id):RedirectResponse
+    {
+        RequestModel::where('id', $id)->delete();
+        return redirect()->route('admin.newRequest.manage');        
     }
 
     public function manageStaff(Request $req){
@@ -108,6 +116,12 @@ class AdminController extends Controller
         return view('admin/manageStaff',['staffs'=>$data]);
     }
 
+    public function searchRequest(Request  $req):View{
+        $search = $req->search;
+        $data=RequestModel::where('name','LIKE',"%$search%")->get();
+        return view('admin.newRequest.manage',['new'=>$data]);
+    }
+
 
 
     public function status(Request $req, Staff $staff){
@@ -115,6 +129,17 @@ class AdminController extends Controller
         $staff->save();
         return redirect()->back();
         
+    }
+
+    public function allnewRequest(Request $req){
+        $data['new'] = RequestModel::all();
+        return view('admin/allnewRequest',$data);
+    }
+    public function manageRequest(){
+        $data['totalRequest']=RequestModel::all();
+        $data['staffs'] = Staff::all();
+        
+        return view('admin.manageRequest',$data);
     }
 }
     
