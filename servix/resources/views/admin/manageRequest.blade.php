@@ -32,15 +32,25 @@
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown button
+                        Select Staff
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         @foreach ($staffs as $item)
-                            <a class="dropdown-item" href="#">{{$item->name}}</a>
+                            <a class="dropdown-item"
+                                href="{{ route('admin.request.filterRequest', $item) }}"> Name-{{ $item->name }}, type {{$item->type->typename}} </a>
                         @endforeach
 
                     </div>
                 </div>
+                {{-- <select class="select">
+                    @foreach ($staffs as $item)
+                        <option value="{{$item->id}}">
+
+                            <a class="dropdown-item"
+                                href="{{ route('admin.request.filterRequest', $item) }}">{{ $item->name }}</a>
+                        </option>
+                    @endforeach
+                </select> --}}
                 <!-- /.card-header -->
                 <div class="card-body table-responsive p-0">
                     <table class="table table-hover text-nowrap">
@@ -68,7 +78,7 @@
                                     <td>{{ $item->product_name }}</td>
                                     <td class="border border-slate-700 p-1.5 pl-10">{{ $item->email }}</td>
                                     <td class="border border-slate-700 p-1.5 pl-10">{{ $item->contact }}</td>
-                                    <td class="border border-slate-700 p-1.5 pl-10">{{ $item->type_id }}</td>
+                                    <td class="border border-slate-700 p-1.5 pl-10">{{ $item->type->typename }}</td>
                                     <td class="border border-slate-700 p-1.5 pl-10">{{ $item->brand }}</td>
                                     <td class="border border-slate-700 p-1.5 pl-10">{{ $item->color }}</td>
                                     <td class="border border-slate-700 p-1.5 pl-10">{{ $item->problem }}</td>
@@ -132,7 +142,8 @@
                                                                                 class="icon" version="1.1"
                                                                                 xmlns="http://www.w3.org/2000/svg"
                                                                                 fill="#000000">
-                                                                                <g id="SVGRepo_bgCarrier" stroke-width="0">
+                                                                                <g id="SVGRepo_bgCarrier"
+                                                                                    stroke-width="0">
                                                                                 </g>
                                                                                 <g id="SVGRepo_tracerCarrier"
                                                                                     stroke-linecap="round"

@@ -125,9 +125,9 @@ class AdminController extends Controller
 
 
     public function status(Request $req, Staff $staff){
-        // $staff->status = !$staff->status;
-        // $staff->save();
-        dd($staff);
+        $staff->status = !$staff->status;
+        $staff->save();
+   
         return redirect()->back();
         
     }
@@ -141,6 +141,13 @@ class AdminController extends Controller
         $data['staffs'] = Staff::all();
         
         return view('admin.manageRequest',$data);
+    }
+    public function filterRequest(Request $req,$id){
+        $data['totalRequest']=RequestModel::where('technician_id',$id)->get();
+        $data['staffs'] = Staff::all();
+        
+        return view('admin.manageRequest',$data);
+
     }
 }
     

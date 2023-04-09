@@ -68,6 +68,7 @@ class RequestController extends Controller
         return redirect()->back();
     }
 
+    // show panding request
     public function pandingRequests(){
         $user = Auth::guard('staff')->user();
         $data['allRequests'] = RequestModel::where('type_id',$user->type_id)
@@ -78,6 +79,7 @@ class RequestController extends Controller
         return view("staff.requests",$data);
        
     }
+    // show  rejected request 
     public function rejectedRequests(){
         $user = Auth::guard('staff')->user();
         $data['allRequests'] = RequestModel::where('type_id',$user->type_id)
@@ -87,13 +89,15 @@ class RequestController extends Controller
         return view("staff.requests",$data);
        
     }
-
+// reject update table
    public function rejected( Request $req){
     $data=RequestModel::where('id',$req->id)->first();
     $data->status= "rejected";
     $data->save();   
     return redirect()->back();
    }
+
+   //panding update table
    public function panding( Request $req){
     $data=RequestModel::where('id',$req->id)->first();
     $data->status= "panding";
