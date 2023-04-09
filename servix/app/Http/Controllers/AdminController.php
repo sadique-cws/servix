@@ -34,7 +34,7 @@ class AdminController extends Controller
 
     public function adminlogout(Request $req){
         Auth::guard("admin")->logout();
-        return redirect()->route("home");
+        return redirect()->back();
     }
 
     public function staffUpload(Request $request)
@@ -125,8 +125,9 @@ class AdminController extends Controller
 
 
     public function status(Request $req, Staff $staff){
-        $staff->status = !$staff->status;
-        $staff->save();
+        // $staff->status = !$staff->status;
+        // $staff->save();
+        dd($staff);
         return redirect()->back();
         
     }
@@ -136,7 +137,7 @@ class AdminController extends Controller
         return view('admin/allnewRequest',$data);
     }
     public function manageRequest(){
-        $data['totalRequest']=RequestModel::all();
+        $data['totalRequest']=RequestModel::where('technician_id','<>',null)->get();
         $data['staffs'] = Staff::all();
         
         return view('admin.manageRequest',$data);

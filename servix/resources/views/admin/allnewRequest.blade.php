@@ -57,7 +57,7 @@
                                     <td>{{ $item->product_name }}</td>
                                     <td class="border border-slate-700 p-1.5 pl-10">{{ $item->email }}</td>
                                     <td class="border border-slate-700 p-1.5 pl-10">{{ $item->contact }}</td>
-                                    <td class="border border-slate-700 p-1.5 pl-10">{{ $item->type_id }}</td>
+                                    <td class="border border-slate-700 p-1.5 pl-10">{{ $item->type->typename }}</td>
                                     <td class="border border-slate-700 p-1.5 pl-10">{{ $item->brand }}</td>
                                     <td class="border border-slate-700 p-1.5 pl-10">{{ $item->color }}</td>
                                     <td class="border border-slate-700 p-1.5 pl-10">{{ $item->problem }}</td>

@@ -40,7 +40,7 @@ class StaffController extends Controller
 
     public function stafflogout(Request $req){
         Auth::guard("staff")->logout();
-        return redirect()->route("home");
+        return redirect()->back();
     }
 
   

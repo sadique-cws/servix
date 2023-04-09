@@ -64,9 +64,10 @@
                                 <label for="" class="text-xs font-semibold px-1">Type</label>
                                 <select name="type_id" class="form-select font-semibold text-xs px-1">
                                     <option value="">Select Type</option>
-                                    <option value="1">Mobile</option>
-                                    <option value="2">Laptop</option>
-                                    <option value="3">T.V</option>
+                                    @foreach ($Types as $item)
+                                    <option value="{{$item->id}}">{{$item->typename}}</option>
+                                       
+                                   @endforeach
                                   </select>
                                   @error('type_id')
                                 <p class="text-danger small">{{$message}} </p>
