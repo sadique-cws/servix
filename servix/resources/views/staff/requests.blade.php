@@ -61,12 +61,12 @@
                                                 class="btn btn-success" href="">Confirm</a>
                                         @endif
                                         {{-- Pending button --}}
-                                        @if ($item->status != 'panding' | $title=="All Request")
+                                        @if ($item->status != 'panding' | $title=="All Request" && $title!="New Request")
                                             <a role="button" class="btn btn-warning"
                                                 href="{{ route('request.panding', $item) }}">Pending</a>
                                         @endif
                                         {{-- Reject button --}}
-                                        @if ($item->status != 'rejected' | $title=="All Request")
+                                        @if ($item->status != 'rejected' | $title=="All Request"&& $title!="New Request" )
                                             <a role="button" class="btn btn-danger"
                                                 href="{{ route('request.reject', $item) }}">Reject</a>
                                         @endif

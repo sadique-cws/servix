@@ -44,6 +44,7 @@ Route::prefix("admin")->group(function () {
             Route::get("/staff/newRequest","allnewRequest")->name("admin.newRequest.manage");
             Route::get("/request/delete/{id}","deleteRequest")->name("admin.request.delete");
             Route::get("/request/manage","manageRequest")->name("admin.request.manageRequest");
+            Route::get("/request/{id}/filter","filterRequest")->name("admin.request.filterRequest");
         });
     });
 });
