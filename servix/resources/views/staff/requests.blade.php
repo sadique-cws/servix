@@ -61,12 +61,12 @@
                                                 class="btn btn-success" href="">Confirm</a>
                                         @endif
                                         {{-- Pending button --}}
-                                        @if ($item->status != 'panding' | $title=="All Request" && $title!="New Request")
+                                        @if ($item->status != 'panding' | $title=="All Request")
                                             <a role="button" class="btn btn-warning"
                                                 href="{{ route('request.panding', $item) }}">Pending</a>
                                         @endif
                                         {{-- Reject button --}}
-                                        @if ($item->status != 'rejected' | $title=="All Request"&& $title!="New Request" )
+                                        @if ($item->status != 'rejected' | $title=="All Request")
                                             <a role="button" class="btn btn-danger"
                                                 href="{{ route('request.reject', $item) }}">Reject</a>
                                         @endif
@@ -76,10 +76,8 @@
                                                 href="{{ route('request.edit', $item->id) }}">Edit</a>
                                         @endif
                                         {{-- view button  --}}
-                                        <a data-toggle="modal" data-target="#view{{ $item->id }}" role="button"
-                                            class=" btn btn-info">View</a>
-                                        <div class="modal fade " id="view{{ $item->id }}" tabindex="-1" role="dialog"
-                                            aria-hidden="true">
+                                        <a data-toggle="modal" data-target="#view{{ $item->id }}" role="button" class=" btn btn-info">View</a>
+                                        <div class="modal fade " id="view{{ $item->id }}" tabindex="-1" role="dialog" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered " role="document">
                                                 <div class="modal-content bg-light w-100 h-100">
                                                     <div class="modal-header">
@@ -89,14 +87,9 @@
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
-                                                    <div class="modal-body row">
-                                                        <div class="w-50 h-50">
-                                                            <img src="public/Assets/profile.gif" alt=""/>
-                                                        </div>
-                                                        <div class="w-50 h-50">
-                                                            details
-                                                        </div>
-                                                        {{-- <div class="d-flex flex-row col-12">
+                                                    <div class="modal-body">
+                                                        
+                                                        <div class="d-flex flex-row col-12">
                                                             <div class="col-6">
                                                                 <div class="border border-dark p-1 text-center">
                                                                     <label for=""><span><svg width="40px"
@@ -534,7 +527,7 @@
                                                                     </svg></span>
                                                                 Problem</label>
                                                             <h5>{{ $item->problem }}</h5>
-                                                        </div> --}}
+                                                        </div>
                                                     </div>
 
                                                 </div>

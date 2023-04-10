@@ -90,27 +90,15 @@ class RequestController extends Controller
        
     }
 // reject update table
-   public function rejected( Request $req){
-<<<<<<< HEAD
+    public function rejected( Request $req){
         $data=RequestModel::where('id',$req->id)->first();
         $data->status= "rejected";
         $data->save();   
         return redirect()->back();
-=======
-    $data=RequestModel::where('id',$req->id)->first();
-    $data->status= "rejected";
-    $data->save();   
-    return redirect()->back();
-   }
+    }
 
    //panding update table
-   public function panding( Request $req){
-    $data=RequestModel::where('id',$req->id)->first();
-    $data->status= "panding";
-    $data->save();   
-    return redirect()->back();
->>>>>>> 524fc45dfba0a8d3cc28e1c8e7f96432c3ae6ab7
-   }
+   
     public function panding( Request $req){
         $data=RequestModel::where('id',$req->id)->first();
         $data->status= "panding";
