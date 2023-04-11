@@ -30,8 +30,11 @@
 </div>
 
 <script>
+    // Targetting contianer
     var animationContainerSuccess = document.getElementById('animation-container');
     var animationContainerCopy = document.getElementById('animation-copy');
+    
+    // running animation
     var animation = lottie.loadAnimation({
         container: animationContainerSuccess,
         renderer: 'svg',
