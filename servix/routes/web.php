@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Storage; //This is for image upload,
 
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('home');
+    Route::get('/flashmsg', 'flashMessage')->name('flashMsg');
+    // new req
    
 });
 
@@ -37,6 +39,7 @@ Route::prefix("admin")->group(function () {
             Route::get("/staff/edit/{id}","editStaff")->name('admin.staff.edit');
             Route::get("/staff/view/{id}","viewStaff")->name('admin.staff.view');
             Route::post("/staff/update/{id}","update")->name('admin.staff.update');
+            
             Route::get('/logout', 'adminlogout')->name('admin.logout');
             Route::get('/staff/search',"search")->name('admin.staff.search');
             Route::get('/request/search',"searchRequest")->name(' ');

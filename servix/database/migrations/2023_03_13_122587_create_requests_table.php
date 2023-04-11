@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string("color");
             $table->string("problem");
             $table->string("remark")->nullable();
-            $table->string("status")->default(0);
+            $table->string("status")->default("panding");
             $table->datetime('last_update')->nullable();   
             $table->datetime('delivered_by')->nullable();   
             $table->datetime("estimate_delivery")->nullable();

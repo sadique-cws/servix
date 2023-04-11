@@ -86,52 +86,6 @@
                                 class="btn btn-success w-100">Raise Request</button>
                         </div>
                 </form>
-                        <div class="row ">
-                            <div class="mb-3 col-4">
-                                <label for="" class="text-xs font-semibold px-1">Brand</label>
-                                <input type="text" name="brand" class="form-control">
-                                @error('brand')
-                                <p class="text-danger small">{{$message}} </p>
-                            @enderror
-                            </div>
-                            <div class="mb-3 col-4">
-                                <label for="" class="text-xs font-semibold px-1">Color</label>
-                                <div class="flex">
-                                    <input type="text" name="color" class="form-control">
-                                    @error('color')
-                                <p class="text-danger small">{{$message}} </p>
-                            @enderror
-                                </div>
-                            </div> 
-                            <div class="mb-3 col-4">
-                                <label for="" class="text-xs font-semibold px-1">Type</label>
-                                <select name="type_id" class="form-select font-semibold text-xs px-1">
-                                    <option value="">Select Type</option>
-                                    @foreach ($Types as $item)
-                                    <option value="{{$item->id}}">{{$item->typename}}</option>
-                                       
-                                   @endforeach
-                                  </select>
-                                  @error('type_id')
-                                <p class="text-danger small">{{$message}} </p>
-                            @enderror
-                            </div> 
-                             
-                        </div>
-                       
-                            <div class="mb-3">
-                                <label for="" class="text-xs font-semibold px-1">Problem</label>
-                                    <textarea type="text" name="problem"
-                                        class="form-control"></textarea>
-                                        @error('problem')
-                                        <p class="text-danger small">{{$message}} </p>
-                                    @enderror
-                            </div>
-                            <div class="w-full">
-                                <button
-                                    class="btn btn-success w-100">Raise Request</button>
-                            </div>
-                    </form>
                 </div>
             </div>
         </div>

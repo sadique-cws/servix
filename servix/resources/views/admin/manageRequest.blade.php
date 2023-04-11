@@ -20,7 +20,7 @@
                                 @csrf
                                 <select onchange="this.form.submit();" name="search" class="form-control float-right">
                                     
-                                    <option selected > select staff</option>
+                                    <option selected > Select Req </option>
                                     <option value="all" > all req </option>
                                     @foreach ($staffs as $item)
                                         <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -248,14 +248,9 @@
                                                                                             </cc:license>
                                                                                         </rdf:rdf>
                                                                                     </metadata>
-                                                                                    <circle r="7.5" cy="9.5"
-                                                                                        cx="16" id="path839"
-                                                                                        style="opacity:1;vector-effect:none;fill:#373737;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.20000005;stroke-opacity:1">
+                                                                                    <circle r="7.5" cy="9.5" cx="16" id="path839" style="opacity:1;vector-effect:none;fill:#373737;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.20000005;stroke-opacity:1">
                                                                                     </circle>
-                                                                                    <path id="rect841"
-                                                                                        d="M16 19c6.648 0 12 2.899 12 6.5V32H4v-6.5C4 21.899 9.352 19 16 19z"
-                                                                                        style="opacity:1;vector-effect:none;fill:#373737;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.20000005;stroke-opacity:1">
-                                                                                    </path>
+                                                                                    <path id="rect841" d="M16 19c6.648 0 12 2.899 12 6.5V32H4v-6.5C4 21.899 9.352 19 16 19z" style="opacity:1;vector-effect:none;fill:#373737;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.20000005;stroke-opacity:1"> </path>
                                                                                 </g>
                                                                             </svg></span>Owner Name</label>
                                                                     <h5>{{ $item->owner_name }}</h5>
