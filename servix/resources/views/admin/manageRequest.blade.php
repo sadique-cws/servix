@@ -42,7 +42,7 @@
 
                     </div>
                 </div>
-                {{-- <select class="select">
+                <select class="select">
                     @foreach ($staffs as $item)
                         <option value="{{$item->id}}">
 
@@ -50,7 +50,7 @@
                                 href="{{ route('admin.request.filterRequest', $item) }}">{{ $item->name }}</a>
                         </option>
                     @endforeach
-                </select> --}}
+                </select>
                 <!-- /.card-header -->
                 <div class="card-body table-responsive p-0">
                     <table class="table table-hover text-nowrap">
