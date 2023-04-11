@@ -38,7 +38,8 @@ class RequestController extends Controller
         //    dd($data);
 
         RequestModel::create($data);
-        return redirect()->route('home');
+        // return redirect()->route('flashMsg');
+        return view('flashMessage',$data);
         
     }
     
@@ -127,4 +128,6 @@ class RequestController extends Controller
         RequestModel::where('id',$id)->update($data);
         return redirect()->route('request.all');
     }
+
+ 
 }

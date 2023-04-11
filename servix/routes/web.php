@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage; //This is for image upload,
 
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('home');
-    Route::get('/flashmsg', 'flashMessage')->name('flashMsg');
+    
     // new req
    
 });
@@ -20,7 +20,7 @@ Route::controller(RequestController::class)->group(function () {
  
     Route::get('/requestForm','requestForm')->name('request.form');
     Route::post( '/requestForm', 'requestCreate')->name('request.create');
-    
+   
 });
 
 
