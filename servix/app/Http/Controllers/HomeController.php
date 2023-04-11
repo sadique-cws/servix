@@ -14,6 +14,9 @@ class HomeController extends Controller
     public function index():View{
         return view('homepage');
     }
+    public function flashMsg():View{
+        return view('flashMessage');
+    }
 
     public function register():View{
         return view('register');

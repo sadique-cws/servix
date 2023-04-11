@@ -73,9 +73,9 @@ class RequestController extends Controller
         $user = Auth::guard('staff')->user();
         $data['allRequests'] = RequestModel::where('type_id',$user->type_id)
                                     ->where('technician_id',$user->id)
-                                    ->where('status','panding')->get();
+                                    ->where('status','pending')->get();
 
-        $data['title'] = "Total PandingRequests";
+        $data['title'] = "Total Pending Requests";
         return view("staff.requests",$data);
        
     }
@@ -97,11 +97,11 @@ class RequestController extends Controller
         return redirect()->back();
     }
 
-   //panding update table
+   //pending update table
    
-    public function panding( Request $req){
+    public function pending( Request $req){
         $data=RequestModel::where('id',$req->id)->first();
-        $data->status= "panding";
+        $data->status= "pending";
         $data->save();   
         return redirect()->back();
     }
