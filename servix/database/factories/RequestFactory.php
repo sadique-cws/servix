@@ -17,18 +17,16 @@ class RequestFactory extends Factory
     public function definition(): array
     {
         return [
+                   
             'owner_name' => fake()->name(),
-            'product_name' => fake()->name(),
-            'brand' => fake()->name(),
             'service_code' => fake()->randomDigit(),
-            'type_id' => fake()->numberBetween(1,4),
+            'product_name' => fake()->lastName(),
+            'email' => fake()->email(),
+            'contact' => fake()->phoneNumber(),
+            'type_id' =>fake()->numberBetween(1,4),
+            'brand' => fake()->company(),
             'color' => fake()->colorName(),
-            'problem' => fake()->name(),
-            'remark' => fake()->name(),
-            'status' => fake()->boolean(),
-            'estimate_delivery' => "25-05-2023",
-            'date_of_creation' => "25-05-2023",
-            
+            'problem' => fake()->word(),
         ];
     }
 }

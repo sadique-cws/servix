@@ -44,6 +44,7 @@ Route::prefix("admin")->group(function () {
             Route::get("/staff/newRequest","allnewRequest")->name("admin.newRequest.manage");
             Route::get("/request/delete/{id}","deleteRequest")->name("admin.request.delete");
             Route::get("/request/manage","manageRequest")->name("admin.request.manageRequest");
+            Route::get("/request/{id}/filter","filterRequest")->name("admin.request.filterRequest");
         });
     });
 });
@@ -59,6 +60,8 @@ Route::prefix("staff")->group(function () {
             Route::get('/request/all', [RequestController::class,'allRequests'])->name('request.all');
             Route::get('/request/new', [RequestController::class,'newRequests'])->name('request.new');
             Route::get('/request/{id}/confirm', [RequestController::class,'confirmRequest'])->name('request.confirm');
+            Route::get('/request/{id}/edit', [RequestController::class,'requestEdit'])->name('request.edit');
+            Route::post('/request/update/{id}', [RequestController::class,'requestUpdate'])->name('request.update');
             Route::get('/request/{id}/reject', [RequestController::class,'rejected'])->name('request.reject');
             Route::get('/request/rejectedRequests', [RequestController::class,'rejectedRequests'])->name('request.show.reject');
             Route::get('/request/{id}/panding', [RequestController::class,'panding'])->name('request.panding');

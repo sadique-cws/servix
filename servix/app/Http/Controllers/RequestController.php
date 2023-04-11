@@ -68,6 +68,7 @@ class RequestController extends Controller
         return redirect()->back();
     }
 
+    // show panding request
     public function pandingRequests(){
         $user = Auth::guard('staff')->user();
         $data['allRequests'] = RequestModel::where('type_id',$user->type_id)
@@ -78,6 +79,7 @@ class RequestController extends Controller
         return view("staff.requests",$data);
        
     }
+    // show  rejected request 
     public function rejectedRequests(){
         $user = Auth::guard('staff')->user();
         $data['allRequests'] = RequestModel::where('type_id',$user->type_id)
@@ -87,17 +89,42 @@ class RequestController extends Controller
         return view("staff.requests",$data);
        
     }
+// reject update table
+    public function rejected( Request $req){
+        $data=RequestModel::where('id',$req->id)->first();
+        $data->status= "rejected";
+        $data->save();   
+        return redirect()->back();
+    }
 
-   public function rejected( Request $req){
-    $data=RequestModel::where('id',$req->id)->first();
-    $data->status= "rejected";
-    $data->save();   
-    return redirect()->back();
-   }
-   public function panding( Request $req){
-    $data=RequestModel::where('id',$req->id)->first();
-    $data->status= "panding";
-    $data->save();   
-    return redirect()->back();
-   }
+   //panding update table
+   
+    public function panding( Request $req){
+        $data=RequestModel::where('id',$req->id)->first();
+        $data->status= "panding";
+        $data->save();   
+        return redirect()->back();
+    }
+
+    public function requestEdit(Request $req, $id){
+        $data=RequestModel::where('id',$id)->first();
+        return view("staff.requestEdit",compact('data'));
+    }
+
+    public function requestUpdate(Request $req)
+    {
+        $data = $req->validate([
+            'owner_name' => 'required',
+            'product_name' => 'required',
+            'contact' => 'required',
+            'email' => 'required',
+            'color' => 'required',
+            'brand' => 'required',
+            'problem' => 'required',
+        ]);
+
+        $id=$req->id;
+        RequestModel::where('id',$id)->update($data);
+        return redirect()->route('request.all');
+    }
 }

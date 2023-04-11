@@ -70,22 +70,25 @@
                                             <a role="button" class="btn btn-danger"
                                                 href="{{ route('request.reject', $item) }}">Reject</a>
                                         @endif
+                                        {{-- Edit button --}}
+                                        @if ($item->technician_id)
+                                            <a role="button" class="btn btn-success"
+                                                href="{{ route('request.edit', $item->id) }}">Edit</a>
+                                        @endif
                                         {{-- view button  --}}
-                                        <a data-toggle="modal" data-target="#view{{ $item->id }}" role="button"
-                                            class=" btn btn-info">View</a>
-                                        <div class="modal fade " id="view{{ $item->id }}" tabindex="-1" role="dialog"
-                                            aria-hidden="true">
+                                        <a data-toggle="modal" data-target="#view{{ $item->id }}" role="button" class=" btn btn-info">View</a>
+                                        <div class="modal fade " id="view{{ $item->id }}" tabindex="-1" role="dialog" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered " role="document">
-                                                <div class="modal-content bg-info">
+                                                <div class="modal-content bg-light w-100 h-100">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLongTitle">All new Request
-                                                        </h5>
+                                                        <h5 class="modal-title" id="exampleModalLongTitle">Profile</h5>
                                                         <button type="button" class="close" data-dismiss="modal"
                                                             aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
+                                                        
                                                         <div class="d-flex flex-row col-12">
                                                             <div class="col-6">
                                                                 <div class="border border-dark p-1 text-center">

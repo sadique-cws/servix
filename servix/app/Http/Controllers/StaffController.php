@@ -44,6 +44,29 @@ class StaffController extends Controller
     }
 
   
+    public function editRequest($id){
+        $data=Request::where('id',$id)->first();
+        return view("staff.panel",compact('data'));
+    }
 
+    // public function edit(Request $req)
+    // {
+    //     $data = $req->validate([
+    //         'name' => 'required',
+    //         'email' => 'required',
+    //         'contact' => 'required',
+    //         'salary' => 'required',
+    //         'type' => 'required',
+    //         'aadhar' => 'required',
+    //         'pan' => 'required',
+    //         'address' => 'required',
+    //         'status' => 'required',
+    //         'password' => 'required',
+    //     ]);
+
+    //     $id=$req->id;
+    //     Staff::where('id',$id)->update($data);
+    //     return redirect()->route('admin.staff.manage');
+    // }
 }
  
