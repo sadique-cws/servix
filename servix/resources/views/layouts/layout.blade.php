@@ -21,6 +21,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700;800;900&amp;display=swap"
         rel="stylesheet">
+    <script src="{{ asset('js/lottie.js') }}"></script>
+
 </head>
 
 <body>
@@ -117,6 +119,7 @@
     </div>
 
     @show
+    
 
   </body>
 </html>
