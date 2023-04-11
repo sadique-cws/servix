@@ -55,29 +55,58 @@
                                     <td>{{ $item->status }}</td>
                                     <td class="border border-slate-700 p-1.5  items-center justify-center flex btn-group"
                                         role="group">
-                                        {{-- Conform button --}}
-                                        @if (!$item->technician_id)
-                                            <a role="button" href="{{ route('request.confirm', $item->id) }}"
-                                                class="btn btn-success" href="">Confirm</a>
-                                        @endif
-                                        {{-- Pending button --}}
-                                        @if ($item->status != 'pending' | $title=="All Request")
-                                            <a role="button" class="btn btn-warning"
-                                                href="{{ route('request.pending', $item) }}">Pending</a>
-                                        @endif
-                                        {{-- Reject button --}}
-                                        @if ($item->status != 'rejected' | $title=="All Request")
-                                            <a role="button" class="btn btn-danger"
-                                                href="{{ route('request.reject', $item) }}">Reject</a>
-                                        @endif
-                                        {{-- Edit button --}}
-                                        @if ($item->technician_id)
-                                            <a role="button" class="btn btn-success"
-                                                href="{{ route('request.edit', $item->id) }}">Edit</a>
-                                        @endif
-                                        {{-- view button  --}}
-                                        <a data-toggle="modal" data-target="#view{{ $item->id }}" role="button" class=" btn btn-info">View</a>
-                                        <div class="modal fade " id="view{{ $item->id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                                        <div class="btn-group" role="group"
+                                            aria-label="Button group with nested dropdown">
+
+
+                                            <div class="btn-group" role="group">
+                                                <button type="button" class="btn btn-primary dropdown-toggle"
+                                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                                    Dropdown
+                                                </button>
+                                                <ul class="dropdown-menu text-center">
+                                                  
+                                                    {{-- Conform button --}}
+                                                    @if (!$item->technician_id)
+                                                        <li>
+                                                            <a role="button"
+                                                                href="{{ route('request.confirm', $item->id) }}"
+                                                                class="btn btn-success dropdown-item" href="">Confirm</a>
+                                                        </li>
+                                                    @endif
+                                                    {{-- Pending button --}}
+                                                    @if (($item->status != 'pending') | ($title == 'All Request'))
+                                                        <li> <a role="button" class="btn btn-warning dropdown-item"
+                                                                href="{{ route('request.pending', $item) }}">Pending</a>
+                                                        </li>
+                                                    @endif
+                                                    {{-- Reject button --}}
+                                                    @if (($item->status != 'rejected') | ($title == 'All Request'))
+                                                      <li>  <a role="button" class="btn btn-danger dropdown-item"
+                                                            href="{{ route('request.reject', $item) }}">Reject</a>
+                                                      </li>
+                                                    @endif
+                                                    {{-- Edit button --}}
+                                                    @if ($item->technician_id)
+                                                     <li>   <a role="button" class="btn btn-success dropdown-item"
+                                                            href="{{ route('request.edit', $item->id) }}">Edit</a>
+                                                     </li>
+                                                    @endif
+                                                    {{-- view button  --}}
+                                                  <li>  <a data-toggle="modal" data-target="#view{{ $item->id }}"
+                                                        role="button" class=" btn btn-info dropdown-item">View</a>
+                                                  </li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+
+
+
+
+
+                                        <div class="modal fade " id="view{{ $item->id }}" tabindex="-1" role="dialog"
+                                            aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered " role="document">
                                                 <div class="modal-content bg-light w-100 h-100">
                                                     <div class="modal-header">
@@ -88,7 +117,7 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        
+
                                                         <div class="d-flex flex-row col-12">
                                                             <div class="col-6">
                                                                 <div class="border border-dark p-1 text-center">
@@ -533,15 +562,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        {{-- Delete button  --}}
-                                        <a href="{{ route('admin.staff.delete', $item->id) }}" role="button"
-                                            class="btn btn-danger"><svg width="20" height="20"
-                                                viewBox="0 0 24 24" class="NSy2Hd cdByRd RTiFqe undefined">
-                                                <path fill='#b8c2cc'
-                                                    d="M15 4V3H9v1H4v2h1v13c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V6h1V4h-5zm2 15H7V6h10v13z">
-                                                </path>
-                                                <path fill='#b8c2cc' d="M9 8h2v9H9zm4 0h2v9h-2z"></path>
-                                            </svg></a>
+                                    
+                                       
                                     </td>
                                 </tr>
                             @endforeach

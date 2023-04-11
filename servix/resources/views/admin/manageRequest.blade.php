@@ -10,12 +10,26 @@
                     <h3 class="card-title">Manage Request</h3>
 
                     <div class="card-tools">
-                        <form action="{{ route('admin.staff.search') }}">
 
-                            <div class="input-group input-group-sm" style="width: 300px;">
-                                <a href="{{ route('admin.staff.create') }}"
-                                    role="button"class="mr-12 btn btn-secondary btn-sm">Staff Add</a>
+                        <div class="input-group input-group-sm" style="width: 300px;">
+                            <a href="{{ route('admin.staff.create') }}"
+                                role="button"class="mr-12 btn btn-secondary btn-sm">Staff Add</a>
 
+
+                            <form action="{{ route('admin.request.filterRequest') }}">
+                                @csrf
+                                <select onchange="this.form.submit();" name="search" class="form-control float-right">
+                                    
+                                    <option selected > Select Req </option>
+                                    <option value="all" > all req </option>
+                                    @foreach ($staffs as $item)
+                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                    @endforeach
+                                </select>
+                            </form>
+
+                            <form action="{{ route('admin.staff.search') }}">
+                                @csrf
                                 <input type="text" name="search"
                                     class="form-control float-right w-25"placeholder="Search">
 
@@ -24,33 +38,12 @@
                                         <i class="fas fa-search"></i>
                                     </button>
                                 </div>
-
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Select Staff
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        @foreach ($staffs as $item)
-                            <a class="dropdown-item"
-                                href="{{ route('admin.request.filterRequest', $item) }}"> Name-{{ $item->name }}, type {{$item->type->typename}} </a>
-                        @endforeach
+               
 
-                    </div>
-                </div>
-                <select class="select">
-                    @foreach ($staffs as $item)
-                        <option value="{{$item->id}}">
-
-                            <a class="dropdown-item"
-                                href="{{ route('admin.request.filterRequest', $item) }}">{{ $item->name }}</a>
-                        </option>
-                    @endforeach
-                </select>
                 <!-- /.card-header -->
                 <div class="card-body table-responsive p-0">
                     <table class="table table-hover text-nowrap">
@@ -142,8 +135,7 @@
                                                                                 class="icon" version="1.1"
                                                                                 xmlns="http://www.w3.org/2000/svg"
                                                                                 fill="#000000">
-                                                                                <g id="SVGRepo_bgCarrier"
-                                                                                    stroke-width="0">
+                                                                                <g id="SVGRepo_bgCarrier" stroke-width="0">
                                                                                 </g>
                                                                                 <g id="SVGRepo_tracerCarrier"
                                                                                     stroke-linecap="round"
@@ -256,14 +248,9 @@
                                                                                             </cc:license>
                                                                                         </rdf:rdf>
                                                                                     </metadata>
-                                                                                    <circle r="7.5" cy="9.5"
-                                                                                        cx="16" id="path839"
-                                                                                        style="opacity:1;vector-effect:none;fill:#373737;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.20000005;stroke-opacity:1">
+                                                                                    <circle r="7.5" cy="9.5" cx="16" id="path839" style="opacity:1;vector-effect:none;fill:#373737;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.20000005;stroke-opacity:1">
                                                                                     </circle>
-                                                                                    <path id="rect841"
-                                                                                        d="M16 19c6.648 0 12 2.899 12 6.5V32H4v-6.5C4 21.899 9.352 19 16 19z"
-                                                                                        style="opacity:1;vector-effect:none;fill:#373737;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.20000005;stroke-opacity:1">
-                                                                                    </path>
+                                                                                    <path id="rect841" d="M16 19c6.648 0 12 2.899 12 6.5V32H4v-6.5C4 21.899 9.352 19 16 19z" style="opacity:1;vector-effect:none;fill:#373737;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.20000005;stroke-opacity:1"> </path>
                                                                                 </g>
                                                                             </svg></span>Owner Name</label>
                                                                     <h5>{{ $item->owner_name }}</h5>
