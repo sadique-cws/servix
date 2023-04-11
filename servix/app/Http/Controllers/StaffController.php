@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use App\Models\User;
+use App\Models\Request as  RequestModel;
 use Auth;
 use App\Models\Staff;
 
@@ -12,7 +13,9 @@ class StaffController extends Controller
 {   
     public function index(Request $req): View
     {
-        return view('staff.dashboard');
+        $user = Auth::guard('staff')->user();
+        $count_Requests = RequestModel::where('type_id',$user->type_id)->where('technician_id',$user->id)->count();
+        return view('staff.dashboard',compact('count_Requests'));
     }
 
     public function stafflogin(Request $req){
@@ -37,7 +40,7 @@ class StaffController extends Controller
 
     public function stafflogout(Request $req){
         Auth::guard("staff")->logout();
-        return redirect()->route("home");
+        return redirect()->back();
     }
 
   

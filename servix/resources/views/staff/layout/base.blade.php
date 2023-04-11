@@ -223,7 +223,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/widgets.html" class="nav-link">
+                            <a href="{{ route('request.new') }}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     New Request
@@ -248,13 +248,13 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="pages/layout/top-nav.html" class="nav-link">
+                                    <a href="{{ route('request.show.panding') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p> Total Pending</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="pages/layout/top-nav.html" class="nav-link">
+                                    <a href="{{ route('request.show.reject') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p> Rejected</p>
                                     </a>

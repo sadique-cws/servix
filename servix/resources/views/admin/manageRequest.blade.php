@@ -1,17 +1,20 @@
-@extends('staff.layout.base')
+@extends('admin.layout.base')
+
+
 
 @section('content')
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">{{ $title }}</h3>
+                    <h3 class="card-title">Manage Request</h3>
 
                     <div class="card-tools">
-                        <form action="">
+                        <form action="{{ route('admin.staff.search') }}">
 
                             <div class="input-group input-group-sm" style="width: 300px;">
-
+                                <a href="{{ route('admin.staff.create') }}"
+                                    role="button"class="mr-12 btn btn-secondary btn-sm">Staff Add</a>
 
                                 <input type="text" name="search"
                                     class="form-control float-right w-25"placeholder="Search">
@@ -26,51 +29,55 @@
                         </form>
                     </div>
                 </div>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown button
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        @foreach ($staffs as $item)
+                            <a class="dropdown-item" href="#">{{$item->name}}</a>
+                        @endforeach
+
+                    </div>
+                </div>
                 <!-- /.card-header -->
                 <div class="card-body table-responsive p-0">
                     <table class="table table-hover text-nowrap">
                         <thead>
                             <tr>
-                                <th class="border border-slate-700 p-1.5 pl-10">id</th>
-                                <th class="border border-slate-700 p-1.5 pl-10">owner_name</th>
-                                <th class="border border-slate-700 p-1.5 pl-10">product_name</th>
-                                <th class="border border-slate-700 p-1.5 pl-10">Contact</th>
-                                <th class="border border-slate-700 p-1.5 pl-10">email</th>
-                                <th class="border border-slate-700 p-1.5 pl-10">color</th>
-                                <th class="border border-slate-700 p-1.5 pl-10">brand</th>
-                                <th class="border border-slate-700 p-1.5 pl-10">problem</th>
-                                <th class="border border-slate-700 p-1.5 pl-10">Action</th>
+                                <th>ID</th>
+                                <th>Service code</th>
+                                <th>Owner name</th>
+                                <th>Product name</th>
+                                <th>Email</th>
+                                <th>Contact</th>
+                                <th>Type</th>
+                                <th>Brand</th>
+                                <th>Color</th>
+                                <th>Problem</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($allRequests as $item)
+                            @foreach ($totalRequest as $item)
                                 <tr>
-                                    <td class="border border-slate-700 p-1.5 pl-10">{{ $item->service_code }}</td>
-                                    <td class="border border-slate-700 p-1.5 pl-10">{{ $item->owner_name }}</td>
-                                    <td class="border border-slate-700 p-1.5 pl-10">{{ $item->product_name }}</td>
-                                    <td class="border border-slate-700 p-1.5 pl-10">{{ $item->contact }}</td>
+                                    <td>{{ $item->id }}</td>
+                                    <td>{{ $item->service_code }}</td>
+                                    <td>{{ $item->owner_name }}</td>
+                                    <td>{{ $item->product_name }}</td>
                                     <td class="border border-slate-700 p-1.5 pl-10">{{ $item->email }}</td>
-                                    <td class="border border-slate-700 p-1.5 pl-10">{{ $item->color }}</td>
+                                    <td class="border border-slate-700 p-1.5 pl-10">{{ $item->contact }}</td>
+                                    <td class="border border-slate-700 p-1.5 pl-10">{{ $item->type_id }}</td>
                                     <td class="border border-slate-700 p-1.5 pl-10">{{ $item->brand }}</td>
+                                    <td class="border border-slate-700 p-1.5 pl-10">{{ $item->color }}</td>
                                     <td class="border border-slate-700 p-1.5 pl-10">{{ $item->problem }}</td>
                                     <td class="border border-slate-700 p-1.5  items-center justify-center flex btn-group"
                                         role="group">
-                                        {{-- Conform button --}}
-                                        @if (!$item->technician_id)
-                                            <a role="button" href="{{ route('request.confirm', $item->id) }}"
-                                                class="btn btn-success" href="">Confirm</a>
-                                        @endif
-                                        {{-- Pending button --}}
-                                        @if ($item->status != 'panding' | $title=="All Request")
-                                            <a role="button" class="btn btn-warning"
-                                                href="{{ route('request.panding', $item) }}">Pending</a>
-                                        @endif
-                                        {{-- Reject button --}}
-                                        @if ($item->status != 'rejected' | $title=="All Request")
-                                            <a role="button" class="btn btn-danger"
-                                                href="{{ route('request.reject', $item) }}">Reject</a>
-                                        @endif
-                                        {{-- view button  --}}
+                                        {{-- <a role="button" class="btn btn-info" href="{{ route('admin.staff.status',$item)}}">{{($item->status==1)?"Active":"DeActive"}}</a> --}}
+                                        {{-- edit button --}}
+                                        {{-- <a role="button" class="btn btn-warning" href="{{ route('admin.staff.edit', $item->id) }}">Edit</a> --}}
+                                        {{-- View button  --}}
                                         <a data-toggle="modal" data-target="#view{{ $item->id }}" role="button"
                                             class=" btn btn-info">View</a>
                                         <div class="modal fade " id="view{{ $item->id }}" tabindex="-1" role="dialog"
@@ -78,8 +85,8 @@
                                             <div class="modal-dialog modal-dialog-centered " role="document">
                                                 <div class="modal-content bg-info">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLongTitle">All new Request
-                                                        </h5>
+                                                        <h5 class="modal-title" id="exampleModalLongTitle">All new
+                                                            Request</h5>
                                                         <button type="button" class="close" data-dismiss="modal"
                                                             aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
@@ -125,8 +132,8 @@
                                                                                 class="icon" version="1.1"
                                                                                 xmlns="http://www.w3.org/2000/svg"
                                                                                 fill="#000000">
-                                                                                <g id="SVGRepo_bgCarrier"
-                                                                                    stroke-width="0"></g>
+                                                                                <g id="SVGRepo_bgCarrier" stroke-width="0">
+                                                                                </g>
                                                                                 <g id="SVGRepo_tracerCarrier"
                                                                                     stroke-linecap="round"
                                                                                     stroke-linejoin="round"></g>
@@ -149,95 +156,29 @@
                                                                 </div>
                                                                 <div class="border border-dark p-1 text-center">
                                                                     <label for=""><span><svg width="40px"
-                                                                                height="40px" viewBox="0 0 512 512"
-                                                                                version="1.1"
-                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                                fill="#000000">
+                                                                                height="40px" viewBox="0 0 24 24"
+                                                                                fill="none"
+                                                                                xmlns="http://www.w3.org/2000/svg">
                                                                                 <g id="SVGRepo_bgCarrier"
                                                                                     stroke-width="0"></g>
                                                                                 <g id="SVGRepo_tracerCarrier"
                                                                                     stroke-linecap="round"
                                                                                     stroke-linejoin="round"></g>
                                                                                 <g id="SVGRepo_iconCarrier">
-                                                                                    <title>product-management</title>
-                                                                                    <g id="Page-1" stroke="none"
-                                                                                        stroke-width="1" fill="none"
-                                                                                        fill-rule="evenodd">
-                                                                                        <g id="icon" fill="#000000"
-                                                                                            transform="translate(42.666667, 34.346667)">
-                                                                                            <path
-                                                                                                d="M426.247658,366.986259 C426.477599,368.072636 426.613335,369.17172 426.653805,370.281095 L426.666667,370.986667 L426.666667,392.32 C426.666667,415.884149 383.686003,434.986667 330.666667,434.986667 C278.177524,434.986667 235.527284,416.264289 234.679528,393.025571 L234.666667,392.32 L234.666667,370.986667 L234.679528,370.281095 C234.719905,369.174279 234.855108,368.077708 235.081684,366.992917 C240.961696,371.41162 248.119437,375.487081 256.413327,378.976167 C275.772109,387.120048 301.875889,392.32 330.666667,392.32 C360.599038,392.32 387.623237,386.691188 407.213205,377.984536 C414.535528,374.73017 420.909655,371.002541 426.247658,366.986259 Z M192,7.10542736e-15 L384,106.666667 L384.001134,185.388691 C368.274441,181.351277 350.081492,178.986667 330.666667,178.986667 C301.427978,178.986667 274.9627,184.361969 255.43909,193.039129 C228.705759,204.92061 215.096345,223.091357 213.375754,241.480019 L213.327253,242.037312 L213.449,414.75 L192,426.666667 L-2.13162821e-14,320 L-2.13162821e-14,106.666667 L192,7.10542736e-15 Z M426.247658,302.986259 C426.477599,304.072636 426.613335,305.17172 426.653805,306.281095 L426.666667,306.986667 L426.666667,328.32 C426.666667,351.884149 383.686003,370.986667 330.666667,370.986667 C278.177524,370.986667 235.527284,352.264289 234.679528,329.025571 L234.666667,328.32 L234.666667,306.986667 L234.679528,306.281095 C234.719905,305.174279 234.855108,304.077708 235.081684,302.992917 C240.961696,307.41162 248.119437,311.487081 256.413327,314.976167 C275.772109,323.120048 301.875889,328.32 330.666667,328.32 C360.599038,328.32 387.623237,322.691188 407.213205,313.984536 C414.535528,310.73017 420.909655,307.002541 426.247658,302.986259 Z M127.999,199.108 L128,343.706 L170.666667,367.410315 L170.666667,222.811016 L127.999,199.108 Z M42.6666667,151.701991 L42.6666667,296.296296 L85.333,320.001 L85.333,175.405 L42.6666667,151.701991 Z M330.666667,200.32 C383.155809,200.32 425.80605,219.042377 426.653805,242.281095 L426.666667,242.986667 L426.666667,264.32 C426.666667,287.884149 383.686003,306.986667 330.666667,306.986667 C278.177524,306.986667 235.527284,288.264289 234.679528,265.025571 L234.666667,264.32 L234.666667,242.986667 L234.808715,240.645666 C237.543198,218.170241 279.414642,200.32 330.666667,200.32 Z M275.991,94.069 L150.412,164.155 L192,187.259259 L317.866667,117.333333 L275.991,94.069 Z M192,47.4074074 L66.1333333,117.333333 L107.795,140.479 L233.373,70.393 L192,47.4074074 Z"
-                                                                                                id="Combined-Shape">
-                                                                                            </path>
-                                                                                        </g>
-                                                                                    </g>
+                                                                                    <path fill-rule="evenodd"
+                                                                                        clip-rule="evenodd"
+                                                                                        d="M1 5C1 3.34315 2.34315 2 4 2H8.43845C9.81505 2 11.015 2.93689 11.3489 4.27239L11.7808 6H13.5H20C21.6569 6 23 7.34315 23 9V19C23 20.6569 21.6569 22 20 22H4C2.34315 22 1 20.6569 1 19V10V9V5ZM3 9V10V19C3 19.5523 3.44772 20 4 20H20C20.5523 20 21 19.5523 21 19V9C21 8.44772 20.5523 8 20 8H13.5H11.7808H4C3.44772 8 3 8.44772 3 9ZM9.71922 6H4C3.64936 6 3.31278 6.06015 3 6.17071V5C3 4.44772 3.44772 4 4 4H8.43845C8.89732 4 9.2973 4.3123 9.40859 4.75746L9.71922 6Z"
+                                                                                        fill="#000000"></path>
                                                                                 </g>
                                                                             </svg></span>Product Name</label>
                                                                     <h5>{{ $item->product_name }}</h5>
                                                                 </div>
                                                                 <div class="border border-dark p-1 text-center">
                                                                     <label for="">
-                                                                        <span><svg fill="#000000" width="40px"
-                                                                                height="40px" viewBox="0 0 64 64"
-                                                                                version="1.1" xml:space="preserve"
-                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                xmlns:xlink="http://www.w3.org/1999/xlink">
-                                                                                <g id="SVGRepo_bgCarrier"
-                                                                                    stroke-width="0"></g>
-                                                                                <g id="SVGRepo_tracerCarrier"
-                                                                                    stroke-linecap="round"
-                                                                                    stroke-linejoin="round"></g>
-                                                                                <g id="SVGRepo_iconCarrier">
-                                                                                    <g id="_x32_5_attachment"></g>
-                                                                                    <g id="_x32_4_office"></g>
-                                                                                    <g id="_x32_3_pin"></g>
-                                                                                    <g id="_x32_2_business_card"></g>
-                                                                                    <g id="_x32_1_form"></g>
-                                                                                    <g id="_x32_0_headset"></g>
-                                                                                    <g id="_x31_9_video_call"></g>
-                                                                                    <g id="_x31_8_letter_box"></g>
-                                                                                    <g id="_x31_7_papperplane"></g>
-                                                                                    <g id="_x31_6_laptop"></g>
-                                                                                    <g id="_x31_5_connection"></g>
-                                                                                    <g id="_x31_4_phonebook"></g>
-                                                                                    <g id="_x31_3_classic_telephone"></g>
-                                                                                    <g id="_x31_2_sending_mail"></g>
-                                                                                    <g id="_x31_1_man_talking"></g>
-                                                                                    <g id="_x31_0_date"></g>
-                                                                                    <g id="_x30_9_review"></g>
-                                                                                    <g id="_x30_8_email"></g>
-                                                                                    <g id="_x30_7_information"></g>
-                                                                                    <g id="_x30_6_phone_talking">
-                                                                                        <g>
-                                                                                            <g>
-                                                                                                <path
-                                                                                                    d="M37.063,18.062h-0.0596c-0.5522,0-0.9702,0.4478-0.9702,1s0.4775,1,1.0298,1s1-0.4478,1-1S37.6152,18.062,37.063,18.062z ">
-                                                                                                </path>
-                                                                                                <path
-                                                                                                    d="M45.1787,18.062H45.123c-0.5522,0-0.9722,0.4478-0.9722,1s0.4756,1,1.0278,1s1-0.4478,1-1S45.731,18.062,45.1787,18.062z ">
-                                                                                                </path>
-                                                                                                <path
-                                                                                                    d="M53.2983,18.062h-0.0596c-0.5522,0-0.9702,0.4478-0.9702,1s0.4775,1,1.0298,1s1-0.4478,1-1 S53.8506,18.062,53.2983,18.062z">
-                                                                                                </path>
-                                                                                                <path
-                                                                                                    d="M45.1953,45.9268c-5.1489-2.9038-6.6909-2.6665-10.6172-0.4468c-2.0146,1.3389-4.4404,0.5225-8.6563-2.9111 c-0.8276-0.6743-1.6592-1.4263-2.4688-2.2319c-0.8091-0.8125-1.5605-1.644-2.2344-2.4722 c-3.1782-3.8999-4.0435-7.459-3.0112-8.5317c3.042-3.271,2.3516-5.957-0.3335-10.7173c-1.6172-3.0591-3.3931-6.104-5.7568-6.8027 c-1.7139-0.5034-4.2588,0.8154-5.0166,1.3184c-1.9492,1.2983-3.8003,3.5947-4.8311,5.9937 c-1.896,4.4136-1.3931,9.7329-0.29,13.2397c1.812,5.749,6.1611,12.4063,11.6348,17.8086 c5.4043,5.4761,12.0615,9.8242,17.8081,11.6313c1.8154,0.5728,4.1167,0.9844,6.5283,0.9844c2.2437,0,4.583-0.3564,6.7124-1.271 c2.3989-1.0327,4.6938-2.8838,5.9888-4.8306c0.5039-0.7554,1.8276-3.2998,1.3184-5.021 C51.2754,49.3071,48.2305,47.5308,45.1953,45.9268z M44.2368,47.6821c1.8521,0.979,5.2998,2.8018,5.8149,4.5513 c0.1056,0.3564-0.0228,1.0059-0.2598,1.681l-13.5292-7.089C38.8073,45.4165,39.8377,45.2009,44.2368,47.6821z M11.5513,13.7314 c1.7524,0.5181,3.5752,3.9663,4.5674,5.8428c2.6213,4.647,2.613,6.1134,0.9274,8.0579L9.748,14.0356 c0.556-0.2056,1.1049-0.3412,1.499-0.3412C11.3633,13.6943,11.4658,13.7061,11.5513,13.7314z M43.873,59.6807 c-3.9175,1.6836-8.8311,1.1694-11.8501,0.2163c-5.4517-1.7144-11.8032-5.8765-16.9897-11.1328 c-0.0034-0.0034-0.0063-0.0063-0.0098-0.0098C9.7695,43.5698,5.606,37.2178,3.8872,31.7642 c-0.9497-3.0195-1.4619-7.9346,0.2202-11.8501c0.8441-1.9645,2.3123-3.8291,3.8699-4.948l7.923,14.7618 c-0.4362,2.3732,0.9189,5.9038,3.7676,9.4001c0.7153,0.8789,1.5122,1.7607,2.3711,2.623 c0.8594,0.856,1.7407,1.6528,2.6196,2.3687c3.0879,2.5153,6.3303,4.6262,9.3667,3.7915l14.8708,7.792 C47.7888,57.3002,45.8823,58.816,43.873,59.6807z">
-                                                                                                </path>
-                                                                                                <path
-                                                                                                    d="M60.9551,10.771C56.3843,2.0591,45.5757-1.3105,36.8604,3.2568l-0.0005,0.0005 c-8.7119,4.5723-12.0825,15.3813-7.5137,24.0952c0.3311,0.6313,0.709,1.2549,1.1274,1.8613l-2.7012,4.6299 c-0.1885,0.3228-0.1812,0.7241,0.0195,1.0396c0.1997,0.3159,0.5596,0.4912,0.9321,0.4604l7.75-0.6851 c2.7095,1.5068,5.6899,2.2627,8.6748,2.2627c2.8374,0,5.6787-0.6836,8.293-2.0552 C62.1543,30.2944,65.5249,19.4854,60.9551,10.771z M52.5127,33.0952c-4.8472,2.543-10.5723,2.4214-15.3154-0.3252 c-0.1523-0.0884-0.3257-0.1348-0.501-0.1348c-0.0293,0-0.0586,0.0015-0.0879,0.0039l-6.1338,0.542l2.0532-3.519 c0.2017-0.3462,0.1777-0.7793-0.0615-1.1006c-0.5132-0.6899-0.9668-1.4092-1.3486-2.1377 c-4.0571-7.7373-1.0645-17.3354,6.6719-21.396l-0.0005,0.0005c7.7378-4.0581,17.3354-1.0635,21.395,6.6719 C63.2417,19.438,60.2485,29.0356,52.5127,33.0952z">
-                                                                                                </path>
-                                                                                            </g>
-                                                                                        </g>
-                                                                                    </g>
-                                                                                    <g id="_x30_5_women_talking"></g>
-                                                                                    <g id="_x30_4_calling"></g>
-                                                                                    <g id="_x30_3_women"></g>
-                                                                                    <g id="_x30_2_writing"></g>
-                                                                                    <g id="_x30_1_chatting"></g>
-                                                                                </g>
-                                                                            </svg></span>
-                                                                        Contact</label>
-                                                                    <h5>{{ $item->contact }}</h5>
+                                                                        <img src="https://uidai.gov.in/images/logo/aadhaar_english_logo.svg"
+                                                                            width="50px" height="50px" alt="">
+                                                                        Email</label>
+                                                                    <h5>{{ $item->email }}</h5>
                                                                 </div>
                                                             </div>
                                                             <div class="col-6">
@@ -268,8 +209,10 @@
                                                                                                 <dc:title></dc:title>
                                                                                                 <dc:creator>
                                                                                                     <cc:agent>
-                                                                                                        <dc:title>Timothée
-                                                                                                            Giet</dc:title>
+                                                                                                        <dc:title>
+                                                                                                            Timothée
+                                                                                                            Giet
+                                                                                                        </dc:title>
                                                                                                     </cc:agent>
                                                                                                 </dc:creator>
                                                                                                 <dc:date>2021</dc:date>
@@ -313,6 +256,110 @@
                                                                                 </g>
                                                                             </svg></span>Owner Name</label>
                                                                     <h5>{{ $item->owner_name }}</h5>
+                                                                </div>
+                                                                <div class="border border-dark p-1 text-center">
+                                                                    <label for=""><span><svg fill="#000000"
+                                                                                width="40px" height="40px"
+                                                                                viewBox="0 0 64 64" version="1.1"
+                                                                                xml:space="preserve"
+                                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                                xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                                stroke="#000000">
+                                                                                <g id="SVGRepo_bgCarrier"
+                                                                                    stroke-width="0"></g>
+                                                                                <g id="SVGRepo_tracerCarrier"
+                                                                                    stroke-linecap="round"
+                                                                                    stroke-linejoin="round"></g>
+                                                                                <g id="SVGRepo_iconCarrier">
+                                                                                    <g id="_x32_5_attachment"></g>
+                                                                                    <g id="_x32_4_office"></g>
+                                                                                    <g id="_x32_3_pin"></g>
+                                                                                    <g id="_x32_2_business_card"></g>
+                                                                                    <g id="_x32_1_form"></g>
+                                                                                    <g id="_x32_0_headset"></g>
+                                                                                    <g id="_x31_9_video_call"></g>
+                                                                                    <g id="_x31_8_letter_box"></g>
+                                                                                    <g id="_x31_7_papperplane"></g>
+                                                                                    <g id="_x31_6_laptop"></g>
+                                                                                    <g id="_x31_5_connection"></g>
+                                                                                    <g id="_x31_4_phonebook"></g>
+                                                                                    <g id="_x31_3_classic_telephone">
+                                                                                        <g>
+                                                                                            <g>
+                                                                                                <path
+                                                                                                    d="M5.7783,24.7686c1.9902,1.085,5.0967,0.269,8.0811-0.6533c4.8364-1.3472,7.019-2.6401,7.168-6.7412 c0.0034-0.1011-0.0083-0.2021-0.0352-0.2998c-0.0029-0.0122,0.0063-0.1108,0.1294-0.2905 c0.7661-1.1177,3.6714-2.4893,7.2095-2.8501c0.9307-0.0977,1.9409-0.1489,2.9951-0.1523 c1.0571,0.0034,2.0674,0.0547,3.0049,0.1523c3.5352,0.3608,6.4395,1.7324,7.2061,2.8501 c0.123,0.1797,0.1328,0.2783,0.1289,0.2905c-0.0264,0.0972-0.0381,0.1982-0.0342,0.2988 c0.1445,4.1001,2.3271,5.3936,7.1377,6.7344c1.9893,0.6147,4.0195,1.1802,5.7432,1.1802c0.8848,0,1.6895-0.1494,2.3652-0.5176 c1.4609-0.7915,2.2539-3.3052,2.417-4.1216c1.3721-6.8125-3.7441-12.9063-9.0781-15.6851 C45.3633,2.4341,38.3145,0.9468,31.3296,1.001c-6.9517-0.0498-14.0381,1.4336-18.8872,3.9624 c-5.3335,2.7783-10.4502,8.8721-9.0811,15.686C3.5264,21.4678,4.3257,23.9814,5.7783,24.7686z M13.3667,6.7368 c4.5747-2.3862,11.2939-3.7954,17.9561-3.7358c0.0039,0,0.0098,0,0.0137,0c6.6821-0.0381,13.3774,1.3501,17.9565,3.7358 c4.6914,2.4443,9.209,7.7168,8.041,13.519c-0.2002,1.0054-0.8896,2.4741-1.4111,2.7568 c-1.4189,0.7725-4.8926-0.3003-6.5898-0.8242c-4.7744-1.3306-5.5859-2.2759-5.6982-4.7632 c0.0791-0.4399,0.0391-1.062-0.4482-1.7725c-1.2266-1.7891-4.7842-3.314-8.6504-3.7085c-1.002-0.1045-2.0796-0.1597-3.21-0.1631 c-1.1279,0.0039-2.2061,0.0586-3.2012,0.1631c-3.8682,0.3945-7.4263,1.9194-8.6528,3.708 c-0.4873,0.7104-0.5273,1.3325-0.4487,1.7725c-0.1143,2.4883-0.9272,3.4341-5.728,4.7715 c-1.6694,0.5161-5.1431,1.5889-6.562,0.8149c-0.5171-0.2798-1.2085-1.7505-1.4116-2.7568 C4.1563,14.4536,8.6748,9.1812,13.3667,6.7368z">
+                                                                                                </path>
+                                                                                                <path
+                                                                                                    d="M61.5771,54.4614l-3.1309-19.0518c-0.8037-4.9136-4.1641-8.2148-8.3623-8.2148h-9.3481l-1.313-5.1528 c-0.5342-2.1182-1.8789-3.3823-3.5967-3.3823H27.498c-1.7393,0-3.0513,1.2319-3.5996,3.3799l-1.314,5.1553h-8.8257 c-4.1934,0-7.5542,3.3008-8.3628,8.2139L2.4893,53.0884c-0.6113,3.7251-0.2471,6.314,1.1128,7.915 c1.6968,1.9971,4.4331,1.9941,6.9116,1.9961h42.7012L53.5371,63c0.1074,0,0.2139,0,0.3213,0 c2.4238,0,5.0947-0.0757,6.6797-1.9399C61.7354,59.6523,62.0752,57.4941,61.5771,54.4614z M25.8364,22.5337 c0.1787-0.6997,0.6323-1.874,1.6616-1.874h8.3281c1.0313,0,1.4805,1.1729,1.6582,1.874l1.1875,4.6611H24.6484L25.8364,22.5337z M59.0146,59.7642C57.959,61.0059,55.7178,61.0039,53.54,61l-42.9087-0.0005h-0.1182c-2.0977,0-4.2891,0.001-5.3867-1.291 c-0.9434-1.1108-1.167-3.229-0.6636-6.2959l2.9067-17.6792c0.4961-3.0166,2.4673-6.5386,6.3892-6.5386H50.084 c3.9268,0,5.8955,3.5215,6.3887,6.5381l3.1318,19.0527C59.9951,57.1694,59.7969,58.8442,59.0146,59.7642z">
+                                                                                                </path>
+                                                                                            </g>
+                                                                                            <g>
+                                                                                                <path
+                                                                                                    d="M32.002,58.4673c-7.3721,0-13.3701-5.998-13.3701-13.3701c0-7.3706,5.998-13.3667,13.3701-13.3667 c7.3701,0,13.3662,5.9961,13.3662,13.3667C45.3682,52.4692,39.3721,58.4673,32.002,58.4673z M32.002,33.7305 c-6.2695,0-11.3701,5.0991-11.3701,11.3667c0,6.2695,5.1006,11.3701,11.3701,11.3701c6.2676,0,11.3662-5.1006,11.3662-11.3701 C43.3682,38.8296,38.2695,33.7305,32.002,33.7305z">
+                                                                                                </path>
+                                                                                            </g>
+                                                                                            <g>
+                                                                                                <path
+                                                                                                    d="M32.002,49.9707c-2.6875,0-4.8735-2.186-4.8735-4.8735c0-2.6855,2.186-4.8701,4.8735-4.8701 c2.6855,0,4.8701,2.1846,4.8701,4.8701C36.8721,47.7847,34.6875,49.9707,32.002,49.9707z M32.002,42.2271 c-1.5845,0-2.8735,1.2876-2.8735,2.8701c0,1.5845,1.2891,2.8735,2.8735,2.8735c1.583,0,2.8701-1.2891,2.8701-2.8735 C34.8721,43.5146,33.585,42.2271,32.002,42.2271z">
+                                                                                                </path>
+                                                                                            </g>
+                                                                                            <g>
+                                                                                                <path
+                                                                                                    d="M32.002,37.7339c-0.5522,0-1.0298-0.4478-1.0298-1s0.418-1,0.9702-1h0.0596c0.5522,0,1,0.4478,1,1 S32.5542,37.7339,32.002,37.7339z">
+                                                                                                </path>
+                                                                                            </g>
+                                                                                            <g>
+                                                                                                <path
+                                                                                                    d="M32.002,54.4644c-0.5522,0-1.0298-0.4478-1.0298-1s0.418-1,0.9702-1h0.0596c0.5522,0,1,0.4478,1,1 S32.5542,54.4644,32.002,54.4644z">
+                                                                                                </path>
+                                                                                            </g>
+                                                                                            <g>
+                                                                                                <path
+                                                                                                    d="M23.6348,46.127c-0.5522,0-1-0.418-1-0.9702v-0.0596c0-0.5522,0.4478-1,1-1s1,0.4478,1,1S24.187,46.127,23.6348,46.127z">
+                                                                                                </path>
+                                                                                            </g>
+                                                                                            <g>
+                                                                                                <path
+                                                                                                    d="M40.3652,46.127c-0.5527,0-1-0.418-1-0.9702v-0.0596c0-0.5522,0.4473-1,1-1c0.5527,0,1,0.4478,1,1 S40.918,46.127,40.3652,46.127z">
+                                                                                                </path>
+                                                                                            </g>
+                                                                                            <g>
+                                                                                                <path
+                                                                                                    d="M26.0547,40.1924c-0.2539,0-0.5063-0.0928-0.6963-0.2827c-0.3906-0.3906-0.4116-1.0024-0.021-1.3931l0.042-0.042 c0.3906-0.3906,1.0234-0.3906,1.4141,0s0.3906,1.0234,0,1.4141C26.5933,40.0894,26.3232,40.1924,26.0547,40.1924z">
+                                                                                                </path>
+                                                                                            </g>
+                                                                                            <g>
+                                                                                                <path
+                                                                                                    d="M37.8857,52.0234c-0.2549,0-0.5068-0.0928-0.6973-0.2827c-0.3896-0.3906-0.4111-1.0024-0.0205-1.3931l0.042-0.042 c0.3906-0.3906,1.0234-0.3906,1.4141,0s0.3906,1.0234,0,1.4141C38.4238,51.9204,38.1533,52.0234,37.8857,52.0234z">
+                                                                                                </path>
+                                                                                            </g>
+                                                                                            <g>
+                                                                                                <path
+                                                                                                    d="M26.0977,52.0444c-0.2437,0-0.4863-0.0928-0.6763-0.2827l-0.042-0.042c-0.3906-0.3906-0.3906-1.0234,0-1.4141 s1.0234-0.3906,1.4141,0s0.4116,1.0444,0.021,1.4351C26.6143,51.9414,26.355,52.0444,26.0977,52.0444z">
+                                                                                                </path>
+                                                                                            </g>
+                                                                                            <g>
+                                                                                                <path
+                                                                                                    d="M37.9287,40.2134c-0.2441,0-0.4863-0.0928-0.6768-0.2827l-0.042-0.042c-0.3906-0.3906-0.3906-1.0234,0-1.4141 s1.0234-0.3906,1.4141,0s0.4111,1.0444,0.0215,1.4351C38.4443,40.1104,38.1855,40.2134,37.9287,40.2134z">
+                                                                                                </path>
+                                                                                            </g>
+                                                                                        </g>
+                                                                                    </g>
+                                                                                    <g id="_x31_2_sending_mail"></g>
+                                                                                    <g id="_x31_1_man_talking"></g>
+                                                                                    <g id="_x31_0_date"></g>
+                                                                                    <g id="_x30_9_review"></g>
+                                                                                    <g id="_x30_8_email"></g>
+                                                                                    <g id="_x30_7_information"></g>
+                                                                                    <g id="_x30_6_phone_talking"></g>
+                                                                                    <g id="_x30_5_women_talking"></g>
+                                                                                    <g id="_x30_4_calling"></g>
+                                                                                    <g id="_x30_3_women"></g>
+                                                                                    <g id="_x30_2_writing"></g>
+                                                                                    <g id="_x30_1_chatting"></g>
+                                                                                </g>
+                                                                            </svg></span>Contact</label>
+                                                                    <h5>{{ $item->contact }}</h5>
                                                                 </div>
                                                                 <div class="border border-dark p-1 text-center">
                                                                     <label for=""><span><svg width="50px"
@@ -395,94 +442,6 @@
                                                                             </svg></span>Brand</label>
                                                                     <h5>{{ $item->brand }}</h5>
                                                                 </div>
-                                                                <div class="border border-dark p-1 text-center">
-                                                                    <label for=""><span><svg version="1.1"
-                                                                                id="Icons"
-                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                                viewBox="0 0 32 32" xml:space="preserve"
-                                                                                width="40px" height="40px"
-                                                                                fill="#000000">
-                                                                                <g id="SVGRepo_bgCarrier"
-                                                                                    stroke-width="0"></g>
-                                                                                <g id="SVGRepo_tracerCarrier"
-                                                                                    stroke-linecap="round"
-                                                                                    stroke-linejoin="round"></g>
-                                                                                <g id="SVGRepo_iconCarrier">
-                                                                                    <style type="text/css">
-                                                                                        .st0 {
-                                                                                            fill: none;
-                                                                                            stroke: #000000;
-                                                                                            stroke-width: 2;
-                                                                                            stroke-linecap: round;
-                                                                                            stroke-linejoin: round;
-                                                                                            stroke-miterlimit: 10;
-                                                                                        }
-
-                                                                                        .st1 {
-                                                                                            fill: none;
-                                                                                            stroke: #000000;
-                                                                                            stroke-width: 2;
-                                                                                            stroke-linecap: round;
-                                                                                            stroke-linejoin: round;
-                                                                                        }
-
-                                                                                        .st2 {
-                                                                                            fill: none;
-                                                                                            stroke: #000000;
-                                                                                            stroke-width: 2;
-                                                                                            stroke-linecap: round;
-                                                                                            stroke-linejoin: round;
-                                                                                            stroke-dasharray: 6, 6;
-                                                                                        }
-
-                                                                                        .st3 {
-                                                                                            fill: none;
-                                                                                            stroke: #000000;
-                                                                                            stroke-width: 2;
-                                                                                            stroke-linecap: round;
-                                                                                            stroke-linejoin: round;
-                                                                                            stroke-dasharray: 4, 4;
-                                                                                        }
-
-                                                                                        .st4 {
-                                                                                            fill: none;
-                                                                                            stroke: #000000;
-                                                                                            stroke-width: 2;
-                                                                                            stroke-linecap: round;
-                                                                                        }
-
-                                                                                        .st5 {
-                                                                                            fill: none;
-                                                                                            stroke: #000000;
-                                                                                            stroke-width: 2;
-                                                                                            stroke-linecap: round;
-                                                                                            stroke-dasharray: 3.1081, 3.1081;
-                                                                                        }
-
-                                                                                        .st6 {
-                                                                                            fill: none;
-                                                                                            stroke: #000000;
-                                                                                            stroke-width: 2;
-                                                                                            stroke-linecap: round;
-                                                                                            stroke-linejoin: round;
-                                                                                            stroke-miterlimit: 10;
-                                                                                            stroke-dasharray: 4, 3;
-                                                                                        }
-                                                                                    </style>
-                                                                                    <path class="st0"
-                                                                                        d="M16.9,14c-1.8,0-3.3,1.4-3.3,3.1v0.7c0,1.1-0.6,1.9-1.6,2.2l0,0h1.6l3.1,0c1.8,0,3.4-1.4,3.3-3.1 C20,15.3,18.6,14,16.9,14z">
-                                                                                    </path>
-                                                                                    <path class="st0"
-                                                                                        d="M20.3,11.5C18.9,11.2,17.5,11,16,11c-7.2,0-13,4-13,9c0,1,0.2,2,0.7,2.9c1,2,3.6,2.6,5.4,1.3l0,0 c2.4-1.7,5.8,0,5.8,3V29c0.4,0,0.7,0,1.1,0c7.2,0,13-4,13-9c0-2.2-1.1-4.2-2.9-5.7">
-                                                                                    </path>
-                                                                                    <path class="st0"
-                                                                                        d="M17.4,14.1l9.8-8.8c0.4-0.4,1.1-0.4,1.5,0l0,0c0.4,0.4,0.4,1,0,1.4L20,16">
-                                                                                    </path>
-                                                                                </g>
-                                                                            </svg></span>Color</label>
-                                                                    <h5>{{ $item->color }}</h5>
-                                                                </div>
                                                                 <div class="border border-dark p-1 text-center ">
                                                                     <label for="">
                                                                         <img width="50px" height="50px"
@@ -496,30 +455,20 @@
                                                         </div>
                                                         <div class="text-center border-dark border">
                                                             <label for="">
-                                                                <span><svg version="1.1" id="Layer_1"
+                                                                <span><svg fill="#000000" height="40px" width="40px"
+                                                                        version="1.1" id="Layer_1"
                                                                         xmlns="http://www.w3.org/2000/svg"
                                                                         xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                        width="40px" height="40px"
-                                                                        viewBox="0 0 256 173"
-                                                                        enable-background="new 0 0 256 173"
-                                                                        xml:space="preserve" fill="#000000">
-                                                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                                        viewBox="0 0 256 173" xml:space="preserve">
+                                                                        <g id="SVGRepo_bgCarrier" stroke-width="0">
+                                                                        </g>
                                                                         <g id="SVGRepo_tracerCarrier"
                                                                             stroke-linecap="round"
                                                                             stroke-linejoin="round"></g>
                                                                         <g id="SVGRepo_iconCarrier">
-                                                                            <path fill="#010101"
-                                                                                d="M128.253,56.864c15.186,0,27.432-12.247,27.432-27.432S143.536,2,128.253,2 c-15.186,0-27.432,12.247-27.432,27.432C100.918,44.716,113.165,56.864,128.253,56.864z M64.571,136.32h-49.28 c-15.969,0-16.851-24.395,0.294-24.395H58.3l24.493-36.054c7.25-9.895,15.48-14.598,27.138-14.598h36.544 c11.659,0,19.888,4.311,27.138,14.598l24.591,36.054h43.01c17.243,0,16.165,24.395,0.588,24.395h-49.28 c-3.919,0-8.622-1.372-11.365-5.584l-18.811-26.844l-0.098,67.209H94.844l-0.098-67.209l-18.811,26.844 C73.192,134.85,68.49,136.32,64.571,136.32z">
-                                                                            </path>
-                                                                            <path fill="#010101"
-                                                                                d="M22.611,98.149l-0.865-7.96l7.03,1.795l-0.908-7.83l6.814,1.752l-0.908-7.917l8.89,1.795l5.429-5.429 c5.256,1.146,10.988-0.303,15.098-4.413c6.403-6.403,6.424-16.764,0-23.188s-16.742-6.359-23.123,0.022 c-4.067,4.067-5.559,9.755-4.456,14.968L10,87.356l0.303,11.681L22.611,98.149z M55.23,54.758c-1.406-1.406-1.428-3.72,0-5.148 c1.428-1.428,3.72-1.428,5.148,0c1.428,1.428,1.428,3.72,0,5.148C58.929,56.208,56.636,56.164,55.23,54.758z">
-                                                                            </path>
                                                                             <path
-                                                                                d="M248.806,59.279v41.534h-45V59.279h5.488v-9.763c0-9.531,7.798-17.33,17.33-17.33c9.531,0,17.33,7.798,17.33,17.33v9.763 L248.806,59.279z M230.09,82.27c1.906-1.213,3.119-3.293,3.119-5.719c0-3.813-3.119-6.932-6.932-6.932s-6.932,3.119-6.932,6.932 c0,2.426,1.213,4.506,3.119,5.719l-1.386,8.145h10.398L230.09,82.27z M237.079,49.517c0-5.719-4.679-10.398-10.398-10.398 c-5.719,0-10.398,4.679-10.398,10.398v9.763h16.926h3.87V49.517z">
+                                                                                d="M128.3,56.9c15.2,0,27.4-12.2,27.4-27.4S143.5,2,128.3,2c-15.2,0-27.4,12.2-27.4,27.4C100.9,44.7,113.2,56.9,128.3,56.9z M64.6,136.3H15.3c-16,0-16.9-24.4,0.3-24.4h42.7l24.5-36.1C90,66,98.3,61.3,109.9,61.3h36.5c11.7,0,19.9,4.3,27.1,14.6l24.6,36.1 h43c17.2,0,16.2,24.4,0.6,24.4h-49.3c-3.9,0-8.6-1.4-11.4-5.6l-18.8-26.8l-0.1,67.2H94.8l-0.1-67.2l-18.8,26.8 C73.2,134.9,68.5,136.3,64.6,136.3z M239.8,83.1c-1,1-2.4,1.1-3.3,0.2c-0.5-0.5-0.7-1.3-0.6-2c0,0,1.1-3.2-1.2-5.5 c-2.3-2.3-6.6-1.7-9.6,1.3c-3,3-3.6,7.3-1.3,9.6c1.3,1.3,3.3,1.6,5.3,1.2c0.8-0.2,1.6-0.1,2.2,0.5c0.8,0.8,0.8,2.2,0,3l-9.1,9.1 L192,70.2l9.1-9.1c0.8-0.8,2.2-0.8,3,0c0.5,0.5,0.7,1.1,0.6,1.7c-0.3,2.4-0.3,4.4,1.1,5.9c2.3,2.3,6.6,1.7,9.6-1.3s3.6-7.3,1.3-9.6 c-2.3-2.3-5.3-1.3-5.3-1.3c-0.5,0.2-1.6,0.1-2.2-0.4c-0.8-0.8-0.8-2.2,0-3l10.5-10.5l10.2,10.2l0,0l0,0c0.8,0.8,2.2,0.8,3,0 c0.6-0.6,0.7-1.6,0.5-2.2c-0.4-2.1-0.1-4,1.2-5.4c2.3-2.3,6.8-1.9,10.2,1.8c2.9,3.1,3.9,7.8,1.6,10.1c-1.3,1.3-3.2,1.6-5.4,1.2 c-0.5-0.1-1.6,0-2.2,0.5c-0.8,0.8-0.8,2.2,0,3l0,0l0,0l11.1,11L239.8,83.1z M54.4,58.8c0,3.3-0.8,6-2.5,8.3c-1,1.3-2.8,3.1-5.5,5.2 l-2.7,2.1c-1.5,1.1-2.4,2.5-2.9,4c-0.3,1-0.5,2.5-0.5,4.5H30.1c0.2-4.3,0.6-7.2,1.2-8.8s2.4-3.5,5.1-5.6l2.8-2.2 c0.9-0.7,1.7-1.4,2.2-2.2c1-1.4,1.5-2.9,1.5-4.6c0-1.9-0.6-3.7-1.7-5.2C40,52.5,38,51.7,35,51.7c-2.9,0-5,1-6.2,2.9 c-1.1,1.7-1.7,3.5-1.8,5.4c0,0,0,0.1,0,0.1c0,0.2,0,0.4,0,0.6l0,0l0,0c-0.3,2.8-2.6,4.9-5.5,4.9s-5.2-2.1-5.5-4.9 c0,0,0.1-1.4,0.1-1.8c0.6-6.3,3.1-10.8,7.4-13.6c3-1.9,6.6-2.9,11-2.9c5.7,0,10.5,1.3,14.2,4.1C52.6,49.3,54.4,53.4,54.4,58.8z M28.4,93.4c0,3.9,3.2,7.1,7.1,7.1s7.1-3.2,7.1-7.1s-3.2-7.1-7.1-7.1S28.4,89.5,28.4,93.4z">
                                                                             </path>
-                                                                            <g id="shopping_cart"> </g>
-                                                                            <g id="cross"> </g>
-                                                                            <g id="leaf"> </g>
                                                                         </g>
                                                                     </svg></span>
                                                                 Problem</label>
@@ -531,24 +480,25 @@
                                             </div>
                                         </div>
                                         {{-- Delete button  --}}
-                                        <a href="{{ route('admin.staff.delete', $item->id) }}" role="button"
+                                        <a href="{{ route('admin.request.delete', $item->id) }}" role="button"
                                             class="btn btn-danger"><svg width="20" height="20"
                                                 viewBox="0 0 24 24" class="NSy2Hd cdByRd RTiFqe undefined">
                                                 <path fill='#b8c2cc'
                                                     d="M15 4V3H9v1H4v2h1v13c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V6h1V4h-5zm2 15H7V6h10v13z">
                                                 </path>
                                                 <path fill='#b8c2cc' d="M9 8h2v9H9zm4 0h2v9h-2z"></path>
-                                            </svg></a>
+                                            </svg>
+                                        </a>
+
                                     </td>
                                 </tr>
                             @endforeach
-
                         </tbody>
                     </table>
                 </div>
                 <!-- /.card-body -->
+
+                <!-- /.card -->
             </div>
-            <!-- /.card -->
         </div>
-    </div>
-@endsection
+    @endsection
