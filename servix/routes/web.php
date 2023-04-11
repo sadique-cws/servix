@@ -64,7 +64,7 @@ Route::prefix("staff")->group(function () {
             Route::post('/request/update/{id}', [RequestController::class,'requestUpdate'])->name('request.update');
             Route::get('/request/{id}/reject', [RequestController::class,'rejected'])->name('request.reject');
             Route::get('/request/rejectedRequests', [RequestController::class,'rejectedRequests'])->name('request.show.reject');
-            Route::get('/request/{id}/panding', [RequestController::class,'panding'])->name('request.panding');
+            Route::get('/request/{id}/pending', [RequestController::class,'pending'])->name('request.pending');
             Route::get('/request/pandingRequests', [RequestController::class,'pandingRequests'])->name('request.show.panding');
             Route::get('/', 'index')->name('staff.panel');
             Route::get('/', 'index')->name('staff.panel');

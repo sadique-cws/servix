@@ -31,28 +31,28 @@
                     <table class="table table-hover text-nowrap">
                         <thead>
                             <tr>
-                                <th class="border border-slate-700 p-1.5 pl-10">id</th>
-                                <th class="border border-slate-700 p-1.5 pl-10">owner_name</th>
-                                <th class="border border-slate-700 p-1.5 pl-10">product_name</th>
-                                <th class="border border-slate-700 p-1.5 pl-10">Contact</th>
-                                <th class="border border-slate-700 p-1.5 pl-10">email</th>
-                                <th class="border border-slate-700 p-1.5 pl-10">color</th>
-                                <th class="border border-slate-700 p-1.5 pl-10">brand</th>
-                                <th class="border border-slate-700 p-1.5 pl-10">problem</th>
-                                <th class="border border-slate-700 p-1.5 pl-10">Action</th>
+                                <th>S CODE</th>
+                                <th>owner_name</th>
+                                <th>product_name</th>
+                                <th>Contact</th>
+                                <th>color</th>
+                                <th>brand</th>
+                                <th>problem</th>
+                                <th>Status</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($allRequests as $item)
                                 <tr>
-                                    <td class="border border-slate-700 p-1.5 pl-10">{{ $item->service_code }}</td>
-                                    <td class="border border-slate-700 p-1.5 pl-10">{{ $item->owner_name }}</td>
-                                    <td class="border border-slate-700 p-1.5 pl-10">{{ $item->product_name }}</td>
-                                    <td class="border border-slate-700 p-1.5 pl-10">{{ $item->contact }}</td>
-                                    <td class="border border-slate-700 p-1.5 pl-10">{{ $item->email }}</td>
-                                    <td class="border border-slate-700 p-1.5 pl-10">{{ $item->color }}</td>
-                                    <td class="border border-slate-700 p-1.5 pl-10">{{ $item->brand }}</td>
-                                    <td class="border border-slate-700 p-1.5 pl-10">{{ $item->problem }}</td>
+                                    <td class="text-uppercase text-success fw-bold">{{ $item->service_code }}</td>
+                                    <td>{{ $item->owner_name }}</td>
+                                    <td>{{ $item->product_name }}</td>
+                                    <td>{{ $item->contact }}</td>
+                                    <td>{{ $item->color }}</td>
+                                    <td>{{ $item->brand }}</td>
+                                    <td>{{ $item->problem }}</td>
+                                    <td>{{ $item->status }}</td>
                                     <td class="border border-slate-700 p-1.5  items-center justify-center flex btn-group"
                                         role="group">
                                         {{-- Conform button --}}
@@ -61,9 +61,9 @@
                                                 class="btn btn-success" href="">Confirm</a>
                                         @endif
                                         {{-- Pending button --}}
-                                        @if ($item->status != 'panding' | $title=="All Request")
+                                        @if ($item->status != 'pending' | $title=="All Request")
                                             <a role="button" class="btn btn-warning"
-                                                href="{{ route('request.panding', $item) }}">Pending</a>
+                                                href="{{ route('request.pending', $item) }}">Pending</a>
                                         @endif
                                         {{-- Reject button --}}
                                         @if ($item->status != 'rejected' | $title=="All Request")

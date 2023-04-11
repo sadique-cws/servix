@@ -13,9 +13,7 @@ class StaffController extends Controller
 {   
     public function index(Request $req): View
     {
-        $user = Auth::guard('staff')->user();
-        $count_Requests = RequestModel::where('type_id',$user->type_id)->where('technician_id',$user->id)->count();
-        return view('staff.dashboard',compact('count_Requests'));
+        return view('staff.dashboard');
     }
 
     public function stafflogin(Request $req){
