@@ -131,8 +131,7 @@ class RequestController extends Controller
 
     public function trackStatus(Request $req)
     {
-        $service_code = Str::random(6);
-        $data['service_code'] = $service_code;
+        $data['Types'] = Type::all();
         return view('userDashboard.trackRequest',$data);
     }
 }
