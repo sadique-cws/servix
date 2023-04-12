@@ -129,5 +129,10 @@ class RequestController extends Controller
         return redirect()->route('request.all');
     }
 
- 
+    public function trackStatus(Request $req)
+    {
+        $service_code = Str::random(6);
+        $data['service_code'] = $service_code;
+        return view('userDashboard.trackRequest',$data);
+    }
 }

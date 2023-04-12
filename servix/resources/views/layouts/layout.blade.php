@@ -46,7 +46,7 @@
                     <ul class="navbar-nav justify-content-end float ms-auto d-flex gap-2">
                         <li class=" pt-2 float-right ">
                             <button class="btn " style="background-color: #0269E1;">
-                                <a class="nav_link text-white" href="{{ route('request.form') }}">Contact</a>
+                                <a class="nav_link text-white" href="">Contact</a>
                             </button>
                         </li>
                         <li class=" pt-2 float-right ">
