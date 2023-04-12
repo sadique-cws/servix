@@ -1,40 +1,50 @@
 @extends('layouts.layout')
 
 @section('contents')
-    <div class="d-flex  fixed" style="margin-top: 20%">
+    <div class="d-flex  fixed" style="margin-top: 27%">
         <!-- Button to Open the Modal -->
-        <button type="button" class="btn btn-primary d-flex mx-auto btn-lg" data-bs-toggle="modal" data-bs-target="#myModal">
-            Track your order
-        </button>
+        <div class="position-absolute top-50 start-50 translate-middle">
+            <div class="input-group">
+                <div class="form-outline">
+                  <input type="search" id="form1" class="form-control" placeholder="search" />
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary d-flex mx-auto btn-lg mt-2" data-bs-toggle="modal"
+                data-bs-target="#myModal">
+                Track your order
+            </button>
+        </div>
 
         <!-- The Modal -->
         <div class="modal fade" id="myModal">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
+            <div class="modal-dialog modal-dialog-centered ">
+                <div class="modal-content bg-info">
 
                     <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title mx-auto">Order Status<br>AWB Number-5335T5S</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div class="modal-header d-flex flex-column">
+                        <h3 class="fw-bold text-white">Welcome To Servix Status<h1>
+                        <div class="d-flex justify-content-center">
+                            <h5 class="text-uppercase">Service Code - {{ $service_code }}</h5>
+                        </div>
+                        {{-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span></button> --}}
                     </div>
 
                     <!-- Modal body -->
                     <div class="modal-body">
-                        <div class="progress-track">
-                            <ul id="progressbar">
-                                <li class="step0 active " id="step1">Order placed</li>
-                                <li class="step0 active text-center" id="step2">In Transit</li>
-                                <li class="step0 active text-right" id="step3"><span id="three">Out for
-                                        Delivery</span></li>
-                                <li class="step0 text-right" id="step4">Delivered</li>
-                            </ul>
+                        <div class="progress-trackd-flex justify-content-start ">
+                            <div id="progressbar d-flex flex-column bd-highlight mb-3">
+                                <div class="step0 active p-2 bd-highlight " id="step1">Order placed</div>
+                                <div class="step0 active  p-2 bd-highlight" id="step2">Order working</div>
+                                <div class="step0 active  p-2 bd-highlight" id="step3"><span id="three">Out for order</span></div>
+                                <div class="step0  p-2 bd-highlight" id="step4">Delivered</div>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-9">
                                 <div class="details d-table">
                                     <div class="d-table-row">
                                         <div class="d-table-cell">
-                                            Shipped with
+                                            Technician Name
                                         </div>
                                         <div class="d-table-cell">
                                             UPS Expedited
@@ -66,3 +76,5 @@
     </div>
 @endsection
 
+{{-- @section('footer')
+@endsection --}}

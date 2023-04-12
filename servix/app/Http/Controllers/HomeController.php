@@ -21,8 +21,8 @@ class HomeController extends Controller
     }
 
 
-    public function trackStatus():View{
-        return view('userDashboard.trackRequest');
-    }
+    // public function trackStatus():View{
+    //     return view('userDashboard.trackRequest');
+    // }
     
 }
