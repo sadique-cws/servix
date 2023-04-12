@@ -22,7 +22,7 @@ class HomeController extends Controller
 
 
     public function trackStatus():View{
-        return view('trackRequest');
+        return view('userDashboard.trackRequest');
     }
     
 }
