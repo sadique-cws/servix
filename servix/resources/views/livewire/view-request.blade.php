@@ -6,8 +6,8 @@
             <div class="card-tools">
 
                 <div class="input-group input-group-sm d-flex">
-                    <form action="{{ route('admin.request.filterRequest') }}" class="mr-3">
-                        <select onchange="this.form.submit();" name="search" class="form-control float-right">
+                    <form  class="mr-3">
+                        <select wire:model="filter"  class="form-control float-right">
                             
                             <option value="all">All Request</option>
 

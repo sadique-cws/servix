@@ -164,4 +164,14 @@ class AdminController extends Controller
         return view('admin.manageRequest', $data);
 
     }
+
+    public function dateFilter(Request $req){
+        // dd($req->End);
+        // dd($req->startAt);
+        // $data['new']= RequestModel::where("created_at","LIKE","%".$req->startAt."%")->get();
+        
+        $data['new']= RequestModel::select("*")->whereBetween('created_at', [$req->startAt, $req->End])
+                                    ->get();
+        return view('admin/allnewRequest', $data);
+    }
 }

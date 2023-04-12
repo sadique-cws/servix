@@ -11,6 +11,6 @@
                 <!-- /.card-body -->
 
                 <!-- /.card -->
-            </div>
+            </div> 
         </div>
     @endsection

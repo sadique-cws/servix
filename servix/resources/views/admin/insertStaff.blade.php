@@ -25,7 +25,7 @@
                         <label for="" class="text-black-100">Name</label>
                         <div class="flex">
                             <input type="text" name="name"
-                                class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                                class="form-control"
                                 placeholder="">
                         </div>
                         @error('name')
@@ -36,7 +36,7 @@
                         <label for="" class="text-black-100">Email</label>
                         <div class="flex">
                             <input type="email" name="email"
-                                class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                                class="form-control"
                                 placeholder="example@gmail.com">
                         </div>
                         @error('email')
@@ -47,7 +47,7 @@
                         <label for="" class="text-black-100">Contact</label>
                         <div class="flex">
                             <input type="number" name="contact"
-                                class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                                class="form-control"
                                 placeholder="">
                         </div>
                         @error('contact')
@@ -60,7 +60,7 @@
                         <label for="" class="text-black-100">Salary</label>
                         <div class="flex">
                             <input type="text" name="salary"
-                                class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                                class="form-control"
                                 placeholder="">
                         </div>
                         @error('salary')
@@ -71,7 +71,7 @@
                         <label for="" class="text-black-100">Addhar no</label>
                         <div class="flex">
                             <input type="text" name="aadhar"
-                                class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                                class="form-control"
                                 placeholder="">
                         </div>
                         @error('aadhar')
@@ -82,7 +82,7 @@
                         <label for="" class="text-black-100">Pan card no</label>
                         <div class="flex">
                             <input type="text" name="pan"
-                                class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                                class="form-control"
                                 placeholder="">
                         </div>
                         @error('pan')
@@ -95,7 +95,7 @@
                         <label for="" class="text-black-100">Address</label>
                         <div class="flex">
                             <input type="text" name="address"
-                                class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                                class="form-control"
                                 placeholder="">
                         </div>
                         @error('salary')
@@ -106,7 +106,7 @@
                         <label for="" class="text-black-100">Status</label>
                         <div class="flex">
                             <input type="text" name="status"
-                                class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                                class="form-control"
                                 placeholder="">
                         </div>
                         @error('status')
@@ -117,9 +117,9 @@
 
                         <label for="inputState" class="text-black-100">Type</label>
                         <div class="flex w-full">
-                            {{-- <input type="text" name="type" class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder=""> --}}
+                            {{-- <input type="text" name="type" class="form-control" placeholder=""> --}}
                             <select id="inputState" name="type"
-                                class=" w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
+                                class=" form-control">
                                 <option selected>Choose...</option>
                                 <option>Mobile</option>
                                 <option>Laptop</option>
@@ -139,7 +139,7 @@
                         <label for="" class="text-black-100">Password</label>
                         <div class="flex">
                             <input type="password" name="password"
-                                class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                                class="form-control"
                                 placeholder="">
                         </div>
                         @error('password')

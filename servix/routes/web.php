@@ -48,6 +48,7 @@ Route::prefix("admin")->group(function () {
             Route::get("/request/delete/{id}","deleteRequest")->name("admin.request.delete");
             Route::get("/request/manage","manageRequest")->name("admin.request.manageRequest");
             Route::get("/request/filter","filterRequest")->name("admin.request.filterRequest");
+            Route::get("/request/datefilter","dateFilter")->name("admin.request.filterbydate");
         });
     });
 });
