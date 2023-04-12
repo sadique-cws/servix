@@ -19,5 +19,10 @@ class HomeController extends Controller
     public function register():View{
         return view('register');
     }
+
+
+    public function trackStatus():View{
+        return view('trackRequest');
+    }
     
 }

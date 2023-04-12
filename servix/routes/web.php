@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage; //This is for image upload,
 
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('home');
-    
+    Route::get('/trackRequest', 'trackStatus')->name('track.status');
     // new req
    
 });
