@@ -35,15 +35,12 @@
                     <table class="table table-hover text-nowrap">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                      
                                 <th>Service code</th>
                                 <th>Owner name</th>
                                 <th>Product name</th>
-                                <th>Email</th>
                                 <th>Contact</th>
                                 <th>Type</th>
-                                <th>Brand</th>
-                                <th>Color</th>
                                 <th>Problem</th>
                                 <th>Action</th>
                             </tr>
@@ -51,15 +48,11 @@
                         <tbody>
                             @foreach ($new as $item)
                                 <tr>
-                                    <td>{{ $item->id }}</td>
-                                    <td>{{ $item->service_code }}</td>
+                                    <td class="text-uppercase">{{ $item->service_code }}</td>
                                     <td>{{ $item->owner_name }}</td>
                                     <td>{{ $item->product_name }}</td>
-                                    <td class="border border-slate-700 p-1.5 pl-10">{{ $item->email }}</td>
                                     <td class="border border-slate-700 p-1.5 pl-10">{{ $item->contact }}</td>
                                     <td class="border border-slate-700 p-1.5 pl-10">{{ $item->type->typename }}</td>
-                                    <td class="border border-slate-700 p-1.5 pl-10">{{ $item->brand }}</td>
-                                    <td class="border border-slate-700 p-1.5 pl-10">{{ $item->color }}</td>
                                     <td class="border border-slate-700 p-1.5 pl-10">{{ $item->problem }}</td>
                                     <td class="border border-slate-700 p-1.5  items-center justify-center flex btn-group"
                                         role="group">
