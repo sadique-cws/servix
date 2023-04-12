@@ -28,6 +28,8 @@
     <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}">
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}">
+    @livewireStyles
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -827,6 +829,9 @@
     {{-- <script src="{{ asset("dist/js/demo.js") }}"></script> --}}
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
+
+    @livewireScripts
+
 </body>
 
 </html>

@@ -13,9 +13,7 @@ class AdminController extends Controller
 {
     public function index(Request $req): View
     {
-        $data = RequestModel::all();
-        $count = $data->count();
-        return view('admin.dashboard', ['staffs' => $data]);
+        return view('admin.dashboard');
     }
 
 
@@ -143,15 +141,13 @@ class AdminController extends Controller
 
     public function allnewRequest(Request $req)
     {
-        $data['new'] = RequestModel::all();
+        $data['new'] = RequestModel::where('technician_id',NULL)->get();
         return view('admin/allnewRequest', $data);
     }
     public function manageRequest()
     {
-        $data['totalRequest'] = RequestModel::where('technician_id', '<>', null)->get();
-        $data['staffs'] = Staff::all();
 
-        return view('admin.manageRequest', $data);
+        return view('admin.manageRequest');
     }
     public function filterRequest(Request $req)
     {

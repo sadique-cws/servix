@@ -7,7 +7,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                 <div class="">
+                 <div class="d-flex justify-content-b">
                     <h3 class="card-title">All New Request</h3>
                     
                
