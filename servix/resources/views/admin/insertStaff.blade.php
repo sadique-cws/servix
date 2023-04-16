@@ -117,13 +117,17 @@
 
                         <label for="inputState" class="text-black-100">Type</label>
                         <div class="flex w-full">
-                            <input type="text" name="type_id" class="form-control" placeholder="">
+                            {{-- <input type="text" name="type_id" class="form-control" placeholder=""> --}}
                             <select id="inputState" name="type_id"
                                 class=" form-control">
                                 <option selected>Choose...</option>
-                                <option>Mobile</option>
+                                @foreach ($Types as $item)
+                                <option value="{{$item->id}}">{{$item->typename}}</option>
+                                    
+                                @endforeach
+                                {{-- <option>Mobile</option>
                                 <option>Laptop</option>
-                                <option>Assessories</option>
+                                <option>Assessories</option> --}}
                             </select>
                         </div>
                     </div>

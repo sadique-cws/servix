@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Staff;
+use App\Models\Type;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\Request as RequestModel;
@@ -22,7 +23,8 @@ class AdminController extends Controller
         if ($req->method() == "POST") {
             $data = $req->only(["email", "password"]);
 
-            if (Auth::guard("admin")->attempt($data)) {
+            if (Auth::guard("admin")->attempt($data)) { 
+                
                 return redirect()->route("admin.panel");
             } else {
                 return redirect()->back();
@@ -89,7 +91,8 @@ class AdminController extends Controller
 
     public function insertStaff(Request $req)
     {
-        return view("admin.insertStaff");
+        $data['Types'] = Type::all();
+        return view("admin.insertStaff",$data);
     }
 
     public function editStaff($id)

@@ -66,9 +66,7 @@
                                 <option value="{{$item->id}}">{{$item->typename}}</option>
                                     
                                 @endforeach
-                                {{-- <option value="1">Mobile</option>
-                                <option value="2">Laptop</option>
-                                <option value="3">T.V</option> --}}
+                            
                             </select>
                             @error('type_id')
                             <p class="text-danger small">{{$message}} </p>
