@@ -45,7 +45,7 @@ class AdminController extends Controller
             'email' => 'required|unique:App\Models\Staff,email|email',
             'contact' => 'required|integer|unique:App\Models\Staff,contact|digits:10',
             'salary' => 'required',
-            'type' => 'required',
+            'type_id' => 'required',
             'aadhar' => 'required',
             'pan' => 'required',
             'address' => 'required',
@@ -57,6 +57,17 @@ class AdminController extends Controller
         return redirect()->route('admin.staff.manage');
 
     }
+
+     // image function
+    //  public function imageUpload(Request $req): View
+    //     {
+    //         request()->validate(['image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',]);
+ 
+    //         $imageName = time().'.'.request()->image->getClientOriginalExtension();
+    //         request()->image->move(public_path('image'), $imageName);
+
+    //         return Redirect()->route('admin.staff.mange');
+    //     }
 
     public function delete($id): RedirectResponse
     {
@@ -113,6 +124,7 @@ class AdminController extends Controller
         Staff::where('id', $id)->update($data);
         return redirect()->route('admin.staff.manage');
     }
+
 
     public function search(Request $req): View
     {

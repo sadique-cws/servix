@@ -117,8 +117,8 @@
 
                         <label for="inputState" class="text-black-100">Type</label>
                         <div class="flex w-full">
-                            {{-- <input type="text" name="type" class="form-control" placeholder=""> --}}
-                            <select id="inputState" name="type"
+                            <input type="text" name="type_id" class="form-control" placeholder="">
+                            <select id="inputState" name="type_id"
                                 class=" form-control">
                                 <option selected>Choose...</option>
                                 <option>Mobile</option>
@@ -126,8 +126,6 @@
                                 <option>Assessories</option>
                             </select>
                         </div>
-
-
                     </div>
                     @error('type')
                         <p class="text-error">{{ $message }}</p>
@@ -135,12 +133,25 @@
                 </div>
 
                 <div class="row">
+                    {{-- <div class="w-full px-3 mb-5">
+                        <label for="" class="text-black-100">Image</label>
+                        <div class="flex">
+                            <form action="{{route('admin.staff.imageUpload')}}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <input type="file" name="image">
+                                <button type="submit">Upload</button>
+                            </form>
+                                
+                        </div>
+                        @error('image')
+                            <p class="text-error">{{ $message }}</p>
+                        @enderror
+                    </div> --}}
+                        
                     <div class="w-full px-3 mb-5">
                         <label for="" class="text-black-100">Password</label>
                         <div class="flex">
-                            <input type="password" name="password"
-                                class="form-control"
-                                placeholder="">
+                            <input type="password" name="password" class="form-control">
                         </div>
                         @error('password')
                             <p class="text-error">{{ $message }}</p>

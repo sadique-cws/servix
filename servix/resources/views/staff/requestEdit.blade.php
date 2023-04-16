@@ -46,7 +46,7 @@
                         <label for="" class="text-black-100">Email</label>
                         <div class="flex">
                             <input type="email" name="email" value="{{ $data->email }}" class="form-control"
-                                placeholder="example@gmail.com">
+                                placeholder="example@gmail.com" readonly>
                         </div>
                     </div>
 
@@ -54,16 +54,16 @@
                         <label for="" class="text-black-100">Color</label>
                         <div class="flex">
                             <input type="text" name="color" value="{{ $data->color }}"
-                                class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                                placeholder="">
+                                class="form-control"
+                                placeholder="" readonly>
                         </div>
                     </div>
                     <div class="w-full px-3 mb-5">
                         <label for="" class="text-black-100">Brand</label>
                         <div class="flex">
                             <input type="text" name="brand" value="{{ $data->brand }}"
-                                class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                                placeholder="">
+                                class="form-control"
+                                placeholder="" readonly>
                         </div>
                     </div>
                 </div>
@@ -72,8 +72,28 @@
                         <label for="" class="text-black-100">Problem</label>
                         <div class="flex">
                             <input type="text" name="problem" value="{{ $data->problem }}"
-                                class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                                placeholder="">
+                                class="form-control"
+                                placeholder="" readonly>
+                        </div>
+                    </div>
+                    <div class="w-full px-3 mb-5">
+                        <label for="" class="text-black-100">Remark</label>
+                        <div class="flex">
+                            <input type="text" name='remark' class="form-control" value="" placeholder="">
+                        </div>
+                    </div>
+                    <div class="w-full px-3 mb-5 row gap-2">
+                        <div class="flex col">
+                            <label>Pending</label>
+                            <input type="radio" name="problem" value="{{ $data->status }}" class="form-control " placeholder="" readonly>
+                        </div>
+                        <div class="flex col">
+                            <label>Reject</label>
+                            <input type="radio" name="problem" value="{{ $data->status }}" class="form-control" placeholder="" readonly>
+                        </div>
+                        <div class="flex col">
+                            <label class="btn btn-outline-danger" for="deliver">Deliver</label>
+                            <input type="radio" id="deliver" name="problem" value="{{ $data->status }}" class="btn-check" placeholder="" readonly>
                         </div>
                     </div>
                 </div>
