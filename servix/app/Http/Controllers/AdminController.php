@@ -60,16 +60,16 @@ class AdminController extends Controller
 
     }
 
-     // image function
-    //  public function imageUpload(Request $req): View
-    //     {
-    //         request()->validate(['image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',]);
+    //  image function
+    public function imageUpload(Request $req): View
+    {
+        request()->validate(['image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',]);
  
-    //         $imageName = time().'.'.request()->image->getClientOriginalExtension();
-    //         request()->image->move(public_path('image'), $imageName);
+        $imageName = time().'.'.request()->image->extension();
+        request()->image->move(public_path('images'), $imageName);
 
-    //         return Redirect()->route('admin.staff.mange');
-    //     }
+        return redirect()->back()->withSuccess('you have successfull upload image')->with('image',$imageName);
+    }
 
     public function delete($id): RedirectResponse
     {
