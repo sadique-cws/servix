@@ -137,20 +137,20 @@
                 </div>
 
                 <div class="row">
-                    {{-- <div class="w-full px-3 mb-5">
+                    <div class="w-full px-3 mb-5">
                         <label for="" class="text-black-100">Image</label>
                         <div class="flex">
                             <form action="{{route('admin.staff.imageUpload')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <input type="file" name="image">
-                                <button type="submit">Upload</button>
+                                <button type="submit" class="btn btn-info">Upload</button>
                             </form>
                                 
                         </div>
                         @error('image')
                             <p class="text-error">{{ $message }}</p>
                         @enderror
-                    </div> --}}
+                    </div>
                         
                     <div class="w-full px-3 mb-5">
                         <label for="" class="text-black-100">Password</label>
