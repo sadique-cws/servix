@@ -46,12 +46,12 @@
                     <ul class="navbar-nav justify-content-end float ms-auto d-flex gap-2">
                         <li class=" pt-2 float-right ">
                             <button type="button" class="btn" style="">
-                                <a class="nav_link btn-block" href="">Contact</a>
+                                <a class="nav_link btn-block" href="{{ route('home.contact') }}">Contact</a>
                             </button>
                         </li>
                         <li class=" pt-2 float-right ">
                             <button type="button" class="btn" style="">
-                                <a class="nav_link btn-block" href="">Learn</a>
+                                <a class="nav_link btn-block" href="{{ route('home.learn') }}">Learn</a>
                             </button>
                         </li>
                         <li class=" pt-2 float-right ">
