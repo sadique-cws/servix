@@ -10,25 +10,11 @@
 
 
 
-                    <div class="d-flex justify-content-b">
+                    <div class="d-flex justify-content-between">
                         <h3 class="card-title">All New Request</h3>
 
 
-                        <form action="{{ route('admin.request.filterbydate') }}" method="get" class="d-flex">
-                            <div class="md-form md-outline d-flex input-with-post-icon datepicker" inline="true">
-                                <label for="example">Start Date</label>
-                                <input placeholder="Select date" type="date" name="startAt" class="form-control">
 
-                            </div>
-
-
-                            <div class="md-form md-outline d-flex input-with-post-icon datepicker" inline="true">
-                                <label for="example">End Date</label>
-                                <input placeholder="Select date" type="date" name="End" class="form-control">
-
-                            </div>
-                            <button type="submit"> go</button>
-                        </form>
 
                         <div class="card-tools">
                             <form action="">
@@ -48,6 +34,43 @@
                             </form>
                         </div>
                     </div>
+                    {{-- date and time filter --}}
+
+                    <div class=" d-flex justify-content-around mt-3">
+
+                        <form action="{{ route('admin.request.filterbydate') }}" method="get" class="">
+                            <div class=" d-flex justify-content-evenly">
+                                <div class="md-form md-outline d-flex input-with-post-icon datepicker" inline="true">
+                                    <label for="example" class="text-sm ml-4">from Date</label>
+                                    <input placeholder="Select date" type="date" name="startAt" class="form-control">
+
+                                </div>
+
+
+                                <div class="md-form md-outline d-flex input-with-post-icon datepicker" inline="true">
+                                    <label for="example" class="text-sm ml-4">to Date</label>
+                                    <input placeholder="Select date" type="date" name="End" class="form-control">
+
+                                </div>
+                                <div class="">
+                                    <button type="submit" class="btn btn-primary ml-4"> go</button>
+                                </div>
+                            </div>
+                        </form>
+                        <form action="admin.request.filterbyselect">
+                            <div class="form-control">
+                                <select onchange="this.form.submit();" class="form-select" name='filterBy' >
+                                    <option selected>Open this select menu</option>
+                                    <option>Today</option>
+                                    <option>Yesterday</option>
+                                    <option>Last 7 Day</option>
+                                    <option>This Month</option>
+                                    <option>Last Month</option>
+                                    <option>All</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
                     <!-- /.card-header -->
                     <div class="card-body table-responsive p-0">
                         <table class="table table-hover text-nowrap">
@@ -61,6 +84,7 @@
                                     <th>Contact</th>
                                     <th>Type</th>
                                     <th>Problem</th>
+                                    <th>Create_At</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -73,11 +97,14 @@
                                         <td class="border border-slate-700 p-1.5 pl-10">{{ $item->contact }}</td>
                                         <td class="border border-slate-700 p-1.5 pl-10">{{ $item->type->typename }}</td>
                                         <td class="border border-slate-700 p-1.5 pl-10">{{ $item->problem }}</td>
+                                        <td class="border border-slate-700 p-1.5 pl-10">
+                                            {{ date('d M Y', strtotime($item->created_at)) }}</td>
                                         <td class="border border-slate-700 p-1.5  items-center justify-center flex btn-group"
                                             role="group">
-                                            <a role="button" class="btn btn-info" href="{{ route('admin.staff.status',$item)}}">{{($item->status==1)?"Active":"DeActive"}}</a>
+
                                             {{-- edit button --}}
-                                            <a role="button" class="btn btn-warning" href="{{ route('admin.staff.edit', $item->id) }}">Edit</a>
+                                            <a role="button" class="btn btn-warning"
+                                                href="{{ route('admin.staff.edit', $item->id) }}">Edit</a>
                                             {{-- View button  --}}
                                             <a data-toggle="modal" data-target="#view{{ $item->id }}" role="button"
                                                 class=" btn btn-info">View</a>
@@ -183,9 +210,9 @@
                                                                             Email</label>
                                                                         <h5>{{ $item->email }}</h5>
                                                                     </div>
-                                                                    
-                                        
-                                        
+
+
+
                                     </tr>
                                 @endforeach
                             </tbody>

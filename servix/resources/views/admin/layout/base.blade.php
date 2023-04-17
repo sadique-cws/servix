@@ -28,6 +28,8 @@
     <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}">
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}">
+
+    
     @livewireStyles
 
 </head>
@@ -85,7 +87,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
                         <i class="far fa-comments"></i>
-                        <span class="badge badge-danger navbar-badge">3</span>
+                        <span class="badge badge-danger navbar-badge">0</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <a href="#" class="dropdown-item">
@@ -147,18 +149,18 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
                         <i class="far fa-bell"></i>
-                        <span class="badge badge-warning navbar-badge">15</span>
+                        <span class="badge badge-warning navbar-badge">{{countNewRequest()}}</span> 
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <span class="dropdown-item dropdown-header">15 Notifications</span>
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
+                        {{-- <a href="#" class="dropdown-item">
                             <i class="fas fa-envelope mr-2"></i> 4 new messages
                             <span class="float-right text-muted text-sm">3 mins</span>
-                        </a>
+                        </a> --}}
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item">
-                            <i class="fas fa-users mr-2"></i> 8 friend requests
+                            <i class="fas fa-users mr-2"></i> {{countNewRequest()}} requests
                             <span class="float-right text-muted text-sm">12 hours</span>
                         </a>
                         <div class="dropdown-divider"></div>
@@ -779,13 +781,13 @@
             @show
         </div>
         <!-- /.content-wrapper -->
-        <footer class="main-footer">
+        {{-- <footer class="main-footer">
             <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
             All rights reserved.
             <div class="float-right d-none d-sm-inline-block">
                 <b>Version</b> 3.2.0
             </div>
-        </footer>
+        </footer> --}}
 
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
@@ -828,8 +830,12 @@
     <!-- AdminLTE for demo purposes -->
     {{-- <script src="{{ asset("dist/js/demo.js") }}"></script> --}}
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
 
+    <script type="text/javascript">
+        var chart_data = @json(WeeklyCount()); 
+        var sale_data = @json(MonthlyCount())
+    </script>
+    <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
     @livewireScripts
 
 </body>

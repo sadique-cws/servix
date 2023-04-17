@@ -35,6 +35,8 @@ Route::prefix("admin")->group(function () {
             Route::get('/', 'index')->name('admin.panel');
             Route::get("/staff/manage","manageStaff")->name("admin.staff.manage");
             Route::get("/staff/create","insertStaff")->name("admin.staff.create");
+           
+      
             Route::post("/staff/create","staffUpload")->name("admin.staff.store");
             Route::get("/staff/delete/{id}","delete")->name("admin.staff.delete");
             Route::get("/staff/edit/{id}","editStaff")->name('admin.staff.edit');
@@ -50,6 +52,7 @@ Route::prefix("admin")->group(function () {
             Route::get("/request/manage","manageRequest")->name("admin.request.manageRequest");
             Route::get("/request/filter","filterRequest")->name("admin.request.filterRequest");
             Route::get("/request/datefilter","dateFilter")->name("admin.request.filterbydate");
+            Route::get("/request/filterbyselect","filterBySelect")->name("admin.request.filterbyselect");
         });
     });
 });
@@ -84,10 +87,10 @@ Route::prefix("staff")->group(function () {
 
 
 // This is route is for image upload.
-Route::post('/upload', function (Illuminate\Http\Request $request) {
-    $path = $request->file('image')->store('images', 's3');
-    return back()
-        ->with('success','Image uploaded successfully.')
-        ->with('image',$path);
-});
+// Route::post('/upload', function (Illuminate\Http\Request $request) {
+//     $path = $request->file('image')->store('images', 's3');
+//     return back()
+//         ->with('success','Image uploaded successfully.')
+//         ->with('image',$path);
+// });
 

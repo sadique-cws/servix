@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Staff;
+use App\Models\Type;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\Request as RequestModel;
@@ -22,7 +23,8 @@ class AdminController extends Controller
         if ($req->method() == "POST") {
             $data = $req->only(["email", "password"]);
 
-            if (Auth::guard("admin")->attempt($data)) {
+            if (Auth::guard("admin")->attempt($data)) { 
+                
                 return redirect()->route("admin.panel");
             } else {
                 return redirect()->back();
@@ -45,14 +47,17 @@ class AdminController extends Controller
             'email' => 'required|unique:App\Models\Staff,email|email',
             'contact' => 'required|integer|unique:App\Models\Staff,contact|digits:10',
             'salary' => 'required',
-            'type' => 'required',
+            'type_id' => 'required',
             'aadhar' => 'required',
             'pan' => 'required',
             'address' => 'required',
             'status' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'password' => 'required',
         ]);
-
+        $imageName = time() . '.' . $request->image->extension();
+        $request->image->storeAs('public/images', $imageName);
+        $data['image']=$imageName;
         Staff::create($data);
         return redirect()->route('admin.staff.manage');
 
@@ -78,7 +83,8 @@ class AdminController extends Controller
 
     public function insertStaff(Request $req)
     {
-        return view("admin.insertStaff");
+        $data['Types'] = Type::all();
+        return view("admin.insertStaff",$data);
     }
 
     public function editStaff($id)
@@ -113,6 +119,7 @@ class AdminController extends Controller
         Staff::where('id', $id)->update($data);
         return redirect()->route('admin.staff.manage');
     }
+
 
     public function search(Request $req): View
     {
@@ -173,5 +180,8 @@ class AdminController extends Controller
         $data['new']= RequestModel::select("*")->whereBetween('created_at', [$req->startAt, $req->End])
                                     ->get();
         return view('admin/allnewRequest', $data);
+    }
+    public function filterBySelect(Request $req){
+        dd($req->filterBy);
     }
 }

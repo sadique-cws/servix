@@ -53,7 +53,7 @@ class RequestController extends Controller
     public function newRequests(){
         $user = Auth::guard('staff')->user();
         $data['allRequests'] = RequestModel::where('type_id',$user->type_id)
-                                        ->where('technician_id',NULL)->get();
+                                        ->where('technician_id',NULL)->where('status','initial stage')->get();
         $data['title'] = "New Request";
         return view("staff.requests",$data);
     }
@@ -65,6 +65,7 @@ class RequestController extends Controller
                                 ->where('id',$id)->first();
 
         $request->technician_id = $user->id;
+        $request->status ="work in progress";
         $request->save();
         return redirect()->back();
     }
@@ -134,4 +135,6 @@ class RequestController extends Controller
         $data['Types'] = Type::all();
         return view('userDashboard.trackRequest',$data);
     }
+
+   
 }
