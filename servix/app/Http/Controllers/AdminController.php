@@ -189,4 +189,7 @@ class AdminController extends Controller
                                     ->get();
         return view('admin/allnewRequest', $data);
     }
+    public function filterBySelect(Request $req){
+        dd($req->filterBy);
+    }
 }

@@ -51,6 +51,7 @@ Route::prefix("admin")->group(function () {
             Route::get("/request/manage","manageRequest")->name("admin.request.manageRequest");
             Route::get("/request/filter","filterRequest")->name("admin.request.filterRequest");
             Route::get("/request/datefilter","dateFilter")->name("admin.request.filterbydate");
+            Route::get("/request/filterbyselect","filterBySelect")->name("admin.request.filterbyselect");
         });
     });
 });

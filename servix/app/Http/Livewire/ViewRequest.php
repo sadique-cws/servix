@@ -13,7 +13,7 @@ class ViewRequest extends Component
     public function render()
     {
         return view('livewire.view-request',[
-            'requests' => RequestModel::where('technician_id', '<>', null)->where('owner_name',"LIKE","%".$this->search."%")->where('technician_id',"LIKE",$this->filter)->get(),
+            'requests' => RequestModel::where('technician_id', '<>', null)->where('owner_name',"LIKE","%".$this->search."%")->get(),
             "staffs" => Staff::all(),
         ]);
     }
