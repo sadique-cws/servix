@@ -1,93 +1,75 @@
 @extends('layouts.layout')
 
 @section('contents')
-    <div class="container mt-5">
-        <div class="row mt-5 py-5">
-            <div class="col-6 card p-5 mx-auto mt-5 rounded-5">
-                <div class="d-flex justify-content-center">
-                    <h1 class="font-bold text-3xl text-gray-900 mb-4">Service Request</h1>
-                </div>
-                <form action="{{route('request.create') }}" method="POST">
-                    @csrf
-                    <div class="row">
-                        <div class="mb-3 col-6">
-                            <label for="" class="text-xs font-semibold px-1">Name</label>
-                            <input type="text" name="owner_name" class="form-control" value="{{old('owner_name')}}">
-                            @error('owner_name')
-                                <p class="text-danger small">{{$message}} </p>
-                            @enderror
+    <div class="container mt-5 py-1">
+            <div class="row mt-5 py-5">
+                <div class="col-7 card p-5 mx-auto mt-5 rounded-5 text-center font-bold">
+                    {{-- my animation --}}
+                    <div id="animation-container" class="" style="margin-top:-230px;height: 400px;"></div>
+                    {{-- flash message --//-- Notify user section --}}
+                    <div class="d-flex justify-content-center" style="margin-top: -110px">
+                        <h1 class="font-bold text-3xl text-gray-900 mb-4">Request submited successfully!</h1>
+                    </div>
+                    <div class="text-center">
+                      <p>Your request has been submited successfully!<br>Wait for our staffs to review your request. We will try our best to start work on your requested issue as soon as possible... 
+                    </p>
+                    <b><span class="fs-3" style="margin-right: 90px">Here is your service code </span></b><br>
+                    <div class="w-full d-flex flex-lg-row flex-sm-col ">
+                        <div class="box1 col-8 justify-content-end align-items-center d-flex" style="height: 100px;">
+                            <code id="copy-text" class="font-style-mono fs-1 text-success border px-5 py-2 overflow-auto text-uppercase " style="max-width: 450px; max-height: 80px; margin-right:37px; background-color: #D3D3D3" >iiiryfho</code>
                         </div>
-                        <div class="mb-3 col-6">
-                            <label for="" class="text-xs font-semibold px-1">Product Name</label>
-                            <input type="text" name="product_name" class="form-control">
-                            @error('product_name')
-                            <p class="text-danger small">{{$message}} </p>
-                        @enderror
+                        <div class="box2 col-4 justify-content-start align-items-center d-flex overflow-visible " style="height: 100px;">
+                            <div class="" style="height:220px; margin-top:-80px; margin-left:-10px; " id="animation-copy"></div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="mb-3 col-6">
-                            <label for="" class="text-xs font-semibold px-1">Contact</label>
-                            <input type="number" name="contact" class="form-control">
-                            @error('contact')
-                            <p class="text-danger small">{{$message}} </p>
-                        @enderror
-                        </div>
-                        <div class="mb-3 col-6">
-                            <label for="" class="text-xs font-semibold px-1">Email</label>
-                            <input type="email" name="email" class="form-control">
-                            @error('email')
-                            <p class="text-danger small">{{$message}} </p>
-                        @enderror
-                        </div>
-                    </div>
-                    <div class="row ">
-                        <div class="mb-3 col-4">
-                            <label for="" class="text-xs font-semibold px-1">Brand</label>
-                            <input type="text" name="brand" class="form-control">
-                            @error('brand')
-                            <p class="text-danger small">{{$message}} </p>
-                        @enderror
-                        </div>
-                        <div class="mb-3 col-4">
-                            <label for="" class="text-xs font-semibold px-1">Color</label>
-                            <div class="flex">
-                                <input type="text" name="color" class="form-control">
-                                @error('color')
-                            <p class="text-danger small">{{$message}} </p>
-                        @enderror
-                            </div>
-                        </div> 
-                        <div class="mb-3 col-4">
-                            <label for="" class="text-xs font-semibold px-1">Type</label>
-                            <select name="type_id" class="form-select font-semibold text-xs px-1">
-                                <option value="">Select Type</option>
-                                <option value="1">Mobile</option>
-                                <option value="2">Laptop</option>
-                                <option value="3">T.V</option>
-                            </select>
-                            @error('type_id')
-                            <p class="text-danger small">{{$message}} </p>
-                        @enderror
-                        </div> 
-                        
-                    </div>
-                
-                        <div class="mb-3">
-                            <label for="" class="text-xs font-semibold px-1">Problem</label>
-                                <textarea type="text" name="problem"
-                                    class="form-control"></textarea>
-                                    @error('problem')
-                                    <p class="text-danger small">{{$message}} </p>
-                                @enderror
-                        </div>
-                        <div class="w-full">
-                            <button
-                                class="btn btn-success w-100">Raise Request</button>
-                        </div>
-                </form>
+                    <p id="copy-message"></p>
+                    <p>Please note it down anywhere! It may be asked while recieving your pruduct.. </p>
                 </div>
             </div>
         </div>
-    </div>
+</div>
+
+<script>
+    // Targetting contianer
+    var animationContainerSuccess = document.getElementById('animation-container');
+    var animationContainerCopy = document.getElementById('animation-copy');
+    
+    // running animation
+    var animation = lottie.loadAnimation({
+        container: animationContainerSuccess,
+        renderer: 'svg',
+        loop: false,
+        autoplay: true,
+        path: '{{ asset('img/success.json') }}'
+    });
+    var animation = lottie.loadAnimation({
+        container: animationContainerCopy,
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: '{{ asset('img/copyworker.json') }}'
+    });
+     
+    // 
+    const copyText = document.querySelector('#copy-text');
+const copyButton = document.querySelector('#copy-button');
+const copyMessage = document.querySelector('#copy-message');
+
+copyButton.addEventListener('click', () => {
+  navigator.clipboard.writeText(copyText.textContent)
+    .then(() => {
+      copyMessage.textContent = 'Code copied successfully!';
+    })
+    .catch(() => {
+      copyMessage.textContent = 'Oops, something went wrong.';
+    });
+});
+
+
+</script>
+
+@endsection
+
+@section('footer')
+    {{-- null footer --}}
 @endsection
