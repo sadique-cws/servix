@@ -125,10 +125,15 @@ class RequestController extends Controller
         return redirect()->route('request.all');
     }
 
-    public function trackStatus(Request $req)
+    
+
+
+    public function trackStatus(Request $req): View
     {
-        $data['Types'] = Type::all();
-        return view('userDashboard.trackRequest',$data);
+        $searchStatus = $req->search;
+        $data = RequestModel::where('service_code', 'LIKE', "%$searchStatus%")->get();
+        return view('userDashboard.trackRequest', ['track' => $data]);
+        
     }
 
    

@@ -18,12 +18,7 @@ if (! function_exists('countNewRequest')) {
     }
 }
 
-if (! function_exists('WeeklyCount')) {
-    function WeeklyCount() {
-        $count = RequestModel::where('technician_id','!=',NULL)->count();
-        return [2,10,5,34,54,6,32];
-    }
-}
+    // Monthly count Request
 
 if (! function_exists('MonthlyCount')) {
     function MonthlyCount() {
@@ -49,3 +44,33 @@ for($i = 1; $i <= 12; $i++){
         return array_values($userArr);
     }
 }
+
+
+
+    // Weekly count Request
+
+if (! function_exists('WeeklyCount')) {
+    function WeeklyCount() {
+        $request = RequestModel::select('id', 'created_at')->get()
+            ->groupBy(function($date) {
+                return Carbon::parse($date->created_at)->format('d'); // grouping by days
+            });
+
+$requestdcount = [];
+$userArr = [];
+
+foreach ($request as $key => $value) {
+    $requestdcount[(int)$key] = count($value);
+}
+
+for($i = 1; $i <= 12; $i++){
+    if(!empty($requestdcount[$i])){
+        $userArr[$i] = $requestdcount[$i];    
+    }else{
+        $userArr[$i] = 0;    
+    }
+}
+        return array_values($userArr);
+    }
+}
+

@@ -22,7 +22,7 @@ Route::controller(RequestController::class)->group(function () {
  
     Route::get('/requestForm','requestForm')->name('request.form');
     Route::post( '/requestForm', 'requestCreate')->name('request.create');
-    Route::get('/trackRequest', 'trackStatus')->name('track.status');
+    Route::match(["post", "get"],'/trackRequest', 'trackStatus')->name('track.status');
    
 });
 
@@ -85,14 +85,4 @@ Route::prefix("staff")->group(function () {
 });
 
 
-
-
-
-// This is route is for image upload.
-// Route::post('/upload', function (Illuminate\Http\Request $request) {
-//     $path = $request->file('image')->store('images', 's3');
-//     return back()
-//         ->with('success','Image uploaded successfully.')
-//         ->with('image',$path);
-// });
 

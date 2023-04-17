@@ -70,7 +70,7 @@ $(function () {
     labels: ['Sun', 'Mon', 'Tue', 'Web', 'Thu', 'Fri', 'Sat'],
     datasets: [
       {
-        label: 'Digital Goods',
+        label: 'Request',
         backgroundColor: 'rgba(60,141,188,0.9)',
         borderColor: 'rgba(60,141,188,0.8)',
         pointRadius: false,
