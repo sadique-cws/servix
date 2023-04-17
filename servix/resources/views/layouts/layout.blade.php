@@ -51,7 +51,12 @@
                         </li>
                         <li class=" pt-2 float-right ">
                             <button type="button" class="btn" style="">
-                                <a class="nav_link " href="{{ route('track.status') }}">Track Status</a>
+                                <a class="nav_link btn-block" href="">Learn</a>
+                            </button>
+                        </li>
+                        <li class=" pt-2 float-right ">
+                            <button type="button" class="btn" style="">
+                                <a class="nav_link " href="{{ route('track.status') }}">Track-Status</a>
                             </button>
                         </li>
                         <li class=" pt-2 float-right ">
