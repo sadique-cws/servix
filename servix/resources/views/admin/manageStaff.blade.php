@@ -49,7 +49,13 @@
                             @foreach ($staffs as $item)
                                 <tr>
                                     <td>{{ $item->id }}</td>
-                                    <td><img src="images/{{\Session::get('image')}}"></td>
+                                    <td>
+                                        @if($item->image)
+                                        <img src="{{ asset('storage/images/'.$item->image) }}" style="height: 50px;width:100px;">
+                                        @else 
+                                        <span>No image found!</span>
+                                        @endif
+                                    </td>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->email }}</td>
                                     <td class="border border-slate-700 p-1.5 pl-10">{{ $item->contact }}</td>

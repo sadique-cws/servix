@@ -52,23 +52,15 @@ class AdminController extends Controller
             'pan' => 'required',
             'address' => 'required',
             'status' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'password' => 'required',
         ]);
-
+        $imageName = time() . '.' . $request->image->extension();
+        $request->image->storeAs('public/images', $imageName);
+        $data['image']=$imageName;
         Staff::create($data);
         return redirect()->route('admin.staff.manage');
 
-    }
-
-    //  image function
-    public function imageUpload(Request $req): View
-    {
-        request()->validate(['image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',]);
- 
-        $imageName = time().'.'.request()->image->extension();
-        request()->image->move(public_path('images'), $imageName);
-
-        return redirect()->back()->withSuccess('you have successfull upload image')->with('image',$imageName);
     }
 
     public function delete($id): RedirectResponse
