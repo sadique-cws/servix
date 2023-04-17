@@ -11,7 +11,7 @@
 
 
                     <div class="d-flex justify-content-between">
-                        <h3 class="card-title">All New Request</h3>
+                        <h3 class="card-title">{{$title}}</h3>
 
 
 
@@ -57,16 +57,19 @@
                                 </div>
                             </div>
                         </form>
-                        <form action="admin.request.filterbyselect">
+                        {{-- select to filter  --}}
+                        <form action="{{ route('admin.request.filterbyselect') }}" method="get" >
                             <div class="form-control">
-                                <select onchange="this.form.submit();" class="form-select" name='filterBy' >
-                                    <option selected>Open this select menu</option>
-                                    <option>Today</option>
-                                    <option>Yesterday</option>
-                                    <option>Last 7 Day</option>
-                                    <option>This Month</option>
-                                    <option>Last Month</option>
-                                    <option>All</option>
+                                <select onchange="this.form.submit();" class="form-select" name='dateFilter'>
+                                    <option selected>All</option>
+                                    <option {{$dateFilter=="today"? 'selected' : ''}} value="today">Today</option>
+                                    <option {{$dateFilter=="yesterday"? 'selected' : ''}} value="yesterday">Yesterday</option>
+                                    <option {{$dateFilter=="this_week"? 'selected' : ''}} value="this_week">Last 7 Day</option>
+                                    <option {{$dateFilter=="this_month"? 'selected' : ''}} value="this_month">This Month</option>
+                                    <option {{$dateFilter=="last_month"? 'selected' : ''}} value="last_month">Last Month</option>
+                                    <option {{$dateFilter=="this_year"? 'selected' : ''}} value="this_year">This Year</option>
+                                    <option {{$dateFilter=="last_year"? 'selected' : ''}} value="last_year">Last Year</option>
+                                    
                                 </select>
                             </div>
                         </form>

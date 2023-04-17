@@ -45,17 +45,22 @@
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav justify-content-end float ms-auto d-flex gap-2">
                         <li class=" pt-2 float-right ">
-                            <button class="btn " style="background-color: #0269E1;">
-                                <a class="nav_link text-white" href="">Contact</a>
+                            <button type="button" class="btn" style="">
+                                <a class="nav_link btn-block" href="{{ route('home.contact') }}">Contact</a>
                             </button>
                         </li>
                         <li class=" pt-2 float-right ">
-                            <button class="btn " style="background-color: #02E146;">
-                                <a class="nav_link text-white" href="{{ route('track.status') }}">Track Stauts</a>
+                            <button type="button" class="btn" style="">
+                                <a class="nav_link btn-block" href="{{ route('home.learn') }}">Learn</a>
                             </button>
                         </li>
                         <li class=" pt-2 float-right ">
-                            <button class="btn " style="background-color: #e87605;">
+                            <button type="button" class="btn" style="">
+                                <a class="nav_link " href="{{ route('track.status') }}">Track-Status</a>
+                            </button>
+                        </li>
+                        <li class=" pt-2 float-right ">
+                            <button class="btn btn-block " style="background-color: #e87605;">
                                 <a class="nav_link text-white" href="{{ route('request.form') }}">Request form</a>
                             </button>
                         </li>
