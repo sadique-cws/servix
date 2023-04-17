@@ -78,17 +78,15 @@
                                                     <h5>{{ $item->id }}</h5>
                                                 </div>
                                                 <div class="border border-dark p-1 text-center">
-                                                    <label for=""><span></span>Email</label>
-                                                    <h5>{{ $item->email }}</h5>
+                                                    <label for=""><span></span>Remark</label>
+                                                    <h5>{{ $item->remark }}</h5>
                                                 </div>
                                                 <div class="border border-dark p-1 text-center">
                                                     <label for="">Product Name</label>
                                                     <h5>{{ $item->product_name }}</h5>
                                                 </div>
                                                 <div class="border border-dark p-1 text-center">
-                                                    <label for="">
-                                                       
-                                                        Email</label>
+                                                    <label for="">Email</label>
                                                     <h5>{{ $item->email }}</h5>
                                                 </div>
                                             </div>

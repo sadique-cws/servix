@@ -51,9 +51,9 @@
                                     <td>{{ $item->id }}</td>
                                     <td>
                                         @if($item->image)
-                                        <img src="{{ asset('storage/images/'.$item->image) }}" style="height: 50px;width:100px;">
+                                            <img src="{{ asset('storage/images/'.$item->image) }}" style="height: 50px; width:70px;" class="rounded-circle">
                                         @else 
-                                        <span>No image found!</span>
+                                            <span>No image found!</span>
                                         @endif
                                     </td>
                                     <td>{{ $item->name }}</td>

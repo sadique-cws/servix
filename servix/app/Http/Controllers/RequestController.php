@@ -116,13 +116,8 @@ class RequestController extends Controller
     public function requestUpdate(Request $req)
     {
         $data = $req->validate([
-            'owner_name' => 'required',
-            'product_name' => 'required',
-            'contact' => 'required',
-            'email' => 'required',
-            'color' => 'required',
-            'brand' => 'required',
-            'problem' => 'required',
+            'remark' => 'required',
+            'status' => 'required',
         ]);
 
         $id=$req->id;

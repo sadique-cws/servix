@@ -16,7 +16,7 @@
                 </div>
             </div>
 
-            <form action="{{ route('request.update', $data['id']) }}" method="post">
+            <form action="{{ route('request.update', $data['id']) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="w-full px-3 mb-5">
@@ -82,19 +82,13 @@
                             <input type="text" name='remark' class="form-control" value="" placeholder="">
                         </div>
                     </div>
-                    <div class="w-full px-3 mb-5 row gap-2">
-                        <div class="flex col">
-                            <label>Pending</label>
-                            <input type="radio" name="problem" value="{{ $data->status }}" class="form-control " placeholder="" readonly>
-                        </div>
-                        <div class="flex col">
-                            <label>Reject</label>
-                            <input type="radio" name="problem" value="{{ $data->status }}" class="form-control" placeholder="" readonly>
-                        </div>
-                        <div class="flex col">
-                            <label class="btn btn-outline-danger" for="deliver">Deliver</label>
-                            <input type="radio" id="deliver" name="problem" value="{{ $data->status }}" class="btn-check" placeholder="" readonly>
-                        </div>
+                    <div class="w-full px-3 mb-5  gap-2">
+                        <label for="" class="text-black-100">Status</label>
+                        <div class="flex gap-4">
+                            <input type="radio" name="status" value="Pending"> Pending
+                            <input type="radio" name="status" value="Reject"> Reject
+                            <input type="radio" name="status" value="Deliver"> Deliver
+                        </div> 
                     </div>
                 </div>
                 <div class="row">

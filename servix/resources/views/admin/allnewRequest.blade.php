@@ -84,6 +84,8 @@
                                     <th>Contact</th>
                                     <th>Type</th>
                                     <th>Problem</th>
+                                    <th>Status</th>
+                                    <th>Remark</th>
                                     <th>Create_At</th>
                                     <th>Action</th>
                                 </tr>
@@ -97,6 +99,8 @@
                                         <td class="border border-slate-700 p-1.5 pl-10">{{ $item->contact }}</td>
                                         <td class="border border-slate-700 p-1.5 pl-10">{{ $item->type->typename }}</td>
                                         <td class="border border-slate-700 p-1.5 pl-10">{{ $item->problem }}</td>
+                                        <td class="border border-slate-700 p-1.5 pl-10">{{ $item->status }}</td>
+                                        <td class="border border-slate-700 p-1.5 pl-10">{{ $item->remark }}</td>
                                         <td class="border border-slate-700 p-1.5 pl-10">
                                             {{ date('d M Y', strtotime($item->created_at)) }}</td>
                                         <td class="border border-slate-700 p-1.5  items-center justify-center flex btn-group"
