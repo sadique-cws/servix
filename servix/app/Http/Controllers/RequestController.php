@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
+use App\Mail\RequestSend;
 
+
+use Illuminate\Support\Facades\Mail;
 
 class RequestController extends Controller
 {
@@ -39,6 +42,8 @@ class RequestController extends Controller
 
         RequestModel::create($data);
         // return redirect()->route('flashMsg');
+        Mail::to($data['email'])->send(new RequestSend());
+
         return view('flashMessage',$data);
         
     }
