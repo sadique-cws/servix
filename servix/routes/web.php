@@ -77,7 +77,6 @@ Route::prefix("staff")->group(function () {
             Route::get('/request/{id}/pending', [RequestController::class,'pending'])->name('request.pending');
             Route::get('/request/pandingRequests', [RequestController::class,'pandingRequests'])->name('request.show.panding');
             Route::get('/', 'index')->name('staff.panel');
-            Route::get('/', 'index')->name('staff.panel');
             Route::get('/logout', 'stafflogout')->name('staff.logout');
                 
         });

@@ -134,11 +134,18 @@ class RequestController extends Controller
 
 
     public function trackStatus(Request $req): View
-    {
-        $searchStatus = $req->search;
-        $data = RequestModel::where('service_code', 'LIKE', "%$searchStatus%")->where('service_code',$req->service_code)->get();
-        // dd($data);
-        return view('userDashboard.trackRequest', ['track' => $data]);
+    {  
+        $data['searchStatus']="";
+        $data['item']="";
+        if($req->method()=='POST'){
+           $data['searchStatus'] = $req->search;
+           $searchStatus=$req->search;
+        //   dd($searchStatus);
+          $data['item'] = RequestModel::where('service_code', 'LIKE', "%$searchStatus%")->first();
+          return view('userDashboard.trackRequest', $data);
+       }
+      
+    return view('userDashboard.trackRequest',$data);
         
     }
 
