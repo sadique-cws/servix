@@ -8,9 +8,6 @@ use Illuminate\Database\Seeder;
 
 class TypeSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
         $types = [
@@ -21,7 +18,7 @@ class TypeSeeder extends Seeder
             
         ];
          
-        Type::create($types);
+        Type::insert($types);
 
     }
 }
