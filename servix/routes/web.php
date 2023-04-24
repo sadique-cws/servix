@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ReceptionerController;
 use App\Http\Controllers\RequestController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -82,6 +83,13 @@ Route::prefix("staff")->group(function () {
         });
     });
 });
-
-
+Route::prefix("receptioner")->group(function(){
+   Route::controller(ReceptionerController::class)->group(function(){
+       // without auth middleware 
+       Route::match(["post", "get"], '/login', 'receptionerlogin')->name('receptioner.login');
+       Route::middleware('auth:receptioner')->group(function(){
+        Route::get('/', 'index')->name('receptioner.panel');
+       });
+   });
+});
 

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 use App\Mail\RequestSend;
+use PDF;
 
 
 use Illuminate\Support\Facades\Mail;
@@ -148,6 +149,16 @@ class RequestController extends Controller
     return view('userDashboard.trackRequest',$data);
         
     }
+
+    // public function createPDF() {
+    //     // retreive all records from db
+    //     // $data = Employee::all();
+    //     // share data to view
+    //     view()->share('employee',$data);
+    //     $pdf = PDF::loadView('pdf_view', $data);
+    //     // download PDF file with download method
+    //     return $pdf->download('pdf_file.pdf');
+    //   }
 
    
 }
