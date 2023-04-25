@@ -32,7 +32,11 @@ return new class extends Migration
             $table->string('delivered_by')->nullable();   
             $table->datetime("estimate_delivery")->nullable();
             $table->datetime('date_of_delivery')->nullable();   
+<<<<<<< HEAD
+            $table->datetime("date_of_creation")->nullable();
+=======
             $table->timestamps();
+>>>>>>> d3d9fa56a6e328adb821c369836a2aff480b2b87
             
         });
     }
