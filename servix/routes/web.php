@@ -58,7 +58,8 @@ Route::prefix("admin")->group(function () {
             Route::get("/request/filterbyselect","filterBySelect")->name("admin.request.filterbyselect");
             Route::get("/request/filterbyinput","filterByInput")->name("admin.request.filterbyinput");
 
-            Route::get('/receptionerRequestForm',[ReceptionerController::class, 'showAllreceptioner'])->name('receptioner.showAllreceptioner');
+            Route::get('/Allreceptioner',[ReceptionerController::class, 'showAllreceptioner'])->name('receptioner.showAllreceptioner');
+            Route::match(['post','get'],'/AddReceptioner',[ReceptionerController::class,"AddReceptioner"])->name('receptioner.add');
             Route::get('/status/{receptioner}',[ReceptionerController::class,"status"])->name('receptioner.status');
         });
     });
