@@ -9,6 +9,7 @@ use Auth;
 use App\Models\Type;
 use Illuminate\View\View;
 use App\Models\Request as RequestModel;
+use Illuminate\Support\Str;
 
 class ReceptionerController extends Controller
 {
@@ -37,8 +38,31 @@ class ReceptionerController extends Controller
     }
 
     public function requestForm(Request $req){
-        
         if($req->method()=='POST'){
+           
+            $service_code = Str::random(6);
+        
+            $data = $req -> validate([
+                'owner_name' => 'required',
+                'product_name' => 'required',
+                'email' => 'required',
+                'contact' => 'required',
+                'type_id' => 'required',
+                'brand' => 'required',
+                'color' => 'required',
+                'problem' => 'required',
+                'serial_no'=>'required',
+                'MAC'=>'required',
+               
+               ]);
+    
+               $data['service_code'] = $service_code;
+               
+    
+            //    dd($data);
+    
+            RequestModel::create($data);
+            return view('flashMessage',$data);
 
         }
         return view('receptioner.requestForm');
@@ -166,5 +190,8 @@ class ReceptionerController extends Controller
         }
         return view('admin.receptioner.addReceptioner');
         
+    }
+    public function reciving(){
+        view('receptioner.reciving');
     }
 }

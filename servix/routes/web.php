@@ -77,6 +77,7 @@ Route::prefix("staff")->group(function () {
             Route::get('/request/new', [RequestController::class,'newRequests'])->name('request.new');
             Route::get('/request/{id}/confirm', [RequestController::class,'confirmRequest'])->name('request.confirm');
             Route::get('/request/{id}/edit', [RequestController::class,'requestEdit'])->name('request.edit');
+            Route::get('/request/{id}/deliver', [RequestController::class,'requestDelever'])->name('request.Deliver');
             Route::post('/request/update/{id}', [RequestController::class,'requestUpdate'])->name('request.update');
             Route::get('/request/{id}/reject', [RequestController::class,'rejected'])->name('request.reject');
             Route::get('/request/rejectedRequests', [RequestController::class,'rejectedRequests'])->name('request.show.reject');
@@ -99,6 +100,7 @@ Route::prefix("receptioner")->group(function(){
        Route::middleware('auth:receptioner')->group(function(){
         Route::get('/', 'index')->name('receptioner.panel');
         Route::get('/listRequest', 'allnewRequest')->name('receptioner.all.request');
+        Route::get('/reciving', 'reciving');
         Route::match(['post','get'],'/EditRequest/{id}', 'editRequest')->name('receptioner.request.edit');
         Route::match(['post','get'],'/receptionerRequestForm', 'requestForm')->name('receptioner.request.form');
        
