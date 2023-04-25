@@ -16,8 +16,9 @@ class Receptioner extends Seeder
             'name' => 'wasik',
             'contact' => '9955015651',
             'email' => 'w@gmail.com',
-            'adhar' => '844882795189',
+            'aadhar' => '844882795189',
             'pan' => 'DGRPA1315N',
+            'salary' => 2343532,
             'address' => 'at-islampur, po-matkopa, ps- kasba, dist- purnea',
             'password' => '123456789'
         ];

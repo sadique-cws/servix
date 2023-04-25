@@ -134,9 +134,8 @@
                             repair services for a wide range of products and devices.</h3>
                         <ul class="navbar-nav mt-4">
                             <li class="nav-item">
-                                <a class="link_contact" href="ContactPage.html">
-                                    <button class="btn btn_primary"><b>Contact <img src="Assets/arrow-black.html"
-                                                class="main_logo_image1" alt="logo"></b> </button>
+                                <a class="link_contact" href="{{ route('home.contact') }}">
+                                    <button class="btn btn_primary"><b>Contact</b> </button>
                                 </a>
                             </li>
                         </ul>
@@ -224,9 +223,8 @@
 
                 <ul class="navbar-nav mt-4">
                     <li class="nav-item">
-                        <a class="link_contact" href="LearnPage.html">
-                            <button class="btn btn_primary">Enroll Now <img src="Assets/arrow-black.html"
-                                    class="main_logo_image1" alt="logo"></button>
+                        <a class="link_contact" href="{{ route('home.learn') }}">
+                            <button class="btn btn_primary">Enroll Now</button>
                         </a>
                     </li>
                 </ul>

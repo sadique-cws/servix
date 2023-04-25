@@ -1,4 +1,5 @@
 @extends('layouts.layout')
+@section('title') Request For Repair - @endsection
 
 @section('contents')
     <div class="container mt-5">
