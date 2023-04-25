@@ -1,17 +1,4 @@
-<<<<<<< HEAD
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1>hii</h1>
-</body>
-</html>
-=======
+
 @extends('receptioner.layouts.base')
 
 
@@ -22,7 +9,7 @@
       <div class="container mb-5 mt-3">
         <div class="row d-flex align-items-baseline">
           <div class="col-xl-9">
-            <p style="color: #7e8d9f;font-size: 20px;">Invoice >> <strong>ID: #123-123</strong></p>
+            <p style="color: #7e8d9f;font-size: 20px;">Receving No >> <strong>ID: </strong></p>
           </div>
           <div class="col-xl-3 float-end">
             <a class="btn btn-light text-capitalize border-0" data-mdb-ripple-color="dark"><i
@@ -70,15 +57,18 @@
             <table class="table table-striped table-borderless">
               <thead style="background-color:#84B0CA ;" class="text-white">
                 <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Description</th>
-                  <th scope="col">Qty</th>
-                  <th scope="col">Unit Price</th>
-                  <th scope="col">Amount</th>
+                  <th scope="col">S code</th>
+                  <th scope="col">brand</th>
+                  <th scope="col">Type</th>
+                  <th scope="col">S.N</th>
+                  <th scope="col">MAC</th>
+                  <th scope="col">D. Date</th>
+                  
                 </tr>
               </thead>
               <tbody>
-                
+                 <td>{{$data->service_code}}</td>
+
               </tbody>
   
             </table>
@@ -103,8 +93,7 @@
               <p>Thank you for your purchase</p>
             </div>
             <div class="col-xl-2">
-              <button type="button" class="btn btn-primary text-capitalize"
-                style="background-color:#60bdf3 ;">Pay Now</button>
+              
             </div>
           </div>
   
@@ -113,4 +102,4 @@
     </div>
   </div>
 @endsection
->>>>>>> 4ffafa76eac6b8bd91aac297ed6ecf1d1684c753
+

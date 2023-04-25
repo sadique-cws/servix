@@ -247,6 +247,7 @@ class RequestController extends Controller
         $user = Auth::guard('staff')->user();
         $data=RequestModel::where('id',$req->id)->first();
         $data->status= "Delivered";
+        $data->remark= "please feedback";
         $data->delivered_by=$user->name;
         $data->date_of_delivery=$date;
         $data->save();   

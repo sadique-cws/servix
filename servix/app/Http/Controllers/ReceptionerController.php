@@ -62,7 +62,7 @@ class ReceptionerController extends Controller
             //    dd($data);
     
             RequestModel::create($data);
-            return view('flashMessage',$data);
+            return view('receptioner.reciving',$data);
 
         }
         return view('receptioner.requestForm');
