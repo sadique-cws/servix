@@ -244,4 +244,6 @@ class AdminController extends Controller
         $data['dateFilter']='All';
         return view('admin/allnewRequest',$data);
     }
+
+    
 }

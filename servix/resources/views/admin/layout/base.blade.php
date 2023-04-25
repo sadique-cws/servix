@@ -288,6 +288,12 @@
                                         <p>Add Staff</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('receptioner.add') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Add Receptioner</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         {{-- <li class="nav-item">

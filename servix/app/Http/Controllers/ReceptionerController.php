@@ -147,4 +147,24 @@ class ReceptionerController extends Controller
         return redirect()->back();
 
     }
+    public function addReceptioner(Request $req){
+        if($req->method()=='POST'){
+            $data = $req->validate([
+                'name' => 'required',
+                'email' => 'required|unique:App\Models\Receptioner,email|email',
+                'contact' => 'required|integer|unique:App\Models\Receptioner,contact|digits:10',
+                'salary' => 'required',
+                'aadhar' => 'required',
+                'pan' => 'required',
+                'address' => 'required',
+                'status' => 'required',
+                'password' => 'required',
+            ]);
+            Receptioner::create($data);
+            return redirect()->back();       
+
+        }
+        return view('admin.receptioner.addReceptioner');
+        
+    }
 }
