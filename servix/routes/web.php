@@ -13,6 +13,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('home');
     Route::get('/contact', 'contactUs')->name('home.contact');
     Route::get('/learn', 'learn')->name('home.learn');
+    Route::get('/warranty', 'warranty')->name('home.warranty');
     // Route::get('/trackRequest', 'trackStatus')->name('track.status');
     // new req
    
@@ -64,8 +65,6 @@ Route::prefix("admin")->group(function () {
         });
     });
 });
-
-
 Route::prefix("staff")->group(function () {
     Route::controller(StaffController::class)->group(function () {
         // without auth middleware 
@@ -77,9 +76,11 @@ Route::prefix("staff")->group(function () {
             Route::get('/request/new', [RequestController::class,'newRequests'])->name('request.new');
             Route::get('/request/{id}/confirm', [RequestController::class,'confirmRequest'])->name('request.confirm');
             Route::get('/request/{id}/edit', [RequestController::class,'requestEdit'])->name('request.edit');
+            Route::get('/request/{id}/deliver', [RequestController::class,'requestDelever'])->name('request.Deliver');
             Route::post('/request/update/{id}', [RequestController::class,'requestUpdate'])->name('request.update');
             Route::get('/request/{id}/reject', [RequestController::class,'rejected'])->name('request.reject');
             Route::get('/request/rejectedRequests', [RequestController::class,'rejectedRequests'])->name('request.show.reject');
+            Route::get('/request/deliveredRequests', [RequestController::class,'showDelivered'])->name('request.show.delivered');
             Route::get('/request/{id}/pending', [RequestController::class,'pending'])->name('request.pending');
             Route::get('/request/pandingRequests', [RequestController::class,'pandingRequests'])->name('request.show.panding');
             Route::get("/request/datefilter",[RequestController::class,"dateFilter"])->name("staff.request.filterbydate");
@@ -99,8 +100,10 @@ Route::prefix("crm")->group(function(){
        Route::middleware('auth:receptioner')->group(function(){
         Route::get('/', 'index')->name('receptioner.panel');
         Route::get('/listRequest', 'allnewRequest')->name('receptioner.all.request');
+
         Route::match(['post','get'],'/EditRequest/{id}', 'editRequest')->name('receptioner.request.edit');
         Route::match(['post','get'],'/receptionerRequestForm', 'requestForm')->name('receptioner.request.form');
+        Route::get('/reciving', 'reciving')->name('receptioner.reciving');
        
 
         // filter 

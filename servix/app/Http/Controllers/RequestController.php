@@ -66,6 +66,8 @@ class RequestController extends Controller
     }
 
     public function confirmRequest(Request $req, $id){
+        $date = \Carbon\Carbon::now();
+        $date->addDays(7);
         $user = Auth::guard('staff')->user();
         $request = RequestModel::where('type_id',$user->type_id)
                                 ->where('technician_id',NULL)
@@ -73,6 +75,7 @@ class RequestController extends Controller
 
         $request->technician_id = $user->id;
         $request->status ="work in progress";
+        $request->estimate_delivery=$date;
         $request->save();
         return redirect()->back();
     }
@@ -106,11 +109,14 @@ class RequestController extends Controller
         return redirect()->back();
     }
 
+   
+
    //pending update table
    
     public function pending( Request $req){
         $data=RequestModel::where('id',$req->id)->first();
         $data->status= "pending";
+        
         $data->save();   
         return redirect()->back();
     }
@@ -122,8 +128,10 @@ class RequestController extends Controller
 
     public function requestUpdate(Request $req)
     {
-        $data = $req->validate([
+        $data = $req->validate([ 
             'remark' => 'required',
+            'serial_no' => 'required',
+            'MAC' => 'required',
             'status' => 'required',
         ]);
 
@@ -135,16 +143,28 @@ class RequestController extends Controller
     
 
 
-    public function trackStatus(Request $req): View
+    public function trackStatus(Request $req)
     {  
         $data['searchStatus']="";
         $data['item']="";
         if($req->method()=='POST'){
+            $req->validate([
+                'search' => "required|min:6|max:6",
+            ],[
+                'search.required' => "Please Enter 6 Character Service Code",
+                'search.min' => "Service Code must be at least 6 characters.",
+                'search.max' => "Service Code must be at least 6 characters."
+            ]);
            $data['searchStatus'] = $req->search;
+        
            $searchStatus=$req->search;
-        //   dd($searchStatus);
-          $data['item'] = RequestModel::where('service_code', 'LIKE', "%$searchStatus%")->first();
-          return view('userDashboard.trackRequest', $data);
+        
+          $item = RequestModel::where('service_code', 'LIKE', "%$searchStatus%")->first();
+
+          if(!$item){
+            return redirect()->back()->with('msg',"Service Code is Not Found");
+          }
+          return view('userDashboard.trackRequest',compact('item','searchStatus'));
        }
       
     return view('userDashboard.trackRequest',$data);
@@ -231,6 +251,30 @@ class RequestController extends Controller
         $data['title']='Search Record';
         $data['dateFilter']='All';
         return view('staff/requests',$data);
+    }
+
+     // device deliver 
+     public function requestDelever( Request $req){
+        $date = \Carbon\Carbon::now();
+        $user = Auth::guard('staff')->user();
+        $data=RequestModel::where('id',$req->id)->first();
+        $data->status= "Delivered";
+        $data->remark= "please feedback";
+        $data->delivered_by=$user->name;
+        $data->date_of_delivery=$date;
+        $data->save();   
+        return redirect()->back();
+    }
+
+    // show delivered 
+    public function showDelivered(){
+      
+        $user = Auth::guard('staff')->user();
+        $data['allRequests'] = RequestModel::where('type_id',$user->type_id)
+                                    ->where('technician_id',$user->id)
+                                    ->where('status','Delivered')->get();
+        $data['title'] = "Total RejectedRequests";
+        return view("staff.requests",$data);
     }
    
 }

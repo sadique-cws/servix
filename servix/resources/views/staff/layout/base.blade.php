@@ -187,6 +187,9 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
+            <a href="index3.html" class="brand-link">
+              
+                <span class="brand-text font-weight-light">Servicx Staff</span>
             <a href="index3.html" class="brand-link bg-white">
                 <img src="http://servixc.com/Assets/New-Logo.png" alt="AdminLTE Logo" class="brand-image"
                     style="opacity: .8">
@@ -261,7 +264,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="pages/layout/top-nav.html" class="nav-link">
+                                    <a href="{{ route('request.show.delivered') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p> Delivered</p>
                                     </a>
@@ -292,14 +295,7 @@
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="pages/kanban.html" class="nav-link">
-                                <i class="nav-icon fas fa-columns"></i>
-                                <p>
-                                    Kanban Board
-                                </p>
-                            </a>
-                        </li>
+                       
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon far fa-envelope"></i>
@@ -400,7 +396,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon far fa-plus-square"></i>
                                 <p>
@@ -528,8 +524,8 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li>
-                        <li class="nav-item">
+                        </li> --}}
+                        {{-- <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-search"></i>
                                 <p>
@@ -551,7 +547,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> --}}
                     
                        
                       

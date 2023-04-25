@@ -93,7 +93,7 @@
                                     alt="logo"></a>
                         </div>
                         <ul class="navbar-nav pt-3">
-                            <li class="nav-item py-1"><a href="#" class="nav-lnk footer--art">Warranty Policy</a></li>
+                            <li class="nav-item py-1"><a href="{{ route('home.warranty') }}" class="nav-lnk footer--art">Warranty Policy</a></li>
                             <li class="nav-item py-1"><a href="#" class="nav-lnk footer--art">Terms & Conditions</a>
                             </li>
                             <li class="nav-item py-1"><a href="#" class="nav-lnk footer--art">Privacy Policy</a></li>
