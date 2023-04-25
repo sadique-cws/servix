@@ -100,9 +100,10 @@ Route::prefix("receptioner")->group(function(){
        Route::middleware('auth:receptioner')->group(function(){
         Route::get('/', 'index')->name('receptioner.panel');
         Route::get('/listRequest', 'allnewRequest')->name('receptioner.all.request');
-        Route::get('/reciving', 'reciving');
+        // Route::get('/reciving', 'reciving');
         Route::match(['post','get'],'/EditRequest/{id}', 'editRequest')->name('receptioner.request.edit');
         Route::match(['post','get'],'/receptionerRequestForm', 'requestForm')->name('receptioner.request.form');
+        Route::get('/reciving', 'reciving')->name('receptioner.reciving');
        
 
         // filter 

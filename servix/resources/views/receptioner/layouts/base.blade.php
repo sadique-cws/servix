@@ -249,6 +249,12 @@
                                         <p> Add New Request</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('receptioner.reciving') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p> Add</p>
+                                    </a>
+                                </li>
                               
                                
 
