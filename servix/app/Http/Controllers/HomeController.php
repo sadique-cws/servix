@@ -14,9 +14,21 @@ class HomeController extends Controller
     public function index():View{
         return view('homepage');
     }
+    public function contactUs():View{
+        return view('contact');
+    }
+    public function learn():View{
+        return view('learn');
+    }
+    
 
     public function register():View{
         return view('register');
     }
+
+
+    // public function trackStatus():View{
+    //     return view('userDashboard.trackRequest');
+    // }
     
 }

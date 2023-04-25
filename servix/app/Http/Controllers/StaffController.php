@@ -13,9 +13,7 @@ class StaffController extends Controller
 {   
     public function index(Request $req): View
     {
-        $user = Auth::guard('staff')->user();
-        $count_Requests = RequestModel::where('type_id',$user->type_id)->where('technician_id',$user->id)->count();
-        return view('staff.dashboard',compact('count_Requests'));
+        return view('staff.dashboard');
     }
 
     public function stafflogin(Request $req){
@@ -40,10 +38,15 @@ class StaffController extends Controller
 
     public function stafflogout(Request $req){
         Auth::guard("staff")->logout();
-        return redirect()->route("home");
+        return redirect()->back();
     }
 
   
+    public function editRequest($id){
+        $data=Request::where('id',$id)->first();
+        return view("staff.panel",compact('data'));
+    }
 
+   
 }
  

@@ -27,12 +27,16 @@ return new class extends Migration
             $table->string("color");
             $table->string("problem");
             $table->string("remark")->nullable();
-            $table->string("status")->default(0);
+            $table->string("status")->default("initial stage");
             $table->datetime('last_update')->nullable();   
             $table->datetime('delivered_by')->nullable();   
             $table->datetime("estimate_delivery")->nullable();
             $table->datetime('date_of_delivery')->nullable();   
+<<<<<<< HEAD
             $table->datetime("date_of_creation")->nullable();
+=======
+            $table->timestamps();
+>>>>>>> d3d9fa56a6e328adb821c369836a2aff480b2b87
             
         });
     }

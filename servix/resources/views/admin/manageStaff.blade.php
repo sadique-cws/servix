@@ -35,15 +35,13 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
+                                <th>Image</th>
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Contact</th>
                                 <th>Salary</th>
                                 <th>Type</th>
                                 <th>Status</th>
-                                <th>Addhar</th>
-                                <th>Pan No</th>
-                                <th>Address</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -51,14 +49,19 @@
                             @foreach ($staffs as $item)
                                 <tr>
                                     <td>{{ $item->id }}</td>
+                                    <td>
+                                        @if($item->image)
+                                            <img src="{{ asset('storage/images/'.$item->image) }}" style="height: 50px; width:70px;" class="rounded-circle">
+                                        @else 
+                                            <span>No image found!</span>
+                                        @endif
+                                    </td>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->email }}</td>
                                     <td class="border border-slate-700 p-1.5 pl-10">{{ $item->contact }}</td>
                                     <td class="border border-slate-700 p-1.5 pl-10">{{ $item->salary }}</td>
-                                    <td class="border border-slate-700 p-1.5 pl-10">{{ $item->type }}</td>
-                                    <td>{{ $item->aadhar }}</td>
-                                    <td>{{ $item->pan }}</td>
-                                    <td>{{ $item->address }}</td>
+                                    <td class="border border-slate-700 p-1.5 pl-10">{{ $item->type->typename }}</td>
+                                    <td class="border border-slate-700 p-1.5 pl-10">{{ $item->status }}</td>
                                     <td class="border border-slate-700 p-1.5  items-center justify-center flex btn-group"
                                         role="group">
                                         {{-- status button  --}}
@@ -74,8 +77,7 @@
                                             <div class="modal-dialog modal-dialog-centered " role="document">
                                                 <div class="modal-content bg-info">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLongTitle">Staff Details
-                                                        </h5>
+                                                        <h5 class="modal-title" id="exampleModalLongTitle">Staff Details</h5>
                                                         <button type="button" class="close" data-dismiss="modal"
                                                             aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>

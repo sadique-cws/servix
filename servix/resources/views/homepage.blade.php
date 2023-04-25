@@ -188,12 +188,12 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-6 mb-4">
-                        <div class="card benifit_card4 px-2 py-4">
+                        <a href="{{Route('track.status')}}" class="card benifit_card4 px-2 py-4">
                             <div class="text-center">
                                 <img src="Assets/Track%20live.svg" class="benifit_image" alt="img">
                                 <h5 class="pt-3 benifit_data"> Track live status of <br> your products</h5>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     <div class="col-lg-4 col-md-6 col-6 mb-4">
                         <div class="card benifit_card5 px-2 py-4">

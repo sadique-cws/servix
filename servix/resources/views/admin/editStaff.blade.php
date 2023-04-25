@@ -23,7 +23,7 @@
                         <label for="" class="text-black-100">Name</label>
                         <div class="flex">
                             <input type="text" name="name" value="{{ $data->name }}"
-                                class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                                class="form-control"
                                 placeholder="">
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                         <label for="" class="text-black-100">Email</label>
                         <div class="flex">
                             <input type="email" name="email" value="{{ $data->email }}"
-                                class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                                class="form-control"
                                 placeholder="example@gmail.com">
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                         <label for="" class="text-black-100">Contact</label>
                         <div class="flex">
                             <input type="number" name="contact" value="{{ $data->contact }}"
-                                class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                                class="form-control"
                                 placeholder="">
                         </div>
                     </div>
@@ -49,7 +49,7 @@
                         <label for="" class="text-black-100">Salary</label>
                         <div class="flex">
                             <input type="text" name="salary" value="{{ $data->salary }}"
-                                class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                                class="form-control"
                                 placeholder="">
                         </div>
                     </div>
@@ -57,9 +57,9 @@
 
                         <label for="inputState" class="text-black-100">Type</label>
                         <div class="flex w-full">
-                            {{-- <input type="text" name="type" class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder=""> --}}
+                            {{-- <input type="text" name="type" class="form-control" placeholder=""> --}}
                             <select id="inputState" name="type"
-                                class=" w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500">
+                                class=" form-control">
                                 <option selected>Choose...</option>
                                 <option>Mobile</option>
                                 <option>Laptop</option>
@@ -73,7 +73,7 @@
                         <label for="" class="text-black-100">Addhar no</label>
                         <div class="flex">
                             <input type="text" name="aadhar" value="{{ $data->aadhar }}"
-                                class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                                class="form-control"
                                 placeholder="">
                         </div>
                     </div>
@@ -81,7 +81,7 @@
                         <label for="" class="text-black-100">Pan card no</label>
                         <div class="flex">
                             <input type="text" name="pan" value="{{ $data->pan }}"
-                                class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                                class="form-control"
                                 placeholder="">
                         </div>
                     </div>
@@ -91,7 +91,7 @@
                         <label for="" class="text-black-100">Address</label>
                         <div class="flex">
                             <input type="text" name="address" value="{{ $data->address }}"
-                                class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                                class="form-control"
                                 placeholder="">
                         </div>
                     </div>
@@ -99,7 +99,7 @@
                         <label for="" class="text-black-100">Status</label>
                         <div class="flex">
                             <input type="text" name="status" value="{{ $data->status }}"
-                                class="w-full  pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                                class="form-control"
                                 placeholder="">
                         </div>
                     </div>

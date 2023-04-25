@@ -13,6 +13,6 @@ class RequestSeeder extends Seeder
      */
     public function run(): void
     {
-        Request::factory()->count(10)->create();
+        Request::factory()->count(100)->create();
     }
 }
