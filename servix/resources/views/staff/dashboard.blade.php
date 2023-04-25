@@ -1,5 +1,6 @@
 @extends('staff.layout.base')
 
+
 @section('content')
     
   <!-- Content Wrapper. Contains page content -->

@@ -1,5 +1,6 @@
 @extends('layouts.layout')
 
+@section('title') Login - @endsection
 
 <!-- Login Form -->
 @section('contents')

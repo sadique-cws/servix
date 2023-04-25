@@ -1,5 +1,8 @@
 @extends('layouts.layout')
 
+@section('title')
+    Contact Us | 
+@endsection
 @section('contents')
 
     <div class="container px-5" style="margin-top: 200px">
