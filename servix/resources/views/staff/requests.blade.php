@@ -8,12 +8,12 @@
                     <h3 class="card-title">{{ $title }}</h3>
 
                     <div class="card-tools">
-                        <form action="">
+                        <form action="{{ route('staff.request.filterbyinput') }}">
 
                             <div class="input-group input-group-sm" style="width: 300px;">
 
 
-                                <input type="text" name="search"
+                                <input type="text" name="search" value="{{$search_value}}"
                                     class="form-control float-right w-25"placeholder="Search">
 
                                 <div class="input-group-append">
@@ -25,7 +25,50 @@
                             </div>
                         </form>
                     </div>
+
+
+                      {{-- date and time filter --}}
+
+                      <div class=" d-flex justify-content-around mt-3">
+
+                        <form action="{{ route('staff.request.filterbydate') }}" method="get" class="">
+                            <div class=" d-flex justify-content-evenly">
+                                <div class="md-form md-outline d-flex input-with-post-icon datepicker" inline="true">
+                                    <label for="example" class="text-sm ml-4">from Date</label>
+                                    <input placeholder="Select date" type="date" name="startAt" class="form-control">
+
+                                </div>
+
+
+                                <div class="md-form md-outline d-flex input-with-post-icon datepicker" inline="true">
+                                    <label for="example" class="text-sm ml-4">to Date</label>
+                                    <input placeholder="Select date" type="date" name="End" class="form-control">
+
+                                </div>
+                                <div class="">
+                                    <button type="submit" class="btn btn-primary ml-4"> go</button>
+                                </div>
+                            </div>
+                        </form>
+                        {{-- select to filter  --}}
+                        <form action="{{ route('staff.request.filterbyselect') }}" method="get" >
+                            <div class="form-control">
+                                <select onchange="this.form.submit();" class="form-select" name='dateFilter'>
+                                    <option selected>All</option>
+                                    <option {{$dateFilter=="today"? 'selected' : ''}} value="today">Today</option>
+                                    <option {{$dateFilter=="yesterday"? 'selected' : ''}} value="yesterday">Yesterday</option>
+                                    <option {{$dateFilter=="this_week"? 'selected' : ''}} value="this_week">Last 7 Day</option>
+                                    <option {{$dateFilter=="this_month"? 'selected' : ''}} value="this_month">This Month</option>
+                                    <option {{$dateFilter=="last_month"? 'selected' : ''}} value="last_month">Last Month</option>
+                                    <option {{$dateFilter=="this_year"? 'selected' : ''}} value="this_year">This Year</option>
+                                    <option {{$dateFilter=="last_year"? 'selected' : ''}} value="last_year">Last Year</option>
+                                    
+                                </select>
+                            </div>
+                        </form>
+                    </div>
                 </div>
+
                 <!-- /.card-header -->
                 <div class="card-body table-responsive p-0">
                     <table class="table table-hover text-nowrap">
