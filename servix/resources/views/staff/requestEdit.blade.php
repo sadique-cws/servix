@@ -93,6 +93,23 @@
                 </div>
                 <div class="row">
                     <div class="w-full px-3 mb-5">
+                        <label for="" class="text-black-100">Serial No</label>
+                        <div class="flex">
+                            <input type="text" name="serial_no" 
+                                class="form-control"
+                                placeholder="">
+                        </div>
+                    </div>
+                    <div class="w-full px-3 mb-5">
+                        <label for="" class="text-black-100">MAC</label>
+                        <div class="flex">
+                            <input type="text" name='MAC'   class="form-control" value="" placeholder="">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="w-full px-3 mb-5">
 
                         <input type="submit" name="submit" class="btn btn-success w-100" />
 
