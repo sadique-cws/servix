@@ -91,7 +91,7 @@ Route::prefix("staff")->group(function () {
         });
     });
 });
-Route::prefix("receptioner")->group(function(){
+Route::prefix("crm")->group(function(){
    Route::controller(ReceptionerController::class)->group(function(){
        // without auth middleware 
        Route::match(["post", "get"], '/login', 'receptionerlogin')->name('receptioner.login');
