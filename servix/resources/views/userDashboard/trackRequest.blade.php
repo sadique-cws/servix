@@ -12,36 +12,41 @@
                 <button type="submit" class="btn btn-primary d-flex mx-auto btn-lg mt-2"> Track your order</button>
             </form>
 
-            @if ($item!='')
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th >S CODE</th>
-                            <th >NAME</th>
-                            <th >STATUS</th>
-                            
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
+            @if ($item!='')  
                            
-                            <td>{{$item->service_code}}</td>
-                            <td>{{$item->owner_name}}</td>
-                            <td>{{$item->status}}</td>
-                          
-                        </tr>
-                       
-                    </tbody>
-                </table>
-                
+                <div class="card mb-3 mt-2" style="max-width: 540px;">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="https://picsum.photos/200/300" class="card-img" alt="...">
+                        </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                            <div class="d-flex flex-row gap-5 bg-success text-white rounded-lg">
+                                <p class="card-text fs-4 mt-3 ml-2">Status</p>
+                                <p class="card-text fs-4 mt-3">{{$item->status}}</p>
+                            </div>
+                            <div class="d-flex flex-row gap-4">
+                                <p class="card-text">Owner Name => </p>
+                                <p class="card-text">{{$item->owner_name}}</p>
+                            </div>
+                            <div class="d-flex flex-row gap-4">
+                                <p class="card-text">Product Name => </p>
+                                <p class="card-text">{{$item->product_name}}</p>
+                            </div>
+                            <div class="d-flex flex-row gap-4">
+                                <p class="card-text">Deliver Date => </p>
+                                <p class="card-text">{{$item->date_of_delivery}}</p>
+                            </div>
+                            
+                          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                      </div>
+                    </div>
+                </div>
             @else
-                
-           
             @endif
 
         </div>
-
-
     </div>
 @endsection
 

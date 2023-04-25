@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Dashboard</title>
+    <title>Admin | Dashboard</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -276,9 +276,22 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
+                                    <a href="{{ route('receptioner.showAllreceptioner') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Manage receptioner</p>
+                                        {{-- <P class='ml-4'>{{$staffs->count()}}</P> --}}
+                                    </a>
+                                </li>
+                                <li class="nav-item">
                                     <a href="{{ route('admin.staff.create') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Add Staff</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('receptioner.add') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Add Receptioner</p>
                                     </a>
                                 </li>
                             </ul>

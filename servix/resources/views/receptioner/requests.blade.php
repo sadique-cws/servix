@@ -1,4 +1,4 @@
-@extends('staff.layout.base')
+@extends('receptioner.layouts.base')
 
 @section('content')
     <div class="row">
@@ -8,7 +8,7 @@
                     <h3 class="card-title">{{ $title }}</h3>
 
                     <div class="card-tools">
-                        <form action="{{ route('staff.request.filterbyinput') }}">
+                        <form action="{{ route('receptioner.request.filterbyinput') }}">
 
                             <div class="input-group input-group-sm" style="width: 300px;">
 
@@ -31,7 +31,7 @@
 
                       <div class=" d-flex justify-content-around mt-3">
 
-                        <form action="{{ route('staff.request.filterbydate') }}" method="get" class="">
+                        <form action="{{ route('receptioner.request.filterbydate') }}" method="get" class="">
                             <div class=" d-flex justify-content-evenly">
                                 <div class="md-form md-outline d-flex input-with-post-icon datepicker" inline="true">
                                     <label for="example" class="text-sm ml-4">from Date</label>
@@ -51,7 +51,7 @@
                             </div>
                         </form>
                         {{-- select to filter  --}}
-                        <form action="{{ route('staff.request.filterbyselect') }}" method="get" >
+                        <form action="{{ route('receptioner.request.filterbyselect') }}" method="get" >
                             <div class="form-control">
                                 <select onchange="this.form.submit();" class="form-select" name='dateFilter'>
                                     <option selected>All</option>
@@ -105,44 +105,19 @@
 
 
                                             <div class="btn-group" role="group">
-                                                <button type="button" class="btn btn-primary dropdown-toggle"
-                                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                                    Dropdown
-                                                </button>
-                                                <ul class="dropdown-menu text-center">
+                                              
+                                            
                                                   
-                                                    {{-- Conform button --}}
-                                                    @if (!$item->technician_id)
-                                                        <li>
-                                                            <a role="button"
-                                                                href="{{ route('request.confirm', $item->id) }}"
-                                                                class="btn btn-success dropdown-item" href="">Confirm</a>
-                                                        </li>
-                                                    @endif
-                                                    {{-- Pending button --}}
-                                                    @if (($item->status != 'pending') | ($title == 'All Request'))
-                                                        <li> <a role="button" class="btn btn-warning dropdown-item"
-                                                                href="{{ route('request.pending', $item) }}">Pending</a>
-                                                        </li>
-                                                    @endif
-                                                    {{-- Reject button --}}
-                                                    @if (($item->status != 'rejected') | ($title == 'All Request'))
-                                                      <li>  <a role="button" class="btn btn-danger dropdown-item"
-                                                            href="{{ route('request.reject', $item) }}">Reject</a>
-                                                      </li>
-                                                    @endif
-                                                    {{-- Edit button --}}
-                                                    @if ($item->technician_id)
-                                                     <li>   <a role="button" class="btn btn-success dropdown-item"
-                                                            href="{{ route('request.edit', $item->id) }}">Edit</a>
-                                                     </li>
-                                                    @endif
-                                                    {{-- view button  --}}
-                                                  <li>  <a data-toggle="modal" data-target="#view{{ $item->id }}"
-                                                        role="button" class=" btn btn-info dropdown-item">View</a>
-                                                  </li>
+                                                    <a data-toggle="modal" data-target="#view{{ $item->id }}"
+                                                   
+                                                        role="button" class=" btn btn-info btn-group ">View</a>
+                                                  
+                                                    <a 
+                                                        href="{{ route('receptioner.request.edit',$item->id) }}"
+                                                        role="button" class=" btn btn-warning btn-group ">Edit</a>
+                                                  
 
-                                                </ul>
+                                                
                                             </div>
                                         </div>
 

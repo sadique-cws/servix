@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ReceptionerController;
 use App\Http\Controllers\RequestController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -23,7 +24,7 @@ Route::controller(RequestController::class)->group(function () {
     Route::get('/requestForm','requestForm')->name('request.form');
     Route::post( '/requestForm', 'requestCreate')->name('request.create');
     Route::match(["post", "get"],'/trackRequest', 'trackStatus')->name('track.status');
-   
+    
 });
 
 
@@ -55,6 +56,11 @@ Route::prefix("admin")->group(function () {
             Route::get("/request/filter","filterRequest")->name("admin.request.filterRequest");
             Route::get("/request/datefilter","dateFilter")->name("admin.request.filterbydate");
             Route::get("/request/filterbyselect","filterBySelect")->name("admin.request.filterbyselect");
+            Route::get("/request/filterbyinput","filterByInput")->name("admin.request.filterbyinput");
+
+            Route::get('/Allreceptioner',[ReceptionerController::class, 'showAllreceptioner'])->name('receptioner.showAllreceptioner');
+            Route::match(['post','get'],'/AddReceptioner',[ReceptionerController::class,"AddReceptioner"])->name('receptioner.add');
+            Route::get('/status/{receptioner}',[ReceptionerController::class,"status"])->name('receptioner.status');
         });
     });
 });
@@ -76,12 +82,34 @@ Route::prefix("staff")->group(function () {
             Route::get('/request/rejectedRequests', [RequestController::class,'rejectedRequests'])->name('request.show.reject');
             Route::get('/request/{id}/pending', [RequestController::class,'pending'])->name('request.pending');
             Route::get('/request/pandingRequests', [RequestController::class,'pandingRequests'])->name('request.show.panding');
+            Route::get("/request/datefilter",[RequestController::class,"dateFilter"])->name("staff.request.filterbydate");
+            Route::get("/request/filterbyselect",[RequestController::class,"filterBySelect"])->name("staff.request.filterbyselect");
+            Route::get("/request/filterbyinput",[RequestController::class,"filterByInput"])->name("staff.request.filterbyinput");
             Route::get('/', 'index')->name('staff.panel');
             Route::get('/logout', 'stafflogout')->name('staff.logout');
                 
         });
     });
 });
+Route::prefix("receptioner")->group(function(){
+   Route::controller(ReceptionerController::class)->group(function(){
+       // without auth middleware 
+       Route::match(["post", "get"], '/login', 'receptionerlogin')->name('receptioner.login');
+    // with middle receptioner login required
+       Route::middleware('auth:receptioner')->group(function(){
+        Route::get('/', 'index')->name('receptioner.panel');
+        Route::get('/listRequest', 'allnewRequest')->name('receptioner.all.request');
+        Route::match(['post','get'],'/EditRequest/{id}', 'editRequest')->name('receptioner.request.edit');
+        Route::match(['post','get'],'/receptionerRequestForm', 'requestForm')->name('receptioner.request.form');
+       
 
+        // filter 
+        Route::get("/request/datefilter","dateFilter")->name("receptioner.request.filterbydate");
+        Route::get("/request/filterbyselect","filterBySelect")->name("receptioner.request.filterbyselect");
+        Route::get("/request/filterbyinput","filterByInput")->name("receptioner.request.filterbyinput");
 
+        Route::get('/logout', 'receptionerlogout')->name('receptioner.logout');
+       });
+   });
+});
 

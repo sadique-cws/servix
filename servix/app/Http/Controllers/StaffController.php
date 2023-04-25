@@ -46,6 +46,8 @@ class StaffController extends Controller
         $data=Request::where('id',$id)->first();
         return view("staff.panel",compact('data'));
     }
+    
+    
 
    
 }

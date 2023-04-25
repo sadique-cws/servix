@@ -17,11 +17,11 @@
 
 
                         <div class="card-tools">
-                            <form action="">
+                            <form action="{{ route('admin.request.filterbyinput') }}">
 
                                 <div class="input-group input-group-sm" style="width: 300px;">
 
-                                    <input type="text" name="search"
+                                    <input type="text" name="search" value="{{$search_value}}"
                                         class="form-control float-right w-25"placeholder="Search">
 
                                     <div class="input-group-append">
