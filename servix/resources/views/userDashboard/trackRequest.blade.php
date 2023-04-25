@@ -35,7 +35,7 @@
                             </div>
                             <div class="d-flex flex-row gap-4">
                                 <p class="card-text">Deliver Date => </p>
-                                <p class="card-text">{{$item->date_of_delivery}}</p>
+                                <p class="card-text">{{$item->estimate_delivery}}</p>
                             </div>
                             
                           <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
