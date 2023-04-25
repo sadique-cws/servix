@@ -191,13 +191,10 @@ class ReceptionerController extends Controller
         return view('admin.receptioner.addReceptioner');
         
     }
-<<<<<<< HEAD
-    public function reciving1(){
-        view('receptioner.reciving');
-=======
+
     public function reciving(Request $req): View
     {
         return view('receptioner.reciving');
->>>>>>> 4ffafa76eac6b8bd91aac297ed6ecf1d1684c753
+
     }
 }
