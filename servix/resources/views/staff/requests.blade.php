@@ -86,7 +86,7 @@
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="">
                             @foreach ($allRequests as $item)
                                 <tr>
                                     <td class="text-uppercase text-success fw-bold">{{ $item->service_code }}</td>
@@ -109,9 +109,16 @@
                                                     data-bs-toggle="dropdown" aria-expanded="false">
                                                     Dropdown
                                                 </button>
-                                                <ul class="dropdown-menu text-center">
+                                                <ul class="dropdown-menu text-center " style="z-index:6;">
                                                   
                                                     {{-- Conform button --}}
+                                                    @if ($item->technician_id)
+                                                        <li>
+                                                            <a role="button"
+                                                                href="{{ route('request.Deliver', $item->id) }}"
+                                                                class="btn btn-success dropdown-item" href="">Deliver</a>
+                                                        </li>
+                                                    @endif
                                                     @if (!$item->technician_id)
                                                         <li>
                                                             <a role="button"

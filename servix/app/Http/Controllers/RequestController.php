@@ -109,6 +109,8 @@ class RequestController extends Controller
         return redirect()->back();
     }
 
+   
+
    //pending update table
    
     public function pending( Request $req){
@@ -126,8 +128,10 @@ class RequestController extends Controller
 
     public function requestUpdate(Request $req)
     {
-        $data = $req->validate([
+        $data = $req->validate([ 
             'remark' => 'required',
+            'serial_no' => 'required',
+            'MAC' => 'required',
             'status' => 'required',
         ]);
 
@@ -235,6 +239,18 @@ class RequestController extends Controller
         $data['title']='Search Record';
         $data['dateFilter']='All';
         return view('staff/requests',$data);
+    }
+
+     // device deliver 
+     public function requestDelever( Request $req){
+        $date = \Carbon\Carbon::now();
+        $user = Auth::guard('staff')->user();
+        $data=RequestModel::where('id',$req->id)->first();
+        $data->status= "Deliver";
+        $data->delivered_by=$user->name;
+        $data->date_of_delivery=$date;
+        $data->save();   
+        return redirect()->back();
     }
    
 }
