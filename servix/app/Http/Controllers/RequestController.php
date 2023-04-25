@@ -246,11 +246,22 @@ class RequestController extends Controller
         $date = \Carbon\Carbon::now();
         $user = Auth::guard('staff')->user();
         $data=RequestModel::where('id',$req->id)->first();
-        $data->status= "Deliver";
+        $data->status= "Delivered";
         $data->delivered_by=$user->name;
         $data->date_of_delivery=$date;
         $data->save();   
         return redirect()->back();
+    }
+
+    // show delivered 
+    public function showDelivered(){
+      
+        $user = Auth::guard('staff')->user();
+        $data['allRequests'] = RequestModel::where('type_id',$user->type_id)
+                                    ->where('technician_id',$user->id)
+                                    ->where('status','Delivered')->get();
+        $data['title'] = "Total RejectedRequests";
+        return view("staff.requests",$data);
     }
    
 }

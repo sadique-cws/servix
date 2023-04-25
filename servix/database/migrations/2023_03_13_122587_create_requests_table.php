@@ -29,7 +29,7 @@ return new class extends Migration
             $table->string("remark")->nullable();
             $table->string("status")->default("initial stage");
             $table->datetime('last_update')->nullable();   
-            $table->datetime('delivered_by')->nullable();   
+            $table->string('delivered_by')->nullable();   
             $table->datetime("estimate_delivery")->nullable();
             $table->datetime('date_of_delivery')->nullable();   
             $table->timestamps();

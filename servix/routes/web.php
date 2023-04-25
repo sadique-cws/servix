@@ -81,6 +81,7 @@ Route::prefix("staff")->group(function () {
             Route::post('/request/update/{id}', [RequestController::class,'requestUpdate'])->name('request.update');
             Route::get('/request/{id}/reject', [RequestController::class,'rejected'])->name('request.reject');
             Route::get('/request/rejectedRequests', [RequestController::class,'rejectedRequests'])->name('request.show.reject');
+            Route::get('/request/deliveredRequests', [RequestController::class,'showDelivered'])->name('request.show.delivered');
             Route::get('/request/{id}/pending', [RequestController::class,'pending'])->name('request.pending');
             Route::get('/request/pandingRequests', [RequestController::class,'pandingRequests'])->name('request.show.panding');
             Route::get("/request/datefilter",[RequestController::class,"dateFilter"])->name("staff.request.filterbydate");
@@ -100,7 +101,7 @@ Route::prefix("receptioner")->group(function(){
        Route::middleware('auth:receptioner')->group(function(){
         Route::get('/', 'index')->name('receptioner.panel');
         Route::get('/listRequest', 'allnewRequest')->name('receptioner.all.request');
-        Route::get('/reciving', 'reciving');
+        Route::get('/reciving', 'reciving1');
         Route::match(['post','get'],'/EditRequest/{id}', 'editRequest')->name('receptioner.request.edit');
         Route::match(['post','get'],'/receptionerRequestForm', 'requestForm')->name('receptioner.request.form');
        

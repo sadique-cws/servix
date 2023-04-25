@@ -261,7 +261,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="pages/layout/top-nav.html" class="nav-link">
+                                    <a href="{{ route('request.show.delivered') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p> Delivered</p>
                                     </a>
