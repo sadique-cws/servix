@@ -193,6 +193,7 @@ class AdminController extends Controller
         // User::whereMonth('created_at', '=', Carbon::now()->subMonth()->month)->get(['name','created_at']);
 
         $data['dateFilter']=$req->dateFilter;
+        
 
         switch ($req->dateFilter) {
             case 'today':
@@ -234,5 +235,13 @@ class AdminController extends Controller
             }
         return view('admin/allnewRequest',$data);
        
+    }
+    public function filterByInput(Request $req){
+       
+        $data['search_value']=$req->search;
+        $data['new']=RequestModel::where("technician_id",NULL)->where('owner_name',"LIKE","%".$req->search."%")->get();
+        $data['title']='Search Record';
+        $data['dateFilter']='All';
+        return view('admin/allnewRequest',$data);
     }
 }

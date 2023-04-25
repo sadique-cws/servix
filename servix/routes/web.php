@@ -24,7 +24,7 @@ Route::controller(RequestController::class)->group(function () {
     Route::get('/requestForm','requestForm')->name('request.form');
     Route::post( '/requestForm', 'requestCreate')->name('request.create');
     Route::match(["post", "get"],'/trackRequest', 'trackStatus')->name('track.status');
-   
+    
 });
 
 
@@ -56,6 +56,7 @@ Route::prefix("admin")->group(function () {
             Route::get("/request/filter","filterRequest")->name("admin.request.filterRequest");
             Route::get("/request/datefilter","dateFilter")->name("admin.request.filterbydate");
             Route::get("/request/filterbyselect","filterBySelect")->name("admin.request.filterbyselect");
+            Route::get("/request/filterbyinput","filterByInput")->name("admin.request.filterbyinput");
         });
     });
 });
@@ -77,6 +78,9 @@ Route::prefix("staff")->group(function () {
             Route::get('/request/rejectedRequests', [RequestController::class,'rejectedRequests'])->name('request.show.reject');
             Route::get('/request/{id}/pending', [RequestController::class,'pending'])->name('request.pending');
             Route::get('/request/pandingRequests', [RequestController::class,'pandingRequests'])->name('request.show.panding');
+            Route::get("/request/datefilter",[RequestController::class,"dateFilter"])->name("staff.request.filterbydate");
+            Route::get("/request/filterbyselect",[RequestController::class,"filterBySelect"])->name("staff.request.filterbyselect");
+            Route::get("/request/filterbyinput",[RequestController::class,"filterByInput"])->name("staff.request.filterbyinput");
             Route::get('/', 'index')->name('staff.panel');
             Route::get('/logout', 'stafflogout')->name('staff.logout');
                 

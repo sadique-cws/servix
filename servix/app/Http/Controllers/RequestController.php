@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Request as RequestModel;
 use App\Models\Type;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -159,6 +160,77 @@ class RequestController extends Controller
     //     // download PDF file with download method
     //     return $pdf->download('pdf_file.pdf');
     //   }
+ 
+    public function dateFilter(Request $req){
+        $date = \Carbon\Carbon::createFromFormat('Y-m-d', $req->End);
+        $date->addDays();
+        $formattedDate = $date->format('Y-m-d');
+        $data['allRequests']= RequestModel::select("*")->whereBetween('created_at', [$req->startAt, $formattedDate])->where('technician_id',NULL)
+                                    ->get();
+        $data['title']="Date between Request";
+        return view('staff/requests', $data);
+    }
+    public function filterBySelect(Request $req){
+        // $date = \Carbon\Carbon::now();
+        // $date->subDays(7);
+        // $formattedDate = $date->format('Y-m-d');
+        // dd($formattedDate);
+        // last month code 
+        // User::whereMonth('created_at', '=', Carbon::now()->subMonth()->month)->get(['name','created_at']);
+        $user = Auth::guard('staff')->user();
+        $data['dateFilter']=$req->dateFilter;
+        
 
+        switch ($req->dateFilter) {
+            case 'today':
+                $data['allRequests']=RequestModel::whereDate('created_at',Carbon::today())->where('technician_id',$user->id)->where('type_id',$user->type_id)->get();
+                $data['title']="Today Request";
+                
+                break;
+            case 'yesterday':
+                $data['allRequests']=RequestModel::whereDate('created_at',Carbon::yesterday())->where('technician_id',$user->id)->where('type_id',$user->type_id)->get();
+                $data['title']="yesterday Request";
+                break;
+            case 'this_week':
+                $data['allRequests']=RequestModel::whereBetween('created_at',[Carbon::now()->startOfWeek(),Carbon::now()->endOfWeek()])->where('technician_id',$user->id)->where('type_id',$user->type_id)->get();
+                $data['title']="This Week Request";
+                break;
+            case 'this_month':
+                $data['allRequests']=RequestModel::whereMonth('created_at',Carbon::now()->month)->where('technician_id',$user->id)->where('type_id',$user->type_id)->get();
+                $data['title']="This Month Request";
+                break;
+            case 'last_month':
+                $data['allRequests']=RequestModel::whereMonth('created_at',Carbon::now()->subMonth()->month)->where('technician_id',$user->id)->where('type_id',$user->type_id)->get();
+                $data['title']="Last Month Request";
+                break;
+            case 'this_year':
+                $data['allRequests']=RequestModel::whereYear('created_at',Carbon::now()->year)->where('technician_id',$user->id)->where('type_id',$user->type_id)->get();
+                $data['title']="This Year Request";
+                break;
+            case 'last_year':
+                $data['allRequests']=RequestModel::whereYear('created_at',Carbon::now()->subYear()->year)->where('technician_id',$user->id)->where('type_id',$user->type_id)->get();
+                $data['title']="Last Year Request";
+                break;
+            
+            default:
+                $data['allRequests'] = RequestModel::where('technician_id',$user->id)->get();
+                $data['title']="All New Request";
+            
+                break;
+        
+            }
+        return view('staff/requests',$data);
+       
+    }
+    public function filterByInput(Request $req){
+        $user = Auth::guard('staff')->user();
+       
+        // dd($req->search);
+        $data['search_value']=$req->search;
+        $data['allRequests']=RequestModel::where("technician_id",$user->id)->where('owner_name',"LIKE","%".$req->search."%")->get();
+        $data['title']='Search Record';
+        $data['dateFilter']='All';
+        return view('staff/requests',$data);
+    }
    
 }
