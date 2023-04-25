@@ -5,8 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Hash;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Receptioner extends Model
+
+class Receptioner extends Authenticatable
 {
     use HasFactory;
     protected $guard = "receptioner";

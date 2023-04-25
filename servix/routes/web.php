@@ -57,6 +57,9 @@ Route::prefix("admin")->group(function () {
             Route::get("/request/datefilter","dateFilter")->name("admin.request.filterbydate");
             Route::get("/request/filterbyselect","filterBySelect")->name("admin.request.filterbyselect");
             Route::get("/request/filterbyinput","filterByInput")->name("admin.request.filterbyinput");
+
+            Route::get('/receptionerRequestForm',[ReceptionerController::class, 'showAllreceptioner'])->name('receptioner.showAllreceptioner');
+            Route::get('/status/{receptioner}',[ReceptionerController::class,"status"])->name('receptioner.status');
         });
     });
 });
@@ -91,8 +94,20 @@ Route::prefix("receptioner")->group(function(){
    Route::controller(ReceptionerController::class)->group(function(){
        // without auth middleware 
        Route::match(["post", "get"], '/login', 'receptionerlogin')->name('receptioner.login');
+    // with middle receptioner login required
        Route::middleware('auth:receptioner')->group(function(){
         Route::get('/', 'index')->name('receptioner.panel');
+        Route::get('/listRequest', 'allnewRequest')->name('receptioner.all.request');
+        Route::match(['post','get'],'/EditRequest/{id}', 'editRequest')->name('receptioner.request.edit');
+        Route::match(['post','get'],'/receptionerRequestForm', 'requestForm')->name('receptioner.request.form');
+       
+
+        // filter 
+        Route::get("/request/datefilter","dateFilter")->name("receptioner.request.filterbydate");
+        Route::get("/request/filterbyselect","filterBySelect")->name("receptioner.request.filterbyselect");
+        Route::get("/request/filterbyinput","filterByInput")->name("receptioner.request.filterbyinput");
+
+        Route::get('/logout', 'receptionerlogout')->name('receptioner.logout');
        });
    });
 });

@@ -16,9 +16,11 @@ return new class extends Migration
             $table->string("name");
             $table->string("contact");
             $table->string("email");
-            $table->string("adhar");
+            $table->string("aadhar");
             $table->string("pan");
             $table->string("address");
+            $table->string("salary");
+            $table->string("status")->default(1);
             $table->string("password");
             $table->timestamps();
         });

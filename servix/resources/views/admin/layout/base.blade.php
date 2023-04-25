@@ -276,6 +276,13 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
+                                    <a href="{{ route('receptioner.showAllreceptioner') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Manage receptioner</p>
+                                        {{-- <P class='ml-4'>{{$staffs->count()}}</P> --}}
+                                    </a>
+                                </li>
+                                <li class="nav-item">
                                     <a href="{{ route('admin.staff.create') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Add Staff</p>
