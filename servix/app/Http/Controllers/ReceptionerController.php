@@ -30,7 +30,7 @@ class ReceptionerController extends Controller
         }
         return view('receptioner.receptionerLogin');
     }
-    public function adminlogout(Request $req)
+    public function receptionerlogout(Request $req)
     {
         Auth::guard("receptioner")->logout();
         return redirect()->back(); 
