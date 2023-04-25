@@ -1,18 +1,10 @@
 @extends('receptioner.layouts.base')
 
 @section('content')
-<<<<<<< HEAD
-    <div class="">
-        <div class="row">
-            <div class="card p-5 mx-auto mt-5 rounded-5">
-                <div class="d-flex justify-content-center">
-                    <h1 class="font-bold text-3xl text-gray-900 mb-4">Service Request</h1>
-=======
     <div class="ml-40">
             <div class="container">
                 <div class="d-flex justify-content-between">
                     <h1 class="mt-2">Service Request</h1>
->>>>>>> f14ee4588d07e03a8cf91bbcbfe1ed00c79cafc5
                 </div>
                 <form action="{{ route('receptioner.request.form') }}" method="POST">
                     @csrf
