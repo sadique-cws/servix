@@ -46,6 +46,13 @@
                                 <p class="text-danger small">{{$message}} </p>
                             @enderror
                         </div>
+                        <div class="mb-3 px-3">
+                            <label for="" class="text-black-100">Sericl No</label>
+                            <input type="text" name="serial_no" class="form-control">
+                            @error('serial_no')
+                                <p class="text-danger small">{{$message}} </p>
+                            @enderror
+                        </div>
                     </div>
                     <div class="row ">
                         <div class="mb-3 px-3">
@@ -53,6 +60,15 @@
                             <div class="flex">
                                 <input type="text" name="color" class="form-control">
                                 @error('color')
+                                    <p class="text-danger small">{{$message}} </p>
+                                @enderror
+                            </div>
+                        </div> 
+                        <div class="mb-3 px-3">
+                            <label for="" class="text-black-100">MAC</label>
+                            <div class="flex">
+                                <input type="text" name="MAC" class="form-control">
+                                @error('MAC')
                                     <p class="text-danger small">{{$message}} </p>
                                 @enderror
                             </div>
@@ -71,7 +87,9 @@
                             <p class="text-danger small">{{$message}} </p>
                         @enderror
                         </div> 
+                        
                     </div>
+                    
                 
                         <div class="mb-3 px-3">
                             <label for="" class="text-black-100">Problem</label>
