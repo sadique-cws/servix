@@ -9,14 +9,14 @@
             {{-- form here --}}
             <div class="d-flex justify-content-between ">
                 <div class=" mt-2">
-                    <h2 class="text-black-100">Edit Staff</h2>
+                    <h2 class="text-black-100">Edit Receptioner</h2>
                 </div>
                 <div class="mt-3">
-                    <a href="{{ route('admin.staff.manage') }}" role="button" class="btn btn-primary btn-sm">Go Back</a>
+                    <a href="" role="button" class="btn btn-primary btn-sm">Go Back</a>
                 </div>
             </div>
 
-            <form action="{{ route('admin.staff.update', $data['id']) }}" method="post">
+            <form action="" method="post">
                 @csrf
                 <div class="row">
                     <div class="w-full px-3 mb-5">
@@ -55,17 +55,7 @@
                     </div>
                     <div class="w-full px-3 mb-5">
 
-                        <label for="inputState" class="text-black-100">Type</label>
-                        <div class="flex w-full">
-                            {{-- <input type="text" name="type" class="form-control" placeholder=""> --}}
-                            <select id="inputState" name="type"
-                                class=" form-control">
-                                <option selected>Choose...</option>
-                                <option>Mobile</option>
-                                <option>Laptop</option>
-                                <option>Assessories</option>
-                            </select>
-                        </div>
+                      
 
 
                     </div>
