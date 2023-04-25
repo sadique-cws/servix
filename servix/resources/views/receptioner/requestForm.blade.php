@@ -1,6 +1,6 @@
 @extends('receptioner.layouts.base')
 
-@section('contents')
+@section('content')
     <div class="container mt-5">
         <div class="row mt-5 py-5">
             <div class="col-6 card p-5 mx-auto mt-5 rounded-5">

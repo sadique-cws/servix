@@ -147,6 +147,10 @@ class ReceptionerController extends Controller
         return redirect()->back();
 
     }
+    public function receptionerlogout(Request $req){
+        Auth::guard("receptioner")->logout();
+        return redirect()->back();
+    }
     public function addReceptioner(Request $req){
         if($req->method()=='POST'){
             $data = $req->validate([
