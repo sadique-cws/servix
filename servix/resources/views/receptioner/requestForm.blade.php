@@ -1,9 +1,9 @@
 @extends('receptioner.layouts.base')
 
-@section('contents')
-    <div class="container mt-5">
-        <div class="row mt-5 py-5">
-            <div class="col-6 card p-5 mx-auto mt-5 rounded-5">
+@section('content')
+    <div class="">
+        <div class="row">
+            <div class="card p-5 mx-auto mt-5 rounded-5">
                 <div class="d-flex justify-content-center">
                     <h1 class="font-bold text-3xl text-gray-900 mb-4">Service Request</h1>
                 </div>

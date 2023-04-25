@@ -66,6 +66,8 @@ class RequestController extends Controller
     }
 
     public function confirmRequest(Request $req, $id){
+        $date = \Carbon\Carbon::now();
+        $date->addDays(7);
         $user = Auth::guard('staff')->user();
         $request = RequestModel::where('type_id',$user->type_id)
                                 ->where('technician_id',NULL)
@@ -73,6 +75,7 @@ class RequestController extends Controller
 
         $request->technician_id = $user->id;
         $request->status ="work in progress";
+        $request->estimate_delivery=$date;
         $request->save();
         return redirect()->back();
     }
@@ -111,6 +114,7 @@ class RequestController extends Controller
     public function pending( Request $req){
         $data=RequestModel::where('id',$req->id)->first();
         $data->status= "pending";
+        
         $data->save();   
         return redirect()->back();
     }
