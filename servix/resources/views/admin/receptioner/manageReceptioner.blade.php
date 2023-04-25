@@ -111,7 +111,7 @@
                                                                 </div>
                                                                 <div class="border border-dark p-1 text-center">
                                                                     <label for=""><span><svg fill="#000000" width="40px" height="40px" viewBox="0 0 32.00 32.00" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>category</title> <path d="M2.594 4.781l-1.719 1.75h15.5l-1.719-1.75h-12.063zM17.219 13.406h-17.219v-6.031h17.219v6.031zM12.063 11.688v-1.719h-6.875v1.719h0.844v-0.875h5.156v0.875h0.875zM17.219 20.313h-17.219v-6.031h17.219v6.031zM12.063 18.594v-1.75h-6.875v1.75h0.844v-0.875h5.156v0.875h0.875zM17.219 27.188h-17.219v-6h17.219v6zM12.063 25.469v-1.719h-6.875v1.719h0.844v-0.875h5.156v0.875h0.875z"></path> </g></svg></span>Type</label>
-                                                                    <h5>{{ $item->type }}</h5>
+                                                                    <h5>{{ $item->type_id }}</h5>
                                                                 </div>
                                                                 <div class="border border-dark p-1 text-center ">
                                                                     <label for="">
