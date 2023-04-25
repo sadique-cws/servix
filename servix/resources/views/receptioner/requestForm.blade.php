@@ -71,8 +71,6 @@
                             <p class="text-danger small">{{$message}} </p>
                         @enderror
                         </div> 
-                         
-                        
                     </div>
                 
                         <div class="mb-3 px-3">
