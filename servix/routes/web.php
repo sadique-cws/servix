@@ -104,21 +104,20 @@ Route::prefix("crm")->group(function(){
        Route::middleware('auth:receptioner')->group(function(){
         Route::get('/', 'index')->name('receptioner.panel');
         Route::get('/listRequest', 'allnewRequest')->name('receptioner.all.request');
-        Route::get('/listRequest/confirm','confirmRequest')->name('receptioner.confirm.request');
+
+        Route::get('/listRequest/confirm','confirmedRequest')->name('crm.confirmed.req');
+        Route::get('/listRequest/panding','pandingRequest')->name('crm.panding.req');
+        Route::get('/listRequest/rejected','rejectedRequest')->name('crm.rejected.req');
+        Route::get('/listRequest/delivered','deliveredRequest')->name('crm.delivered.req');
+        Route::get('/listRequest/all','allRequest')->name('crm.all.req');
 
         Route::match(['post','get'],'/EditRequest/{id}', 'editRequest')->name('receptioner.request.edit');
         Route::match(['post','get'],'/receptionerRequestForm', 'requestForm')->name('receptioner.request.form');
         Route::get('/request/global/search/', [RequestController::class,'globalSearch'])->name('request.globalSearch');
-
-     
-        
-       
-
         // filter 
         Route::get("/request/datefilter","dateFilter")->name("receptioner.request.filterbydate");
         Route::get("/request/filterbyselect","filterBySelect")->name("receptioner.request.filterbyselect");
         Route::get("/request/filterbyinput","filterByInput")->name("receptioner.request.filterbyinput");
-
         Route::get('/logout', 'receptionerlogout')->name('receptioner.logout');
        });
    });

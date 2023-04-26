@@ -239,35 +239,60 @@
                             </a>
                         </li>
 
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="{{ route('receptioner.request.form') }}" class="nav-link">
                                 <i class="nav-icon fas fa-copy"></i>
                                 <p>Servixc Request</p>
                             </a>
-                        </li>
+                        </li> --}}
 
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-copy"></i>
                                 <p>
-                                    Request
+                                    Manage requests
                                     <i class="fas fa-angle-left right"></i>
                                     <span class="badge badge-info right">5</span>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
+                                    <a href="{{ route('crm.all.req') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p> All Request</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('crm.confirmed.req') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p> Confirmed</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('crm.panding.req') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p> panding</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('crm.rejected.req') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p> Rejected</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('crm.delivered.req') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p> Delivered</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
                                     <a href="{{ route('receptioner.request.form') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p> Add New Request</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Deliver Request</p>
-                                    </a>
-                                </li>
+                               
                               
                                
 
@@ -279,7 +304,7 @@
 
 
 
->>>>>>> 343de4b3ca7d62f806f5a75c0ffeb00b14292787
+
                         <li class="nav-header">LABELS</li>
                         <li class="nav-item">
                             <a href="{{ route('receptioner.logout') }}" class="nav-link">
