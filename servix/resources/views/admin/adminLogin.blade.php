@@ -72,12 +72,11 @@
           </div>
         </form>
   
-<<<<<<< HEAD
+
      
-=======
+
       
         <!-- /.social-auth-links -->
->>>>>>> d3d9fa56a6e328adb821c369836a2aff480b2b87
       </div>
       <!-- /.login-card-body -->
     </div>
