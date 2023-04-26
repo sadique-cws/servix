@@ -241,7 +241,7 @@
                                 <p>
                                     Request
                                     <i class="fas fa-angle-left right"></i>
-                                    <span class="badge badge-info right">6</span>
+                                    
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
@@ -249,29 +249,24 @@
                                     <a href="{{ route('request.all') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p> All Request</p>
-                                        {{-- <span class="right badge badge-danger">{{ $staffConformCount}}</span> --}}
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('request.show.panding') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p> Total Pending</p>
-                                        {{-- <span class="right badge badge-danger">{{ $staffPendingCount}}</span> --}}
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('request.show.reject') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p> Rejected</p>
-                                        {{-- <span class="right badge badge-danger">{{ $staffRejectedCount}}</span> --}}
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('request.show.delivered') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p> Delivered</p>
-                                    <span class="right badge badge-danger"></span>
-
                                     </a>
                                 </li>
                                
