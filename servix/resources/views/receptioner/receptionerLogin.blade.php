@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Dashboard</title>
+  <title>CRM Login Page | {{ env("APP_NAME") }}</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -30,7 +30,7 @@
 
 <div class="login-box">
     <div class="login-logo">
-      <a href=""><b>Receptioner</b>Login</a>
+      <a href=""><b>CRM</b> Login</a>
     </div>
     <!-- /.login-logo -->
     <div class="card">
@@ -75,12 +75,12 @@
        
         <!-- /.social-auth-links -->
   
-        <p class="mb-1">
+        {{-- <p class="mb-1">
           <a href="forgot-password.html">I forgot my password</a>
         </p>
         <p class="mb-0">
           <a href="register.html" class="text-center">Register a new membership</a>
-        </p>
+        </p> --}}
       </div>
       <!-- /.login-card-body -->
     </div>

@@ -143,16 +143,28 @@ class RequestController extends Controller
     
 
 
-    public function trackStatus(Request $req): View
+    public function trackStatus(Request $req)
     {  
         $data['searchStatus']="";
         $data['item']="";
         if($req->method()=='POST'){
+            $req->validate([
+                'search' => "required|min:6|max:6",
+            ],[
+                'search.required' => "Please Enter 6 Character Service Code",
+                'search.min' => "Service Code must be at least 6 characters.",
+                'search.max' => "Service Code must be at least 6 characters."
+            ]);
            $data['searchStatus'] = $req->search;
+        
            $searchStatus=$req->search;
-        //   dd($searchStatus);
-          $data['item'] = RequestModel::where('service_code', 'LIKE', "%$searchStatus%")->first();
-          return view('userDashboard.trackRequest', $data);
+        
+          $item = RequestModel::where('service_code', 'LIKE', "%$searchStatus%")->first();
+
+          if(!$item){
+            return redirect()->back()->with('msg',"Service Code is Not Found");
+          }
+          return view('userDashboard.trackRequest',compact('item','searchStatus'));
        }
       
     return view('userDashboard.trackRequest',$data);

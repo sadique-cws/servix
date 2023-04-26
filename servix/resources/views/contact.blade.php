@@ -1,5 +1,8 @@
 @extends('layouts.layout')
 
+@section('title')
+    Contact Us | 
+@endsection
 @section('contents')
 
     <div class="container px-5" style="margin-top: 200px">
@@ -18,13 +21,13 @@
                             <div class="card card_contact px-4 py-3">
                                 <h3 class="my-0"><b>Services</b></h3>
                                 <h4 class="my-0">Query</h4>
-                                <div class="d-flex pt-5">
+                                {{-- <div class="d-flex pt-5">
                                     <img src="Assets/Whatsapp.svg" class="img_whats" alt="logo">
                                     <h5 class="pt-2 pl-2"><b>+91 7480897732</b></h5>
-                                </div>
+                                </div> --}}
                                 <div class="d-flex">
                                     <img src="Assets/call.svg" class="img_whats" alt="logo">
-                                    <h5 class="pt-2 pl-2"><b>+91 9523327578</b></h5>
+                                    <h5 class="pt-2 pl-2"><b>+91 7856802002</b></h5>
                                 </div>
                             </div>
                         </div>
@@ -32,13 +35,13 @@
                             <div class="card card_contact1 p-3">
                                 <h3 class="my-0"><b>Training</b></h3>
                                 <h4 class="my-0">Query</h4>
-                                <div class="d-flex pt-5">
+                                {{-- <div class="d-flex pt-5">
                                     <img src="Assets/Whatsapp.svg" class="img_whats" alt="logo">
-                                    <h5 class="pt-2 pl-2"><b>+91 7480897732</b></h5>
-                                </div>
+                                    <h5 class="pt-2 pl-2"><b>+91 7856802002</b></h5>
+                                </div> --}}
                                 <div class="d-flex">
                                     <img src="Assets/call.svg" class="img_whats" alt="logo">
-                                    <h5 class="pt-2 pl-2"><b>+91 9523327578</b></h5>
+                                    <h5 class="pt-2 pl-2"><b>+91 7856802002</b></h5>
                                 </div>
                             </div>
                         </div>
@@ -46,8 +49,8 @@
                     <div class="card card_contact2 p-3 mt-4">
                         <div class="text-center">
                             <img src="Assets/map.svg" class="img_whats2" alt="logo">
-                            <h3 class="pt-3 zila_school">Near MI Care, Zila School Road</h3>
-                            <h3 class="zila_school">Purnia, Bihar 854301</h3>
+                            <h3 class="pt-3 zila_school">Zila School Road, Near BSNL tower,</h3>
+                            <h3 class="zila_school">Purnea (Bihar) - 854301</h3>
                         </div>
                     </div>
                 </div>

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Receptioner;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Type;
 use Illuminate\View\View;
 use App\Models\Request as RequestModel;
@@ -171,6 +171,7 @@ class ReceptionerController extends Controller
         return redirect()->back();
 
     }
+   
     public function addReceptioner(Request $req){
         if($req->method()=='POST'){
             $data = $req->validate([

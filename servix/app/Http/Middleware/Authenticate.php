@@ -22,7 +22,7 @@ class Authenticate extends Middleware
             elseif($request->is('staff') || $request->is('staff/*')){
                 return route('staff.login');
             }
-            elseif($request->is('receptioner') || $request->is('receptioner/*')){
+            elseif($request->is('crm') || $request->is('crm/*')){
                 return route('receptioner.login');
             }
             else{

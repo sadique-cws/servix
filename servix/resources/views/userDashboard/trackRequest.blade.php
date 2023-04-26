@@ -1,50 +1,71 @@
 @extends('layouts.layout')
 
 @section('contents')
-    <div class="d-flex  fixed" style="margin-top: 27%">
+    <div class="" style="margin-top: 10%">
         <!-- Button to Open the Modal -->
 
-        <div class="position-absolute top-50 start-50 translate-middle">
+        <div class="text-center p-10"  >
 
-            <form action="{{ route('track.status') }}" method="POST">
-                @csrf
-                <input type="search" name="search" placeholder="Enter status code" class="form-control" value={{($searchStatus)?"$searchStatus":""}}  >
-                <button type="submit" class="btn btn-primary d-flex mx-auto btn-lg mt-2"> Track your order</button>
-            </form>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-6 mx-auto">
+                        <div class="card" style="background: #eee">
+                            <div class="card-body">
+                                <form action="{{ route('track.status') }}" method="POST" class="text-center p-10">
+                                    @csrf
+                                        <h3 class="text-uppercase font-weight-bold">Enter Your Service Code</h3>
+                                        <input type="search" oninput="this.value = this.value.toUpperCase()" name="search" placeholder="Enter 6 Character code" class="form-control text-center" style="margin-top: 5%" value={{($searchStatus)?"$searchStatus":""}}  >
+                                        @error('search')
+                                            <p class="alert alert-danger mt-2">{{ $message }}</p>
+                                        @enderror
+                                        @if (session('msg'))
+                                        <p class="alert alert-danger mt-2">{{ session('msg') }}</p>
+                                        @endif
+                                        <button type="submit" class="btn btn-warning d-flex mx-auto btn-lg mt-2"> Track your order</button>
+                                </form>
+                            </div>
+                        </div>
 
-            @if ($item!='')  
+                        @if ($item!='')  
                            
-                <div class="card mb-3 mt-2" style="max-width: 540px;">
-                    <div class="row no-gutters">
-                        <div class="col-md-4">
-                            <img src="https://picsum.photos/200/300" class="card-img" alt="...">
-                        </div>
-                      <div class="col-md-8">
-                        <div class="card-body">
-                            <div class="d-flex flex-row gap-5 bg-success text-white rounded-lg">
-                                <p class="card-text fs-4 mt-3 ml-2">Status</p>
-                                <p class="card-text fs-4 mt-3">{{$item->status}}</p>
-                            </div>
-                            <div class="d-flex flex-row gap-4">
-                                <p class="card-text">Owner Name => </p>
-                                <p class="card-text">{{$item->owner_name}}</p>
-                            </div>
-                            <div class="d-flex flex-row gap-4">
-                                <p class="card-text">Product Name => </p>
-                                <p class="card-text">{{$item->product_name}}</p>
-                            </div>
-                            <div class="d-flex flex-row gap-4">
-                                <p class="card-text">Deliver Date => </p>
-                                <p class="card-text">{{$item->estimate_delivery}}</p>
-                            </div>
-                            
-                            <p class="card-text"><small class="text-muted">Last updated 1 mins ago</small></p>
-                        </div>
-                      </div>
+                <div class="card mb-3 mt-2">
+                    <table class="table">
+                        <tr>
+                            <th>Name</th>
+                            <td>{{ $item->owner_name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Product</th>
+                            <td>{{ $item->product_name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Contact</th>
+                            <td>*****{{ substr($item->contact,4,10) }}</td>
+                        </tr>
+                        <tr>
+                            <th>Brand</th>
+                            <td>{{ $item->brand }}</td>
+                        </tr>
+                        <tr>
+                            <th>Type</th>
+                            <td>{{ $item->type->typename }}</td>
+                        </tr>
+                        <tr>
+                            <th>Estimate Delivery Date</th>
+                            <td>{{ ($item->estimate_delivery)? $item->estimate_delivery : "N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <th>status</th>
+                            <td>{{ $item->status }}</td>
+                        </tr>
+                    </table>
+                </div>
+            @endif
                     </div>
                 </div>
-            @else
-            @endif
+            </div>
+
+            
 
         </div>
     </div>

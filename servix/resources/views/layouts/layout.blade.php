@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ asset('index.css') }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Service App</title>
+    <title>@yield('title') {{ env('APP_NAME') }} - Laptop Desktop Printer Smartphone Reparing Center in Purnea</title>
     {{-- <link href="../unpkg.com/aos%402.3.1/dist/aos.css" rel="stylesheet">
     <script src="../unpkg.com/aos%402.3.1/dist/aos.js"></script> --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -93,7 +93,7 @@
                                     alt="logo"></a>
                         </div>
                         <ul class="navbar-nav pt-3">
-                            <li class="nav-item py-1"><a href="#" class="nav-lnk footer--art">Warranty Policy</a></li>
+                            <li class="nav-item py-1"><a href="{{ route('home.warranty') }}" class="nav-lnk footer--art">Warranty Policy</a></li>
                             <li class="nav-item py-1"><a href="#" class="nav-lnk footer--art">Terms & Conditions</a>
                             </li>
                             <li class="nav-item py-1"><a href="#" class="nav-lnk footer--art">Privacy Policy</a></li>
@@ -101,12 +101,11 @@
                     </div>
                     <div class="col-lg-4 col-md-6 col-12 mb-4">
                         <ul class="navbar-nav">
-                            <li class="nav-item" style="font-size:31px; color: #000;"><b>+91 6207488382</b></li>
+                            <li class="nav-item" style="font-size:31px; color: #000;"><b>+91 7856802002</b></li>
                             <li class="nav-item"><a href="#" class="nav-link "><b
-                                        class="footer--art">Help@digitalservices.com</b></a>
+                                        class="footer--art">servicxteam@gmail.com</b></a>
                             </li>
-                            <li class="nav-item footer--art1">R.P.C High Scool, Naka Chowk Road Purnia City
-                                Purnia 854301 Bihar</li>
+                            <li class="nav-item footer--art1">Zila School Road, Near BSNL tower, Purnea (Bihar) - 854301</li>
                             <div class="d-flex ml-0 pt-3 social_media_data">
                                 <a href="#" class=" mx-3"><i class="fa-brands fa-facebook-f balagi-media"></i></a>
                                 <a href="#" class="mx-3"><i class="fa-brands fa-instagram balagi-media1"></i></a>
@@ -117,8 +116,8 @@
                     </div>
                     <div class="col-lg-4 col-md-6 col-12">
                         <div>
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4396.685617846691!2d87.51066725826163!3d25.80666475613152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eff8423776e975%3A0xe5d31a1d855095c0!2sEVOLUTION%20OFFICE!5e0!3m2!1sen!2sin!4v1676654884083!5m2!1sen!2sin"
+                           <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14371.57498641261!2d87.4794637!3d25.7740729!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eff97483b0bacd%3A0x2b53bef0d8594e2d!2sBalaji%20Laptop%20Service!5e0!3m2!1sen!2sin!4v1682415521793!5m2!1sen!2sin"
                                 height="170" style="border:0; box-shadow: 7px 11px 9px #12111178;" allowfullscreen=""
                                 loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Staff Dashboard</title>
+    <title>Staff | {{ env('APP_NAME') }}</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -190,6 +190,10 @@
             <a href="index3.html" class="brand-link">
               
                 <span class="brand-text font-weight-light">Servicx Staff</span>
+            <a href="index3.html" class="brand-link bg-white">
+                <img src="http://servixc.com/Assets/New-Logo.png" alt="AdminLTE Logo" class="brand-image"
+                    style="opacity: .8">
+                <span class="brand-text font-weight-light">Staff</span>
             </a>
 
             <!-- Sidebar -->

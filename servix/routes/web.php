@@ -13,6 +13,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('home');
     Route::get('/contact', 'contactUs')->name('home.contact');
     Route::get('/learn', 'learn')->name('home.learn');
+    Route::get('/warranty', 'warranty')->name('home.warranty');
     // Route::get('/trackRequest', 'trackStatus')->name('track.status');
     // new req
    
@@ -64,8 +65,6 @@ Route::prefix("admin")->group(function () {
         });
     });
 });
-
-
 Route::prefix("staff")->group(function () {
     Route::controller(StaffController::class)->group(function () {
         // without auth middleware 
@@ -93,7 +92,7 @@ Route::prefix("staff")->group(function () {
         });
     });
 });
-Route::prefix("receptioner")->group(function(){
+Route::prefix("crm")->group(function(){
    Route::controller(ReceptionerController::class)->group(function(){
        // without auth middleware 
        Route::match(["post", "get"], '/login', 'receptionerlogin')->name('receptioner.login');
