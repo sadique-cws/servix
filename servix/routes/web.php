@@ -14,6 +14,9 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/contact', 'contactUs')->name('home.contact');
     Route::get('/learn', 'learn')->name('home.learn');
     Route::get('/warranty', 'warranty')->name('home.warranty');
+    Route::get('/reciving/pdf/{id}', 'reciptPdf')->name('receipt.pdf');
+    Route::get('/reciving/{id}', 'reciving')->name('receipt.view');
+
     // Route::get('/trackRequest', 'trackStatus')->name('track.status');
     // new req
    
@@ -86,6 +89,7 @@ Route::prefix("staff")->group(function () {
             Route::get("/request/datefilter",[RequestController::class,"dateFilter"])->name("staff.request.filterbydate");
             Route::get("/request/filterbyselect",[RequestController::class,"filterBySelect"])->name("staff.request.filterbyselect");
             Route::get("/request/filterbyinput",[RequestController::class,"filterByInput"])->name("staff.request.filterbyinput");
+
             Route::get('/', 'index')->name('staff.panel');
             Route::get('/logout', 'stafflogout')->name('staff.logout');
                 
@@ -101,17 +105,19 @@ Route::prefix("crm")->group(function(){
         Route::get('/', 'index')->name('receptioner.panel');
         Route::get('/listRequest', 'allnewRequest')->name('receptioner.all.request');
 
+        Route::get('/listRequest/confirm','confirmedRequest')->name('crm.confirmed.req');
+        Route::get('/listRequest/panding','pandingRequest')->name('crm.panding.req');
+        Route::get('/listRequest/rejected','rejectedRequest')->name('crm.rejected.req');
+        Route::get('/listRequest/delivered','deliveredRequest')->name('crm.delivered.req');
+        Route::get('/listRequest/all','allRequest')->name('crm.all.req');
+
         Route::match(['post','get'],'/EditRequest/{id}', 'editRequest')->name('receptioner.request.edit');
         Route::match(['post','get'],'/receptionerRequestForm', 'requestForm')->name('receptioner.request.form');
-        Route::get('/reciving/{id}', 'reciving')->name('rcm.recipt.view');
-        Route::get('/reciving/pdf/{id}', 'reciptPdf')->name('rcm.recipt.pdf');
-       
-
+        Route::get('/request/global/search/', [RequestController::class,'globalSearch'])->name('request.globalSearch');
         // filter 
         Route::get("/request/datefilter","dateFilter")->name("receptioner.request.filterbydate");
         Route::get("/request/filterbyselect","filterBySelect")->name("receptioner.request.filterbyselect");
         Route::get("/request/filterbyinput","filterByInput")->name("receptioner.request.filterbyinput");
-
         Route::get('/logout', 'receptionerlogout')->name('receptioner.logout');
        });
    });

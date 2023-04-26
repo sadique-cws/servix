@@ -49,7 +49,7 @@
                                     data-mdb-ripple-color="dark"><i
                                         class="fas fa-print text-primary"></i>
                                     Print</a>
-                                <a href="{{ route('rcm.recipt.pdf', $item->id) }}" class="btn btn-light text-capitalize"
+                                <a href="{{ route('receipt.pdf', $item->id) }}" class="btn btn-light text-capitalize"
                                     data-mdb-ripple-color="dark"><i
                                         class="far fa-file-pdf text-danger"></i>
                                     Export</a>
@@ -148,6 +148,13 @@
                                                 <td class="text-uppercase">{{$item->product_name}}</td>
                                                 <th scope="col">Est Delivery Date</th>
                                                 <td class="text-uppercase">{{date('d M Y', strtotime($item->estimate_delivery))}}</td>
+        
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">Status</th>
+                                                <td class="text-uppercase">{{$item->status}}</td>
+                                                <th scope="col">Remark</th>
+                                                <td class="text-uppercase">{{($item->remark==null)?"N/A":$item->remark}}</td>
         
                                             </tr>
                                         </tbody>

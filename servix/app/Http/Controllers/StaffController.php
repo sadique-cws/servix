@@ -13,7 +13,22 @@ class StaffController extends Controller
 {   
     public function index(Request $req): View
     {
-        return view('staff.dashboard');
+
+        // $user = Auth::guard('staff')->user();
+
+    
+
+        // $data['staffConformCount'] = RequestModel::where('type_id',$user->type_id)->where('technician_id',$user->id)->get()->count();
+        
+        // $data['staffPendingCount'] = RequestModel::where('type_id',$user->type_id)
+        // ->where('technician_id',$user->id)
+        // ->where('status','pending')->get()->count();
+
+        // $data['staffRejectedCount'] = RequestModel::where('type_id',$user->type_id)
+        // ->where('technician_id',$user->id)
+        // ->where('status','rejected')->get()->count();
+
+        return view('staff.dashboard'); 
     }
 
     public function stafflogin(Request $req){

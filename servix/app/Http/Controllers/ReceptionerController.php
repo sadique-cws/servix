@@ -7,6 +7,7 @@ use PDF;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Type;
 use Illuminate\View\View;
 use App\Models\Request as RequestModel;
@@ -16,7 +17,8 @@ class ReceptionerController extends Controller
 {
     public function index(Request $req): View
     {
-        return view('receptioner.dashboard');
+        $data['allRequests'] = RequestModel::orderBy("id", "DESC")->take(10)->get();
+        return view('receptioner.dashboard',$data);
     }
     public function receptionerlogin(Request $req)
     {
@@ -60,11 +62,29 @@ class ReceptionerController extends Controller
                $data['service_code'] = $service_code;
                $data['date_of_delivery']=$date;
                
+               $img = $req->image;
+            $folderPath = "uploads/";
+            
+            $image_parts = explode(";base64,", $img);
+            $image_type_aux = explode("image/", $image_parts[0]);
+            $image_type = $image_type_aux[1];
+            
+            $image_base64 = base64_decode($image_parts[1]);
+            $fileName = uniqid() . '.png';
+            
+            $file = $folderPath . $fileName;
+            Storage::put($file, $image_base64);
+            // dd($fileName);
+           $data['image'] = $fileName;
     
             //    dd($data);
     
             RequestModel::create($data);
-            return view('receptioner.reciving',$data);
+
+            $datas=['item' => $data];
+            
+            // return view('receipt.receipt',$datas);
+            return redirect()->back();
 
         }
         return view('receptioner.requestForm');
@@ -77,6 +97,8 @@ class ReceptionerController extends Controller
         $data['title'] = "All Request";
         return view('receptioner.requests',$data);
     }
+
+   
     public function editRequest(Request $req, $id){
         if($req->method()=='POST'){
             $data = $req->validate([
@@ -174,6 +196,8 @@ class ReceptionerController extends Controller
 
     }
    
+   
+
     public function addReceptioner(Request $req){
         if($req->method()=='POST'){
             $data = $req->validate([
@@ -187,6 +211,8 @@ class ReceptionerController extends Controller
                 'status' => 'required',
                 'password' => 'required',
             ]);
+
+            
             Receptioner::create($data);
             return redirect()->back();       
 
@@ -194,20 +220,37 @@ class ReceptionerController extends Controller
         return view('admin.receptioner.addReceptioner');
         
     }
-
-    public function reciving(Request $req, $id): View
-    {
-        $data['item']=RequestModel::where("id",$id)->first();
-        return view('recipt.recipt',$data);
-
+  
+    public function confirmedRequest(Request $req){
+      
+        $data['allRequests'] = RequestModel::where('status','work in progress')->orderBy('created_at', 'DESC')->get();
+        $data['title'] = "Confirm Requests";                                    
+        return view("receptioner.requests",$data);   
     }
-    public function reciptPdf(Request $req, $id): View
-    {
-        $data['item']=RequestModel::where("id",$id)->first();
-        $pdf=PDF::loadView('recipt.recipt',$data);
-
-        return $pdf->download('recipt-'.$id.'.pdf');
-
+    public function rejectedRequest(Request $req){
+      
+        $data['allRequests'] = RequestModel::where('status','rejected')->orderBy('created_at', 'DESC')->get();
+        $data['title'] = "rejected Requests";                                    
+        return view("receptioner.requests",$data);   
     }
+    public function pandingRequest(Request $req){
+      
+        $data['allRequests'] = RequestModel::where('status','pending')->orderBy('created_at', 'DESC')->get();
+        $data['title'] = "pending Requests";                                    
+        return view("receptioner.requests",$data);   
+    }
+    public function deliveredRequest(Request $req){
+      
+        $data['allRequests'] = RequestModel::where('status','Delivered')->orderBy('created_at', 'DESC')->get();
+        $data['title'] = "Delivered Requests";                                    
+        return view("receptioner.requests",$data);   
+    }
+    public function allRequest(Request $req){
+      
+        $data['allRequests'] = RequestModel::orderBy('created_at', 'DESC')->get();
+        $data['title'] = "all Requests";                                    
+        return view("receptioner.requests",$data);   
+    }
+   
 
 }

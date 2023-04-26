@@ -187,10 +187,10 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link">
+            <a href="{{ route('staff.panel') }}" class="brand-link">
               
                 <span class="brand-text font-weight-light">Servicx Staff</span>
-            <a href="index3.html" class="brand-link bg-white">
+            <a href="{{ route('staff.panel') }}" class="brand-link bg-white">
                 <img src="http://servixc.com/Assets/New-Logo.png" alt="AdminLTE Logo" class="brand-image"
                     style="opacity: .8">
                 <span class="brand-text font-weight-light">Staff</span>
@@ -241,7 +241,7 @@
                                 <p>
                                     Request
                                     <i class="fas fa-angle-left right"></i>
-                                    <span class="badge badge-info right">6</span>
+                                    
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">

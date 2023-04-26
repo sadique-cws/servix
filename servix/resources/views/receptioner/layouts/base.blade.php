@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CRM | {{ env("APP_NAME") }}</title>
+    <title>CRM | {{ env('APP_NAME') }}</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -28,8 +28,14 @@
     <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}">
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+    </script>
     <link rel="stylesheet" href="{{ asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" /> --}}
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -64,10 +70,10 @@
                         <i class="fas fa-search"></i>
                     </a>
                     <div class="navbar-search-block">
-                        <form class="form-inline">
+                        <form class="form-inline" action="{{ route('request.globalSearch') }}">
                             <div class="input-group input-group-sm">
                                 <input class="form-control form-control-navbar" type="search" placeholder="Search"
-                                    aria-label="Search">
+                                    name="search" aria-label="Search">
                                 <div class="input-group-append">
                                     <button class="btn btn-navbar" type="submit">
                                         <i class="fas fa-search"></i>
@@ -176,8 +182,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true"
-                        href="#" role="button">
+                    <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#"
+                        role="button">
                         <i class="fas fa-th-large"></i>
                     </a>
                 </li>
@@ -188,7 +194,7 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link">
+            <a href="/crm" class="brand-link">
                 {{-- <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                     style="opacity: .8"> --}}
                 <span class="brand-text font-weight-light">receptioner</span>
@@ -200,15 +206,17 @@
 
                 <!-- SidebarSearch Form -->
                 <div class="form-inline">
-                    <div class="input-group" data-widget="sidebar-search">
-                        <input class="form-control form-control-sidebar" type="search" placeholder="Search"
-                            aria-label="Search">
-                        <div class="input-group-append">
-                            <button class="btn btn-sidebar">
-                                <i class="fas fa-search fa-fw"></i>
-                            </button>
+                    <form action="{{ route('request.globalSearch') }}" method="GET">
+                        <div class="input-group" >
+                            <input class="form-control form-control-sidebar" type="search" name="search" placeholder="Search"
+                               >
+                            <div class="input-group-append">
+                                <button class="btn btn-sidebar" type="submit">
+                                    <i class="fas fa-search fa-fw"></i>
+                                </button>
+                            </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
 
                 <!-- Sidebar Menu -->
@@ -229,43 +237,82 @@
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     New Request
-                                    <span class="right badge badge-danger">{{ countNewRequest(auth()->user()->type_id)}}</span>
+                                    <span
+                                        class="right badge badge-danger">{{ countNewRequest(auth()->user()->type_id) }}</span>
                                 </p>
                             </a>
                         </li>
+
+                        {{-- <li class="nav-item">
+                            <a href="{{ route('receptioner.request.form') }}" class="nav-link">
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>Servixc Request</p>
+                            </a>
+                        </li> --}}
+
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-copy"></i>
                                 <p>
-                                    Request
+                                    Manage requests
                                     <i class="fas fa-angle-left right"></i>
-                                    <span class="badge badge-info right">6</span>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('crm.all.req') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p> All Request</p>
+                                        <span class="badge badge-info right">{{$allReq}}</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('crm.confirmed.req') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p> Confirmed</p>
+                                        <span class="badge badge-info right">{{$ConformCountReq}}</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('crm.panding.req') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p> pending</p>
+                                        <span class="badge badge-info right">{{$PendingCountReq}}</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('crm.rejected.req') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p> Rejected</p>
+                                        <span class="badge badge-info right">{{$RejectedCountReq}}</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('crm.delivered.req') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p> Delivered</p>
+                                        <span class="badge badge-info right">{{$DeliveredCountReq}}</span>
+                                    </a>
+                                </li>
                                 <li class="nav-item">
                                     <a href="{{ route('receptioner.request.form') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p> Add New Request</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p> Add</p>
-                                    </a>
-                                </li>
+                               
                               
                                
 
                             </ul>
                         </li>
-                        
-                       
-                    
-                     
-                       
-                      
+
+
+
+
+
+
+
                         <li class="nav-header">LABELS</li>
                         <li class="nav-item">
                             <a href="{{ route('receptioner.logout') }}" class="nav-link">
@@ -285,7 +332,7 @@
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">
-           
+
         </footer>
 
         <!-- Control Sidebar -->
@@ -331,8 +378,8 @@
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
     <script src="{{ asset('js/printThis.js') }}"></script>
+     
 
-  
     <script>
         $('#print-button').click(function() {
             $('#printable-content').printThis({
@@ -345,7 +392,8 @@
             });
         });
     </script>
-    
+
+@yield('js')
 </body>
 
 </html>

@@ -88,6 +88,7 @@
                                 <th>problem</th>
                                 <th>Status</th>
                                 <th>Remark</th>
+                                <th>created_at</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -103,6 +104,7 @@
                                     <td>{{ $item->problem }}</td>
                                     <td>{{ $item->status }}</td>
                                     <td>{{ $item->remark }}</td>
+                                    <td>{{ date('d M Y', strtotime($item->created_at)) }}</td>
                                     <td class="border border-slate-700 p-1.5  items-center justify-center flex btn-group"
                                         role="group">
                                         <div class="btn-group" role="group"
@@ -115,7 +117,7 @@
 
                                                 {{-- <a data-toggle="modal" data-target="#view{{ $item->id }}"
                                                     role="button" class=" btn btn-info btn-group ">View</a> --}}
-                                                <a href="{{ route('rcm.recipt.view', $item->id) }}"
+                                                <a href="{{ route('receipt.view', $item->id) }}"
                                                     role="button" class=" btn btn-info btn-group ">View</a>
 
                                                 <a href="{{ route('receptioner.request.edit', $item->id) }}" role="button"

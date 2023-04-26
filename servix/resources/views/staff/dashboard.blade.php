@@ -62,7 +62,7 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>{{ countNewRequest(auth()->user()->type_id,"pending")}}</h3>
+                <h3>{{ countNewRequest(auth()->user()->type_id,"pending")}}</h3> 
 
                 <p>Total Pending</p>
               </div>
@@ -490,7 +490,7 @@
                 <div class="row">
                   <div class="col-4 text-center">
                     <div id="sparkline-1"></div>
-                    <div class="text-white">Visitors</div>
+                    <div class="text-white">wasik</div>
                   </div>
                   <!-- ./col -->
                   <div class="col-4 text-center">

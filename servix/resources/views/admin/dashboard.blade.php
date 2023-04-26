@@ -45,9 +45,9 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
+                <h3>{{$ConformCountReq}}<sup style="font-size: 20px"></sup></h3>
 
-                <p>Conform Order</p>
+                <p>Conform Rquest</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -60,7 +60,7 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44</h3>
+                <h3>{{$PendingCountReq}}</h3>
 
                 <p>Pending</p>
               </div>
@@ -75,7 +75,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>65</h3>
+                <h3>{{$RejectedCountReq}}</h3>
 
                 <p>Reject</p>
               </div>
