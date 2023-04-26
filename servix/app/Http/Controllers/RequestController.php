@@ -276,5 +276,14 @@ class RequestController extends Controller
         $data['title'] = "Total RejectedRequests";
         return view("staff.requests",$data);
     }
+    public function globalSearch(Request $req){
+        $data['search_value']="";
+        $data['allRequests']=RequestModel::where('service_code',"LIKE","%".$req->search."%")
+        ->orWhere('contact', 'like', '%' . $req->search . '%')
+        ->orWhere('owner_name', 'like', '%' . $req->search . '%')->get();
+        $data['title']='Search Record';
+        $data['dateFilter']='All';
+        return view('receptioner/requests',$data);
+    }
    
 }
