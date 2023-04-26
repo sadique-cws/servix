@@ -60,7 +60,11 @@
                         </tr>
                         <tr>
                             <th>Product Image</th>
-                            <td>{{ $item->image }}</td>
+                            @if($item->image)
+                                <img src="{{ asset('storage/uploads/'.$item->image) }}" style="height: 50px; width:70px;" class="rounded-circle">
+                                @else 
+                                <span>No image found!</span>
+                            @endif
                         </tr>
                         <tr>
                             <th>Download Receipt</th>
