@@ -90,12 +90,16 @@
                     </div>
 
                     <div class="row">
-                        <div class="mb-3 px-3 col">
-                            <label for="" class="text-black-100">Image</label>
-                            <div id="my_camera" class="pre_capture_frame"></div>
+                        <div class="col-md-6">
+                            <div id="my_camera"></div>
+                            <br/>
                             <input type=button value="Take Snapshot" onClick="take_snapshot()">
                             <input type="hidden" name="image" class="image-tag">
                         </div>
+                        <div class="col-md-6">
+                            <div id="results">Your captured image will appear here...</div>
+                        </div>
+                    </div>
                     </div>
                     
                     <div class="mb-3 px-2">
@@ -116,6 +120,10 @@
     </div>
 @endsection
 
+@section('js')
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script>
 
 <script>
     Webcam.set({
@@ -134,5 +142,5 @@
         } );
     }
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script>
+
+@endsection

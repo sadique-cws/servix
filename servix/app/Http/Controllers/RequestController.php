@@ -41,6 +41,7 @@ class RequestController extends Controller
            $data['service_code'] = $service_code;
 
         //    dd($data);
+        
 
         RequestModel::create($data);
         // return redirect()->route('flashMsg');

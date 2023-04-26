@@ -62,7 +62,7 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>{{ countNewRequest(auth()->user()->type_id,"pending")}}</h3>
+                <h3>{{ countNewRequest(auth()->user()->type_id,"pending")}}</h3> 
 
                 <p>Total Pending</p>
               </div>

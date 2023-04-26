@@ -7,6 +7,7 @@ use PDF;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Type;
 use Illuminate\View\View;
 use App\Models\Request as RequestModel;
@@ -61,11 +62,29 @@ class ReceptionerController extends Controller
                $data['service_code'] = $service_code;
                $data['date_of_delivery']=$date;
                
+               $img = $req->image;
+            $folderPath = "uploads/";
+            
+            $image_parts = explode(";base64,", $img);
+            $image_type_aux = explode("image/", $image_parts[0]);
+            $image_type = $image_type_aux[1];
+            
+            $image_base64 = base64_decode($image_parts[1]);
+            $fileName = uniqid() . '.png';
+            
+            $file = $folderPath . $fileName;
+            Storage::put($file, $image_base64);
+            // dd($fileName);
+           $data['image'] = $fileName;
     
             //    dd($data);
     
             RequestModel::create($data);
-            return view('receptioner.reciving',$data);
+
+            $datas=['item' => $data];
+            
+            // return view('receipt.receipt',$datas);
+            return redirect()->back();
 
         }
         return view('receptioner.requestForm');
@@ -177,6 +196,8 @@ class ReceptionerController extends Controller
 
     }
    
+   
+
     public function addReceptioner(Request $req){
         if($req->method()=='POST'){
             $data = $req->validate([
@@ -190,6 +211,8 @@ class ReceptionerController extends Controller
                 'status' => 'required',
                 'password' => 'required',
             ]);
+
+            
             Receptioner::create($data);
             return redirect()->back();       
 

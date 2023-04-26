@@ -378,7 +378,7 @@
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
     <script src="{{ asset('js/printThis.js') }}"></script>
-
+     
 
     <script>
         $('#print-button').click(function() {
@@ -393,6 +393,7 @@
         });
     </script>
 
+@yield('js')
 </body>
 
 </html>
