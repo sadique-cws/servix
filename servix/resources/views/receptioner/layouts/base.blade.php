@@ -233,39 +233,58 @@
                                 </p>
                             </a>
                         </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('receptioner.request.form') }}" class="nav-link">
+                                <i class="nav-icon fas fa-copy"></i>
+                                <p>Servixc Request</p>
+                            </a>
+                        </li>
+
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-copy"></i>
                                 <p>
                                     Request
                                     <i class="fas fa-angle-left right"></i>
-                                    <span class="badge badge-info right">6</span>
+                                    <span class="badge badge-info right">5</span>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
+                                
                                 <li class="nav-item">
-                                    <a href="{{ route('receptioner.request.form') }}" class="nav-link">
+                                    <a href="" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p> Add New Request</p>
+                                        <p>All Request</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{Route('receptioner.confirm.request')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Conform Request</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p> Add</p>
+                                        <p>Pending Request</p>
                                     </a>
                                 </li>
-                              
-                               
-
+                                <li class="nav-item">
+                                    <a href="" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Reject Request</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Deliver Request</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         
-                       
-                    
-                     
-                       
-                      
                         <li class="nav-header">LABELS</li>
                         <li class="nav-item">
                             <a href="{{ route('receptioner.logout') }}" class="nav-link">

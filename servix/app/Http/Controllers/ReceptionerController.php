@@ -77,6 +77,14 @@ class ReceptionerController extends Controller
         $data['title'] = "All Request";
         return view('receptioner.requests',$data);
     }
+
+    public function confirmRequest(Request $req,){
+        $user = Auth::guard('staff')->user();
+        $data['allRequests'] = RequestModel::where()
+                                            ->where('status','confirm')->orderBy('created_at', 'DESC')->get();
+        $data['title'] = "Confirm Requests";                                    
+        return view("receptioner.requests",$data);   
+    }
     public function editRequest(Request $req, $id){
         if($req->method()=='POST'){
             $data = $req->validate([
