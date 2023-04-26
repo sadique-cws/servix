@@ -39,7 +39,7 @@ class ReceptionerController extends Controller
 
     public function requestForm(Request $req){
         if($req->method()=='POST'){
-           
+            
             $service_code = Str::random(6);
         
             $data = $req -> validate([
