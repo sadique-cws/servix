@@ -56,7 +56,7 @@
                         </tr>
                         <tr>
                             <th>status</th>
-                            <td>{{ $item->status }}</td>
+                            <td>{{ (!$item->status)? "Pending" : (($item->status == 1)? "Delivered" : "Reject") }}</td>
                         </tr>
                     </table>
                 </div>

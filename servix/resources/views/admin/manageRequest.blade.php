@@ -6,7 +6,8 @@
     <div class="row">
         <div class="col-12">
             
-                    @livewire('view-request')
+                {{-- <livewire:component /> --}}
+                @livewire('view-request')
                
                 <!-- /.card-body -->
 
