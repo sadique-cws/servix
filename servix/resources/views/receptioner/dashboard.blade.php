@@ -46,7 +46,7 @@
                     <!-- small box -->
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3>{{ countNewRequest(auth()->user()->type_id, 'delivered') }}</h3>
+                            <h3>{{ countNewRequest(auth()->user()->type_id)}}</h3>
 
                             <p>Total Delivered</p>
                         </div>
