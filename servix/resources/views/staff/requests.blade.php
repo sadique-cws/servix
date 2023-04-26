@@ -89,6 +89,7 @@
                                 <th>brand</th>
                                 <th>problem</th>
                                 <th>Status</th>
+                                <th>type</th>
                                 <th>Remark</th>
                               
                                 <th>Action</th>
@@ -107,6 +108,7 @@
                                     <td>{{ $item->brand }}</td>
                                     <td>{{ $item->problem }}</td>
                                     <td>{{ $item->status }}</td>
+                                    <td>{{ $item->type->typename }}</td>
                                     <td>{{ $item->remark }}</td>
                                    
                                         <td class="border border-slate-700 p-1.5  items-center justify-center flex btn-group"

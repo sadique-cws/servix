@@ -490,7 +490,7 @@
                 <div class="row">
                   <div class="col-4 text-center">
                     <div id="sparkline-1"></div>
-                    <div class="text-white">Visitors</div>
+                    <div class="text-white">wasik</div>
                   </div>
                   <!-- ./col -->
                   <div class="col-4 text-center">
