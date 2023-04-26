@@ -13,7 +13,10 @@ class StaffController extends Controller
 {   
     public function index(Request $req): View
     {
-        return view('staff.dashboard');
+        $user = Auth::guard('staff')->user();
+        $data['allRequests'] = RequestModel::where('technician_id',null)->where('type_id',$user->type_id)->orderBy("id", "DESC")->take(7)->get();
+
+        return view('staff.dashboard',$data); 
     }
 
     public function stafflogin(Request $req){
