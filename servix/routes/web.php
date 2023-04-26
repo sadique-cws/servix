@@ -103,7 +103,8 @@ Route::prefix("crm")->group(function(){
 
         Route::match(['post','get'],'/EditRequest/{id}', 'editRequest')->name('receptioner.request.edit');
         Route::match(['post','get'],'/receptionerRequestForm', 'requestForm')->name('receptioner.request.form');
-        Route::get('/reciving', 'reciving')->name('receptioner.reciving');
+        Route::get('/reciving/{id}', 'reciving')->name('rcm.recipt.view');
+        Route::get('/reciving/pdf/{id}', 'reciptPdf')->name('rcm.recipt.pdf');
        
 
         // filter 

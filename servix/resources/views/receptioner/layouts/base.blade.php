@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CRM | {{ env("APP_NAME") }}</title>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -250,7 +250,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('receptioner.reciving') }}" class="nav-link">
+                                    <a href="" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p> Add</p>
                                     </a>
@@ -330,6 +330,22 @@
     {{-- <script src="{{ asset("dist/js/demo.js") }}"></script> --}}
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
+    <script src="{{ asset('js/printThis.js') }}"></script>
+
+  
+    <script>
+        $('#print-button').click(function() {
+            $('#printable-content').printThis({
+                importCSS: true, // Import page CSS
+                importStyle: true, // Import <style> tags
+                pageTitle: "My Page Title", // Add a custom page title
+                header: "<h1>My Header</h1>", // Add a custom header
+                footer: "<p>My Footer</p>", // Add a custom footer
+                loadCSS: "path/to/custom.css" // Load a custom CSS file
+            });
+        });
+    </script>
+    
 </body>
 
 </html>

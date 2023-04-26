@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Receptioner;
+use PDF;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -39,9 +40,9 @@ class ReceptionerController extends Controller
 
     public function requestForm(Request $req){
         if($req->method()=='POST'){
-            
+            $date = \Carbon\Carbon::now();
             $service_code = Str::random(6);
-        
+            
             $data = $req -> validate([
                 'owner_name' => 'required',
                 'product_name' => 'required',
@@ -57,6 +58,7 @@ class ReceptionerController extends Controller
                ]);
     
                $data['service_code'] = $service_code;
+               $data['date_of_delivery']=$date;
                
     
             //    dd($data);
@@ -71,7 +73,7 @@ class ReceptionerController extends Controller
 
     public function allnewRequest(){
         
-        $data['allRequests'] = RequestModel::where('technician_id',null)->get();
+        $data['allRequests'] = RequestModel::where('technician_id',null)->orderBy('created_at', 'DESC')->get();
         $data['title'] = "All Request";
         return view('receptioner.requests',$data);
     }
@@ -193,9 +195,19 @@ class ReceptionerController extends Controller
         
     }
 
-    public function reciving(Request $req): View
+    public function reciving(Request $req, $id): View
     {
-        return view('receptioner.reciving');
+        $data['item']=RequestModel::where("id",$id)->first();
+        return view('recipt.recipt',$data);
 
     }
+    public function reciptPdf(Request $req, $id): View
+    {
+        $data['item']=RequestModel::where("id",$id)->first();
+        $pdf=PDF::loadView('recipt.recipt',$data);
+
+        return $pdf->download('recipt-'.$id.'.pdf');
+
+    }
+
 }

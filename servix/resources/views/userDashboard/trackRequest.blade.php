@@ -52,7 +52,7 @@
                         </tr>
                         <tr>
                             <th>Estimate Delivery Date</th>
-                            <td>{{ ($item->estimate_delivery)? $item->estimate_delivery : "N/A" }}</td>
+                            <td>{{ ($item->estimate_delivery)? date('d M Y', strtotime($item->estimate_delivery)) : "N/A" }}</td>
                         </tr>
                         <tr>
                             <th>status</th>

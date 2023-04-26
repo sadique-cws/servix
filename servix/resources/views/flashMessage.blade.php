@@ -11,12 +11,12 @@
                         <h1 class="font-bold text-3xl text-gray-900 mb-4">Request submited successfully!</h1>
                     </div>
                     <div class="text-center">
-                      <p>Your request has been submited successfully!<br>Wait for our staffs to review your request. We will try our best to start work on your requested issue as soon as possible... 
+                      <p>Dear <b> </b>Your request has been submited successfully!<br>Wait for our staffs to review your request. We will try our best to start work on your requested issue as soon as possible... 
                     </p>
                     <b><span class="fs-3" style="margin-right: 90px">Here is your service code </span></b><br>
                     <div class="w-full d-flex flex-lg-row flex-sm-col">
                         <div class="box1 col-8 justify-content-end align-items-center d-flex" style="height: 100px;">
-                            <code id="copy-text" class="font-style-mono fs-1 text-success border px-5 py-2 overflow-auto text-uppercase " style="max-width: 450px; max-height: 80px; background-color: #D3D3D3" >iiiryfho</code>
+                            <code id="copy-text" class="font-style-mono fs-1 text-success border px-5 py-2 overflow-auto text-uppercase " style="max-width: 450px; max-height: 80px; background-color: #D3D3D3" ></code>
                             <div class="flex-row border font-style-mono p-1" style="margin-right: -15px" >
                                 <div class="" id="copy-button">
                                     <svg id="copy-svg" style="height:48px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path opacity="0.4" d="M8 12.2002H15" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path> <path opacity="0.4" d="M8 16.2002H12.38" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M10 6H14C16 6 16 5 16 4C16 2 15 2 14 2H10C9 2 8 2 8 4C8 6 9 6 10 6Z" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M16 4.02002C19.33 4.20002 21 5.43002 21 10V16C21 20 20 22 15 22H9C4 22 3 20 3 16V10C3 5.44002 4.67 4.20002 8 4.02002" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>

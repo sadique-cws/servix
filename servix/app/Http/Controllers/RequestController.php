@@ -52,7 +52,7 @@ class RequestController extends Controller
     
     public function allRequests(){
         $user = Auth::guard('staff')->user();
-        $data['allRequests'] = RequestModel::where('type_id',$user->type_id)->where('technician_id',$user->id)->get();
+        $data['allRequests'] = RequestModel::where('type_id',$user->type_id)->where('technician_id',$user->id)->orderBy('created_at', 'DESC')->get();
         $data['title'] = "All Request";
         return view("staff.requests",$data);
     }
@@ -60,7 +60,7 @@ class RequestController extends Controller
     public function newRequests(){
         $user = Auth::guard('staff')->user();
         $data['allRequests'] = RequestModel::where('type_id',$user->type_id)
-                                        ->where('technician_id',NULL)->where('status','initial stage')->get();
+                                        ->where('technician_id',NULL)->where('status','initial stage')->orderBy('created_at', 'DESC')->get();
         $data['title'] = "New Request";
         return view("staff.requests",$data);
     }
@@ -85,7 +85,7 @@ class RequestController extends Controller
         $user = Auth::guard('staff')->user();
         $data['allRequests'] = RequestModel::where('type_id',$user->type_id)
                                     ->where('technician_id',$user->id)
-                                    ->where('status','pending')->get();
+                                    ->where('status','pending')->orderBy('created_at', 'DESC')->get();
 
         $data['title'] = "Total Pending Requests";
         return view("staff.requests",$data);
@@ -96,7 +96,7 @@ class RequestController extends Controller
         $user = Auth::guard('staff')->user();
         $data['allRequests'] = RequestModel::where('type_id',$user->type_id)
                                     ->where('technician_id',$user->id)
-                                    ->where('status','rejected')->get();
+                                    ->where('status','rejected')->orderBy('created_at', 'DESC')->get();
         $data['title'] = "Total RejectedRequests";
         return view("staff.requests",$data);
        
