@@ -6,7 +6,7 @@
                 <div class="d-flex justify-content-between">
                     <h1 class="mt-2">Service Request</h1>
                 </div>
-                <form action="{{ route('receptioner.request.form') }}" method="POST">
+                <form action="{{ route('receptioner.request.form') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="w-full px-3 mb-5 col">
@@ -86,9 +86,21 @@
                             @error('type_id')
                             <p class="text-danger small">{{$message}} </p>
                         @enderror
-                        </div> 
-                        
+                        </div>
                     </div>
+                    <div class="row ">
+                        <div class="mb-3 px-3 col">
+                            <label for="" class="text-black-100">Image</label>
+                            <div class="flex">
+                                <input type=button value="Take Snapshot" onClick="take_snapshot()">
+                                <input type="hidden" name="image" class="image-tag">
+                                @error('image')
+                                    <p class="text-danger small">{{$message}} </p>
+                                @enderror
+                            </div>
+                        </div> 
+                    </div>
+
                     
                 
                         <div class="mb-3 px-2">
@@ -109,3 +121,23 @@
     </div>
 @endsection
 
+
+<script language="JavaScript">
+    Webcam.set({
+        width: 490,
+        height: 350,
+        image_format: 'jpeg',
+        jpeg_quality: 90
+    });
+    
+    Webcam.attach( '#my_camera' );
+    
+    function take_snapshot() {
+        Webcam.snap( function(data_uri) {
+            $(".image-tag").val(data_uri);
+            document.getElementById('results').innerHTML = '<img src="'+data_uri+'"/>';
+        } );
+    }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script>
