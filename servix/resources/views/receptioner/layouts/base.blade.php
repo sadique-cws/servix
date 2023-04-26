@@ -252,7 +252,6 @@
                                 <p>
                                     Manage requests
                                     <i class="fas fa-angle-left right"></i>
-                                    <span class="badge badge-info right">5</span>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
@@ -260,30 +259,35 @@
                                     <a href="{{ route('crm.all.req') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p> All Request</p>
+                                        <span class="badge badge-info right">{{$allReq}}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('crm.confirmed.req') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p> Confirmed</p>
+                                        <span class="badge badge-info right">{{$ConformCountReq}}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('crm.panding.req') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p> panding</p>
+                                        <p> pending</p>
+                                        <span class="badge badge-info right">{{$PendingCountReq}}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('crm.rejected.req') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p> Rejected</p>
+                                        <span class="badge badge-info right">{{$RejectedCountReq}}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('crm.delivered.req') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p> Delivered</p>
+                                        <span class="badge badge-info right">{{$DeliveredCountReq}}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">

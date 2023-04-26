@@ -212,8 +212,8 @@ class ReceptionerController extends Controller
     }
     public function pandingRequest(Request $req){
       
-        $data['allRequests'] = RequestModel::where('status','panding')->orderBy('created_at', 'DESC')->get();
-        $data['title'] = "panding Requests";                                    
+        $data['allRequests'] = RequestModel::where('status','pending')->orderBy('created_at', 'DESC')->get();
+        $data['title'] = "pending Requests";                                    
         return view("receptioner.requests",$data);   
     }
     public function deliveredRequest(Request $req){
