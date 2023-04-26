@@ -88,32 +88,27 @@
                         @enderror
                         </div>
                     </div>
-                    <div class="row ">
+
+                    <div class="row">
                         <div class="mb-3 px-3 col">
                             <label for="" class="text-black-100">Image</label>
-                            <div class="flex">
-                                <input type=button value="Take Snapshot" onClick="take_snapshot()">
-                                <input type="hidden" name="image" class="image-tag">
-                                @error('image')
-                                    <p class="text-danger small">{{$message}} </p>
-                                @enderror
-                            </div>
-                        </div> 
+                            <div id="my_camera" class="pre_capture_frame"></div>
+                            <input type=button value="Take Snapshot" onClick="take_snapshot()">
+                            <input type="hidden" name="image" class="image-tag">
+                        </div>
                     </div>
-
                     
-                
-                        <div class="mb-3 px-2">
-                            <label for="" class="text-black-100">Problem</label>
-                                <textarea type="text" name="problem"
-                                    class="form-control"></textarea>
-                                    @error('problem')
+                    <div class="mb-3 px-2">
+                        <label for="" class="text-black-100">Problem</label>
+                            <textarea type="text" name="problem"
+                                class="form-control"></textarea>
+                                @error('problem')
                                     <p class="text-danger small">{{$message}} </p>
                                 @enderror
                         </div>
                         <div class="w-full">
                             <button class="btn btn-success w-100">Raise Request</button>
-                        </div>
+                    </div>
                 </form>
                 </div>
             </div>
@@ -122,7 +117,7 @@
 @endsection
 
 
-<script language="JavaScript">
+<script>
     Webcam.set({
         width: 490,
         height: 350,
@@ -139,5 +134,5 @@
         } );
     }
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> --}}
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script>
