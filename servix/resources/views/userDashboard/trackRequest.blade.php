@@ -58,6 +58,10 @@
                             <th>status</th>
                             <td>{{ $item->status }}</td>
                         </tr>
+                        <tr>
+                            <th>Download Receipt</th>
+                            <td><a type="button" class="btn btn-primary btn-sm" href="{{ route('receipt.view', $item->id) }}">Download</a></td>
+                        </tr>
                     </table>
                 </div>
             @endif

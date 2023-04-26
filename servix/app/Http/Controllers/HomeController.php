@@ -7,6 +7,8 @@ use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Request as RequestModel;
+use PDF;
 
 
 class HomeController extends Controller
@@ -30,9 +32,21 @@ class HomeController extends Controller
         return view('register');
     }
 
+    public function reciving(Request $req, $id): View
+    {
+        $data['item']=RequestModel::where("id",$id)->first();
+        return view('receipt.receipt',$data);
 
-    // public function trackStatus():View{
-    //     return view('userDashboard.trackRequest');
-    // }
+    }
+    public function reciptPdf(Request $req, $id): View
+    {
+        $data['item']=RequestModel::where("id",$id)->first();
+        $pdf=PDF::loadView('receipt.receipt',$data);
+
+        return $pdf->download('receipt-'.$id.'.pdf');
+
+    }
+
+    
     
 }

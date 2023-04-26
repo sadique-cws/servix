@@ -203,19 +203,6 @@ class ReceptionerController extends Controller
         
     }
 
-    public function reciving(Request $req, $id): View
-    {
-        $data['item']=RequestModel::where("id",$id)->first();
-        return view('recipt.recipt',$data);
-
-    }
-    public function reciptPdf(Request $req, $id): View
-    {
-        $data['item']=RequestModel::where("id",$id)->first();
-        $pdf=PDF::loadView('recipt.recipt',$data);
-
-        return $pdf->download('recipt-'.$id.'.pdf');
-
-    }
+   
 
 }
