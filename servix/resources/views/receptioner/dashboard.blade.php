@@ -1,63 +1,153 @@
 @extends('receptioner.layouts.base')
 
 @section('content')
-    
-  <!-- Content Wrapper. Contains page content -->
-  
+    <!-- Content Wrapper. Contains page content -->
+
     <!-- Content Header (Page header) -->
     <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Dashboard</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="">Home</a></li>
+                        <li class="breadcrumb-item active">Dashboard</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
 
     <!-- Main content -->
     <section class="content">
-      <div class="container-fluid">
-        <!-- Small boxes (Stat box) -->
-        <div class="row">
-          <div class="col-6">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3>{{ countNewRequest(auth()->user()->type_id)}}</h3>
+        <div class="container-fluid">
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+                <div class="col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-info">
+                        <div class="inner">
+                            <h3>{{ countNewRequest(auth()->user()->type_id) }}</h3>
 
-                <p>New Request</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-bag"></i>
-              </div>
-              <a href="{{ route('receptioner.all.request') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-                <h3>{{ countNewRequest(auth()->user()->type_id,"delivered")}}</h3>
+                            <p>New Request</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-bag"></i>
+                        </div>
+                        <a href="{{ route('receptioner.all.request') }}" class="small-box-footer">More info <i
+                                class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-success">
+                        <div class="inner">
+                            <h3>{{$DeliveredCountReq}}</h3>
 
-                <p>Total Delivered</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="{{ route('receptioner.all.request') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                            <p>Total Delivered</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-stats-bars"></i>
+                        </div>
+                        <a href="{{ route('receptioner.all.request') }}" class="small-box-footer">More info <i
+                                class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
             </div>
-          </div>
-          <!-- ./col -->
-          {{-- <div class="col-lg-3 col-6">
+            <div class="card">
+              <div class="card-header d-flex flex-column">
+                <h2 class="card-title  mb-3"><h2>Letest 10 Records</h2></h2>
+              </div>
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover text-nowrap">
+                        <thead>
+                            <tr>
+                                <th>S CODE</th>
+                                <th>owner_name</th>
+                                <th>product_name</th>
+                                <th>Contact</th>
+                                <th>color</th>
+                                <th>brand</th>
+                                <th>problem</th>
+                                <th>Status</th>
+                                <th>Remark</th>
+                                <th>Create_At</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($allRequests as $item)
+                                <tr>
+                                    <td class="text-uppercase text-success fw-bold">{{ $item->service_code }}</td>
+                                    <td>{{ $item->owner_name }}</td>
+                                    <td>{{ $item->product_name }}</td>
+                                    <td>{{ $item->contact }}</td>
+                                    <td>{{ $item->color }}</td>
+                                    <td>{{ $item->brand }}</td>
+                                    <td>{{ $item->problem }}</td>
+                                    <td>{{ $item->status }}</td>
+                                    <td>{{ $item->remark }}</td>
+                                    <td>{{ date('d M Y', strtotime($item->created_at)) }}</td>
+                                    <td class="border border-slate-700 p-1.5  items-center justify-center flex btn-group"
+                                        role="group">
+                                        <div class="btn-group" role="group"
+                                            aria-label="Button group with nested dropdown">
+
+
+                                            <div class="btn-group" role="group">
+
+
+
+                                                {{-- <a data-toggle="modal" data-target="#view{{ $item->id }}"
+                                              role="button" class=" btn btn-info btn-group ">View</a> --}}
+                                                <a href="{{ route('receipt.view', $item->id) }}" role="button"
+                                                    class=" btn btn-info btn-group ">View</a>
+
+                                                <a href="{{ route('receptioner.request.edit', $item->id) }}" role="button"
+                                                    class=" btn btn-warning btn-group ">Edit</a>
+
+
+
+                                            </div>
+                                        </div>
+
+
+
+
+
+                                        <div class="modal fade w-100 " id="view{{ $item->id }}" tabindex="-1"
+                                            role="dialog" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable "
+                                                role="document">
+                                                <div class="modal-content bg-light w-full h-100">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLongTitle">Profile</h5>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+
+                                                    <div class="modal-body" id="printable-content">
+
+                                                    </div>
+                                                </div>
+
+
+                                    </td>
+                                </tr>
+                            @endforeach
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- ./col -->
+            {{-- <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
@@ -71,10 +161,10 @@
               <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div> --}}
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            {{-- <div class="small-box bg-danger">
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                {{-- <div class="small-box bg-danger">
               <div class="inner">
                 <h3>{{ countNewRequest(auth()->user()->type_id,"rejected")}}</h3>
 
@@ -85,8 +175,8 @@
               </div>
               <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div> --}}
-          </div>
-          <!-- ./col -->
+            </div>
+            <!-- ./col -->
         </div>
         <!-- /.row -->
         <!-- Main row -->
@@ -602,8 +692,7 @@
           <!-- right col -->
         </div> --}}
         <!-- /.row (main row) -->
-      </div><!-- /.container-fluid -->
+        </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
-
 @endsection

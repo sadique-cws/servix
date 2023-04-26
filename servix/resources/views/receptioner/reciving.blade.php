@@ -67,7 +67,8 @@
                 </tr>
               </thead>
               <tbody>
-                 <td>{{$data->service_code}}</td>
+                 <td class="text-uppercase" >{{$service_code}}</td>
+                 
 
               </tbody>
   

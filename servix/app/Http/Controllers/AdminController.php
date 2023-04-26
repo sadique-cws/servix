@@ -149,7 +149,7 @@ class AdminController extends Controller
 
     public function allnewRequest(Request $req)
     {
-        $data['new'] = RequestModel::where('technician_id',NULL)->get();
+        $data['new'] = RequestModel::where('technician_id',NULL)->orderBy('created_at', 'DESC')->get();
         $data['title']="All New Request";
         $data['dateFilter']="all";
         return view('admin/allnewRequest', $data);

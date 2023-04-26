@@ -6,7 +6,7 @@
                 <div class="d-flex justify-content-between">
                     <h1 class="mt-2">Service Request</h1>
                 </div>
-                <form action="{{ route('receptioner.request.form') }}" method="POST">
+                <form action="{{ route('receptioner.request.form') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="w-full px-3 mb-5 col">
@@ -86,22 +86,33 @@
                             @error('type_id')
                             <p class="text-danger small">{{$message}} </p>
                         @enderror
-                        </div> 
-                        
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div id="my_camera"></div>
+                            <br/>
+                            <input type=button value="Take Snapshot" onClick="take_snapshot()">
+                            <input type="hidden" name="image" class="image-tag">
+                        </div>
+                        <div class="col-md-6">
+                            <div id="results">Your captured image will appear here...</div>
+                        </div>
+                    </div>
                     </div>
                     
-                
-                        <div class="mb-3 px-2">
-                            <label for="" class="text-black-100">Problem</label>
-                                <textarea type="text" name="problem"
-                                    class="form-control"></textarea>
-                                    @error('problem')
+                    <div class="mb-3 px-2">
+                        <label for="" class="text-black-100">Problem</label>
+                            <textarea type="text" name="problem"
+                                class="form-control"></textarea>
+                                @error('problem')
                                     <p class="text-danger small">{{$message}} </p>
                                 @enderror
                         </div>
                         <div class="w-full">
                             <button class="btn btn-success w-100">Raise Request</button>
-                        </div>
+                    </div>
                 </form>
                 </div>
             </div>
@@ -109,3 +120,27 @@
     </div>
 @endsection
 
+@section('js')
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script>
+
+<script>
+    Webcam.set({
+        width: 490,
+        height: 350,
+        image_format: 'jpeg',
+        jpeg_quality: 90
+    });
+    
+    Webcam.attach( '#my_camera' );
+    
+    function take_snapshot() {
+        Webcam.snap( function(data_uri) {
+            $(".image-tag").val(data_uri);
+            document.getElementById('results').innerHTML = '<img src="'+data_uri+'"/>';
+        } );
+    }
+</script>
+
+@endsection

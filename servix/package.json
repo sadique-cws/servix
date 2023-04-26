@@ -10,6 +10,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
-        "lottie-web": "^5.10.2"
+        "lottie-web": "^5.10.2",
+        "print-this": "^1.16.0"
     }
 }

@@ -18,6 +18,9 @@ class RequestController extends Controller
 {
     public function requestForm(): View
     {
+       
+
+
         $data['Types'] = Type::all();
         return view('requestForm',$data);
     }
@@ -41,6 +44,7 @@ class RequestController extends Controller
            $data['service_code'] = $service_code;
 
         //    dd($data);
+        
 
         RequestModel::create($data);
         // return redirect()->route('flashMsg');
@@ -52,7 +56,7 @@ class RequestController extends Controller
     
     public function allRequests(){
         $user = Auth::guard('staff')->user();
-        $data['allRequests'] = RequestModel::where('type_id',$user->type_id)->where('technician_id',$user->id)->get();
+        $data['allRequests'] = RequestModel::where('type_id',$user->type_id)->where('technician_id',$user->id)->orderBy('created_at', 'DESC')->get();
         $data['title'] = "All Request";
         return view("staff.requests",$data);
     }
@@ -60,7 +64,7 @@ class RequestController extends Controller
     public function newRequests(){
         $user = Auth::guard('staff')->user();
         $data['allRequests'] = RequestModel::where('type_id',$user->type_id)
-                                        ->where('technician_id',NULL)->where('status','initial stage')->get();
+                                        ->where('technician_id',NULL)->where('status','initial stage')->orderBy('created_at', 'DESC')->get();
         $data['title'] = "New Request";
         return view("staff.requests",$data);
     }
@@ -84,8 +88,8 @@ class RequestController extends Controller
     public function pandingRequests(){
         $user = Auth::guard('staff')->user();
         $data['allRequests'] = RequestModel::where('type_id',$user->type_id)
-                                    ->where('technician_id',$user->id)
-                                    ->where('status','pending')->get();
+                                    ->where('technician_id',$user->id)                              
+                                    ->where('status','pending')->orderBy('created_at', 'DESC')->get();
 
         $data['title'] = "Total Pending Requests";
         return view("staff.requests",$data);
@@ -96,14 +100,18 @@ class RequestController extends Controller
         $user = Auth::guard('staff')->user();
         $data['allRequests'] = RequestModel::where('type_id',$user->type_id)
                                     ->where('technician_id',$user->id)
-                                    ->where('status','rejected')->get();
+                                    ->where('status','rejected')->orderBy('created_at', 'DESC')->get();
         $data['title'] = "Total RejectedRequests";
+        $data["RejectedCount"] = $data['allRequests']->count();
         return view("staff.requests",$data);
        
     }
 // reject update table
     public function rejected( Request $req){
-        $data=RequestModel::where('id',$req->id)->first();
+        $user = Auth::guard('staff')->user();
+        $data=RequestModel::where('id',$req->id)
+        ->where('type_id',$user->type_id)
+        ->where('technician_id',$user->id)->first();
         $data->status= "rejected";
         $data->save();   
         return redirect()->back();
@@ -114,7 +122,10 @@ class RequestController extends Controller
    //pending update table
    
     public function pending( Request $req){
-        $data=RequestModel::where('id',$req->id)->first();
+        $user = Auth::guard('staff')->user();
+        $data=RequestModel::where('id',$req->id)
+        ->where('type_id',$user->type_id)
+        ->where('technician_id',$user->id)->first();
         $data->status= "pending";
         
         $data->save();   
@@ -274,7 +285,18 @@ class RequestController extends Controller
                                     ->where('technician_id',$user->id)
                                     ->where('status','Delivered')->get();
         $data['title'] = "Total RejectedRequests";
+        $data["deliveredCount"] = $data['allRequests']->count();
+        
         return view("staff.requests",$data);
+    }
+    public function globalSearch(Request $req){
+        $data['search_value']="";
+        $data['allRequests']=RequestModel::where('service_code',"LIKE","%".$req->search."%")
+        ->orWhere('contact', 'like', '%' . $req->search . '%')
+        ->orWhere('owner_name', 'like', '%' . $req->search . '%')->get();
+        $data['title']='Search Record';
+        $data['dateFilter']='All';
+        return view('receptioner/requests',$data);
     }
    
 }

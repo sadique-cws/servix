@@ -52,11 +52,23 @@
                         </tr>
                         <tr>
                             <th>Estimate Delivery Date</th>
-                            <td>{{ ($item->estimate_delivery)? $item->estimate_delivery : "N/A" }}</td>
+                            <td>{{ ($item->estimate_delivery)? date('d M Y', strtotime($item->estimate_delivery)) : "N/A" }}</td>
                         </tr>
                         <tr>
                             <th>status</th>
                             <td>{{ (!$item->status)? "Pending" : (($item->status == 1)? "Delivered" : "Reject") }}</td>
+                        </tr>
+                        <tr>
+                            <th>Product Image</th>
+                            @if($item->image)
+                                <img src="{{ asset('storage/uploads/'.$item->image) }}" style="height: 50px; width:70px;" class="rounded-circle">
+                                @else 
+                                <span>No image found!</span>
+                            @endif
+                        </tr>
+                        <tr>
+                            <th>Download Receipt</th>
+                            <td><a type="button" class="btn btn-primary btn-sm" href="{{ route('receipt.view', $item->id) }}">Download</a></td>
                         </tr>
                     </table>
                 </div>
