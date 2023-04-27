@@ -31,8 +31,8 @@ class AppServiceProvider extends ServiceProvider
         view()->share('RejectedCountReq',RequestModel::where('status',"rejected")->get()->count());
         view()->share('DeliveredCountReq',RequestModel::where('status',"Delivered")->get()->count());
         view()->share('PendingCountReq',RequestModel::where('status',"pending")->get()->count());
-        // view()->share('',RequestModel::where('status',"pending")->get()->count());
         view()->share('allReq',RequestModel::all()->count());
+        // view()->share('',RequestModel::where('status',"pending")->get()->count());
     //     view()->share('staffConformCount',RequestModel::where('type_id',$user->type_id)->where('technician_id',$user->id)->get()->count());
     //     view()->share('staffRejectedCount',RequestModel::where('type_id',$user->type_id)
     //     ->where('technician_id',$user->id)

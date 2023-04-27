@@ -66,7 +66,7 @@
                                         role="group">
                                         {{-- status button  --}}
                                         {{-- <input type="button" id="status" name="status" value="{{$staff->status ? 'Active' : 'Inactive' }}"> --}}
-                                        <a role="button" class="btn btn-info" href="{{ route('admin.staff.status',$item)}}">{{($item->status==1)?"Active":"DeActive"}}</a>
+                                        <a role="button" class="btn btn-info" href="{{ route('admin.staff.status',$item)}}">{{($item->status==0)?"Active":"DeActive"}}</a>
                                         {{-- edit button --}}
                                         <a role="button" class="btn btn-warning" href="{{ route('admin.staff.edit', $item->id) }}">Edit</a>
                                         {{-- View button  --}}

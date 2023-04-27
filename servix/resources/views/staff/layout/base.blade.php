@@ -251,7 +251,7 @@
                                     <a href="{{ route('request.all') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p> All Request</p>
-                                        <h3 class="right badge badge-info">{{ countNewRequest(auth()->user()->type_id,"")}}</h3> 
+                                        <h3 class="right badge badge-info">{{ countNewRequest(auth()->user()->type_id,"work in progress")}}</h3> 
                                     </a>
                                 </li>
                                 <li class="nav-item">
