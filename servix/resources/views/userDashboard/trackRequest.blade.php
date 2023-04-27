@@ -59,9 +59,11 @@
                             <td>{{ (!$item->status)? "Pending" : (($item->status == 1)? "Delivered" : "Reject") }}</td>
                         </tr>
                         <tr>
-                            <th>Product Image</th>
+                            {{-- <th>Product Image</th> --}}
                             @if($item->image)
-                                <img src="{{ asset('storage/images/'.$item->image) }}" style="height: 50px; width:70px;" class="rounded-circle">
+                                <div class="bg-image hover-zoom">
+                                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/053.webp" class="w-50 rounded-lg" />
+                                </div>
                                 @else 
                                 <span>No image found!</span>
                             @endif
@@ -85,3 +87,4 @@
 
 @section('footer')
 @endsection
+
