@@ -62,7 +62,7 @@ class ReceptionerController extends Controller
                $data['service_code'] = $service_code;
                $data['date_of_delivery']=$date;
                
-               $img = $req->image;
+            $img = $req->image;
             $folderPath = "uploads/";
             
             $image_parts = explode(";base64,", $img);
@@ -106,8 +106,24 @@ class ReceptionerController extends Controller
                 'MAC' => 'required',
                 'remark' => 'required',
                 'estimate_delivery' => 'required',
+                'image' => 'required',
                
             ]);
+            
+            $img = $req->image;
+            $folderPath = "uploads/";
+            
+            $image_parts = explode(";base64,", $img);
+            $image_type_aux = explode("image/", $image_parts[0]);
+            $image_type = $image_type_aux[1];
+            
+            $image_base64 = base64_decode($image_parts[1]);
+            $fileName = uniqid() . '.png';
+            
+            $file = $folderPath . $fileName;
+            Storage::put($file, $image_base64);
+            // dd($fileName);
+            $data['image'] = $fileName;
             $id=$req->id;
             RequestModel::where('id',$id)->update($data);
             return redirect()->back();

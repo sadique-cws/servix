@@ -477,7 +477,6 @@
                       <thead>
                           <tr>
                               <th>S CODE</th>
-                              <th>owner_name</th>
                               <th>product_name</th>
                               <th>problem</th>
                               
@@ -490,7 +489,6 @@
                           @foreach ($allRequests as $item)
                               <tr>
                                   <td class="text-uppercase text-success fw-bold">{{ $item->service_code }}</td>
-                                  <td>{{ $item->owner_name }}</td>
                                   <td>{{ $item->product_name }}</td>
                                   <td>{{ $item->problem }}</td>
                                  
@@ -505,7 +503,7 @@
                                               <div class="btn-group" role="group">
                                                   <button type="button" class="btn btn-primary dropdown-toggle"
                                                       data-bs-toggle="dropdown" aria-expanded="false">
-                                                      Dropdown
+                                                      Action
                                                   </button>
                                                   <ul class="dropdown-menu text-center " style="z-index:6;">
 
