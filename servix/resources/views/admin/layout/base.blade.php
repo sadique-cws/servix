@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Admin | Dashboard</title>
 
+    <link rel="shortcut icon" href="{{ asset('Assets/favicon.png') }}" type="image/x-icon">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -31,6 +32,7 @@
 
     
     @livewireStyles
+
 
 </head>
 
@@ -230,7 +232,7 @@
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     New Request
-                                    <span class="right badge badge-danger">{{countNewRequest(auth()->user()->type_id)}}</span>
+                                    <span class="right badge badge-danger">{{$allReq}}</span>
                                 </p>
                             </a>
                         </li>
@@ -797,6 +799,8 @@
     <!-- ./wrapper -->
 
     <!-- jQuery -->
+    @livewireScripts
+
     <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
     <!-- jQuery UI 1.11.4 -->
     <script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js') }}"></script>
@@ -835,7 +839,7 @@
         var sale_data = @json(MonthlyCount())
     </script>
     <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
-    @livewireScripts
+
 
 </body>
 

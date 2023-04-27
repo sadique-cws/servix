@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ asset('index.css') }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ asset('Assets/favicon.png') }}" type="image/x-icon">
     <title>@yield('title') {{ env('APP_NAME') }} - Laptop Desktop Printer Smartphone Reparing Center in Purnea</title>
     {{-- <link href="../unpkg.com/aos%402.3.1/dist/aos.css" rel="stylesheet">
     <script src="../unpkg.com/aos%402.3.1/dist/aos.js"></script> --}}
