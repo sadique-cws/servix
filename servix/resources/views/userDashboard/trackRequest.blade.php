@@ -56,11 +56,15 @@
                         </tr>
                         <tr>
                             <th>status</th>
-                            <td>{{ $item->status }}</td>
+                            <td>{{ (!$item->status)? "Pending" : (($item->status == 1)? "Delivered" : "Reject") }}</td>
                         </tr>
                         <tr>
                             <th>Product Image</th>
-                            <td>{{ $item->image }}</td>
+                            @if($item->image)
+                                <img src="{{ asset('storage/images/'.$item->image) }}" style="height: 50px; width:70px;" class="rounded-circle">
+                                @else 
+                                <span>No image found!</span>
+                            @endif
                         </tr>
                         <tr>
                             <th>Download Receipt</th>

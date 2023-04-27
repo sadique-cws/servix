@@ -4,12 +4,12 @@ use App\Models\Request as RequestModel;
 use Carbon\Carbon;
 
 if (! function_exists('countNewRequest')) {
-    function countNewRequest($type_id = NULL,$status = NULL) {
+    function countNewRequest($type_id = NULL,$status = NULL,) {
         if($status == NULL){
-            $count = RequestModel::where('technician_id',NULL)->count();
+            // $count = RequestModel::where('technician_id',NULL)->count();
+            $count = RequestModel::where('technician_id',NULL)->where('type_id',$type_id)->count();
         }
         else if($status == NULL){
-            $count = RequestModel::where('technician_id',NULL)->where('type_id',$type_id)->count();
         }
         else if($status != NULL){
             $count = RequestModel::where('technician_id','!=',NULL)->where('type_id',$type_id)->where('status',$status)->count();
