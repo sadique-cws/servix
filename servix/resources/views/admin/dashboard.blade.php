@@ -31,7 +31,7 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>{{countNewRequest()}}</h3>
+                <h3>{{$allReq}}</h3>
                 <p>New Request</p>
               </div>
               <div class="icon">

@@ -231,7 +231,7 @@
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     New Request
-                                    <span class="right badge badge-danger">{{countNewRequest(auth()->user()->type_id)}}</span>
+                                    <span class="right badge badge-danger">{{$allReq}}</span>
                                 </p>
                             </a>
                         </li>

@@ -242,6 +242,7 @@
                                     Request
                                     <i class="fas fa-angle-left right"></i>
                                     
+                                    
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
@@ -249,24 +250,31 @@
                                     <a href="{{ route('request.all') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p> All Request</p>
+                                        <h3 class="right badge badge-info">{{ countNewRequest(auth()->user()->type_id,"confirm")}}</h3> 
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('request.show.panding') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p> Total Pending</p>
+                                        <h3 class="right badge badge-info">{{ countNewRequest(auth()->user()->type_id,"pending")}}</h3> 
+                                        
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('request.show.reject') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p> Rejected</p>
+                                        <h3 class="right badge badge-info">{{ countNewRequest(auth()->user()->type_id,"rejected")}}</h3>
+                                        
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('request.show.delivered') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p> Delivered</p>
+                                        
+                                        <h3 class="right badge badge-info">{{ countNewRequest(auth()->user()->type_id,"delivered")}}</h3>
                                     </a>
                                 </li>
                                
