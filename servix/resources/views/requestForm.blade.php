@@ -82,7 +82,7 @@
                                     class="form-control"></textarea>
                                     @error('problem')
                                     <p class="text-danger small">{{$message}} </p>
-                                @enderror
+                                    @enderror
                         </div>
                         <div class="w-full">
                             <button

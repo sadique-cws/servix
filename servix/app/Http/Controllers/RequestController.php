@@ -48,7 +48,7 @@ class RequestController extends Controller
 
         RequestModel::create($data);
         // return redirect()->route('flashMsg');
-        Mail::to($data['email'])->send(new RequestSend());
+        // Mail::to($data['email'])->send(new RequestSend());
 
         return view('flashMessage',$data);
         

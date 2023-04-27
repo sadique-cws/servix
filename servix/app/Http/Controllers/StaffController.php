@@ -44,7 +44,7 @@ class StaffController extends Controller
         return redirect()->back();
     }
 
-  
+
     public function editRequest($id){
         $data=Request::where('id',$id)->first();
         return view("staff.panel",compact('data'));
