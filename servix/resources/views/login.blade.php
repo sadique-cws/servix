@@ -37,13 +37,6 @@
                                     <button class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">LOGIN</button>
                                 </div>
                               </div>
-                              <div class="flex -mx-3">
-                              <div class="w-full px-3 mb-5">
-                                    <div class="text-center items-center flex justify-center">
-                                        <span class="text-xs">I'm new here.</span>
-                                        <span class="font-semibold text-blue-600 mx-2"><a href="{{route('register')}}">Register Now</a></span>
-                                    </div>
-                                </div>
                             </div>
                          </div>
                      </div>
