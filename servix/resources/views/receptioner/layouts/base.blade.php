@@ -238,7 +238,7 @@
                                 <p>
                                     New Request
                                     <span
-                                        class="right badge badge-danger">{{ countNewRequest(auth()->user()->type_id) }}</span>
+                                        class="right badge badge-danger">{{ $NewCountReq }}</span>
                                 </p>
                             </a>
                         </li>
