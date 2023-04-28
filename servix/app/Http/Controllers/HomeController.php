@@ -47,6 +47,10 @@ class HomeController extends Controller
 
     }
 
+    public function view():View{
+        return view('receipt.view');
+    }
+
     
     
 }

@@ -30,6 +30,13 @@
                            
                 <div class="card mb-3 mt-2">
                     <table class="table">
+                        <div class="imgBox ">
+                            @if($item->image)
+                                <img src="{{ asset('storage/uploads/'.$item->image) }}" style="height: 250px; width:400px;">
+                            @else 
+                                <span>No image found!</span>
+                            @endif
+                        </div>
                         <tr>
                             <th>Name</th>
                             <td>{{ $item->owner_name }}</td>
@@ -63,19 +70,14 @@
                             <td>{{ (!$item->status)? "Pending" : $item->getStatus() }}</td>
                         </tr>
                         <tr>
-                            {{-- @if($item->image)
-                                <img src="{{ asset('storage/images/'.$item->image) }}" style="height: 50px; width:70px;" class="rounded-circle">
+                            <th>Product Image</th>
+                            <td class="thumb ripple">
+                                @if($item->image)
+                                    <a href="{{ asset('storage/uploads/'.$item->image) }}" target="imgBox"><img src="{{ asset('storage/uploads/'.$item->image) }}" style="height: 50px; width:50px;" class="img-thumbnail"></a>
                                 @else 
-                                <span>No image found!</span>
-                            @endif --}}
-                            {{-- <th>Product Image</th> --}}
-                            @if($item->image)
-                                <div class="bg-image hover-zoom">
-                                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/053.webp" class="w-50 rounded-lg" />
-                                </div>
-                                @else 
-                                <span>No image found!</span>
-                            @endif
+                                    <span>No image found!</span>
+                                @endif
+                            </td>
                         </tr>
                         <tr>
                             <th>Download Receipt</th>
@@ -96,4 +98,19 @@
 
 @section('footer')
 @endsection
+
+
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script type="text/javaScript">
+    $(document).ready(function(){
+        $('.thumb a').click(function(e){
+            e.preventDefault();
+            $('imgBox img').attr("src", $(this).attr("href"))
+        })
+    })
+</script>
+
+
+
+
 

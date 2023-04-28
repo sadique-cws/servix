@@ -16,6 +16,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/warranty', 'warranty')->name('home.warranty');
     Route::get('/reciving/pdf/{id}', 'reciptPdf')->name('receipt.pdf');
     Route::get('/reciving/{id}', 'reciving')->name('receipt.view');
+    Route::get('/view', 'view')->name('home.view');
 
     // Route::get('/trackRequest', 'trackStatus')->name('track.status');
     // new req
