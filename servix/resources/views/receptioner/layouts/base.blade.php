@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CRM | {{ env('APP_NAME') }}</title>
+    <link rel="shortcut icon" href="{{ asset('Assets/favicon.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -65,7 +66,7 @@
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <!-- Navbar Search -->
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" data-widget="navbar-search" href="#" role="button">
                         <i class="fas fa-search"></i>
                     </a>
@@ -85,7 +86,7 @@
                             </div>
                         </form>
                     </div>
-                </li>
+                </li> --}}
 
                 <!-- Messages Dropdown Menu -->
                 {{-- <li class="nav-item dropdown">
@@ -285,6 +286,13 @@
                                         <i class="far fa-circle nav-icon"></i>
                                         <p> Rejected</p>
                                         <span class="badge badge-info right">{{$RejectedCountReq}}</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('crm.workDone.req') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p> Work Done</p>
+                                        <span class="badge badge-info right">{{$WorkdoneCountReq}}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">

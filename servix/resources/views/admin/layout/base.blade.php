@@ -53,7 +53,7 @@
                             class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" class="nav-link">Home</a>
+                    <a href="/admin" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link">Contact</a>
@@ -63,7 +63,7 @@
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <!-- Navbar Search -->
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" data-widget="navbar-search" href="#" role="button">
                         <i class="fas fa-search"></i>
                     </a>
@@ -83,10 +83,10 @@
                             </div>
                         </form>
                     </div>
-                </li>
+                </li> --}}
 
                 <!-- Messages Dropdown Menu -->
-                <li class="nav-item dropdown">
+                {{-- <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
                         <i class="far fa-comments"></i>
                         <span class="badge badge-danger navbar-badge">0</span>
@@ -146,23 +146,20 @@
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
                     </div>
-                </li>
+                </li> --}}
                 <!-- Notifications Dropdown Menu -->
-                <li class="nav-item dropdown">
+                {{-- <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
                         <i class="far fa-bell"></i>
-                        <span class="badge badge-warning navbar-badge">{{countNewRequest()}}</span> 
+                        <span class="badge badge-warning navbar-badge">{{countTodayRequests()}}</span> 
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <span class="dropdown-item dropdown-header">15 Notifications</span>
                         <div class="dropdown-divider"></div>
-                        {{-- <a href="#" class="dropdown-item">
-                            <i class="fas fa-envelope mr-2"></i> 4 new messages
-                            <span class="float-right text-muted text-sm">3 mins</span>
-                        </a> --}}
+                        
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item">
-                            <i class="fas fa-users mr-2"></i> {{countNewRequest()}} requests
+                            <i class="fas fa-users mr-2"></i> {{countNewRequest()}}requests
                             <span class="float-right text-muted text-sm">12 hours</span>
                         </a>
                         <div class="dropdown-divider"></div>
@@ -173,18 +170,18 @@
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
                     </div>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a class="nav-link" data-widget="fullscreen" href="#" role="button">
                         <i class="fas fa-expand-arrows-alt"></i>
                     </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true"
                         href="#" role="button">
                         <i class="fas fa-th-large"></i>
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </nav>
         <!-- /.navbar -->
@@ -192,7 +189,7 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link">
+            <a href="{{ route('admin.panel') }}" class="brand-link">
                 {{-- <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> --}}
                 <span class="brand-text font-weight-light">Servicx Admin</span>
             </a>
@@ -201,17 +198,18 @@
             <div class="sidebar">
 
 
-                <!-- SidebarSearch Form -->
                 <div class="form-inline">
-                    <div class="input-group" data-widget="sidebar-search">
-                        <input class="form-control form-control-sidebar" type="search" placeholder="Search"
-                            aria-label="Search">
-                        <div class="input-group-append">
-                            <button class="btn btn-sidebar">
-                                <i class="fas fa-search fa-fw"></i>
-                            </button>
+                    <form action="{{ route('admin.request.globalSearch') }}" method="GET">
+                        <div class="input-group" >
+                            <input class="form-control form-control-sidebar" type="search" name="search" placeholder="Search"
+                               >
+                            <div class="input-group-append">
+                                <button class="btn btn-sidebar" type="submit">
+                                    <i class="fas fa-search fa-fw"></i>
+                                </button>
+                            </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
 
                 <!-- Sidebar Menu -->
@@ -232,7 +230,7 @@
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     New Request
-                                    <span class="right badge badge-danger">{{$allReq}}</span>
+                                    <span class="right badge badge-danger">{{$NewCountReq}}</span>
                                 </p>
                             </a>
                         </li>
@@ -250,6 +248,41 @@
                                     <a href="{{route('admin.request.manageRequest')}}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Manage Request</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.confirmed.req') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p> Confirmed</p>
+                                        <span class="badge badge-info right">{{$ConformCountReq}}</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.panding.req') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p> pending</p>
+                                        <span class="badge badge-info right">{{$PendingCountReq}}</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.rejected.req') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p> Rejected</p>
+                                        <span class="badge badge-info right">{{$RejectedCountReq}}</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.workDone.req') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p> Work Done</p>
+                                        <span class="badge badge-info right">{{$WorkdoneCountReq}}</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.delivered.req') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p> Delivered</p>
+                                        <span class="badge badge-info right">{{$DeliveredCountReq}}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">

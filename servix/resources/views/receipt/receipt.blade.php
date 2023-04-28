@@ -44,6 +44,7 @@
                                 <p style="color: #7e8d9f;font-size: 20px;">Receipt No: <strong
                                         class="text-uppercase">SX-{{ $item->id }}-{{$item->type->id}}
                                     </strong></p>
+                                    
                             </div>
                             <div class="col-xl-3 float-end d-print-none">
                                 <a type="button" onclick="window.print()"  id="print-button" class="btn btn-light text-capitalize border-0"
@@ -123,10 +124,19 @@
                                         class="table table-striped table-bordered">
                                         <tbody>
                                             <tr>
+                                                <th scope="col">Name</th>
+                                                <td class="text-uppercase">
+                                                    {{$item->owner_name}}
+                                                </td>
                                                 <th scope="col">Service code</th>
                                                 <td class="text-uppercase">
                                                     <h4 class="m-0 text-danger">{{$item->service_code}}</h4>
                                                 </td>
+                                            </tr>
+                                            <tr>
+                                                
+                                                <th scope="col">Problem</th>
+                                                <td class="text-uppercase">{{$item->problem}}</td>
                                             
                                                 <th scope="col">brand</th>
                                                 <td class="text-uppercase">{{$item->brand}}</td>
@@ -153,7 +163,7 @@
                                             </tr>
                                             <tr>
                                                 <th scope="col">Status</th>
-                                                <td class="text-uppercase">{{$item->status}}</td>
+                                                <td class="text-uppercase">{{$item->getStatus()}}</td>
                                                 <th scope="col">Remark</th>
                                                 <td class="text-uppercase">{{($item->remark==null)?"N/A":$item->remark}}</td>
         

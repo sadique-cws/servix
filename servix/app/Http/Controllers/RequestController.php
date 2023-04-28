@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Request as RequestModel;
 use App\Models\Type;
 use Carbon\Carbon;
+use Illuminate\Console\View\Components\Confirm;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -18,9 +19,6 @@ class RequestController extends Controller
 {
     public function requestForm(): View
     {
-       
-
-
         $data['Types'] = Type::all();
         return view('requestForm',$data);
     }
@@ -64,11 +62,13 @@ class RequestController extends Controller
     public function newRequests(){
         $user = Auth::guard('staff')->user();
         $data['allRequests'] = RequestModel::where('type_id',$user->type_id)
-                                        ->where('technician_id',NULL)->where('status','initial stage')->orderBy('created_at', 'DESC')->get();
+                                        ->where('technician_id',NULL)
+                                        ->orderBy('created_at', 'DESC')->get();
         $data['title'] = "New Request";
         return view("staff.requests",$data);
     }
 
+    // Confirm request 
     public function confirmRequest(Request $req, $id){
         $date = \Carbon\Carbon::now();
         $date->addDays(7);
@@ -78,10 +78,87 @@ class RequestController extends Controller
                                 ->where('id',$id)->first();
 
         $request->technician_id = $user->id;
-        $request->status ="work in progress";
+        $request->status =1;    // 1 confirm
         $request->estimate_delivery=$date;
         $request->save();
         return redirect()->back();
+    }
+    // work in progress requset 
+    public function workProgressRequest(Request $req, $id){
+        $user = Auth::guard('staff')->user();
+        $request = RequestModel::where('type_id',$user->type_id)
+                                ->where('technician_id',$user->id)
+                                ->where('status',1)  // 1 confirm
+                                ->where('id',$id)->first();
+        $request->status =2;   //2 for work process 
+        $request->save();
+        return redirect()->back();
+    }
+
+    // reject update table
+    public function rejected( Request $req){
+        $user = Auth::guard('staff')->user();
+        $data=RequestModel::where('id',$req->id)
+        ->where('type_id',$user->type_id)
+        ->where('status',"!=",5)  // 5 delivered
+        ->where('technician_id',$user->id)->first();
+        $data->status= 3;   // 3 reject
+        $data->save();   
+        return redirect()->back();
+    }
+
+    //pending update table
+   
+    public function pending( Request $req){
+        $user = Auth::guard('staff')->user();
+        $data=RequestModel::where('id',$req->id)
+        ->where('type_id',$user->type_id)
+        ->where('status',"!=",5)    // 5 delivered
+        ->where('technician_id',$user->id)->first();
+        $data->status= 0; // 0 painding
+        $data->technician_id=null;
+        
+        $data->save();   
+        return redirect()->back();
+    }
+    //  work done requset
+   
+    public function workDone( Request $req){
+        $user = Auth::guard('staff')->user();
+        $data=RequestModel::where('id',$req->id)
+        ->where('type_id',$user->type_id)
+        ->where('technician_id',$user->id)
+        ->where('status',2) // 2 confirm
+        ->first();
+        $data->status= 4;   // 4 work done
+        $data->save();   
+        return redirect()->back();
+    }
+
+     // update device deliver 
+     public function requestDeliver( Request $req){
+        $date = \Carbon\Carbon::now();
+        $user = Auth::guard('receptioner')->user();
+        $data=RequestModel::where('id',$req->id)->where('status',4)->first(); // 4 workdone
+        $data->status= 5;   // 5 deliver
+        $data->remark= "please feedback";
+        $data->delivered_by=$user->name;
+        $data->date_of_delivery=$date;
+        $data->save();   
+        return redirect()->back();
+    }
+
+    // show delivered 
+    public function showDelivered(){
+      
+        $user = Auth::guard('staff')->user();
+        $data['allRequests'] = RequestModel::where('type_id',$user->type_id)
+                                    ->where('technician_id',$user->id)
+                                    ->where('status',5)->get();
+        $data['title'] = "Total Delivered Requests";
+        $data["deliveredCount"] = $data['allRequests']->count();
+        
+        return view("staff.requests",$data);
     }
 
     // show panding request
@@ -89,9 +166,22 @@ class RequestController extends Controller
         $user = Auth::guard('staff')->user();
         $data['allRequests'] = RequestModel::where('type_id',$user->type_id)
                                     ->where('technician_id',$user->id)                              
-                                    ->where('status','pending')->orderBy('created_at', 'DESC')->get();
+                                    ->where('status',0)
+                                    ->orderBy('created_at', 'DESC')->get();
 
         $data['title'] = "Total Pending Requests";
+        return view("staff.requests",$data);
+       
+    }
+    //  showWorkprogress request
+    public function showWorkprogress(){
+        $user = Auth::guard('staff')->user();
+        $data['allRequests'] = RequestModel::where('type_id',$user->type_id)
+                                    ->where('technician_id',$user->id)                              
+                                    ->where('status',2)
+                                    ->orderBy('created_at', 'DESC')->get();
+
+        $data['title'] = "Current work Requests";
         return view("staff.requests",$data);
        
     }
@@ -100,37 +190,23 @@ class RequestController extends Controller
         $user = Auth::guard('staff')->user();
         $data['allRequests'] = RequestModel::where('type_id',$user->type_id)
                                     ->where('technician_id',$user->id)
-                                    ->where('status','rejected')->orderBy('created_at', 'DESC')->get();
+                                    ->where('status',3)->orderBy('created_at', 'DESC')->get();
         $data['title'] = "Total RejectedRequests";
         $data["RejectedCount"] = $data['allRequests']->count();
         return view("staff.requests",$data);
        
     }
-// reject update table
-    public function rejected( Request $req){
+    // show Work Done Request
+    public function workDoneRequests(){
         $user = Auth::guard('staff')->user();
-        $data=RequestModel::where('id',$req->id)
-        ->where('type_id',$user->type_id)
-        ->where('technician_id',$user->id)->first();
-        $data->status= "rejected";
-        $data->save();   
-        return redirect()->back();
+        $data['allRequests'] = RequestModel::where('type_id',$user->type_id)
+                                    ->where('technician_id',$user->id)
+                                    ->where('status',4)->orderBy('created_at', 'DESC')->get();
+        $data['title'] = "Total WorkDoneRequests";
+        return view("staff.requests",$data);
+       
     }
 
-   
-
-   //pending update table
-   
-    public function pending( Request $req){
-        $user = Auth::guard('staff')->user();
-        $data=RequestModel::where('id',$req->id)
-        ->where('type_id',$user->type_id)
-        ->where('technician_id',$user->id)->first();
-        $data->status= "pending";
-        
-        $data->save();   
-        return redirect()->back();
-    }
 
     public function requestEdit(Request $req, $id){
         $data=RequestModel::where('id',$id)->first();
@@ -183,16 +259,6 @@ class RequestController extends Controller
         
     }
 
-    // public function createPDF() {
-    //     // retreive all records from db
-    //     // $data = Employee::all();
-    //     // share data to view
-    //     view()->share('employee',$data);
-    //     $pdf = PDF::loadView('pdf_view', $data);
-    //     // download PDF file with download method
-    //     return $pdf->download('pdf_file.pdf');
-    //   }
- 
     public function dateFilter(Request $req){
         $date = \Carbon\Carbon::createFromFormat('Y-m-d', $req->End);
         $date->addDays();
@@ -265,31 +331,7 @@ class RequestController extends Controller
         return view('staff/requests',$data);
     }
 
-     // device deliver 
-     public function requestDelever( Request $req){
-        $date = \Carbon\Carbon::now();
-        $user = Auth::guard('staff')->user();
-        $data=RequestModel::where('id',$req->id)->first();
-        $data->status= "Delivered";
-        $data->remark= "please feedback";
-        $data->delivered_by=$user->name;
-        $data->date_of_delivery=$date;
-        $data->save();   
-        return redirect()->back();
-    }
-
-    // show delivered 
-    public function showDelivered(){
-      
-        $user = Auth::guard('staff')->user();
-        $data['allRequests'] = RequestModel::where('type_id',$user->type_id)
-                                    ->where('technician_id',$user->id)
-                                    ->where('status','Delivered')->get();
-        $data['title'] = "Total RejectedRequests";
-        $data["deliveredCount"] = $data['allRequests']->count();
-        
-        return view("staff.requests",$data);
-    }
+    
     public function globalSearch(Request $req){
         $data['search_value']="";
         $data['allRequests']=RequestModel::where('service_code',"LIKE","%".$req->search."%")
