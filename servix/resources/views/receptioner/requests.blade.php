@@ -75,7 +75,7 @@
                 </div>
 
                 <!-- /.card-header -->
-                <div class="card-body table-responsive p-0">
+                <div class="card-body table-responsive p-0" style="height: 68vh !important">
                     <table class="table table-hover text-nowrap">
                         <thead>
                             <tr>
@@ -102,10 +102,10 @@
                                     <td>{{ $item->color }}</td>
                                     <td>{{ $item->brand }}</td>
                                     <td>{{ $item->problem }}</td>
-                                    <td>{{ $item->status }}</td>
+                                    <td>{{ $item->getStatus() }}</td>
                                     <td>{{ $item->remark }}</td>
                                     <td>{{ date('d M Y', strtotime($item->created_at)) }}</td>
-                                    <td class="border border-slate-700 p-1.5  items-center justify-center flex btn-group"
+                                    <td class=" p-1.5  items-center justify-center flex btn-group"
                                         role="group">
                                         <div class="btn-group" role="group"
                                             aria-label="Button group with nested dropdown">
@@ -117,8 +117,12 @@
 
                                                 {{-- <a data-toggle="modal" data-target="#view{{ $item->id }}"
                                                     role="button" class=" btn btn-info btn-group ">View</a> --}}
-                                                <a href="{{ route('receipt.view', $item->id) }}"
-                                                    role="button" class=" btn btn-info btn-group ">View</a>
+                                                @if ($item->status==4)
+                                                <a href="{{ route('crm.request.deliver', $item->id) }}" role="button"
+                                                    class=" btn btn-success btn-group ">Deliver</a>
+                                                @endif
+                                                <a href="{{ route('receipt.view', $item->id) }}" role="button"
+                                                    class=" btn btn-info btn-group ">View</a>
 
                                                 <a href="{{ route('receptioner.request.edit', $item->id) }}" role="button"
                                                     class=" btn btn-warning btn-group ">Edit</a>
@@ -146,7 +150,7 @@
                                                     </div>
 
                                                     <div class="modal-body" id="printable-content">
-                                                       
+
                                                     </div>
                                                 </div>
 
@@ -163,6 +167,4 @@
             <!-- /.card -->
         </div>
     </div>
-    
-    
 @endsection

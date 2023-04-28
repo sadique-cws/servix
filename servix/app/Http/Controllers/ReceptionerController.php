@@ -17,7 +17,7 @@ class ReceptionerController extends Controller
 {
     public function index(Request $req): View
     {
-        $data['allRequests'] = RequestModel::orderBy("id", "DESC")->take(10)->get();
+        $data['allRequests'] = RequestModel::orderBy("id", "DESC")->where('technician_id',null)->take(10)->get();
         return view('receptioner.dashboard',$data);
     }
     public function receptionerlogin(Request $req)
@@ -239,27 +239,40 @@ class ReceptionerController extends Controller
   
     public function confirmedRequest(Request $req){
       
-        $data['allRequests'] = RequestModel::where('status','work in progress')->orderBy('created_at', 'DESC')->get();
+        $data['allRequests'] = RequestModel::where('status',1)
+                                            ->orderBy('created_at', 'DESC')->get();
         $data['title'] = "Confirm Requests";                                    
         return view("receptioner.requests",$data);   
     }
     public function rejectedRequest(Request $req){
       
-        $data['allRequests'] = RequestModel::where('status','rejected')->orderBy('created_at', 'DESC')->get();
+        $data['allRequests'] = RequestModel::where('status',3)
+                                ->orderBy('created_at', 'DESC')->get();
         $data['title'] = "rejected Requests";                                    
         return view("receptioner.requests",$data);   
     }
     public function pandingRequest(Request $req){
       
-        $data['allRequests'] = RequestModel::where('status','pending')->orderBy('created_at', 'DESC')->get();
+        $data['allRequests'] = RequestModel::where('status',0)
+                                ->orderBy('created_at', 'DESC')->get();
         $data['title'] = "pending Requests";                                    
         return view("receptioner.requests",$data);   
     }
     public function deliveredRequest(Request $req){
       
-        $data['allRequests'] = RequestModel::where('status','Delivered')->orderBy('created_at', 'DESC')->get();
+        $data['allRequests'] = RequestModel::where('status',5)
+                                ->orderBy('created_at', 'DESC')->get();
         $data['title'] = "Delivered Requests";                                    
         return view("receptioner.requests",$data);   
+    }
+
+     // show Work Done Request
+     public function workDoneRequests(){
+        
+        $data['allRequests'] = RequestModel::where('status',4)->orderBy('created_at', 'DESC')->get();
+        $data['title'] = "Total WorkDoneRequests";
+        return view("receptioner.requests",$data);
+       
     }
     public function allRequest(Request $req){
       

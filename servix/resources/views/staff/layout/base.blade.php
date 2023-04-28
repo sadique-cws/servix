@@ -85,7 +85,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
                         <i class="far fa-comments"></i>
-                        <span class="badge badge-danger navbar-badge">3</span>
+                        <span class="badge badge-danger navbar-badge">{{countTodayRequests(auth()->user()->type_id)}}</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <a href="#" class="dropdown-item">
@@ -251,14 +251,14 @@
                                     <a href="{{ route('request.all') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p> All Request</p>
-                                        <h3 class="right badge badge-info">{{ countNewRequest(auth()->user()->type_id,"work in progress")}}</h3> 
+                                        <h3 class="right badge badge-info">{{ countNewRequest(auth()->user()->type_id)}}</h3> 
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('request.show.panding') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p> Total Pending</p>
-                                        <h3 class="right badge badge-info">{{ countNewRequest(auth()->user()->type_id,"pending")}}</h3> 
+                                        <h3 class="right badge badge-info">{{ countNewRequest(auth()->user()->type_id,0)}}</h3> 
                                         
                                     </a>
                                 </li>
@@ -266,7 +266,15 @@
                                     <a href="{{ route('request.show.reject') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p> Rejected</p>
-                                        <h3 class="right badge badge-info">{{ countNewRequest(auth()->user()->type_id,"rejected")}}</h3>
+                                        <h3 class="right badge badge-info">{{ countNewRequest(auth()->user()->type_id,3)}}</h3>
+                                        
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('request.show.workDone') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p> Work Done</p>
+                                        <h3 class="right badge badge-info">{{ countNewRequest(auth()->user()->type_id,4)}}</h3>
                                         
                                     </a>
                                 </li>
@@ -275,7 +283,7 @@
                                         <i class="far fa-circle nav-icon"></i>
                                         <p> Delivered</p>
                                         
-                                        <h3 class="right badge badge-info">{{ countNewRequest(auth()->user()->type_id,"delivered")}}</h3>
+                                        <h3 class="right badge badge-info">{{ countNewRequest(auth()->user()->type_id,5)}}</h3>
                                     </a>
                                 </li>
                                
@@ -418,9 +426,11 @@
             </div>
             <!-- /.sidebar -->
         </aside>
-        <div class="content-wrapper">
+        <div class="content-wrapper " >
             @section('content')
             @show
+        
+            
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">

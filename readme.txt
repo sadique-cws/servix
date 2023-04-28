@@ -23,4 +23,14 @@ Schema
 
 5. feedback. 
 	id, request_id, user_id, content,date_of_creation.
+
+
+6. status
+    0- pending
+	1- Confirm
+	2- work progress
+	3- reject
+	4- work done  
+	5- delivered
+
  
