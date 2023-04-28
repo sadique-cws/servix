@@ -244,6 +244,54 @@ class AdminController extends Controller
         $data['dateFilter']='All';
         return view('admin/allnewRequest',$data);
     }
+     
+    // show datas 
+    public function confirmedRequest(Request $req){
+      
+        $data['new'] = RequestModel::where('status',1)
+                                            ->orderBy('created_at', 'DESC')->get();
+        $data['title'] = "Confirm Requests";                                    
+        return view("admin.requests",$data);   
+    }
+    public function rejectedRequest(Request $req){
+      
+        $data['new'] = RequestModel::where('status',3)
+                                ->orderBy('created_at', 'DESC')->get();
+        $data['title'] = "rejected Requests";                                    
+        return view("admin.requests",$data);   
+    }
+    public function pandingRequest(Request $req){
+        
+        $data['new'] = RequestModel::where('status',0)
+                                ->orderBy('created_at', 'DESC')->get();
+        $data['title'] = "pending Requests";                                    
+        return view("admin.requests",$data);   
+    }
+    public function deliveredRequest(Request $req){
+      
+        $data['new'] = RequestModel::where('status',5)
+                                ->orderBy('created_at', 'DESC')->get();
+        $data['title'] = "Delivered Requests";                                    
+        return view("admin.requests",$data);   
+    }
+
+     // show Work Done Request
+     public function workDoneRequests(){
+        
+        $data['new'] = RequestModel::where('status',4)->orderBy('created_at', 'DESC')->get();
+        $data['title'] = "Total WorkDoneRequests";
+        return view("admin.requests",$data);
+       
+    }
+    public function globalSearch(Request $req){
+        $data['search_value']="";
+        $data['new']=RequestModel::where('service_code',"LIKE","%".$req->search."%")
+        ->orWhere('contact', 'like', '%' . $req->search . '%')
+        ->orWhere('owner_name', 'like', '%' . $req->search . '%')->get();
+        $data['title']='Search Record';
+        $data['dateFilter']='All';
+        return view('admin/requests',$data);
+    }
 
     
 }

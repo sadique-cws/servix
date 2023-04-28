@@ -85,28 +85,28 @@
                         <label for="" class="text-black-100">Status</label>
                         <div class=" d-flex flex-column ">
                             <div class="form-check">
-                                <input class="form-check-input" {{ $data->status == 0 ? 'checked' : '' }} type="radio"
+                                <input class="form-check-input" checked="{{ $data->status == 0 ? True : False }}" type="radio"
                                     name="status" value="0">
                                 <label class="form-check-label">
                                     Pending
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" {{ $data->status == 2 ? 'checked' : '' }} type="radio"
+                                <input class="form-check-input" checked="{{ $data->status == 2 ? True : False }}" type="radio"
                                     name="status" value="2">
                                 <label class="form-check-label">
                                     work Progress
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" {{ $data->status == 3 ? 'checked' : '' }} type="radio"
+                                <input class="form-check-input" checked=" {{ $data->status == 3 ? True : False }}" type="radio"
                                     name="status" value="3">
                                 <label class="form-check-label">
                                     Reject
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input"{{ $data->status == 4 ? 'checked' : '' }} type="radio"
+                                <input class="form-check-input" checked=" {{ $data->status == 4 ? True : False }}" type="radio"
                                     name="status" value="4">
                                 <label class="form-check-label">
                                     Work Done

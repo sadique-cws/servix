@@ -12,7 +12,7 @@
                     <h2 class="text-black-100">Edit Request</h2>
                 </div>
                 <div class="mt-3">
-                    <a href="" role="button" class="btn btn-primary btn-sm">Go Back</a>
+                    <a href="{{ route('receptioner.all.request') }}" role="button" class="btn btn-primary btn-sm">Go Back</a>
                 </div>
             </div>
 
@@ -108,13 +108,42 @@
                             <input type="text" name='remark' class="form-control" value="" placeholder="">
                         </div>
                     </div>
-                    <div class="w-full px-3 mb-5  gap-2 col">
+                  
+                </div>
+                <div class="row">
+                    <div class="w-full    mb-5  gap-2 col">
                         <label for="" class="text-black-100">Status</label>
-                        <div class="flex gap-4">
-                            <input type="radio" name="status" value="Pending"> Pending
-                            <input type="radio" name="status" value="Reject"> Reject
-                            <input type="radio" name="status" value="Deliver"> Deliver
-                        </div> 
+                        <div class=" d-flex flex-column ">
+                            <div class="form-check">
+                                <input class="form-check-input" checked="{{ $data->status == 0 ? True : False }}" type="radio"
+                                    name="status" value="0">
+                                <label class="form-check-label">
+                                    Pending
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" checked="{{ $data->status == 2 ? True : False }}" type="radio"
+                                    name="status" value="2">
+                                <label class="form-check-label">
+                                    work Progress
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" checked=" {{ $data->status == 3 ? True : False }}" type="radio"
+                                    name="status" value="3">
+                                <label class="form-check-label">
+                                    Reject
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" checked=" {{ $data->status == 4 ? True : False }}" type="radio"
+                                    name="status" value="4">
+                                <label class="form-check-label">
+                                    Work Done
+                                </label>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
 
@@ -129,6 +158,7 @@
                         <div id="results">Your captured image will appear here...</div>
                     </div>
                 </div>
+              
 
                 <div class="row">
                     <div class="w-full px-3 mb-5 col mt-3">

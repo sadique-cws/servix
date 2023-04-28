@@ -50,6 +50,15 @@ class StaffController extends Controller
         return view("staff.panel",compact('data'));
     }
     
+    public function globalSearch(Request $req){
+        $data['search_value']="";
+        $data['allRequests']=RequestModel::where('service_code',"LIKE","%".$req->search."%")
+        ->orWhere('contact', 'like', '%' . $req->search . '%')
+        ->orWhere('owner_name', 'like', '%' . $req->search . '%')->get();
+        $data['title']='Search Record';
+        $data['dateFilter']='All';
+        return view('staff/requests',$data);
+    }
     
 
    

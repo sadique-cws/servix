@@ -3,8 +3,13 @@
 @section('content')
     <div class="ml-40">
             <div class="container">
-                <div class="d-flex justify-content-between">
-                    <h1 class="mt-2">Service Request</h1>
+                <div class="d-flex justify-content-between ">
+                    <div class=" mt-2">
+                        <h2 class="text-black-100">Service Request</h2>
+                    </div>
+                    <div class="mt-3">
+                        <a href="{{ route('receptioner.all.request') }}" role="button" class="btn btn-primary btn-sm">Go Back</a>
+                    </div>
                 </div>
                 <form action="{{ route('receptioner.request.form') }}" method="POST" enctype="multipart/form-data">
                     @csrf

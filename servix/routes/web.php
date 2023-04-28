@@ -62,6 +62,14 @@ Route::prefix("admin")->group(function () {
             Route::get("/request/datefilter","dateFilter")->name("admin.request.filterbydate");
             Route::get("/request/filterbyselect","filterBySelect")->name("admin.request.filterbyselect");
             Route::get("/request/filterbyinput","filterByInput")->name("admin.request.filterbyinput");
+            Route::get('/request/global/search/', 'globalSearch')->name('admin.request.globalSearch');
+            //show
+            
+        Route::get('/listRequest/confirm','confirmedRequest')->name('admin.confirmed.req');
+        Route::get('/listRequest/panding','pandingRequest')->name('admin.panding.req');
+        Route::get('/listRequest/rejected','rejectedRequest')->name('admin.rejected.req');
+        Route::get('/listRequest/workDone','workDoneRequests')->name('admin.workDone.req');
+        Route::get('/listRequest/delivered','deliveredRequest')->name('admin.delivered.req');
 
             Route::get('/Allreceptioner',[ReceptionerController::class, 'showAllreceptioner'])->name('receptioner.showAllreceptioner');
             Route::match(['post','get'],'/AddReceptioner',[ReceptionerController::class,"AddReceptioner"])->name('receptioner.add');
@@ -93,6 +101,7 @@ Route::prefix("staff")->group(function () {
             Route::get("/request/datefilter",[RequestController::class,"dateFilter"])->name("staff.request.filterbydate");
             Route::get("/request/filterbyselect",[RequestController::class,"filterBySelect"])->name("staff.request.filterbyselect");
             Route::get("/request/filterbyinput",[RequestController::class,"filterByInput"])->name("staff.request.filterbyinput");
+            Route::get('/request/global/search/', 'globalSearch')->name('staff.request.globalSearch');
 
             Route::get('/', 'index')->name('staff.panel');
             Route::get('/logout', 'stafflogout')->name('staff.logout');
