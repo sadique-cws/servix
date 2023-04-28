@@ -59,6 +59,11 @@
                             <td>{{ (!$item->status)? "Pending" : (($item->status == 1)? "Delivered" : "Reject") }}</td>
                         </tr>
                         <tr>
+                            {{-- @if($item->image)
+                                <img src="{{ asset('storage/images/'.$item->image) }}" style="height: 50px; width:70px;" class="rounded-circle">
+                                @else 
+                                <span>No image found!</span>
+                            @endif --}}
                             {{-- <th>Product Image</th> --}}
                             @if($item->image)
                                 <div class="bg-image hover-zoom">
