@@ -26,6 +26,12 @@ class HomeController extends Controller
     public function warranty():View{
         return view('warrantyTerms');
     }
+    public function privacyPolicy():View{
+        return view('privacypolicy');
+    }
+    public function ourTeam():View{
+        return view('ourTeam');
+    }
     
 
     public function register():View{

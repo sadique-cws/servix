@@ -66,22 +66,13 @@
                         </li>
                     </ul>
                 </div>
+            </div>
         </nav>
     </div>
     </div>
-
-
-
-   
-
     @section('contents')
-            <!-- Don't write code here \\ -->
+        <!-- Don't write code here ! Also Don't remove space for commit credit 😀 -->
     @show
-
-
-    <!-- Page Contents -->
-
-
     <!-- Footer Section -->
     @section('footer')
         <div class="background-footer">
@@ -96,7 +87,8 @@
                             <li class="nav-item py-1"><a href="{{ route('home.warranty') }}" class="nav-lnk footer--art">Warranty Policy</a></li>
                             <li class="nav-item py-1"><a href="#" class="nav-lnk footer--art">Terms & Conditions</a>
                             </li>
-                            <li class="nav-item py-1"><a href="#" class="nav-lnk footer--art">Privacy Policy</a></li>
+                            <li class="nav-item py-1"><a href="{{ route('home.privacyPolicy') }}" class="nav-lnk footer--art">Privacy Policy</a></li>
+                            <li class="nav-item py-1"><a href="{{ route('home.ourTeam') }}" class="nav-lnk footer--art">Our Team</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-4 col-md-6 col-12 mb-4">
@@ -135,8 +127,6 @@
         </div>
 
     @show
-
-   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 

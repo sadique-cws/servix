@@ -62,8 +62,12 @@
                             <td>{{ ($item->estimate_delivery)? date('d M Y', strtotime($item->estimate_delivery)) : "N/A" }}</td>
                         </tr>
                         <tr>
+                            <th> Last Update</th>
+                            <td>{{ ($item->updated_at)? date('d M Y', strtotime($item->updated_at)) : "N/A" }}</td>
+                        </tr>
+                        <tr>
                             <th>status</th>
-                            <td>{{ (!$item->status)? "Pending" : (($item->status == 1)? "Delivered" : "Reject") }}</td>
+                            <td>{{ (!$item->status)? "Pending" : $item->getStatus() }}</td>
                         </tr>
                         <tr>
                             <th>Product Image</th>

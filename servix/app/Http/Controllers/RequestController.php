@@ -116,6 +116,7 @@ class RequestController extends Controller
         ->where('status',"!=",5)    // 5 delivered
         ->where('technician_id',$user->id)->first();
         $data->status= 0; // 0 painding
+        $data->technician_id=null;
         
         $data->save();   
         return redirect()->back();
@@ -154,7 +155,7 @@ class RequestController extends Controller
         $data['allRequests'] = RequestModel::where('type_id',$user->type_id)
                                     ->where('technician_id',$user->id)
                                     ->where('status',5)->get();
-        $data['title'] = "Total RejectedRequests";
+        $data['title'] = "Total Delivered Requests";
         $data["deliveredCount"] = $data['allRequests']->count();
         
         return view("staff.requests",$data);
@@ -169,6 +170,18 @@ class RequestController extends Controller
                                     ->orderBy('created_at', 'DESC')->get();
 
         $data['title'] = "Total Pending Requests";
+        return view("staff.requests",$data);
+       
+    }
+    //  showWorkprogress request
+    public function showWorkprogress(){
+        $user = Auth::guard('staff')->user();
+        $data['allRequests'] = RequestModel::where('type_id',$user->type_id)
+                                    ->where('technician_id',$user->id)                              
+                                    ->where('status',2)
+                                    ->orderBy('created_at', 'DESC')->get();
+
+        $data['title'] = "Current work Requests";
         return view("staff.requests",$data);
        
     }

@@ -124,10 +124,19 @@
                                         class="table table-striped table-bordered">
                                         <tbody>
                                             <tr>
+                                                <th scope="col">Name</th>
+                                                <td class="text-uppercase">
+                                                    {{$item->owner_name}}
+                                                </td>
                                                 <th scope="col">Service code</th>
                                                 <td class="text-uppercase">
                                                     <h4 class="m-0 text-danger">{{$item->service_code}}</h4>
                                                 </td>
+                                            </tr>
+                                            <tr>
+                                                
+                                                <th scope="col">Problem</th>
+                                                <td class="text-uppercase">{{$item->problem}}</td>
                                             
                                                 <th scope="col">brand</th>
                                                 <td class="text-uppercase">{{$item->brand}}</td>

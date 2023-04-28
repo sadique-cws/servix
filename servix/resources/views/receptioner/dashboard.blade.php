@@ -46,7 +46,7 @@
                     <!-- small box -->
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3>{{$DeliveredCountReq}}</h3>
+                            <h3>{{ $DeliveredCountReq }}</h3>
 
                             <p>Total Delivered</p>
                         </div>
@@ -59,9 +59,16 @@
                 </div>
             </div>
             <div class="card">
-              <div class="card-header d-flex flex-column">
-                <h2 class="card-title  mb-3"><h2>Letest 10 Records</h2></h2>
-              </div>
+                <div class="card-header  float">
+                    <div class=" float-left">
+                        <h2 class="card-title  mb-3">
+                            <h2>Letest 10 Records</h2>
+                        </h2>
+                    </div>
+                    <div class=" float-right  ">
+                        <a href="{{ route('receptioner.request.form') }}" type="button" class="btn btn-info">Add New Request</a>
+                    </div>
+                </div>
                 <div class="card-body table-responsive p-0">
                     <table class="table table-hover text-nowrap">
                         <thead>
@@ -89,7 +96,7 @@
                                     <td>{{ $item->color }}</td>
                                     <td>{{ $item->brand }}</td>
                                     <td>{{ $item->problem }}</td>
-                                    <td>{{ $item->getStatus()}}</td>
+                                    <td>{{ $item->getStatus() }}</td>
                                     <td>{{ $item->remark }}</td>
                                     <td>{{ date('d M Y', strtotime($item->created_at)) }}</td>
                                     <td class="border border-slate-700 p-1.5  items-center justify-center flex btn-group"

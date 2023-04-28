@@ -66,7 +66,7 @@
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <!-- Navbar Search -->
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" data-widget="navbar-search" href="#" role="button">
                         <i class="fas fa-search"></i>
                     </a>
@@ -86,7 +86,7 @@
                             </div>
                         </form>
                     </div>
-                </li>
+                </li> --}}
 
                 <!-- Messages Dropdown Menu -->
                 {{-- <li class="nav-item dropdown">
@@ -292,7 +292,7 @@
                                     <a href="{{ route('crm.workDone.req') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p> Work Done</p>
-                                        <span class="badge badge-info right">{{$RejectedCountReq}}</span>
+                                        <span class="badge badge-info right">{{$WorkdoneCountReq}}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">

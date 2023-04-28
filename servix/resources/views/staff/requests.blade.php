@@ -120,7 +120,7 @@
                                             <div class="btn-group" role="group">
                                                 <button type="button" class="btn btn-primary dropdown-toggle"
                                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                                    Dropdown
+                                                    Action
                                                 </button>
                                                 <ul class="dropdown-menu text-center " style="z-index:6;">
 
@@ -138,7 +138,7 @@
                                                         @if ($item->technician_id)
                                                         <li>
                                                             <a role="button"
-                                                                href="{{ route('request.Deliver', $item->id) }}"
+                                                                href="{{ route('request.workProgress', $item->id) }}"
                                                                 class="btn btn-success dropdown-item"
                                                                 href="">Work in progress</a>
                                                         </li>
