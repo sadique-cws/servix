@@ -157,8 +157,11 @@
                     </div>
                     <div class="grid md:grid-cols-2 md:gap-6">
                     <div class="relative z-0 w-full mb-6 group">
-                        <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="phone" id="phone" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-500 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                        <label for="phone" class="group-hover:text-[18px] peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Phone number (123-456-7890)</label>
+                        <input type="phone" pattern="[0-9]{10}" name="phone" id="phone" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-500 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                        <label for="phone" class="group-hover:text-[18px] peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Phone number (7808912076)</label>
+                        @error('phone')
+                            <div class="text-slate-100 bg-red-500/30 p-2 rounded-b-lg transition-all duration-300 ease-in tracking-wide">{{$message}}</div>
+                        @enderror
                     </div>
                     <div class="relative z-0 w-full mb-6 group">
                         <input type="text" name="company" id="company" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-500 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
@@ -207,7 +210,7 @@
 
  
     <!-- Footer Section -->
-        <div class="background-footer">
+        <div class="background-footer mt-2">
             <div class="container pt-5 pb-2">
                 <div class="row justify-content-center pt-3 all_text-center">
                     <div class="col-lg-4 col-md-6 col-12 mb-4">
@@ -219,7 +222,9 @@
                             <li class="nav-item py-1"><a href="{{ route('home.warranty') }}" class="nav-lnk footer--art">Warranty Policy</a></li>
                             <li class="nav-item py-1"><a href="#" class="nav-lnk footer--art">Terms & Conditions</a>
                             </li>
-                            <li class="nav-item py-1"><a href="#" class="nav-lnk footer--art">Privacy Policy</a></li>
+                            <li class="nav-item py-1"><a href="{{ route('home.privacyPolicy') }}" class="nav-lnk footer--art">Privacy Policy</a></li>
+                            <li class="nav-item py-1"><a href="#" class="nav-lnk footer--art">Our Team</a></li>
+
                         </ul>
                     </div>
                     <div class="col-lg-4 col-md-6 col-12 mb-4">

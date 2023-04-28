@@ -14,6 +14,8 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/contact', 'contactUs')->name('home.contact');
     Route::get('/learn', 'learn')->name('home.learn');
     Route::get('/warranty', 'warranty')->name('home.warranty');
+    Route::get('/privacyPolicy', 'privacyPolicy')->name('home.privacyPolicy');
+    Route::get('/ourTeam', 'ourTeam')->name('home.ourTeam');
     Route::get('/reciving/pdf/{id}', 'reciptPdf')->name('receipt.pdf');
     Route::get('/reciving/{id}', 'reciving')->name('receipt.view');
 
