@@ -151,7 +151,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
                         <i class="far fa-bell"></i>
-                        <span class="badge badge-warning navbar-badge">{{countNewRequest()}}</span> 
+                        <span class="badge badge-warning navbar-badge">{{countTodayRequests()}}</span> 
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <span class="dropdown-item dropdown-header">15 Notifications</span>
@@ -162,7 +162,7 @@
                         </a> --}}
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item">
-                            <i class="fas fa-users mr-2"></i> {{countNewRequest()}} requests
+                            <i class="fas fa-users mr-2"></i> {{countNewRequest()}}requests
                             <span class="float-right text-muted text-sm">12 hours</span>
                         </a>
                         <div class="dropdown-divider"></div>

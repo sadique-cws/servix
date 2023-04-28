@@ -79,13 +79,14 @@ Route::prefix("staff")->group(function () {
             Route::get('/request/new', [RequestController::class,'newRequests'])->name('request.new');
             Route::get('/request/{id}/confirm', [RequestController::class,'confirmRequest'])->name('request.confirm');
             Route::get('/request/{id}/edit', [RequestController::class,'requestEdit'])->name('request.edit');
-            Route::get('/request/{id}/deliver', [RequestController::class,'requestDelever'])->name('request.Deliver');
+            Route::get('/request/{id}/deliver', [RequestController::class,'requestDeliver'])->name('request.Deliver');
             Route::post('/request/update/{id}', [RequestController::class,'requestUpdate'])->name('request.update');
             Route::get('/request/{id}/reject', [RequestController::class,'rejected'])->name('request.reject');
             Route::get('/request/rejectedRequests', [RequestController::class,'rejectedRequests'])->name('request.show.reject');
             Route::get('/request/deliveredRequests', [RequestController::class,'showDelivered'])->name('request.show.delivered');
             Route::get('/request/{id}/pending', [RequestController::class,'pending'])->name('request.pending');
             Route::get('/request/pandingRequests', [RequestController::class,'pandingRequests'])->name('request.show.panding');
+            Route::get('/request/workDone', [RequestController::class,'workDoneRequests'])->name('request.show.workDone');
             Route::get("/request/datefilter",[RequestController::class,"dateFilter"])->name("staff.request.filterbydate");
             Route::get("/request/filterbyselect",[RequestController::class,"filterBySelect"])->name("staff.request.filterbyselect");
             Route::get("/request/filterbyinput",[RequestController::class,"filterByInput"])->name("staff.request.filterbyinput");
@@ -108,12 +109,14 @@ Route::prefix("crm")->group(function(){
         Route::get('/listRequest/confirm','confirmedRequest')->name('crm.confirmed.req');
         Route::get('/listRequest/panding','pandingRequest')->name('crm.panding.req');
         Route::get('/listRequest/rejected','rejectedRequest')->name('crm.rejected.req');
+        Route::get('/listRequest/workDone','workDoneRequests')->name('crm.workDone.req');
         Route::get('/listRequest/delivered','deliveredRequest')->name('crm.delivered.req');
         Route::get('/listRequest/all','allRequest')->name('crm.all.req');
 
         Route::match(['post','get'],'/EditRequest/{id}', 'editRequest')->name('receptioner.request.edit');
         Route::match(['post','get'],'/receptionerRequestForm', 'requestForm')->name('receptioner.request.form');
         Route::get('/request/global/search/', [RequestController::class,'globalSearch'])->name('request.globalSearch');
+        Route::get('/request/Deliver/{id}', [RequestController::class,'requestDeliver'])->name('crm.request.deliver');
         // filter 
         Route::get("/request/datefilter","dateFilter")->name("receptioner.request.filterbydate");
         Route::get("/request/filterbyselect","filterBySelect")->name("receptioner.request.filterbyselect");

@@ -55,7 +55,7 @@
                         <span class="font-weight-bold">({{$item->technician->name}})</span>
                     </td>
                     <td>{{ $item->problem }}</td>
-                    <td>{{ $item->status }}</td>
+                    <td>{{ $item->getStatus() }}</td>
                     <td>
             
                         <a data-toggle="modal" data-target="#view{{ $item->id }}" role="button"

@@ -27,10 +27,10 @@ class AppServiceProvider extends ServiceProvider
         view()->share('search_value','');
         view()->share('Types',Type::all());
         view()->share('NewCountReq',RequestModel::where('technician_id',NULL)->get()->count());
-        view()->share('ConformCountReq',RequestModel::where('status',"work in progress")->get()->count());
-        view()->share('RejectedCountReq',RequestModel::where('status',"rejected")->get()->count());
-        view()->share('DeliveredCountReq',RequestModel::where('status',"Delivered")->get()->count());
-        view()->share('PendingCountReq',RequestModel::where('status',"pending")->get()->count());
+        view()->share('ConformCountReq',RequestModel::where('status',1)->get()->count());
+        view()->share('RejectedCountReq',RequestModel::where('status',3)->get()->count());
+        view()->share('DeliveredCountReq',RequestModel::where('status',5)->get()->count());
+        view()->share('PendingCountReq',RequestModel::where('status',0)->where('technician_id',"!=",null)->get()->count());
         view()->share('allReq',RequestModel::all()->count());
         // view()->share('',RequestModel::where('status',"pending")->get()->count());
     //     view()->share('staffConformCount',RequestModel::where('type_id',$user->type_id)->where('technician_id',$user->id)->get()->count());
