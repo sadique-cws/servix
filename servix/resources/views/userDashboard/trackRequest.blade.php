@@ -30,9 +30,9 @@
                            
                 <div class="card mb-3 mt-2">
                     <table class="table">
-                        <div class="imgBox ">
+                        <div class="imgBox d-block" id="block">
                             @if($item->image)
-                                <img src="{{ asset('storage/uploads/'.$item->image) }}" style="height: 250px; width:400px;">
+                                <img id="big-image" src="{{ asset('storage/uploads/'.$item->image) }}" style="display:none;">
                             @else 
                                 <span>No image found!</span>
                             @endif
@@ -67,9 +67,9 @@
                         </tr>
                         <tr>
                             <th>Product Image</th>
-                            <td class="thumb ripple">
+                            <td class="ripple" style="height:50%; width:50%" >
                                 @if($item->image)
-                                    <a href="{{ asset('storage/uploads/'.$item->image) }}" target="imgBox"><img src="{{ asset('storage/uploads/'.$item->image) }}" style="height: 50px; width:50px;" class="img-thumbnail"></a>
+                                    <a href=""><img id="small-image" src="{{ asset('storage/uploads/'.$item->image) }}" onclick="showBigImage()" style="height: 50px; width:50px;"></a>
                                 @else 
                                     <span>No image found!</span>
                                 @endif
@@ -96,14 +96,17 @@
 @endsection
 
 
-<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
-<script type="text/javaScript">
-    $(document).ready(function(){
-        $('.thumb a').click(function(e){
-            e.preventDefault();
-            $('imgBox img').attr("src", $(this).attr("href"))
-        })
-    })
+<script>
+    function showBigImage() {
+    var smallImage = document.getElementById("small-image; width:50%; height:50%");
+    smallImage.style.width = "50%";
+    smallImage.style.height = "50%";
+
+    var bigImage = document.getElementById("big-image");
+    bigImage.src = smallImage.src;
+    bigImage.style.display = "block";
+}
+
 </script>
 
 
