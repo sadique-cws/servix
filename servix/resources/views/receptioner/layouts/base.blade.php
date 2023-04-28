@@ -292,7 +292,7 @@
                                     <a href="{{ route('crm.workDone.req') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p> Work Done</p>
-                                        <span class="badge badge-info right">{{$RejectedCountReq}}</span>
+                                        <span class="badge badge-info right">{{$WorkdoneCountReq}}</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">

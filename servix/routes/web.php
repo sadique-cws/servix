@@ -84,7 +84,9 @@ Route::prefix("staff")->group(function () {
             Route::get('/request/{id}/reject', [RequestController::class,'rejected'])->name('request.reject');
             Route::get('/request/rejectedRequests', [RequestController::class,'rejectedRequests'])->name('request.show.reject');
             Route::get('/request/deliveredRequests', [RequestController::class,'showDelivered'])->name('request.show.delivered');
+            Route::get('/request/WorkProgressRequest', [RequestController::class,'showWorkprogress'])->name('request.show.workProgress');
             Route::get('/request/{id}/pending', [RequestController::class,'pending'])->name('request.pending');
+            Route::get('/request/{id}/workProgress', [RequestController::class,'workProgressRequest'])->name('request.workProgress');
             Route::get('/request/pandingRequests', [RequestController::class,'pandingRequests'])->name('request.show.panding');
             Route::get('/request/workDone', [RequestController::class,'workDoneRequests'])->name('request.show.workDone');
             Route::get("/request/datefilter",[RequestController::class,"dateFilter"])->name("staff.request.filterbydate");

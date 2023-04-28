@@ -60,7 +60,7 @@
                         </tr>
                         <tr>
                             <th>status</th>
-                            <td>{{ (!$item->status)? "Pending" : (($item->status == 1)? "Delivered" : "Reject") }}</td>
+                            <td>{{ (!$item->status)? "Pending" : $item->getStatus() }}</td>
                         </tr>
                         <tr>
                             {{-- @if($item->image)

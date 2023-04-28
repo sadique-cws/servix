@@ -232,8 +232,8 @@
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     New Request
-                                    <span class="right badge badge-danger">{{ countNewRequest(auth()->user()->type_id)}}</span>
-                                </p>
+                                    <span class="right badge badge-danger">{{ CountStaffRequest("all", True)}}</span>
+                                </p> 
                             </a>
                         </li>
                         <li class="nav-item">
@@ -251,14 +251,22 @@
                                     <a href="{{ route('request.all') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p> All Request</p>
-                                        <h3 class="right badge badge-info">{{ countNewRequest(auth()->user()->type_id)}}</h3> 
+                                        <h3 class="right badge badge-info">{{ CountStaffRequest("all")}}</h3> 
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ route('request.show.panding') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p> Total Pending</p>
-                                        <h3 class="right badge badge-info">{{ countNewRequest(auth()->user()->type_id,0)}}</h3> 
+                                        <h3 class="right badge badge-info">{{ CountStaffRequest(0)}}</h3> 
+                                        
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('request.show.workProgress') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p> Work in Progress</p>
+                                        <h3 class="right badge badge-info">{{ CountStaffRequest(2)}}</h3> 
                                         
                                     </a>
                                 </li>
@@ -266,7 +274,7 @@
                                     <a href="{{ route('request.show.reject') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p> Rejected</p>
-                                        <h3 class="right badge badge-info">{{ countNewRequest(auth()->user()->type_id,3)}}</h3>
+                                        <h3 class="right badge badge-info">{{ CountStaffRequest(3)}}</h3>
                                         
                                     </a>
                                 </li>
@@ -274,7 +282,7 @@
                                     <a href="{{ route('request.show.workDone') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p> Work Done</p>
-                                        <h3 class="right badge badge-info">{{ countNewRequest(auth()->user()->type_id,4)}}</h3>
+                                        <h3 class="right badge badge-info">{{ CountStaffRequest(4)}}</h3>
                                         
                                     </a>
                                 </li>
@@ -283,7 +291,7 @@
                                         <i class="far fa-circle nav-icon"></i>
                                         <p> Delivered</p>
                                         
-                                        <h3 class="right badge badge-info">{{ countNewRequest(auth()->user()->type_id,5)}}</h3>
+                                        <h3 class="right badge badge-info">{{ CountStaffRequest(5)}}</h3>
                                     </a>
                                 </li>
                                

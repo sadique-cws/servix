@@ -138,7 +138,7 @@
                                                         @if ($item->technician_id)
                                                         <li>
                                                             <a role="button"
-                                                                href="{{ route('request.Deliver', $item->id) }}"
+                                                                href="{{ route('request.workProgress', $item->id) }}"
                                                                 class="btn btn-success dropdown-item"
                                                                 href="">Work in progress</a>
                                                         </li>

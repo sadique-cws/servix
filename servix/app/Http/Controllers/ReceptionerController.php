@@ -77,14 +77,9 @@ class ReceptionerController extends Controller
             // dd($fileName);
            $data['image'] = $fileName;
     
-            //    dd($data);
-    
             RequestModel::create($data);
 
-            $datas=['item' => $data];
-            
-            // return view('receipt.receipt',$datas);
-            return redirect()->back();
+            return redirect()->route("receptioner.all.request");
 
         }
         return view('receptioner.requestForm');
