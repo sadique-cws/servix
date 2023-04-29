@@ -815,13 +815,13 @@
             @show
         </div>
         <!-- /.content-wrapper -->
-        {{-- <footer class="main-footer">
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-            All rights reserved.
-            <div class="float-right d-none d-sm-inline-block">
-                <b>Version</b> 3.2.0
-            </div>
-        </footer> --}}
+        <footer class="main-footer">
+            © <script type="text/JavaScript"> 
+                var theDate=new Date() 
+                document.write(theDate.getFullYear()) 
+          </script> All rights reserved. Developer team - <a href="">Aditya Sekhar</a> | <a href="https://github.com/wasik...">Wasik Alam</a> and <a href="https://github.com/LazyDeveloperr">LazyDeveloper</a>
+
+        </footer>
 
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">

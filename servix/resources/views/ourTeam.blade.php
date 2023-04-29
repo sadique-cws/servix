@@ -30,7 +30,7 @@
 </head>
 <body>
     {{-- header section --}}
-    <div class="main_background fixed-top py-1 backdrop-blur-sm bg-white/40">
+    <div class="main_background fixed-top py-1 bg-white">
         <nav class="navbar navbar-expand-lg navbar-light ">
             <div class="container">
                 <a href="{{ route('home') }}" class="navbar-brand" href="#">
@@ -66,9 +66,9 @@
         </nav>
     </div>
     {{-- cards section --}}
-    <div class="-mt-10 " style="background-image: url('img/profileBG.webp')">
+    <div class="-mt-10 ">
         <div class="h-100 justify-center items-center px-6 backdrop-blur">
-            <div class="pt-[180px] text-center items-center text-center text-[35px] font-semibold tracking-widest text-slate-200">
+            <div class="pt-[180px] text-center items-center text-center text-[35px] font-semibold tracking-widest text-gray-800">
                 <p>About Us</p>
             </div>
             <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 gap-2 min-w-full px-[100px] pt-10 pb-36">
@@ -84,29 +84,28 @@
                     <div class="flex flex-col items-center py-4">
                         <img class="w-[200px] h-[200px] group-hover:-translate-y-[30%] transition-all duration-500 ease-in-out mb-3 rounded-full shadow-lg" src="{{ asset('img/chandansah.png')}}" alt="Bonnie image"/>
                         <h5 class="mb-1 text-xl group-hover:scale-150 group-hover:-translate-y-[100%] transition-all duration-500 ease-in-out font-medium text-gray-900 dark:text-white">Chandan Sah</h5>
-                        <span class="text-sm text-gray-500 dark:text-gray-400 hover:scale-110 transition-all duration-500 ease-in-out">LED tv engineer</span>
-                        <span class="text-lg text-gray-500 dark:text-gray-400 mt-3 hover:scale-110 transition-all duration-500 ease-in-out"> <span class="">experience:</span> 17 Years</span>
+                        <span class="text-sm text-gray-500 dark:text-gray-400 ">LED tv engineer</span>
+                        <span class="text-lg text-gray-500 dark:text-gray-400 mt-3 "> <span class="">experience:</span> 17 Years</span>
                     </div>
                 </div>
                 <div class="group w-full max-w-sm group-hover:items-center bg-slate-300 border border-gray-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
                     <div class="flex flex-col items-center py-4">
                         <img class="w-[200px] h-[200px] group-hover:-translate-y-[30%] transition-all duration-500 ease-in-out mb-3 rounded-full shadow-lg" src="{{ asset('img/sahidalam.png')}}" alt="Bonnie image"/>
                         <h5 class="mb-1 text-xl group-hover:scale-150 group-hover:-translate-y-[100%] transition-all duration-500 ease-in-out font-medium text-gray-900 dark:text-white">Shahid alam</h5>
-                        <span class="text-sm text-gray-500 dark:text-gray-400 hover:scale-110 transition-all duration-500 ease-in-out">Printer engineer</span>
-                        <span class="text-lg text-gray-500 dark:text-gray-400 mt-3 hover:scale-110 transition-all duration-500 ease-in-out"> <span class="">experience:</span> 18 Years</span>
-                        <span class="text-sm text-gray-500 dark:text-gray-400 hover:scale-110 transition-all duration-500 ease-in-out">10 year job in Samsung (senior engineer)</span>
+                        <span class="text-sm text-gray-500 dark:text-gray-400 ">Printer engineer</span>
+                        <span class="text-lg text-gray-500 dark:text-gray-400 mt-3 "> <span class="">experience:</span> 18 Years</span>
+                        <span class="text-sm text-gray-500 dark:text-gray-400 ">10 year job in Samsung (senior engineer)</span>
                     </div>
                 </div>
                 <div class="group w-full max-w-sm group-hover:items-center bg-slate-300 border border-gray-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
                     <div class="flex flex-col items-center py-4">
                         <img class="w-[200px] h-[200px] group-hover:-translate-y-[30%] transition-all duration-500 ease-in-out mb-3 rounded-full shadow-lg " src="{{ asset('img/vijaykumar.png')}}" alt="Bonnie image"/>
                         <h5 class="mb-1 text-xl group-hover:scale-150 group-hover:-translate-y-[100%] transition-all duration-500 ease-in-out font-medium text-gray-900 dark:text-white">Vijay kumar</h5>
-                        <span class="text-sm text-gray-500 dark:text-gray-400 hover:scale-110 transition-all duration-500 ease-in-out">Mobile engineer</span>
-                        <span class="text-sm text-gray-500 dark:text-gray-400 hover:scale-110 transition-all duration-500 ease-in-out">B.Sc(it)</span>
-                        <span class="text-lg text-gray-500 dark:text-gray-400 mt-3 hover:scale-110 transition-all duration-500 ease-in-out"> <span class="">experience:</span> 5 Years</span> 
+                        <span class="text-sm text-gray-500 dark:text-gray-400 ">Mobile engineer</span>
+                        <span class="text-sm text-gray-500 dark:text-gray-400 transition-all duration-500 ease-in-out">B.Sc(it)</span>
+                        <span class="text-lg text-gray-500 dark:text-gray-400 mt-3 "> <span class="">experience:</span> 5 Years</span> 
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
