@@ -28,6 +28,6 @@
 
 @section('contents')
 @show
-    
+
 </body>
 </html>

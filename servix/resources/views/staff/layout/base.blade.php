@@ -443,9 +443,12 @@
             
         </div>
         <!-- /.content-wrapper -->
-        <footer class="main-footer">
-           
-           {{-- this is footer  --}}
+        <footer class="main-footer ">
+            © <script type="text/JavaScript"> 
+                var theDate=new Date() 
+                document.write(theDate.getFullYear()) 
+          </script> All rights reserved. Developer team - <a href="">Aditya Sekhar</a> | <a href="https://github.com/wasik...">Wasik Alam</a> and <a href="https://github.com/LazyDeveloperr">LazyDeveloper</a>
+           {{-- this is Footer Credit --}}
         </footer>
 
         <!-- Control Sidebar -->

@@ -32,6 +32,9 @@ class HomeController extends Controller
     public function ourTeam():View{
         return view('ourTeam');
     }
+    public function termsAndCondition():View{
+        return view('termsAndCondition');
+    }
     
 
     public function register():View{
