@@ -58,7 +58,7 @@
                         <label for="inputState" class="text-black-100">Type</label>
                         <div class="flex w-full">
                             {{-- <input type="text" name="type" class="form-control" placeholder=""> --}}
-                            <select id="inputState" name="type"
+                            <select id="inputState" name="type_id"
                                 class=" form-control">
                                 <option selected>Choose...</option>
                                 <option>Mobile</option>

@@ -64,7 +64,7 @@
                                         {{-- <input type="button" id="status" name="status" value="{{$staff->status ? 'Active' : 'Inactive' }}"> --}}
                                         <a role="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#ban{{ $item->id }}">{{($item->status==1)?"Active":"DeActive"}}</a>
                                         {{-- edit button --}}
-                                        <a role="button" class="btn btn-warning" href="{{ route('admin.staff.edit', $item->id) }}">Edit</a>
+                                        <a role="button" class="btn btn-warning" href="{{ route('receptioner.edit', $item->id) }}">Edit</a>
                                         {{-- View button  --}}
                                         <a data-toggle="modal" data-target="#view{{ $item->id }}" role="button"
                                             class=" btn btn-info">View</a>
