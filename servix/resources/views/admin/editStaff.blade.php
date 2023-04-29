@@ -19,7 +19,7 @@
             <form action="{{ route('admin.staff.update', $data['id']) }}" method="post">
                 @csrf
                 <div class="row">
-                    <div class="w-full px-3 mb-5">
+                    <div class="w-full px-3 mb-5 col">
                         <label for="" class="text-black-100">Name</label>
                         <div class="flex">
                             <input type="text" name="name" value="{{ $data->name }}"
@@ -27,7 +27,7 @@
                                 placeholder="">
                         </div>
                     </div>
-                    <div class="w-full px-3 mb-5">
+                    <div class="w-full px-3 mb-5 col">
                         <label for="" class="text-black-100">Email</label>
                         <div class="flex">
                             <input type="email" name="email" value="{{ $data->email }}"
@@ -35,7 +35,7 @@
                                 placeholder="example@gmail.com">
                         </div>
                     </div>
-                    <div class="w-full px-3 mb-5">
+                    <div class="w-full px-3 mb-5 col">
                         <label for="" class="text-black-100">Contact</label>
                         <div class="flex">
                             <input type="number" name="contact" value="{{ $data->contact }}"
@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="w-full px-3 mb-5">
+                    <div class="w-full px-3 mb-5 col">
                         <label for="" class="text-black-100">Salary</label>
                         <div class="flex">
                             <input type="text" name="salary" value="{{ $data->salary }}"
@@ -53,7 +53,7 @@
                                 placeholder="">
                         </div>
                     </div>
-                    <div class="w-full px-3 mb-5">
+                    <div class="w-full px-3 mb-5 col">
 
                         <label for="inputState" class="text-black-100">Type</label>
                         <div class="flex w-full">
@@ -69,7 +69,7 @@
 
 
                     </div>
-                    <div class="w-full px-3 mb-5">
+                    <div class="w-full px-3 mb-5 col">
                         <label for="" class="text-black-100">Addhar no</label>
                         <div class="flex">
                             <input type="text" name="aadhar" value="{{ $data->aadhar }}"
@@ -77,7 +77,9 @@
                                 placeholder="">
                         </div>
                     </div>
-                    <div class="w-full px-3 mb-5">
+                </div>
+                <div class="row">
+                    <div class="w-full px-3 mb-5 col">
                         <label for="" class="text-black-100">Pan card no</label>
                         <div class="flex">
                             <input type="text" name="pan" value="{{ $data->pan }}"
@@ -85,17 +87,7 @@
                                 placeholder="">
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="w-full px-3 mb-5">
-                        <label for="" class="text-black-100">Address</label>
-                        <div class="flex">
-                            <input type="text" name="address" value="{{ $data->address }}"
-                                class="form-control"
-                                placeholder="">
-                        </div>
-                    </div>
-                    <div class="w-full px-3 mb-5">
+                    <div class="w-full px-3 mb-5 col">
                         <label for="" class="text-black-100">Status</label>
                         <div class="flex">
                             <input type="text" name="status" value="{{ $data->status }}"
@@ -105,7 +97,17 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="w-full px-3 mb-5">
+                    <div class="w-full px-3 mb-5 col">
+                        <label for="" class="text-black-100">Address</label>
+                        <div class="flex">
+                            <input type="text" name="address" value="{{ $data->address }}"
+                                class="form-control"
+                                placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="w-full px-3 mb-5 col">
 
                         <input type="submit" name="submit" class="btn btn-success w-100" />
 
