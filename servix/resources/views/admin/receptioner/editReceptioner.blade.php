@@ -87,12 +87,23 @@
                     </div>
                     <div class="w-full px-3 mb-5 col">
                         <label for="" class="text-black-100">Status</label>
-                        <div class="flex">
-                            <input type="text" name="status" value="{{ $data->status }}"
-                                class="form-control"
-                                placeholder="">
-                        </div>
+                       
+                        <div class="form-check">
+                            <input class="form-check-input" name="status" type="checkbox" value="1" >
+                            <label class="form-check-label" for="defaultCheck1">
+                              Active
+                            </label>
+                          </div>
                     </div>
+                </div>
+                <div class="w-full px-3 mb-5 col">
+                    <label for="" class="text-black-100">Password</label>
+                    <div class="flex">
+                        <input type="password" name="password" class="form-control">
+                    </div>
+                    @error('password')
+                        <p class="text-error">{{ $message }}</p>
+                    @enderror
                 </div>
                 <div class="row">
                     <div class="w-full px-3 mb-5 col">

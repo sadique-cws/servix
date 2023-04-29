@@ -25,7 +25,7 @@
 
 
         <!-- /.card-header -->
-        <div class="card-body table-responsive p-0">
+        <div class="card-body table-responsive p-0" style="height: 61vh !important">
             <table class="table table-hover text-nowrap">
                 <thead>
                     <tr>
@@ -184,5 +184,8 @@
                     @endforeach
                 </tbody>
             </table>
+        </div>
+        <div class=" " style="justify-items: center; display: flex; justify-content: center">
+            {{$requests->links()}}
         </div>
     </div>

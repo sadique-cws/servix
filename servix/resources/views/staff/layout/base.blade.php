@@ -268,7 +268,7 @@
                                     <a href="{{ route('request.show.workProgress') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p> Work in Progress</p>
-                                        <h3 class="right badge badge-info">{{ CountStaffRequest(2)}}</h3> 
+                                        <h3 class="right badge badge-info">{{ CountWorkProgress()}}</h3> 
                                         
                                     </a>
                                 </li>

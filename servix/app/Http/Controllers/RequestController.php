@@ -54,7 +54,7 @@ class RequestController extends Controller
     
     public function allRequests(){
         $user = Auth::guard('staff')->user();
-        $data['allRequests'] = RequestModel::where('type_id',$user->type_id)->where('technician_id',$user->id)->orderBy('created_at', 'DESC')->get();
+        $data['allRequests'] = RequestModel::where('type_id',$user->type_id)->where('technician_id',$user->id)->orderBy('created_at', 'DESC')->paginate(8);
         $data['title'] = "All Request";
         return view("staff.requests",$data);
     }
@@ -63,7 +63,7 @@ class RequestController extends Controller
         $user = Auth::guard('staff')->user();
         $data['allRequests'] = RequestModel::where('type_id',$user->type_id)
                                         ->where('technician_id',NULL)
-                                        ->orderBy('created_at', 'DESC')->get();
+                                        ->orderBy('created_at', 'DESC')->paginate(8);
         $data['title'] = "New Request";
         return view("staff.requests",$data);
     }
@@ -81,7 +81,7 @@ class RequestController extends Controller
         $request->status =1;    // 1 confirm
         $request->estimate_delivery=$date;
         $request->save();
-        return redirect()->back();
+        return redirect()->route("request.all");
     }
     // work in progress requset 
     public function workProgressRequest(Request $req, $id){
@@ -163,7 +163,7 @@ class RequestController extends Controller
         $data=RequestModel::where('id',$req->id)
         ->where('type_id',$user->type_id)
         ->where('technician_id',$user->id)
-        // ->where('status',2) 
+        // ->where('status',2)  
         ->first();
         $data->status= 4;   // 4 work done
         $data->save();   
@@ -189,7 +189,7 @@ class RequestController extends Controller
         $user = Auth::guard('staff')->user();
         $data['allRequests'] = RequestModel::where('type_id',$user->type_id)
                                     ->where('technician_id',$user->id)
-                                    ->where('status',5)->get();
+                                    ->where('status',5)->paginate(8);
         $data['title'] = "Total Delivered Requests";
         $data["deliveredCount"] = $data['allRequests']->count();
         
@@ -202,7 +202,7 @@ class RequestController extends Controller
         $data['allRequests'] = RequestModel::where('type_id',$user->type_id)
                                     ->where('technician_id',$user->id)                              
                                     ->where('status',0)
-                                    ->orderBy('created_at', 'DESC')->get();
+                                    ->orderBy('created_at', 'DESC')->paginate(8);
 
         $data['title'] = "Total Pending Requests";
         return view("staff.requests",$data);
@@ -213,11 +213,9 @@ class RequestController extends Controller
         $user = Auth::guard('staff')->user();
         $data['allRequests'] = RequestModel::where('type_id',$user->type_id)
                                     ->where('technician_id',$user->id)                              
-                                    ->where('status',2)
-                                    ->orWhere('status',2.1)
-                                    ->orWhere('status',2.2)
-                                    ->orWhere('status',2.3)
-                                    ->orderBy('created_at', 'DESC')->get();
+                                   -> whereBetween('status', [2.0, 3.0])
+                                    
+                                    ->orderBy('created_at', 'DESC')->paginate(8);
 
         $data['title'] = "Current work Requests";
         return view("staff.requests",$data);
@@ -228,7 +226,7 @@ class RequestController extends Controller
         $user = Auth::guard('staff')->user();
         $data['allRequests'] = RequestModel::where('type_id',$user->type_id)
                                     ->where('technician_id',$user->id)
-                                    ->where('status',3)->orderBy('created_at', 'DESC')->get();
+                                    ->where('status',3)->orderBy('created_at', 'DESC')->paginate(8);
         $data['title'] = "Total RejectedRequests";
         $data["RejectedCount"] = $data['allRequests']->count();
         return view("staff.requests",$data);
@@ -239,7 +237,7 @@ class RequestController extends Controller
         $user = Auth::guard('staff')->user();
         $data['allRequests'] = RequestModel::where('type_id',$user->type_id)
                                     ->where('technician_id',$user->id)
-                                    ->where('status',4)->orderBy('created_at', 'DESC')->get();
+                                    ->where('status',4)->orderBy('created_at', 'DESC')->paginate(8);
         $data['title'] = "Total WorkDoneRequests";
         return view("staff.requests",$data);
        
@@ -302,7 +300,7 @@ class RequestController extends Controller
         $date->addDays();
         $formattedDate = $date->format('Y-m-d');
         $data['allRequests']= RequestModel::select("*")->whereBetween('created_at', [$req->startAt, $formattedDate])->where('technician_id',NULL)
-                                    ->get();
+                                    ->paginate(8);
         $data['title']="Date between Request";
         return view('staff/requests', $data);
     }
@@ -319,37 +317,37 @@ class RequestController extends Controller
 
         switch ($req->dateFilter) {
             case 'today':
-                $data['allRequests']=RequestModel::whereDate('created_at',Carbon::today())->where('technician_id',$user->id)->where('type_id',$user->type_id)->get();
+                $data['allRequests']=RequestModel::whereDate('created_at',Carbon::today())->where('technician_id',$user->id)->where('type_id',$user->type_id)->paginate(8);
                 $data['title']="Today Request";
                 
                 break;
             case 'yesterday':
-                $data['allRequests']=RequestModel::whereDate('created_at',Carbon::yesterday())->where('technician_id',$user->id)->where('type_id',$user->type_id)->get();
+                $data['allRequests']=RequestModel::whereDate('created_at',Carbon::yesterday())->where('technician_id',$user->id)->where('type_id',$user->type_id)->paginate(8);
                 $data['title']="yesterday Request";
                 break;
             case 'this_week':
-                $data['allRequests']=RequestModel::whereBetween('created_at',[Carbon::now()->startOfWeek(),Carbon::now()->endOfWeek()])->where('technician_id',$user->id)->where('type_id',$user->type_id)->get();
+                $data['allRequests']=RequestModel::whereBetween('created_at',[Carbon::now()->startOfWeek(),Carbon::now()->endOfWeek()])->where('technician_id',$user->id)->where('type_id',$user->type_id)->paginate(8);
                 $data['title']="This Week Request";
                 break;
             case 'this_month':
-                $data['allRequests']=RequestModel::whereMonth('created_at',Carbon::now()->month)->where('technician_id',$user->id)->where('type_id',$user->type_id)->get();
+                $data['allRequests']=RequestModel::whereMonth('created_at',Carbon::now()->month)->where('technician_id',$user->id)->where('type_id',$user->type_id)->paginate(8);
                 $data['title']="This Month Request";
                 break;
             case 'last_month':
-                $data['allRequests']=RequestModel::whereMonth('created_at',Carbon::now()->subMonth()->month)->where('technician_id',$user->id)->where('type_id',$user->type_id)->get();
+                $data['allRequests']=RequestModel::whereMonth('created_at',Carbon::now()->subMonth()->month)->where('technician_id',$user->id)->where('type_id',$user->type_id)->paginate(8);
                 $data['title']="Last Month Request";
                 break;
             case 'this_year':
-                $data['allRequests']=RequestModel::whereYear('created_at',Carbon::now()->year)->where('technician_id',$user->id)->where('type_id',$user->type_id)->get();
+                $data['allRequests']=RequestModel::whereYear('created_at',Carbon::now()->year)->where('technician_id',$user->id)->where('type_id',$user->type_id)->paginate(8);
                 $data['title']="This Year Request";
                 break;
             case 'last_year':
-                $data['allRequests']=RequestModel::whereYear('created_at',Carbon::now()->subYear()->year)->where('technician_id',$user->id)->where('type_id',$user->type_id)->get();
+                $data['allRequests']=RequestModel::whereYear('created_at',Carbon::now()->subYear()->year)->where('technician_id',$user->id)->where('type_id',$user->type_id)->paginate(8);
                 $data['title']="Last Year Request";
                 break;
             
             default:
-                $data['allRequests'] = RequestModel::where('technician_id',$user->id)->get();
+                $data['allRequests'] = RequestModel::where('technician_id',$user->id)->paginate(8);
                 $data['title']="All New Request";
             
                 break;
@@ -363,7 +361,7 @@ class RequestController extends Controller
        
         // dd($req->search);
         $data['search_value']=$req->search;
-        $data['allRequests']=RequestModel::where("technician_id",$user->id)->where('owner_name',"LIKE","%".$req->search."%")->get();
+        $data['allRequests']=RequestModel::where("technician_id",$user->id)->where('owner_name',"LIKE","%".$req->search."%")->paginate(8);
         $data['title']='Search Record';
         $data['dateFilter']='All';
         return view('staff/requests',$data);
@@ -374,7 +372,7 @@ class RequestController extends Controller
         $data['search_value']="";
         $data['allRequests']=RequestModel::where('service_code',"LIKE","%".$req->search."%")
         ->orWhere('contact', 'like', '%' . $req->search . '%')
-        ->orWhere('owner_name', 'like', '%' . $req->search . '%')->get();
+        ->orWhere('owner_name', 'like', '%' . $req->search . '%')->paginate(8);
         $data['title']='Search Record';
         $data['dateFilter']='All';
         return view('receptioner/requests',$data);

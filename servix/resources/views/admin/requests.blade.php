@@ -75,18 +75,18 @@
                 </div>
 
                 <!-- /.card-header -->
-                <div class="card-body table-responsive p-0">
+                <div class="card-body table-responsive p-0" style="height: 61vh !important">
                     <table class="table table-hover text-nowrap">
                         <thead>
                             <tr>
-        
+
                                 <th>Service code</th>
                                 <th>Owner name</th>
                                 <th>Product name</th>
-        
+
                                 <th>Contact</th>
                                 <th>Type</th>
-        
+
                                 <th>Problem</th>
                                 <th>status</th>
                                 <th>Action</th>
@@ -95,11 +95,11 @@
                         <tbody>
                             @foreach ($new as $item)
                                 <tr>
-        
+
                                     <td class="text-uppercase">{{ $item->service_code }}</td>
                                     <td>{{ $item->owner_name }}</td>
                                     <td>{{ $item->product_name }}</td>
-        
+
                                     <td>{{ $item->contact }}</td>
                                     <td>
                                         {{ $item->type->typename }}
@@ -108,12 +108,13 @@
                                     <td>{{ $item->problem }}</td>
                                     <td>{{ $item->getStatus() }}</td>
                                     <td>
-        
+
                                         <a data-toggle="modal" data-target="#view{{ $item->id }}" role="button"
                                             class=" btn btn-info"><i class="fas fa-eye"></i> View</a>
                                         <div class="modal fade " id="view{{ $item->id }}" tabindex="-1" role="dialog"
                                             aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable " role="document">
+                                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable "
+                                                role="document">
                                                 <div class="modal-content ">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="exampleModalLongTitle">All new
@@ -128,7 +129,8 @@
                                                             <table class="table">
                                                                 <tr>
                                                                     <th>Service Code</th>
-                                                                    <td class="text-uppercase">{{ $item->service_code }}</td>
+                                                                    <td class="text-uppercase">{{ $item->service_code }}
+                                                                    </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th>Owner Name</th>
@@ -166,7 +168,8 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <th>Problem</th>
-                                                                    <td>{{ $item->problem ? "$item->problem" : 'N/A' }}</td>
+                                                                    <td>{{ $item->problem ? "$item->problem" : 'N/A' }}
+                                                                    </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th>Remark</th>
@@ -218,7 +221,7 @@
                                                             </table>
                                                         </div>
                                                     </div>
-        
+
                                                 </div>
                                             </div>
                                         </div>
@@ -227,7 +230,7 @@
                                             class="btn btn-danger">
                                             <i class="fas fa-trash"></i>
                                         </a>
-        
+
                                     </td>
                                 </tr>
                             @endforeach
@@ -238,5 +241,8 @@
             </div>
             <!-- /.card -->
         </div>
+    </div>
+    <div class=" " style="justify-items: center; display: flex; justify-content: center">
+        {{ $new->links() }}
     </div>
 @endsection

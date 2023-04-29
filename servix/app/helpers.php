@@ -106,6 +106,14 @@ if (! function_exists('CountStaffRequest')) {
         return $count;
     }
 }
+if (! function_exists('CountWorkProgress')) {
+    function CountWorkProgress() {
+        $count = RequestModel::where('technician_id',Auth::user()->id)->whereBetween("status",[2.0,3.0])->where('type_id',Auth()->user()->type_id)->count();
+        
+        
+        return $count;
+    }
+}
 if (! function_exists('StatusColor')) {
     function StatusColor($status=NULL) {
         switch($status){
