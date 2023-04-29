@@ -12,6 +12,7 @@ use App\Models\Type;
 use Illuminate\View\View;
 use App\Models\Request as RequestModel;
 use Illuminate\Support\Str;
+use Hash;
 
 class ReceptionerController extends Controller
 {
@@ -219,10 +220,9 @@ class ReceptionerController extends Controller
                 'aadhar' => 'required',
                 'pan' => 'required',
                 'address' => 'required',
-                'status' => 'required',
                 'password' => 'required',
             ]);
-
+            $data['status']=1;
             
             Receptioner::create($data);
             return redirect()->back();       
@@ -284,6 +284,7 @@ class ReceptionerController extends Controller
 
     public function UpdateReceptioner(Request $req)
     {
+       
         $data = $req->validate([
             'name' => 'required',
             'email' => 'required',
@@ -292,12 +293,14 @@ class ReceptionerController extends Controller
             'aadhar' => 'required',
             'pan' => 'required',
             'address' => 'required',
-            'status' => 'required',
+            'password' => 'required',
+            
         ]);
-
+        $data['status'] = ($req->status) ? 1 : 0 ;
+        $data['password']=Hash::make($req->password);
         $id = $req->id;
         Receptioner::where('id', $id)->update($data);
-        return redirect()->route('admin.receptioner.addReceptioner');
+        return redirect()->route('receptioner.showAllreceptioner');
     }
 
     

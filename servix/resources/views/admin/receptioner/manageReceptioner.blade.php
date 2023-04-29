@@ -13,8 +13,8 @@
                         <form action="">
                             
                             <div class="input-group input-group-sm" style="width: 300px;">
-                                <a href=""
-                                    role="button"class="mr-12 btn btn-secondary btn-sm">Receptioner Add</a>
+                                <a href="{{ route('receptioner.add') }}"
+                                    role="button"class="mr-12 btn btn-secondary btn-sm">Add receptioner </a>
 
                                 <input type="text" name="search"
                                     class="form-control float-right w-25"placeholder="Search">

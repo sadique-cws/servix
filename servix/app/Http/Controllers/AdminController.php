@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use App\Models\Request as RequestModel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
-
+use Hash;
 class AdminController extends Controller
 {
     public function index(Request $req): View
@@ -52,10 +52,10 @@ class AdminController extends Controller
             'aadhar' => 'required',
             'pan' => 'required',
             'address' => 'required',
-            'status' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'password' => 'required',
         ]);
+        $data['status'] = 1;
         $imageName = time() . '.' . $request->image->extension();
         $request->image->storeAs('public/images', $imageName);
         $data['image']=$imageName;
@@ -112,10 +112,10 @@ class AdminController extends Controller
             'aadhar' => 'required',
             'pan' => 'required',
             'address' => 'required',
-            'status' => 'required',
             'password' => 'required',
         ]);
-
+        $data['password']=Hash::make($req->password);
+        $data['status'] = ($req->status) ? 1 : 0 ;
         $id = $req->id;
         Staff::where('id', $id)->update($data);
         return redirect()->route('admin.staff.manage');

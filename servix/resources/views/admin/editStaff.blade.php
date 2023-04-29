@@ -58,12 +58,14 @@
                         <label for="inputState" class="text-black-100">Type</label>
                         <div class="flex w-full">
                             {{-- <input type="text" name="type" class="form-control" placeholder=""> --}}
-                            <select id="inputState" name="type_id"
-                                class=" form-control">
+                            <select id="inputState" name="type_id" class=" form-control">
                                 <option selected>Choose...</option>
-                                <option>Mobile</option>
+                                @foreach ($Types as $item)
+                                    <option value="{{ $item->id }}">{{ $item->typename }}</option>
+                                @endforeach
+                                {{-- <option>Mobile</option>
                                 <option>Laptop</option>
-                                <option>Assessories</option>
+                                <option>Assessories</option> --}}
                             </select>
                         </div>
 
@@ -89,11 +91,12 @@
                     </div>
                     <div class="w-full px-3 mb-5 col">
                         <label for="" class="text-black-100">Status</label>
-                        <div class="flex">
-                            <input type="text" name="status" value="{{ $data->status }}"
-                                class="form-control"
-                                placeholder="">
-                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" name="status" type="checkbox" value="1" >
+                            <label class="form-check-label" for="defaultCheck1">
+                              Active
+                            </label>
+                          </div>
                     </div>
                 </div>
                 <div class="row">
@@ -104,6 +107,15 @@
                                 class="form-control"
                                 placeholder="">
                         </div>
+                    </div>
+                    <div class="w-full px-3 mb-5 col">
+                        <label for="" class="text-black-100">Password</label>
+                        <div class="flex">
+                            <input type="password" name="password"  class="form-control">
+                        </div>
+                        @error('password')
+                            <p class="text-error">{{ $message }}</p>
+                        @enderror
                     </div>
                 </div>
                 <div class="row">
