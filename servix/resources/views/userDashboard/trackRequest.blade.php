@@ -32,7 +32,7 @@
                     <table class="table">
                         <div>
                             @if($item->image)
-                                <img id="big-image" src="{{ asset('storage/uploads/'.$item->image) }}" style="display:none; width:100%; height:70%">
+                                <img id="big-image" src="{{ asset('storage/uploads/'.$item->image) }}" style="display:none; width:60%; height:70%" class="img-thumbnail mx-auto">
                             @else 
                                 <span>No image found!</span>
                             @endif
@@ -77,7 +77,7 @@
                             <th>Product Image</th>
                             <td class="ripple" style="height:50%; width:50%" >
                                 @if($item->image)
-                                    <img id="small-image" src="{{ asset('storage/uploads/'.$item->image) }}" onclick="showBigImage()" style="height: 50px; width:50px;">
+                                    <img id="small-image" src="{{ asset('storage/uploads/'.$item->image) }}" onclick="showBigImage()" style="height: 50px; width:50px;" class="img-thumbnail">
                                 @else 
                                     <span>No image found!</span>
                                 @endif
