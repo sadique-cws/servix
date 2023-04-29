@@ -75,7 +75,7 @@
                     <div class="w-full px-3 mb-5 col">
                         <label for="" class="text-black-100">Remark</label>
                         <div class="flex">
-                            <input type="text" name='remark' class="form-control" value="" placeholder="">
+                            <input type="text" value="{{ $data->remark }}"  name='remark' class="form-control" value="" placeholder="">
                         </div>
                     </div>
 
@@ -118,13 +118,13 @@
                     <div class="w-full px-3 mb-5 col">
                         <label for="" class="text-black-100">Serial No</label>
                         <div class="flex">
-                            <input type="text" name="serial_no" class="form-control" placeholder="">
+                            <input type="text" value="{{ $data->serial_no }}" name="serial_no" class="form-control" placeholder="">
                         </div>
                     </div>
                     <div class="w-full px-3 mb-5 col">
                         <label for="" class="text-black-100">MAC</label>
                         <div class="flex">
-                            <input type="text" name='MAC' class="form-control" value="" placeholder="">
+                            <input type="text" name='MAC' value="{{ $data->MAC }}" class="form-control" value="" placeholder="">
                         </div>
                     </div>
                 </div>

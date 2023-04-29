@@ -88,7 +88,7 @@ class ReceptionerController extends Controller
 
     public function allnewRequest(){
         
-        $data['allRequests'] = RequestModel::where('technician_id',null)->orderBy('created_at', 'DESC')->get();
+        $data['allRequests'] = RequestModel::where('technician_id',null)->orderBy('created_at', 'DESC')->paginate(8);
         $data['title'] = "All Request";
         return view('receptioner.requests',$data);
     }
@@ -132,8 +132,8 @@ class ReceptionerController extends Controller
         $date = \Carbon\Carbon::createFromFormat('Y-m-d', $req->End);
         $date->addDays();
         $formattedDate = $date->format('Y-m-d');
-        $data['allRequests']= RequestModel::select("*")->whereBetween('created_at', [$req->startAt, $formattedDate])->where('technician_id',NULL)
-                                    ->get();
+        $data['allRequests']= RequestModel::select("*")->whereBetween('created_at', [$req->startAt, $formattedDate])
+                                    ->paginate(8);
         $data['title']="Date between Request";
         return view('receptioner/requests', $data);
     }
@@ -145,37 +145,37 @@ class ReceptionerController extends Controller
 
         switch ($req->dateFilter) {
             case 'today':
-                $data['allRequests']=RequestModel::whereDate('created_at',Carbon::today())->where('technician_id',null)-> get();
+                $data['allRequests']=RequestModel::whereDate('created_at',Carbon::today())-> paginate(8);
                 $data['title']="Today Request";
                 
                 break;
             case 'yesterday':
-                $data['allRequests']=RequestModel::whereDate('created_at',Carbon::yesterday())->where('technician_id',null)-> get();
+                $data['allRequests']=RequestModel::whereDate('created_at',Carbon::yesterday())-> paginate(8);
                 $data['title']="yesterday Request";
                 break;
             case 'this_week':
-                $data['allRequests']=RequestModel::whereBetween('created_at',[Carbon::now()->startOfWeek(),Carbon::now()->endOfWeek()])->where('technician_id',null)-> get();
+                $data['allRequests']=RequestModel::whereBetween('created_at',[Carbon::now()->startOfWeek(),Carbon::now()->endOfWeek()])-> paginate(8);
                 $data['title']="This Week Request";
                 break;
             case 'this_month':
-                $data['allRequests']=RequestModel::whereMonth('created_at',Carbon::now()->month)->where('technician_id',null)-> get();
+                $data['allRequests']=RequestModel::whereMonth('created_at',Carbon::now()->month)-> paginate(8);
                 $data['title']="This Month Request";
                 break;
             case 'last_month':
-                $data['allRequests']=RequestModel::whereMonth('created_at',Carbon::now()->subMonth()->month)->where('technician_id',null)-> get();
+                $data['allRequests']=RequestModel::whereMonth('created_at',Carbon::now()->subMonth()->month)-> paginate(8);
                 $data['title']="Last Month Request";
                 break;
             case 'this_year':
-                $data['allRequests']=RequestModel::whereYear('created_at',Carbon::now()->year)->where('technician_id',null)-> get();
+                $data['allRequests']=RequestModel::whereYear('created_at',Carbon::now()->year)-> paginate(8);
                 $data['title']="This Year Request";
                 break;
             case 'last_year':
-                $data['allRequests']=RequestModel::whereYear('created_at',Carbon::now()->subYear()->year)->where('technician_id',null)-> get();
+                $data['allRequests']=RequestModel::whereYear('created_at',Carbon::now()->subYear()->year)-> paginate(8);
                 $data['title']="Last Year Request";
                 break;
             
             default:
-                $data['allRequests'] = RequestModel::where('technician_id',null)->get();
+                $data['allRequests'] = RequestModel::all();
                 $data['title']="All New Request";
             
                 break;
@@ -187,7 +187,7 @@ class ReceptionerController extends Controller
     public function filterByInput(Request $req){
        
         $data['search_value']=$req->search;
-        $data['allRequests']=RequestModel::where("technician_id",null)->where('owner_name',"LIKE","%".$req->search."%")->get();
+        $data['allRequests']=RequestModel::where('owner_name',"LIKE","%".$req->search."%")->paginate(8);
         $data['title']='Search Record';
         $data['dateFilter']='All';
         return view('receptioner/requests',$data);
@@ -235,28 +235,28 @@ class ReceptionerController extends Controller
     public function confirmedRequest(Request $req){
       
         $data['allRequests'] = RequestModel::where('status',1)
-                                            ->orderBy('created_at', 'DESC')->get();
+                                            ->orderBy('created_at', 'DESC')->paginate(8);
         $data['title'] = "Confirm Requests";                                    
         return view("receptioner.requests",$data);   
     }
     public function rejectedRequest(Request $req){
       
         $data['allRequests'] = RequestModel::where('status',3)
-                                ->orderBy('created_at', 'DESC')->get();
+                                ->orderBy('created_at', 'DESC')->paginate(8);
         $data['title'] = "rejected Requests";                                    
         return view("receptioner.requests",$data);   
     }
     public function pandingRequest(Request $req){
       
         $data['allRequests'] = RequestModel::where('status',0)
-                                ->orderBy('created_at', 'DESC')->get();
+                                ->orderBy('created_at', 'DESC')->paginate(8);
         $data['title'] = "pending Requests";                                    
         return view("receptioner.requests",$data);   
     }
     public function deliveredRequest(Request $req){
       
         $data['allRequests'] = RequestModel::where('status',5)
-                                ->orderBy('created_at', 'DESC')->get();
+                                ->orderBy('created_at', 'DESC')->paginate(8);
         $data['title'] = "Delivered Requests";                                    
         return view("receptioner.requests",$data);   
     }
@@ -264,17 +264,43 @@ class ReceptionerController extends Controller
      // show Work Done Request
      public function workDoneRequests(){
         
-        $data['allRequests'] = RequestModel::where('status',4)->orderBy('created_at', 'DESC')->get();
+        $data['allRequests'] = RequestModel::where('status',4)->orderBy('created_at', 'DESC')->paginate(8);
         $data['title'] = "Total WorkDoneRequests";
         return view("receptioner.requests",$data);
        
     }
     public function allRequest(Request $req){
       
-        $data['allRequests'] = RequestModel::orderBy('created_at', 'DESC')->get();
+        $data['allRequests'] = RequestModel::orderBy('created_at', 'DESC')->paginate(8);
         $data['title'] = "all Requests";                                    
         return view("receptioner.requests",$data);   
     }
+
+    public function EditReceptioner($id)
+    {
+        $data = Receptioner::where('id', $id)->first();
+        return view("admin.receptioner.editReceptioner", compact('data'));
+    }
+
+    public function UpdateReceptioner(Request $req)
+    {
+        $data = $req->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'contact' => 'required',
+            'salary' => 'required',
+            'aadhar' => 'required',
+            'pan' => 'required',
+            'address' => 'required',
+            'status' => 'required',
+        ]);
+
+        $id = $req->id;
+        Receptioner::where('id', $id)->update($data);
+        return redirect()->route('admin.receptioner.addReceptioner');
+    }
+
+    
    
 
 }

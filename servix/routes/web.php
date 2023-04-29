@@ -74,8 +74,15 @@ Route::prefix("admin")->group(function () {
         Route::get('/listRequest/workDone','workDoneRequests')->name('admin.workDone.req');
         Route::get('/listRequest/delivered','deliveredRequest')->name('admin.delivered.req');
 
+         // filter 
+         Route::get("/request/datefilter","dateFilter")->name("admin.request.filterbydate");
+         Route::get("/request/filterbyselect","filterBySelect")->name("admin.request.filterbyselect");
+         Route::get("/request/filterbyinput","filterByInput")->name("admin.request.filterbyinput");
+
             Route::get('/Allreceptioner',[ReceptionerController::class, 'showAllreceptioner'])->name('receptioner.showAllreceptioner');
             Route::match(['post','get'],'/AddReceptioner',[ReceptionerController::class,"AddReceptioner"])->name('receptioner.add');
+            Route::get('/EditReceptioner/{id}',[ReceptionerController::class,"EditReceptioner"])->name('receptioner.edit');
+            Route::post('/UpdateReceptioner/{id}',[ReceptionerController::class,"UpdateReceptioner"])->name('receptioner.update');
             Route::get('/status/{receptioner}',[ReceptionerController::class,"status"])->name('receptioner.status');
         });
     });
@@ -99,6 +106,10 @@ Route::prefix("staff")->group(function () {
             Route::get('/request/WorkProgressRequest', [RequestController::class,'showWorkprogress'])->name('request.show.workProgress');
             Route::get('/request/{id}/pending', [RequestController::class,'pending'])->name('request.pending');
             Route::get('/request/{id}/workProgress', [RequestController::class,'workProgressRequest'])->name('request.workProgress');
+            Route::get('/request/{id}/deassemble', [RequestController::class,'deassemble'])->name('request.deassemble');
+            Route::get('/request/{id}/repair', [RequestController::class,'repair'])->name('request.repair');
+            Route::get('/request/{id}/assemble', [RequestController::class,'assemble'])->name('request.assemble');
+            Route::get('/request/{id}/workDone', [RequestController::class,'workDone'])->name('request.workDone');
             Route::get('/request/pandingRequests', [RequestController::class,'pandingRequests'])->name('request.show.panding');
             Route::get('/request/workDone', [RequestController::class,'workDoneRequests'])->name('request.show.workDone');
             Route::get("/request/datefilter",[RequestController::class,"dateFilter"])->name("staff.request.filterbydate");

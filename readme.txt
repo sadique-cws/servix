@@ -28,8 +28,11 @@ Schema
 6. status
     0- pending
 	1- Confirm
-	2- work progress
-	3- reject
+	2.0- work progress
+	  2.1- Deassemble
+	  2.2- Repair
+	  2.3- Assemble
+	3- reject 
 	4- work done  
 	5- delivered
 

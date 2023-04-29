@@ -147,9 +147,9 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row ">
                     <div class="col-md-6">
-                        <div id="my_camera"></div>
+                        <div id="my_camera" ></div>
                         <br/>
                         <input type=button value="Take Snapshot" onClick="take_snapshot()" value="{{ $data->image }}">
                         <input type="hidden" name="image" class="image-tag">

@@ -32,7 +32,7 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>{{ CountStaffRequest(NULL, True)}}</h3>
+                <h3>{{ CountStaffRequest("all", True)}}</h3>
 
                 <p>New Request</p> 
               </div>
@@ -472,8 +472,8 @@
                   letest Request
                 </h3>
                 <!-- card tools -->
-                <div class="card-body table-responsive p-0">
-                  <table class="table table-hover text-nowrap">
+                <div class="card-body table-responsive p-0"  >
+                  <table class="table table-hover text-nowrap"  style="height: 60vh">
                       <thead>
                           <tr>
                               <th>S CODE</th>

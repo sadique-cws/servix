@@ -9,7 +9,7 @@
                     <h3 class="card-title mb-3">{{ $title }}</h3>
                     <div class="d-flex justify-content-between align-items-center" style="gap:15px">
 
-                        <form action="{{ route('receptioner.request.filterbyinput') }}">
+                        <form action="{{ route('admin.request.filterbyinput') }}">
                             <div class="input-group" style="width: 300px;">
                                 <input type="text" name="search" value="{{ $search_value }}"
                                     class="form-control float-right w-25"placeholder="Search">
@@ -26,7 +26,7 @@
                         {{-- date and time filter --}}
 
                         <div class=" d-flex" style="gap:10px">
-                            <form action="{{ route('receptioner.request.filterbydate') }}" method="get" class="">
+                            <form action="{{ route('admin.request.filterbydate') }}" method="get" class="">
                                 <div class="d-flex justify-centent-center" style="gap:10px">
                                     <div class="input-group" inline="true">
                                         <div class="input-group-prepend">
@@ -49,7 +49,7 @@
                                 </div>
                             </form>
                             {{-- select to filter  --}}
-                            <form action="{{ route('receptioner.request.filterbyselect') }}" method="get">
+                            <form action="{{ route('admin.request.filterbyselect') }}" method="get">
                                 <select onchange="this.form.submit();" class="form-control" name='dateFilter'>
                                     <option selected>All</option>
                                     <option {{ $dateFilter == 'today' ? 'selected' : '' }} value="today">Today</option>
@@ -113,8 +113,8 @@
                                             class=" btn btn-info"><i class="fas fa-eye"></i> View</a>
                                         <div class="modal fade " id="view{{ $item->id }}" tabindex="-1" role="dialog"
                                             aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered " role="document">
-                                                <div class="modal-content bg-info">
+                                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable " role="document">
+                                                <div class="modal-content ">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="exampleModalLongTitle">All new
                                                             Request</h5>
@@ -124,50 +124,98 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <div class="d-flex flex-row col-12">
-                                                            <div class="col-6">
-                                                                <div class="border border-dark p-1 text-center">
-                                                                    <label for="">ID</label>
-                                                                    <h5>{{ $item->id }}</h5>
-                                                                </div>
-                                                                <div class="border border-dark p-1 text-center">
-                                                                    <label for=""><span></span>Remark</label>
-                                                                    <h5>{{ $item->remark }}</h5>
-                                                                </div>
-                                                                <div class="border border-dark p-1 text-center">
-                                                                    <label for="">Product Name</label>
-                                                                    <h5>{{ $item->product_name }}</h5>
-                                                                </div>
-                                                                <div class="border border-dark p-1 text-center">
-                                                                    <label for="">Email</label>
-                                                                    <h5>{{ $item->email }}</h5>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-6">
-                                                                <div class="border border-dark p-1 text-center">
-                                                                    <label for="">Owner Name</label>
-                                                                    <h5>{{ $item->owner_name }}</h5>
-                                                                </div>
-                                                                <div class="border border-dark p-1 text-center">
-                                                                    <label for="">Contact</label>
-                                                                    <h5>{{ $item->contact }}</h5>
-                                                                </div>
-                                                                <div class="border border-dark p-1 text-center">
-                                                                    <label for="">Brand</label>
-                                                                    <h5>{{ $item->brand }}</h5>
-                                                                </div>
-                                                                <div class="border border-dark p-1 text-center ">
-                                                                    <label for="">
-        
-                                                                        Service Code</label>
-                                                                    <h5>{{ $item->service_code }}</h5>
-                                                                </div>
-        
-                                                            </div>
-                                                        </div>
-                                                        <div class="text-center border-dark border">
-                                                            <label for="">Problem</label>
-                                                            <h5>{{ $item->problem }}</h5>
+                                                        <div class="flex-row col-12">
+                                                            <table class="table">
+                                                                <tr>
+                                                                    <th>Service Code</th>
+                                                                    <td class="text-uppercase">{{ $item->service_code }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Owner Name</th>
+                                                                    <td>{{ $item->owner_name }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Product Name</th>
+                                                                    <td>{{ $item->product_name }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Brand</th>
+                                                                    <td>{{ $item->brand }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Contact</th>
+                                                                    <td>{{ $item->contact }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Email</th>
+                                                                    <td>{{ $item->email }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Status</th>
+                                                                    <td>{{ !$item->status ? 'Pending' : ($item->status == 1 ? 'Delivered' : 'Reject') }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Serial No</th>
+                                                                    <td>{{ $item->serial_no ? "$item->serial_no" : 'N/A' }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>MAC No</th>
+                                                                    <td>{{ $item->MAC ? "$item->MAC" : 'N/A' }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Problem</th>
+                                                                    <td>{{ $item->problem ? "$item->problem" : 'N/A' }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Remark</th>
+                                                                    <td>{{ $item->remark ? "$item->remark" : 'N/A' }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Color</th>
+                                                                    <td>{{ $item->color }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Estimate_delivery </th>
+                                                                    <td>{{ $item->estimate_delivery ? date('d M Y', strtotime($item->estimate_delivery)) : 'N/A' }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Create At</th>
+                                                                    <td>{{ $item->created_at ? date('d M Y', strtotime($item->created_at)) : 'N/A' }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Last update</th>
+                                                                    <td>{{ $item->updated_at ? date('d M Y', strtotime($item->updated_at)) : 'N/A' }}
+                                                                    </td>
+                                                                </tr>
+                                                                @if ($item->date_of_delivery)
+                                                                    <tr>
+                                                                        <th>Date of delivery</th>
+                                                                        <td>{{ $item->date_of_delivery ? date('d M Y', strtotime($item->date_of_delivery)) : 'N/A' }}
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th>Delivered By</th>
+                                                                        <td>{{ $item->delivered_by ? "$item->delivered_by" : 'N/A' }}
+                                                                        </td>
+                                                                    </tr>
+                                                                @endif
+                                                                <tr>
+                                                                    <th>Product Image</th>
+                                                                    <td>
+                                                                        @if ($item->image)
+                                                                            <img src="{{ asset('storage/uploads/' . $item->image) }}"
+                                                                                style="height: 80px; width:100px;"
+                                                                                class="img-thumbnail">
+                                                                        @else
+                                                                            <span>No image found!</span>
+                                                                        @endif
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
                                                         </div>
                                                     </div>
         

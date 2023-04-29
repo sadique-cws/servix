@@ -94,15 +94,50 @@ class RequestController extends Controller
         $request->save();
         return redirect()->back();
     }
+    // update Deassemble requset 
+    public function deassemble(Request $req, $id){
+        $user = Auth::guard('staff')->user();
+        $request = RequestModel::where('type_id',$user->type_id)
+                                ->where('technician_id',$user->id)
+                                ->where('status',2)  // 1 confirm
+                                ->where('id',$id)->first();
+        $request->status =2.1;   // Deassemble
+        $request->save();
+        return redirect()->back();
+    }
+    // update Repair requset 
+    public function repair(Request $req, $id){
+        $user = Auth::guard('staff')->user();
+        $request = RequestModel::where('type_id',$user->type_id)
+                                ->where('technician_id',$user->id)
+                                // ->where('status',2.1)  
+                                ->where('id',$id)->first();
+        $request->status =2.2;   // Repair 
+        $request->save();
+        return redirect()->back();
+    }
+    // update Assemble requset 
+    public function assemble(Request $req, $id){
+        $user = Auth::guard('staff')->user();
+        $request = RequestModel::where('type_id',$user->type_id)
+                                ->where('technician_id',$user->id)
+                                // ->where('status',1)  
+                                ->where('id',$id)->first();
+        $request->status =2.3;   //Assemble 
+        $request->save();
+        return redirect()->back();
+    }
 
     // reject update table
     public function rejected( Request $req){
+        
         $user = Auth::guard('staff')->user();
         $data=RequestModel::where('id',$req->id)
         ->where('type_id',$user->type_id)
         ->where('status',"!=",5)  // 5 delivered
         ->where('technician_id',$user->id)->first();
         $data->status= 3;   // 3 reject
+        $data->remark=$req->remark;
         $data->save();   
         return redirect()->back();
     }
@@ -128,7 +163,7 @@ class RequestController extends Controller
         $data=RequestModel::where('id',$req->id)
         ->where('type_id',$user->type_id)
         ->where('technician_id',$user->id)
-        ->where('status',2) // 2 confirm
+        // ->where('status',2) 
         ->first();
         $data->status= 4;   // 4 work done
         $data->save();   
@@ -179,6 +214,9 @@ class RequestController extends Controller
         $data['allRequests'] = RequestModel::where('type_id',$user->type_id)
                                     ->where('technician_id',$user->id)                              
                                     ->where('status',2)
+                                    ->orWhere('status',2.1)
+                                    ->orWhere('status',2.2)
+                                    ->orWhere('status',2.3)
                                     ->orderBy('created_at', 'DESC')->get();
 
         $data['title'] = "Current work Requests";
@@ -249,7 +287,7 @@ class RequestController extends Controller
           $item = RequestModel::where('service_code', 'LIKE', "%$searchStatus%")->first();
 
           if(!$item){
-            return redirect()->back()->with('msg',"Service Code is Not Found");
+            return redirect()->back()->with('msg',"Service Code is Not Found"); 
           }
           return view('userDashboard.trackRequest',compact('item','searchStatus'));
        }
