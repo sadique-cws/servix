@@ -75,7 +75,77 @@
                                         {{-- View button  --}}
                                         <a data-toggle="modal" data-target="#view{{ $item->id }}" role="button"
                                             class=" btn btn-info">View</a>
+<<<<<<< HEAD
 
+=======
+                                        <div class="modal fade " id="view{{ $item->id }}" tabindex="-1" role="dialog"
+                                            aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered " role="document">
+                                                <div class="modal-content bg-info">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLongTitle">Staff Details</h5>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="flex-row col-12">
+                                                            <table class="table">
+                                                            <tr>
+                                                                <th>Name</th>
+                                                                <td>{{ $item->name }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Email</th>
+                                                                <td>{{ $item->email }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Contact</th>
+                                                                <td>{{ $item->contact }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Salary</th>
+                                                                <td>{{ $item->salary }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Status</th>
+                                                                <td>{{ (!$item->status)? "Pending" : (($item->status == 1)? "Delivered" : "Reject") }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Type</th>
+                                                                <td>{{ $item->type_id }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Aadhar Card No</th>
+                                                                <td>{{ $item->MAC }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Color</th>
+                                                                <td>{{ $item->color }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Create At</th>
+                                                                <td>{{($item->created_at)? date('d M Y', strtotime($item->estimate_delivery)) : "N/A"  }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Product Image</th>
+                                                                <td>
+                                                                    @if($item->image)
+                                                                        <img src="{{ asset('storage/uploads/'.$item->image) }}" style="height: 80px; width:100px;" class="img-thumbnail">
+                                                                    @else 
+                                                                        <span>No image found!</span>
+                                                                    @endif
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+>>>>>>> 3c2c44c8f8853ae880610282db59cb18067ec932
                                         {{-- Delete button  --}}
                                         <a href="{{ route('admin.staff.delete', $item->id) }}" role="button"
                                             class="btn btn-danger"><svg width="20" height="20" viewBox="0 0 24 24"

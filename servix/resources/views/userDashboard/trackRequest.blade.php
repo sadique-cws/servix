@@ -30,9 +30,9 @@
                            
                 <div class="card mb-3 mt-2">
                     <table class="table">
-                        <div class="imgBox d-block" id="block">
+                        <div>
                             @if($item->image)
-                                <img id="big-image" src="{{ asset('storage/uploads/'.$item->image) }}" style="display:none;">
+                                <img id="big-image" src="{{ asset('storage/uploads/'.$item->image) }}" style="display:none; width:100%; height:70%">
                             @else 
                                 <span>No image found!</span>
                             @endif
@@ -70,10 +70,14 @@
                             <th class="text-{{StatusColor($item->status)}} font-weight-bold" >{{ (!$item->status)? "Pending" : $item->getStatus() }}</th>
                         </tr>
                         <tr>
+                            <th>Remark</th>
+                            <td>{{ $item->remark}}</td>
+                        </tr>
+                        <tr>
                             <th>Product Image</th>
                             <td class="ripple" style="height:50%; width:50%" >
                                 @if($item->image)
-                                    <a href=""><img id="small-image" src="{{ asset('storage/uploads/'.$item->image) }}" onclick="showBigImage()" style="height: 50px; width:50px;"></a>
+                                    <img id="small-image" src="{{ asset('storage/uploads/'.$item->image) }}" onclick="showBigImage()" style="height: 50px; width:50px;">
                                 @else 
                                     <span>No image found!</span>
                                 @endif
@@ -102,9 +106,9 @@
 
 <script>
     function showBigImage() {
-    var smallImage = document.getElementById("small-image; width:50%; height:50%");
-    smallImage.style.width = "50%";
-    smallImage.style.height = "50%";
+    var smallImage = document.getElementById("small-image");
+    smallImage.style.width = "30%";
+    smallImage.style.height = "30%";
 
     var bigImage = document.getElementById("big-image");
     bigImage.src = smallImage.src;
@@ -112,6 +116,8 @@
 }
 
 </script>
+
+
 
 
 

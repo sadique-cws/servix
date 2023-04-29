@@ -172,6 +172,7 @@
                                                 </ul>
                                             </div>
                                         </div>
+<<<<<<< HEAD
 
 
 
@@ -209,9 +210,14 @@
                                             role="dialog" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable "
                                                 role="document">
+=======
+                                        <div class="modal fade " id="view{{ $item->id }}" tabindex="-1" role="dialog"
+                                            aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered " role="document">
+>>>>>>> 3c2c44c8f8853ae880610282db59cb18067ec932
                                                 <div class="modal-content bg-light w-100 h-100">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLongTitle">Profile
+                                                        <h5 class="modal-title" id="exampleModalLongTitle">Request Details ~ {{$item->owner_name}}
                                                         </h5>
                                                         <button type="button" class="close" data-dismiss="modal"
                                                             aria-label="Close">
@@ -219,6 +225,7 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
+<<<<<<< HEAD
                                                         <div class="flex-row col-12">
                                                             <table class="table">
                                                                 <tr>
@@ -308,6 +315,77 @@
                                                                                 style="height: 80px; width:100px;"
                                                                                 class="img-thumbnail">
                                                                         @else
+=======
+
+                                                        <div class="d-flex flex-row col-12">
+                                                            <table class="table">
+                                                                <tr>
+                                                                    <th>Service Code</th>
+                                                                    <td class="text-uppercase">{{$item->service_code}}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Owner Name</th>
+                                                                    <td>{{$item->owner_name}}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Product name</th>
+                                                                    <td>{{$item->product_name}}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Contact</th>
+                                                                    <td>{{$item->contact}}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Email</th>
+                                                                    <td>{{$item->email}}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Color</th>
+                                                                    <td>{{$item->color}}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Brand</th>
+                                                                    <td>{{$item->brand}}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Status</th>
+                                                                    <td>{{$item->status}}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Type</th>
+                                                                    <td>{{$item->type_id}}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Remarks</th>
+                                                                    <td>{{$item->remark}}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Serial No</th>
+                                                                    <td>{{$item->serial_no}}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>MAC No</th>
+                                                                    <td>{{$item->MAC}}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Problem</th>
+                                                                    <td>{{$item->problem}}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Estimted Date</th>
+                                                                    <td>{{ ($item->estimate_delivery)? date('d M Y', strtotime($item->estimate_delivery)) : "N/A" }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Delivery Date</th>
+                                                                    <td>{{ ($item->date_of_delivery)? date('d M Y', strtotime($item->date_of_delivery)) : "N/A" }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Image</th>
+                                                                    <td>
+                                                                        @if($item->image)
+                                                                            <img src="{{ asset('storage/uploads/'.$item->image) }}" style="height: 80px; width:100px;">
+                                                                        @else 
+>>>>>>> 3c2c44c8f8853ae880610282db59cb18067ec932
                                                                             <span>No image found!</span>
                                                                         @endif
                                                                     </td>
