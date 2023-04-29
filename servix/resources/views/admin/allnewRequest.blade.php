@@ -77,7 +77,7 @@
                     </div>
                 </div>
                 <!-- /.card-header -->
-                <div class="card-body table-responsive p-0">
+                <div class="card-body table-responsive p-0" style="height: 61vh !important">
                     <table class="table table-hover text-nowrap">
                         <thead>
                             <tr>
@@ -213,5 +213,8 @@
             </div>
             <!-- /.card -->
         </div>
+    </div>
+    <div class=" " style="justify-items: center; display: flex; justify-content: center">
+        {{$new->links()}}
     </div>
 @endsection

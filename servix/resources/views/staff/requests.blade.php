@@ -77,7 +77,7 @@
                     </div>
                 </div>
                 <!-- /.card-header -->
-                <div class="card-body table-responsive p-0 " style="height: 68vh !important">
+                <div class="card-body table-responsive p-0 " style="height: 61vh !important">
                     <table class="table table-hover text-nowrap ">
                         <thead>
                             <tr>
@@ -194,6 +194,10 @@
                                                                     class="btn btn-success dropdown-item"
                                                                     href="">Work Done</a>
                                                             </li>
+                                                            <li> <a role="button" class="btn btn-danger dropdown-item"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#reject{{ $item->id }}">Reject</a>
+                                                        </li>
                                                             <li> <a role="button" class="btn btn-success dropdown-item"
                                                                     href="{{ route('request.edit', $item->id) }}">Edit</a>
                                                             </li>
@@ -387,5 +391,8 @@
             </div>
             <!-- /.card -->
         </div>
+    </div>
+    <div class=" " style="justify-items: center; display: flex; justify-content: center">
+        {{$allRequests->links()}}
     </div>
 @endsection

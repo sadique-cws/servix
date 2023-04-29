@@ -125,14 +125,14 @@ class AdminController extends Controller
     public function search(Request $req): View
     {
         $search = $req->search;
-        $data = Staff::where('name', 'LIKE', "%$search%")->get();
+        $data = Staff::where('name', 'LIKE', "%$search%")->paginate(8);
         return view('admin/manageStaff', ['staffs' => $data]);
     }
 
     public function searchRequest(Request $req): View
     {
         $search = $req->search;
-        $data = RequestModel::where('name', 'LIKE', "%$search%")->get();
+        $data = RequestModel::where('name', 'LIKE', "%$search%")->paginate(8);
         return view('admin.newRequest.manage', ['new' => $data]);
     }
 
@@ -149,7 +149,7 @@ class AdminController extends Controller
 
     public function allnewRequest(Request $req)
     {
-        $data['new'] = RequestModel::where('technician_id',NULL)->orderBy('created_at', 'DESC')->get();
+        $data['new'] = RequestModel::where('technician_id',NULL)->orderBy('created_at', 'DESC')->paginate(8);
         $data['title']="All New Request";
         $data['dateFilter']="all";
         return view('admin/allnewRequest', $data);
@@ -163,9 +163,9 @@ class AdminController extends Controller
     {
         if ($req->search == "all") {
            
-            $data['totalRequest'] = RequestModel::where('technician_id', '<>', null)->get();
+            $data['totalRequest'] = RequestModel::where('technician_id', '<>', null)->paginate(8);
         } else {
-            $data['totalRequest'] = RequestModel::where('technician_id', $req->search)->get();
+            $data['totalRequest'] = RequestModel::where('technician_id', $req->search)->paginate(8);
 
         }
         $data['staffs'] = Staff::all();
@@ -180,7 +180,7 @@ class AdminController extends Controller
         $date->addDays();
         $formattedDate = $date->format('Y-m-d');
         $data['new']= RequestModel::select("*")->whereBetween('created_at', [$req->startAt, $formattedDate])
-                                    ->get();
+                                    ->paginate(8);
         $data['title']="Date between Request";
         return view('admin/allnewRequest', $data);
     }
@@ -197,32 +197,32 @@ class AdminController extends Controller
 
         switch ($req->dateFilter) {
             case 'today':
-                $data['new']=RequestModel::whereDate('created_at',Carbon::today())->get();
+                $data['new']=RequestModel::whereDate('created_at',Carbon::today())->paginate(8);
                 $data['title']="Today Request";
                 
                 break;
             case 'yesterday':
-                $data['new']=RequestModel::whereDate('created_at',Carbon::yesterday())->get();
+                $data['new']=RequestModel::whereDate('created_at',Carbon::yesterday())->paginate(8);
                 $data['title']="yesterday Request";
                 break;
             case 'this_week':
-                $data['new']=RequestModel::whereBetween('created_at',[Carbon::now()->startOfWeek(),Carbon::now()->endOfWeek()])->get();
+                $data['new']=RequestModel::whereBetween('created_at',[Carbon::now()->startOfWeek(),Carbon::now()->endOfWeek()])->paginate(8);
                 $data['title']="This Week Request";
                 break;
             case 'this_month':
-                $data['new']=RequestModel::whereMonth('created_at',Carbon::now()->month)->get();
+                $data['new']=RequestModel::whereMonth('created_at',Carbon::now()->month)->paginate(8);
                 $data['title']="This Month Request";
                 break;
             case 'last_month':
-                $data['new']=RequestModel::whereMonth('created_at',Carbon::now()->subMonth()->month)->get();
+                $data['new']=RequestModel::whereMonth('created_at',Carbon::now()->subMonth()->month)->paginate(8);
                 $data['title']="Last Month Request";
                 break;
             case 'this_year':
-                $data['new']=RequestModel::whereYear('created_at',Carbon::now()->year)->get();
+                $data['new']=RequestModel::whereYear('created_at',Carbon::now()->year)->paginate(8);
                 $data['title']="This Year Request";
                 break;
             case 'last_year':
-                $data['new']=RequestModel::whereYear('created_at',Carbon::now()->subYear()->year)->get();
+                $data['new']=RequestModel::whereYear('created_at',Carbon::now()->subYear()->year)->paginate(8);
                 $data['title']="Last Year Request";
                 break;
             
@@ -239,7 +239,7 @@ class AdminController extends Controller
     public function filterByInput(Request $req){
        
         $data['search_value']=$req->search;
-        $data['new']=RequestModel::where('owner_name',"LIKE","%".$req->search."%")->get();
+        $data['new']=RequestModel::where('owner_name',"LIKE","%".$req->search."%")->paginate(8);
         $data['title']='Search Record';
         $data['dateFilter']='All';
         return view('admin/allnewRequest',$data);
@@ -249,28 +249,28 @@ class AdminController extends Controller
     public function confirmedRequest(Request $req){
       
         $data['new'] = RequestModel::where('status',1)
-                                            ->orderBy('created_at', 'DESC')->get();
+                                            ->orderBy('created_at', 'DESC')->paginate(8);
         $data['title'] = "Confirm Requests";                                    
         return view("admin.requests",$data);   
     }
     public function rejectedRequest(Request $req){
       
         $data['new'] = RequestModel::where('status',3)
-                                ->orderBy('created_at', 'DESC')->get();
+                                ->orderBy('created_at', 'DESC')->paginate(8);
         $data['title'] = "rejected Requests";                                    
         return view("admin.requests",$data);   
     }
     public function pandingRequest(Request $req){
         
         $data['new'] = RequestModel::where('status',0)
-                                ->orderBy('created_at', 'DESC')->get();
+                                ->orderBy('created_at', 'DESC')->paginate(8);
         $data['title'] = "pending Requests";                                    
         return view("admin.requests",$data);   
     }
     public function deliveredRequest(Request $req){
       
         $data['new'] = RequestModel::where('status',5)
-                                ->orderBy('created_at', 'DESC')->get();
+                                ->orderBy('created_at', 'DESC')->paginate(8);
         $data['title'] = "Delivered Requests";                                    
         return view("admin.requests",$data);   
     }
@@ -278,7 +278,7 @@ class AdminController extends Controller
      // show Work Done Request
      public function workDoneRequests(){
         
-        $data['new'] = RequestModel::where('status',4)->orderBy('created_at', 'DESC')->get();
+        $data['new'] = RequestModel::where('status',4)->orderBy('created_at', 'DESC')->paginate(8);
         $data['title'] = "Total WorkDoneRequests";
         return view("admin.requests",$data);
        
@@ -287,7 +287,7 @@ class AdminController extends Controller
         $data['search_value']="";
         $data['new']=RequestModel::where('service_code',"LIKE","%".$req->search."%")
         ->orWhere('contact', 'like', '%' . $req->search . '%')
-        ->orWhere('owner_name', 'like', '%' . $req->search . '%')->get();
+        ->orWhere('owner_name', 'like', '%' . $req->search . '%')->paginate(8);
         $data['title']='Search Record';
         $data['dateFilter']='All';
         return view('admin/requests',$data);
