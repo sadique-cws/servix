@@ -125,7 +125,7 @@
                                                 <ul class="dropdown-menu text-center " style="z-index:6;">
 
                                                     {{-- Conform button --}}
-                                                    @if ($item->status != 5 & $item->status != 4 )
+                                                    @if (($item->status != 5) & ($item->status != 4))
                                                         @if (!$item->technician_id)
                                                             <li>
                                                                 <a role="button"
@@ -136,12 +136,12 @@
                                                         @endif
                                                         {{-- //delivered --}}
                                                         @if ($item->technician_id)
-                                                        <li>
-                                                            <a role="button"
-                                                                href="{{ route('request.workProgress', $item->id) }}"
-                                                                class="btn btn-success dropdown-item"
-                                                                href="">Work in progress</a>
-                                                        </li>
+                                                            <li>
+                                                                <a role="button"
+                                                                    href="{{ route('request.workProgress', $item->id) }}"
+                                                                    class="btn btn-success dropdown-item"
+                                                                    href="">Work in progress</a>
+                                                            </li>
                                                         @endif
                                                         {{-- Pending button --}}
                                                         @if (($item->status != 0) | ($title == 'All Request'))
@@ -152,7 +152,8 @@
                                                         {{-- Reject button --}}
                                                         @if (($item->status != 3) | ($title == 'All Request'))
                                                             <li> <a role="button" class="btn btn-danger dropdown-item"
-                                                                    href="{{ route('request.reject', $item) }}">Reject</a>
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#reject{{ $item->id }}">Reject</a>
                                                             </li>
                                                         @endif
                                                         {{-- Edit button --}}
@@ -171,9 +172,48 @@
                                                 </ul>
                                             </div>
                                         </div>
+
+
+
+
+                                        {{-- Reject model  --}}
+                                        <!-- Button trigger modal -->
+
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="reject{{ $item->id }}" tabindex="-1"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                           <form action="{{ route('request.reject', $item) }}" method="get" class="fomr">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Why Rejected you <h4 class="text-uppercase text-danger">{{$item->service_code}}</h4></h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                       <input type="text" placeholder="Reason" name="remark" class="form-control">
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn btn-primary">Save
+                                                            changes</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                           </form>
+                                        </div>
+
+                                        {{-- view details model  --}}
+                                        <div class="modal fade " id="view{{ $item->id }}" tabindex="-1"
+                                            role="dialog" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable "
+                                                role="document">
+
                                         <div class="modal fade " id="view{{ $item->id }}" tabindex="-1" role="dialog"
                                             aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered " role="document">
+
                                                 <div class="modal-content bg-light w-100 h-100">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="exampleModalLongTitle">Request Details ~ {{$item->owner_name}}
@@ -184,6 +224,97 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
+
+                                                        <div class="flex-row col-12">
+                                                            <table class="table">
+                                                                <tr>
+                                                                    <th>Service Code</th>
+                                                                    <td class="text-uppercase">{{ $item->service_code }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Owner Name</th>
+                                                                    <td>{{ $item->owner_name }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Product Name</th>
+                                                                    <td>{{ $item->product_name }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Brand</th>
+                                                                    <td>{{ $item->brand }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Contact</th>
+                                                                    <td>{{ $item->contact }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Email</th>
+                                                                    <td>{{ $item->email }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Status</th>
+                                                                    <td>{{ !$item->status ? 'Pending' : ($item->status == 1 ? 'Delivered' : 'Reject') }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Serial No</th>
+                                                                    <td>{{ $item->serial_no ? "$item->serial_no" : 'N/A' }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>MAC No</th>
+                                                                    <td>{{ $item->MAC ? "$item->MAC" : 'N/A' }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Problem</th>
+                                                                    <td>{{ $item->problem ? "$item->problem" : 'N/A' }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Remark</th>
+                                                                    <td>{{ $item->remark ? "$item->remark" : 'N/A' }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Color</th>
+                                                                    <td>{{ $item->color }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Estimate_delivery </th>
+                                                                    <td>{{ $item->estimate_delivery ? date('d M Y', strtotime($item->estimate_delivery)) : 'N/A' }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Create At</th>
+                                                                    <td>{{ $item->created_at ? date('d M Y', strtotime($item->created_at)) : 'N/A' }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Last update</th>
+                                                                    <td>{{ $item->updated_at ? date('d M Y', strtotime($item->updated_at)) : 'N/A' }}
+                                                                    </td>
+                                                                </tr>
+                                                                @if ($item->date_of_delivery)
+                                                                    <tr>
+                                                                        <th>Date of delivery</th>
+                                                                        <td>{{ $item->date_of_delivery ? date('d M Y', strtotime($item->date_of_delivery)) : 'N/A' }}
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th>Delivered By</th>
+                                                                        <td>{{ $item->delivered_by ? "$item->delivered_by" : 'N/A' }}
+                                                                        </td>
+                                                                    </tr>
+                                                                @endif
+                                                                <tr>
+                                                                    <th>Product Image</th>
+                                                                    <td>
+                                                                        @if ($item->image)
+                                                                            <img src="{{ asset('storage/uploads/' . $item->image) }}"
+                                                                                style="height: 80px; width:100px;"
+                                                                                class="img-thumbnail">
+                                                                        @else
+
 
                                                         <div class="d-flex flex-row col-12">
                                                             <table class="table">
@@ -253,6 +384,7 @@
                                                                         @if($item->image)
                                                                             <img src="{{ asset('storage/uploads/'.$item->image) }}" style="height: 80px; width:100px;">
                                                                         @else 
+
                                                                             <span>No image found!</span>
                                                                         @endif
                                                                     </td>
@@ -279,5 +411,4 @@
             <!-- /.card -->
         </div>
     </div>
-
 @endsection

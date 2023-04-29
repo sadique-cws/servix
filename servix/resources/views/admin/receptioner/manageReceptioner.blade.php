@@ -62,7 +62,7 @@
                                         role="group">
                                         {{-- status button  --}}
                                         {{-- <input type="button" id="status" name="status" value="{{$staff->status ? 'Active' : 'Inactive' }}"> --}}
-                                        <a role="button" class="btn btn-info" href="{{ route('receptioner.status',$item)}}">{{($item->status==1)?"Active":"DeActive"}}</a>
+                                        <a role="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#ban{{ $item->id }}">{{($item->status==1)?"Active":"DeActive"}}</a>
                                         {{-- edit button --}}
                                         <a role="button" class="btn btn-warning" href="{{ route('admin.staff.edit', $item->id) }}">Edit</a>
                                         {{-- View button  --}}
@@ -134,6 +134,23 @@
 
                                     </td>
                                 </tr>
+                                <div class="modal fade" id="ban{{ $item->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h5 class="modal-title" id="staticBackdropLabel">Alert</h5>
+                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                           Do you really want to {{ $item->status == 0 ? 'activate' : 'deactivate' }} this account
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">no</button>
+                                          <a href="{{ route('receptioner.status',$item)}}" type="button" class="btn btn-primary">yes</a>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
                             @endforeach
                         </tbody>
                     </table>
