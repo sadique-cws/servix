@@ -75,7 +75,7 @@
                 </div>
 
                 <!-- /.card-header -->
-                <div class="card-body table-responsive p-0" style="height: 68vh !important">
+                <div class="card-body table-responsive p-0" style="height: 61vh !important">
                     <table class="table table-hover text-nowrap">
                         <thead>
                             <tr>
@@ -83,8 +83,6 @@
                                 <th>owner_name</th>
                                 <th>product_name</th>
                                 <th>Contact</th>
-                                <th>color</th>
-                                <th>brand</th>
                                 <th>problem</th>
                                 <th>Status</th>
                                 <th>Remark</th>
@@ -99,8 +97,6 @@
                                     <td>{{ $item->owner_name }}</td>
                                     <td>{{ $item->product_name }}</td>
                                     <td>{{ $item->contact }}</td>
-                                    <td>{{ $item->color }}</td>
-                                    <td>{{ $item->brand }}</td>
                                     <td>{{ $item->problem }}</td>
                                     <td>{{ $item->getStatus() }}</td>
                                     <td>{{ $item->remark }}</td>
@@ -117,7 +113,7 @@
 
                                                 {{-- <a data-toggle="modal" data-target="#view{{ $item->id }}"
                                                     role="button" class=" btn btn-info btn-group ">View</a> --}}
-                                                @if ($item->status==4)
+                                                @if ($item->status==4 | $item->status==3)
                                                 <a href="{{ route('crm.request.deliver', $item->id) }}" role="button"
                                                     class=" btn btn-success btn-group ">Deliver</a>
                                                 @endif
@@ -161,10 +157,14 @@
 
                         </tbody>
                     </table>
+                    
                 </div>
                 <!-- /.card-body -->
             </div>
             <!-- /.card -->
         </div>
+    </div>
+    <div class=" " style="justify-items: center; display: flex; justify-content: center">
+        {{$allRequests->links()}}
     </div>
 @endsection
