@@ -172,7 +172,7 @@
                                                 </ul>
                                             </div>
                                         </div>
-<<<<<<< HEAD
+
 
 
 
@@ -210,11 +210,10 @@
                                             role="dialog" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable "
                                                 role="document">
-=======
+
                                         <div class="modal fade " id="view{{ $item->id }}" tabindex="-1" role="dialog"
                                             aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered " role="document">
->>>>>>> 3c2c44c8f8853ae880610282db59cb18067ec932
+
                                                 <div class="modal-content bg-light w-100 h-100">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="exampleModalLongTitle">Request Details ~ {{$item->owner_name}}
@@ -225,7 +224,7 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-<<<<<<< HEAD
+
                                                         <div class="flex-row col-12">
                                                             <table class="table">
                                                                 <tr>
@@ -315,7 +314,7 @@
                                                                                 style="height: 80px; width:100px;"
                                                                                 class="img-thumbnail">
                                                                         @else
-=======
+
 
                                                         <div class="d-flex flex-row col-12">
                                                             <table class="table">
@@ -385,7 +384,7 @@
                                                                         @if($item->image)
                                                                             <img src="{{ asset('storage/uploads/'.$item->image) }}" style="height: 80px; width:100px;">
                                                                         @else 
->>>>>>> 3c2c44c8f8853ae880610282db59cb18067ec932
+
                                                                             <span>No image found!</span>
                                                                         @endif
                                                                     </td>

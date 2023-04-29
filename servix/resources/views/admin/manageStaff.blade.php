@@ -75,9 +75,7 @@
                                         {{-- View button  --}}
                                         <a data-toggle="modal" data-target="#view{{ $item->id }}" role="button"
                                             class=" btn btn-info">View</a>
-<<<<<<< HEAD
 
-=======
                                         <div class="modal fade " id="view{{ $item->id }}" tabindex="-1" role="dialog"
                                             aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered " role="document">
@@ -145,7 +143,7 @@
                                                 </div>
                                             </div>
                                         </div>
->>>>>>> 3c2c44c8f8853ae880610282db59cb18067ec932
+
                                         {{-- Delete button  --}}
                                         <a href="{{ route('admin.staff.delete', $item->id) }}" role="button"
                                             class="btn btn-danger"><svg width="20" height="20" viewBox="0 0 24 24"
