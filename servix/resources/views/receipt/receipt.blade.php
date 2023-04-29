@@ -130,7 +130,7 @@
                                                 </td>
                                                 <th scope="col">Service code</th>
                                                 <td class="text-uppercase">
-                                                    <h4 class="m-0 text-danger">{{$item->service_code}}</h4>
+                                                    <h4 class="m-0 text-info">{{$item->service_code}}</h4>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -163,7 +163,7 @@
                                             </tr>
                                             <tr>
                                                 <th scope="col">Status</th>
-                                                <td class="text-uppercase">{{$item->getStatus()}}</td>
+                                                <td class="text-uppercase text-{{StatusColor($item->status)}}">{{$item->getStatus()}}</td>
                                                 <th scope="col">Remark</th>
                                                 <td class="text-uppercase">{{($item->remark==null)?"N/A":$item->remark}}</td>
         

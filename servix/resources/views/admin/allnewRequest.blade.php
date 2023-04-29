@@ -115,7 +115,7 @@
                                         <a data-toggle="modal" data-target="#view{{ $item->id }}" role="button" class=" btn btn-info">View</a>
                                         <div class="modal fade " id="view{{ $item->id }}" tabindex="-1" role="dialog"
                                             aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered " role="document">
+                                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable " role="document">
                                                 <div class="modal-content" style="background: #eee">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="exampleModalLongTitle">Request Details ~ <span class="text-uppercase">{{ $item->owner_name }}</></h5>
@@ -157,19 +157,35 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <th>Serial No</th>
-                                                                    <td>{{ $item->serial_no }}</td>
+                                                                    <td>{{($item->serial_no)? "$item->serial_no" : "N/A"  }}</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th>MAC No</th>
-                                                                    <td>{{ $item->MAC }}</td>
+                                                                    <td>{{($item->MAC)? "$item->MAC" : "N/A"  }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Problem</th>
+                                                                    <td>{{($item->problem)? "$item->problem" : "N/A"  }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Remark</th>
+                                                                    <td>{{($item->remark)? "$item->remark" : "N/A"  }}</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th>Color</th>
                                                                     <td>{{ $item->color }}</td>
                                                                 </tr>
                                                                 <tr>
+                                                                    <th>Estimate_delivery </th>
+                                                                    <td>{{($item->estimate_delivery)? date('d M Y', strtotime($item->estimate_delivery)) : "N/A"  }}</td>
+                                                                </tr>
+                                                                <tr>
                                                                     <th>Create At</th>
-                                                                    <td>{{($item->created_at)? date('d M Y', strtotime($item->estimate_delivery)) : "N/A"  }}</td>
+                                                                    <td>{{($item->created_at)? date('d M Y', strtotime($item->created_at)) : "N/A"  }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Last update</th>
+                                                                    <td>{{($item->updated_at)? date('d M Y', strtotime($item->updated_at)) : "N/A"  }}</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th>Product Image</th>

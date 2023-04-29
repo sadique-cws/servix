@@ -106,4 +106,29 @@ if (! function_exists('CountStaffRequest')) {
         return $count;
     }
 }
+if (! function_exists('StatusColor')) {
+    function StatusColor($status=NULL) {
+        switch($status){
+            case 0:
+                return "dark";
+                break;
+            case 1:
+                return "success";
+                break;
+            case 2:
+                return "warning";
+                break;
+            case 3:
+                 return "danger";
+                 break;
+            case 4:
+                return "success";
+                break;
+            case 5:
+                return "success";
+                break;
+           }
+    
+    }
+}
 

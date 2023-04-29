@@ -65,9 +65,9 @@
                             <th> Last Update</th>
                             <td>{{ ($item->updated_at)? date('d M Y', strtotime($item->updated_at)) : "N/A" }}</td>
                         </tr>
-                        <tr>
+                        <tr class="bg-light">
                             <th>status</th>
-                            <td>{{ (!$item->status)? "Pending" : $item->getStatus() }}</td>
+                            <th class="text-{{StatusColor($item->status)}} font-weight-bold" >{{ (!$item->status)? "Pending" : $item->getStatus() }}</th>
                         </tr>
                         <tr>
                             <th>Product Image</th>

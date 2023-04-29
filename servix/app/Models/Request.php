@@ -29,10 +29,10 @@ class Request extends Model
             return "confirm";
             break;
         case 2:
-            return "work progress";
+            return "work in progress";
             break;
         case 3:
-             return "reject";
+             return "rejected";
              break;
         case 4:
             return "work done";

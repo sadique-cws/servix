@@ -97,12 +97,14 @@ class RequestController extends Controller
 
     // reject update table
     public function rejected( Request $req){
+        
         $user = Auth::guard('staff')->user();
         $data=RequestModel::where('id',$req->id)
         ->where('type_id',$user->type_id)
         ->where('status',"!=",5)  // 5 delivered
         ->where('technician_id',$user->id)->first();
         $data->status= 3;   // 3 reject
+        $data->remark=$req->remark;
         $data->save();   
         return redirect()->back();
     }
