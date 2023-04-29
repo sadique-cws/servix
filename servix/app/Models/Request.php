@@ -31,6 +31,15 @@ class Request extends Model
         case 2:
             return "work in progress";
             break;
+        case 2.1:
+            return "Deassemble";
+            break;
+        case 2.2:
+            return "Repair";
+            break;
+        case 2.3:
+            return "Assemble";
+            break;
         case 3:
              return "rejected";
              break;

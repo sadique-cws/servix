@@ -125,44 +125,97 @@
                                                 <ul class="dropdown-menu text-center " style="z-index:6;">
 
                                                     {{-- Conform button --}}
-                                                    @if (($item->status != 5) & ($item->status != 4))
-                                                        @if (!$item->technician_id)
+
+                                                    @switch($item->status)
+                                                        @case(0)
                                                             <li>
-                                                                <a role="button"
-                                                                    href="{{ route('request.confirm', $item->id) }}"
-                                                                    class="btn btn-success dropdown-item"
-                                                                    href="">Confirm</a>
+                                                                <a role="button" href="{{ route('request.confirm', $item->id) }}"
+                                                                    class="btn btn-success dropdown-item" href="">Confirm</a>
                                                             </li>
-                                                        @endif
-                                                        {{-- //delivered --}}
-                                                        @if ($item->technician_id)
+                                                            <li> <a role="button" class="btn btn-success dropdown-item"
+                                                                    href="{{ route('request.edit', $item->id) }}">Edit</a>
+                                                            </li>
+                                                        @break
+
+                                                        @case(1)
                                                             <li>
                                                                 <a role="button"
                                                                     href="{{ route('request.workProgress', $item->id) }}"
+                                                                    class="btn btn-success dropdown-item" href="">Work in
+                                                                    progress</a>
+                                                            </li>
+                                                            <li> <a role="button" class="btn btn-success dropdown-item"
+                                                                    href="{{ route('request.edit', $item->id) }}">Edit</a>
+                                                            </li>
+                                                        @break
+
+                                                        @case(2)
+                                                            <li>
+                                                                <a role="button"
+                                                                    href="{{ route('request.deassemble', $item->id) }}"
                                                                     class="btn btn-success dropdown-item"
-                                                                    href="">Work in progress</a>
+                                                                    href="">deassemble</a>
                                                             </li>
-                                                        @endif
-                                                        {{-- Pending button --}}
-                                                        @if (($item->status != 0) | ($title == 'All Request'))
-                                                            <li> <a role="button" class="btn btn-warning dropdown-item"
-                                                                    href="{{ route('request.pending', $item) }}">Pending</a>
+                                                            <li> <a role="button" class="btn btn-success dropdown-item"
+                                                                    href="{{ route('request.edit', $item->id) }}">Edit</a>
                                                             </li>
-                                                        @endif
-                                                        {{-- Reject button --}}
-                                                        @if (($item->status != 3) | ($title == 'All Request'))
+                                                        @break
+
+                                                        @case(2.1)
+                                                            <li>
+                                                                <a role="button" href="{{ route('request.repair', $item->id) }}"
+                                                                    class="btn btn-success dropdown-item"
+                                                                    href="">Reparing</a>
+                                                            </li>
+                                                            <li> <a role="button" class="btn btn-success dropdown-item"
+                                                                    href="{{ route('request.edit', $item->id) }}">Edit</a>
+                                                            </li>
+                                                        @break
+
+                                                        @case(2.2)
+                                                            <li>
+                                                                <a role="button"
+                                                                    href="{{ route('request.assemble', $item->id) }}"
+                                                                    class="btn btn-success dropdown-item"
+                                                                    href="">Assemble</a>
+                                                            </li>
                                                             <li> <a role="button" class="btn btn-danger dropdown-item"
                                                                     data-bs-toggle="modal"
                                                                     data-bs-target="#reject{{ $item->id }}">Reject</a>
                                                             </li>
-                                                        @endif
-                                                        {{-- Edit button --}}
-                                                        @if ($item->technician_id)
                                                             <li> <a role="button" class="btn btn-success dropdown-item"
                                                                     href="{{ route('request.edit', $item->id) }}">Edit</a>
                                                             </li>
-                                                        @endif
-                                                    @endif
+                                                        @break
+
+                                                        @case(2.3)
+                                                            <li>
+                                                                <a role="button" href="{{ route('request.workDone', $item->id) }}"
+                                                                    class="btn btn-success dropdown-item"
+                                                                    href="">Work Done</a>
+                                                            </li>
+                                                            <li> <a role="button" class="btn btn-success dropdown-item"
+                                                                    href="{{ route('request.edit', $item->id) }}">Edit</a>
+                                                            </li>
+                                                        @break
+
+                                                        @case(3)
+                                                            <li> <a role="button" class="btn btn-warning dropdown-item"
+                                                                    href="{{ route('request.pending', $item) }}">Pending</a>
+                                                            </li>
+                                                            <li> <a role="button" class="btn btn-success dropdown-item"
+                                                                    href="{{ route('request.edit', $item->id) }}">Edit</a>
+                                                            </li>
+                                                        @break
+
+                                                        @case(4)
+                                                        @break
+
+                                                        @case(4)
+                                                        @break
+
+                                                        @default
+                                                    @endswitch
 
                                                     {{-- view button  --}}
                                                     <li> <a data-toggle="modal" data-target="#view{{ $item->id }}"
@@ -177,26 +230,32 @@
                                         <!-- Modal -->
                                         <div class="modal fade" id="reject{{ $item->id }}" tabindex="-1"
                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                           <form action="{{ route('request.reject', $item) }}" method="get" class="fomr">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Why Rejected you <h4 class="text-uppercase text-danger">{{$item->service_code}}</h4></h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                            aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                       <input type="text" placeholder="Reason" name="remark" class="form-control">
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary"
-                                                            data-bs-dismiss="modal">Close</button>
-                                                        <button type="submit" class="btn btn-primary">Save
-                                                            changes</button>
+                                            <form action="{{ route('request.reject', $item) }}" method="get"
+                                                class="fomr">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Why Rejected
+                                                                you
+                                                                <h4 class="text-uppercase text-danger">
+                                                                    {{ $item->service_code }}</h4>
+                                                            </h5>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <input type="text" placeholder="Reason" name="remark"
+                                                                class="form-control">
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-bs-dismiss="modal">Close</button>
+                                                            <button type="submit" class="btn btn-primary">Save
+                                                                changes</button>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                           </form>
+                                            </form>
                                         </div>
 
                                         {{-- view details model  --}}

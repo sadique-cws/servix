@@ -127,6 +127,9 @@ if (! function_exists('StatusColor')) {
             case 5:
                 return "success";
                 break;
+            default:
+                return "warning";
+                break;
            }
     
     }
