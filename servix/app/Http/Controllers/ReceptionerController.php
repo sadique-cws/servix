@@ -275,6 +275,30 @@ class ReceptionerController extends Controller
         $data['title'] = "all Requests";                                    
         return view("receptioner.requests",$data);   
     }
+
+    public function EditReceptioner($id)
+    {
+        $data = Receptioner::where('id', $id)->first();
+        return view("admin.receptioner.editReceptioner", compact('data'));
+    }
+
+    public function UpdateReceptioner(Request $req)
+    {
+        $data = $req->validate([
+            'name' => 'required',
+            'email' => 'required|unique:App\Models\Receptioner,email|email',
+            'contact' => 'required|integer|unique:App\Models\Receptioner,contact|digits:10',
+            'salary' => 'required',
+            'aadhar' => 'required',
+            'pan' => 'required',
+            'address' => 'required',
+            'status' => 'required',
+        ]);
+
+        $id = $req->id;
+        Receptioner::where('id', $id)->update($data);
+        return redirect()->route('admin.receptioner.manageReceptioner');
+    }
    
 
 }
