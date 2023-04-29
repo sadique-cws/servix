@@ -108,12 +108,12 @@ class AdminController extends Controller
             'email' => 'required',
             'contact' => 'required',
             'salary' => 'required',
-            // 'type_id' => 'required',
+            'type_id' => 'required',
             'aadhar' => 'required',
             'pan' => 'required',
             'address' => 'required',
             'status' => 'required',
-            // 'password' => 'required',
+            'password' => 'required',
         ]);
 
         $id = $req->id;

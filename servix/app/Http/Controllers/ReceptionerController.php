@@ -286,8 +286,8 @@ class ReceptionerController extends Controller
     {
         $data = $req->validate([
             'name' => 'required',
-            'email' => 'required|unique:App\Models\Receptioner,email|email',
-            'contact' => 'required|integer|unique:App\Models\Receptioner,contact|digits:10',
+            'email' => 'required',
+            'contact' => 'required',
             'salary' => 'required',
             'aadhar' => 'required',
             'pan' => 'required',
@@ -297,8 +297,10 @@ class ReceptionerController extends Controller
 
         $id = $req->id;
         Receptioner::where('id', $id)->update($data);
-        return redirect()->route('admin.receptioner.manageReceptioner');
+        return redirect()->route('admin.receptioner.addReceptioner');
     }
+
+    
    
 
 }
