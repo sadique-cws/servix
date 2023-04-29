@@ -94,3 +94,17 @@
         </div>
     </div>
 @endsection
+
+{{-- <<--  CREDIT - DON'T REMOVE -->> --}}
+{{-- 
+    
+    
+    ©  All rights reserved. Developer team -  
+    intkhab Ahmad ->> <a href="https://github.com/LazyDeveloperr">view profile</a> 
+
+    Aditya Sekhar ->> <a href="https://github.com/aditya-shekhar773">view profile</a>
+
+    Wasik Alam ->> <a href="https://github.com/md-wasik-alam">view profile</a> 
+    
+    
+--}}

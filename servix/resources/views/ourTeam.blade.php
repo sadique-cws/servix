@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="shortcut icon" href="{{ asset('Assets/favicon.png') }}" type="image/x-icon">
-    <title>@yield('title') {{ env('APP_NAME') }} - Laptop Desktop Printer Smartphone Reparing Center in Purnea</title>
+    <link rel="shortcut icon" href="{{ asset('Assets/faviconn.png') }}" type="image/x-icon">
+    <title>@yield('title') {{ env('APP_NAME') }} - Our Team</title>
     {{-- <link href="../unpkg.com/aos%402.3.1/dist/aos.css" rel="stylesheet">
     <script src="../unpkg.com/aos%402.3.1/dist/aos.js"></script> --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -28,13 +28,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
     
 </head>
-<body>
+<body class="bg-[#e8e8e8]">
     {{-- header section --}}
     <div class="main_background fixed-top py-1 bg-white">
         <nav class="navbar navbar-expand-lg navbar-light ">
             <div class="container">
                 <a href="{{ route('home') }}" class="navbar-brand" href="#">
-                    <img src="Assets/logo-black.png" class="img-logo" alt="logo">
+                    <img src="Assets/logo-black.png" class="img-logo w-[480px] px-16 " alt="logo">
                 </a>
                 <button data-collapse-toggle="navbar-dropdown" type="button" aria-controls="navbar-dropdown" aria-expanded="false" class="md:hidden ">
                     <span class="navbar-toggler-icon"></span>
@@ -84,7 +84,7 @@
                     <div class="flex flex-col items-center py-4">
                         <img class="w-[200px] h-[200px] group-hover:-translate-y-[30%] transition-all duration-500 ease-in-out mb-3 rounded-full shadow-lg" src="{{ asset('img/chandansah.png')}}" alt="Bonnie image"/>
                         <h5 class="mb-1 text-xl group-hover:scale-150 group-hover:-translate-y-[100%] transition-all duration-500 ease-in-out font-medium text-gray-900 dark:text-white">Chandan Sah</h5>
-                        <span class="text-sm text-gray-500 dark:text-gray-400 ">LED tv engineer</span>
+                        <span class="text-sm text-gray-500 dark:text-gray-400">LED tv engineer</span>
                         <span class="text-lg text-gray-500 dark:text-gray-400 mt-3 "> <span class="">experience:</span> 17 Years</span>
                     </div>
                 </div>
@@ -109,22 +109,23 @@
             </div>
         </div>
     </div>
+    <hr class="my-0" style="color: #5e5b5b !important;">
 
      <!-- Footer Section -->
      <div class="background-footer mt-2">
         <div class="container pt-5 pb-2">
-            <div class="row justify-content-center pt-3 all_text-center">
+            <div class="row pt-3 all_text-center justify-center items-center lg:px-20">
                 <div class="col-lg-4 col-md-6 col-12 mb-4">
                     <div class="pl-0">
-                        <a href="#" class="nav-link p-0"><img src="Assets/logo-black.png" class="img-logo"
+                        <a href="#" class="nav-link p-0"><img src="Assets/logo-black.png" class="img-logo w-[200px]"
                                 alt="logo"></a>
                     </div>
                     <ul class="navbar-nav pt-3">
                         <li class="nav-item py-1"><a href="{{ route('home.warranty') }}" class="nav-lnk footer--art">Warranty Policy</a></li>
-                        <li class="nav-item py-1"><a href="#" class="nav-lnk footer--art">Terms & Conditions</a>
+                        <li class="nav-item py-1"><a href="{{route('home.termsAndCondition')}}" class="nav-lnk footer--art">Terms & Conditions</a>
                         </li>
                         <li class="nav-item py-1"><a href="{{ route('home.privacyPolicy') }}" class="nav-lnk footer--art">Privacy Policy</a></li>
-                        <li class="nav-item py-1"><a href="#" class="nav-lnk footer--art">Our Team</a></li>
+                        <li class="nav-item py-1"><a href="{{ route('home.ourTeam')}}" class="nav-lnk footer--art">Our Team</a></li>
 
                     </ul>
                 </div>

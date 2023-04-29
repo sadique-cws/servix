@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="{{ asset('index.css') }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="{{ asset('Assets/favicon.png') }}" type="image/x-icon">
-    <title>@yield('title') {{ env('APP_NAME') }} - Laptop Desktop Printer Smartphone Reparing Center in Purnea</title>
+    <link rel="shortcut icon" href="{{ asset('Assets/faviconn.png') }}" type="image/x-icon">
+    <title>@yield('title') {{ env('APP_NAME') }} - Contact us</title>
     {{-- <link href="../unpkg.com/aos%402.3.1/dist/aos.css" rel="stylesheet">
     <script src="../unpkg.com/aos%402.3.1/dist/aos.js"></script> --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -37,7 +37,7 @@
         <nav class="navbar navbar-expand-lg navbar-light ">
             <div class="container">
                 <a href="{{ route('home') }}" class="navbar-brand" href="#">
-                    <img src="Assets/logo-black.png" class="img-logo" alt="logo">
+                    <img src="Assets/logo-black.png" class="img-logo ml-16" alt="logo">
                 </a>
                 <button data-collapse-toggle="navbar-dropdown" type="button" aria-controls="navbar-dropdown" aria-expanded="false" class="md:hidden ">
                     <span class="navbar-toggler-icon"></span>
@@ -212,7 +212,7 @@
     <!-- Footer Section -->
         <div class="background-footer mt-2">
             <div class="container pt-5 pb-2">
-                <div class="row justify-content-center pt-3 all_text-center">
+                <div class="row justify-content-center pt-3 all_text-center lg:px-20">
                     <div class="col-lg-4 col-md-6 col-12 mb-4">
                         <div class="pl-0">
                             <a href="#" class="nav-link p-0"><img src="Assets/logo-black.png" class="img-logo"
@@ -223,7 +223,7 @@
                             <li class="nav-item py-1"><a href="{{ route('home.termsAndCondition')}}" class="nav-lnk footer--art">Terms & Conditions</a>
                             </li>
                             <li class="nav-item py-1"><a href="{{ route('home.privacyPolicy') }}" class="nav-lnk footer--art">Privacy Policy</a></li>
-                            <li class="nav-item py-1"><a href="#" class="nav-lnk footer--art">Our Team</a></li>
+                            <li class="nav-item py-1"><a href="{{route ('home.ourTeam')}}" class="nav-lnk footer--art">Our Team</a></li>
 
                         </ul>
                     </div>

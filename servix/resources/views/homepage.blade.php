@@ -1,5 +1,7 @@
 @extends('layouts.layout')
-
+@section('title')
+    servixc -
+@endsection
 @section('contents')
 
     <div class="container" style="margin-top: 200px;">

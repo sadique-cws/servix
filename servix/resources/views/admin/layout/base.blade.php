@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Admin | Dashboard</title>
 
-    <link rel="shortcut icon" href="{{ asset('Assets/favicon.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('Assets/faviconn.png') }}" type="image/x-icon">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -819,8 +819,7 @@
             © <script type="text/JavaScript"> 
                 var theDate=new Date() 
                 document.write(theDate.getFullYear()) 
-          </script> All rights reserved. Developer team - <a href="">Aditya Sekhar</a> | <a href="https://github.com/wasik...">Wasik Alam</a> and <a href="https://github.com/LazyDeveloperr">LazyDeveloper</a>
-
+            </script> All rights reserved. Developer team -  <a href="https://github.com/aditya-shekhar773">Aditya Sekhar</a> - <a href="https://github.com/md-wasik-alam">Wasik Alam</a> and <a href="https://github.com/LazyDeveloperr">intkhab Ahmad</a>
         </footer>
 
         <!-- Control Sidebar -->

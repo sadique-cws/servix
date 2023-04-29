@@ -1,5 +1,7 @@
 @extends('layouts.layout')
-
+@section('title')
+    successfully raised -
+@endsection
 @section('contents')
     <div class="container mt-5 py-1">
             <div class="row mt-5 py-5">

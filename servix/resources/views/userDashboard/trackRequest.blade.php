@@ -112,6 +112,7 @@
 @endsection
 
 @section('footer')
+ 
 @endsection
 
 
