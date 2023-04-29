@@ -15,7 +15,6 @@
                     <a href="{{ route('request.all') }}" role="button" class="btn btn-primary btn-sm">Go Back</a>
                 </div>
             </div>
-
             <form action="{{ route('request.update', $data['id']) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="row ">

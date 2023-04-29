@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('title')
-    servixc -
+{{ env('APP_NAME') }} - Laptop Desktop Printer Smartphone Reparing Center in Purnea
 @endsection
 @section('contents')
 

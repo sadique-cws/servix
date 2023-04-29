@@ -1,5 +1,7 @@
 @extends('layouts.layout')
-@section('title') Request For Repair - @endsection
+@section('title') 
+{{ env('APP_NAME') }} - Request For Repair
+@endsection
 
 @section('contents')
     <div class="container mt-5">

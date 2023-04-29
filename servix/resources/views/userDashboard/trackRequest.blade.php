@@ -1,5 +1,7 @@
 @extends('layouts.layout')
-
+@section('title')
+{{ env('APP_NAME') }} - Track Request
+@endsection
 @section('contents')
     <div class="" style="margin-top: 10%">
         <!-- Button to Open the Modal -->

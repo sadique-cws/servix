@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('title')
-    Track Request -
+{{ env('APP_NAME') }} - Track Request
 @endsection
 @section('contents')
     <div class="container mt-5">
