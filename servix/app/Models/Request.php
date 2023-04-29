@@ -35,7 +35,7 @@ class Request extends Model
             return "Deassemble";
             break;
         case 2.2:
-            return "Repair";
+            return "Repiring in progress ";
             break;
         case 2.3:
             return "Assemble";

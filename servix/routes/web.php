@@ -73,6 +73,11 @@ Route::prefix("admin")->group(function () {
         Route::get('/listRequest/workDone','workDoneRequests')->name('admin.workDone.req');
         Route::get('/listRequest/delivered','deliveredRequest')->name('admin.delivered.req');
 
+         // filter 
+         Route::get("/request/datefilter","dateFilter")->name("admin.request.filterbydate");
+         Route::get("/request/filterbyselect","filterBySelect")->name("admin.request.filterbyselect");
+         Route::get("/request/filterbyinput","filterByInput")->name("admin.request.filterbyinput");
+
             Route::get('/Allreceptioner',[ReceptionerController::class, 'showAllreceptioner'])->name('receptioner.showAllreceptioner');
             Route::match(['post','get'],'/AddReceptioner',[ReceptionerController::class,"AddReceptioner"])->name('receptioner.add');
             Route::get('/EditReceptioner/{id}',[ReceptionerController::class,"EditReceptioner"])->name('receptioner.edit');

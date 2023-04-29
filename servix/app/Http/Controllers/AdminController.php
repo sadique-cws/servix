@@ -179,7 +179,7 @@ class AdminController extends Controller
         $date = \Carbon\Carbon::createFromFormat('Y-m-d', $req->End);
         $date->addDays();
         $formattedDate = $date->format('Y-m-d');
-        $data['new']= RequestModel::select("*")->whereBetween('created_at', [$req->startAt, $formattedDate])->where('technician_id',NULL)
+        $data['new']= RequestModel::select("*")->whereBetween('created_at', [$req->startAt, $formattedDate])
                                     ->get();
         $data['title']="Date between Request";
         return view('admin/allnewRequest', $data);
@@ -197,37 +197,37 @@ class AdminController extends Controller
 
         switch ($req->dateFilter) {
             case 'today':
-                $data['new']=RequestModel::whereDate('created_at',Carbon::today())->where('technician_id',NULL)->get();
+                $data['new']=RequestModel::whereDate('created_at',Carbon::today())->get();
                 $data['title']="Today Request";
                 
                 break;
             case 'yesterday':
-                $data['new']=RequestModel::whereDate('created_at',Carbon::yesterday())->where('technician_id',NULL)->get();
+                $data['new']=RequestModel::whereDate('created_at',Carbon::yesterday())->get();
                 $data['title']="yesterday Request";
                 break;
             case 'this_week':
-                $data['new']=RequestModel::whereBetween('created_at',[Carbon::now()->startOfWeek(),Carbon::now()->endOfWeek()])->where('technician_id',NULL)->get();
+                $data['new']=RequestModel::whereBetween('created_at',[Carbon::now()->startOfWeek(),Carbon::now()->endOfWeek()])->get();
                 $data['title']="This Week Request";
                 break;
             case 'this_month':
-                $data['new']=RequestModel::whereMonth('created_at',Carbon::now()->month)->where('technician_id',NULL)->get();
+                $data['new']=RequestModel::whereMonth('created_at',Carbon::now()->month)->get();
                 $data['title']="This Month Request";
                 break;
             case 'last_month':
-                $data['new']=RequestModel::whereMonth('created_at',Carbon::now()->subMonth()->month)->where('technician_id',NULL)->get();
+                $data['new']=RequestModel::whereMonth('created_at',Carbon::now()->subMonth()->month)->get();
                 $data['title']="Last Month Request";
                 break;
             case 'this_year':
-                $data['new']=RequestModel::whereYear('created_at',Carbon::now()->year)->where('technician_id',NULL)->get();
+                $data['new']=RequestModel::whereYear('created_at',Carbon::now()->year)->get();
                 $data['title']="This Year Request";
                 break;
             case 'last_year':
-                $data['new']=RequestModel::whereYear('created_at',Carbon::now()->subYear()->year)->where('technician_id',NULL)->get();
+                $data['new']=RequestModel::whereYear('created_at',Carbon::now()->subYear()->year)->get();
                 $data['title']="Last Year Request";
                 break;
             
             default:
-                $data['new'] = RequestModel::where('technician_id',NULL)->get();
+                $data['new'] = RequestModel::all();
                 $data['title']="All New Request";
             
                 break;
@@ -239,7 +239,7 @@ class AdminController extends Controller
     public function filterByInput(Request $req){
        
         $data['search_value']=$req->search;
-        $data['new']=RequestModel::where("technician_id",NULL)->where('owner_name',"LIKE","%".$req->search."%")->get();
+        $data['new']=RequestModel::where('owner_name',"LIKE","%".$req->search."%")->get();
         $data['title']='Search Record';
         $data['dateFilter']='All';
         return view('admin/allnewRequest',$data);
@@ -293,5 +293,6 @@ class AdminController extends Controller
         return view('admin/requests',$data);
     }
 
+    
     
 }
