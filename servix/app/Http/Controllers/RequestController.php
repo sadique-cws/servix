@@ -64,7 +64,7 @@ class RequestController extends Controller
     public function newRequests(){
         $user = Auth::guard('staff')->user();
         $data['allRequests'] = RequestModel::where('type_id',$user->type_id)
-                                        ->where('technician_id',NULL)->where('status','initial stage')->orderBy('created_at', 'DESC')->get();
+                                        ->where('technician_id',NULL)->orderBy('created_at', 'DESC')->get();
         $data['title'] = "New Request";
         return view("staff.requests",$data);
     }
