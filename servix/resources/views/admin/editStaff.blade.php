@@ -108,15 +108,7 @@
                                 placeholder="">
                         </div>
                     </div>
-                    <div class="w-full px-3 mb-5 col">
-                        <label for="" class="text-black-100">Password</label>
-                        <div class="flex">
-                            <input type="password" name="password"  class="form-control">
-                        </div>
-                        @error('password')
-                            <p class="text-error">{{ $message }}</p>
-                        @enderror
-                    </div>
+                    
                 </div>
                 <div class="row">
                     <div class="w-full px-3 mb-5 col">

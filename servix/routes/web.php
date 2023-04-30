@@ -50,6 +50,7 @@ Route::prefix("admin")->group(function () {
       
             Route::post("/staff/create","staffUpload")->name("admin.staff.store");
             Route::get("/staff/delete/{id}","delete")->name("admin.staff.delete");
+            Route::get("/staff/Crmdelete/{id}","crmDelete")->name("admin.crm.delete");
             Route::get("/staff/edit/{id}","editStaff")->name('admin.staff.edit');
             Route::get("/staff/view/{id}","viewStaff")->name('admin.staff.view');
             Route::post("/staff/update/{id}","update")->name('admin.staff.update');

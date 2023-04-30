@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Print Receipt - {{$item->owner_name}}</title>
+    <title>Print Receipt - {{ $item->owner_name }}</title>
     <link rel="shortcut icon" href="{{ asset('Assets/faviconn.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+    </script>
     <link rel="stylesheet" href="{{ asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
     <!-- Google Font: Source Sans Pro -->
@@ -31,8 +34,10 @@
     <!-- Daterange picker -->
     <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}">
     <!-- summernote -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
+
 <body>
     <div class="container-fluid mt-5">
         <div class="card">
@@ -42,36 +47,35 @@
                         <div class="row">
                             <div class="col-xl-9">
                                 <p style="color: #7e8d9f;font-size: 20px;">Receipt No: <strong
-                                        class="text-uppercase">SX-{{ $item->id }}-{{$item->type->id}}
+                                        class="text-uppercase">SX-{{ $item->id }}-{{ $item->type->id }}
                                     </strong></p>
-                                    
+
                             </div>
                             <div class="col-xl-3 float-end d-print-none">
-                                <a type="button" onclick="window.print()"  id="print-button" class="btn btn-light text-capitalize border-0"
-                                    data-mdb-ripple-color="dark"><i
+                                <a href="{{  url()->previous() }}" class="btn btn-light text-capitalize"
+                                    data-mdb-ripple-color="dark"><i class="fa fa-arrow-left text-danger"></i>
+                                    back</a>
+                                <a type="button" onclick="window.print()" id="print-button"
+                                    class="btn btn-light text-capitalize border-0" data-mdb-ripple-color="dark"><i
                                         class="fas fa-print text-primary"></i>
                                     Print</a>
-                                <a href="{{ route('receipt.pdf', $item->id) }}" class="btn btn-light text-capitalize"
-                                    data-mdb-ripple-color="dark"><i
-                                        class="far fa-file-pdf text-danger"></i>
-                                    Export</a>
+
                             </div>
-                            <hr/>
+                            <hr />
                         </div>
-        
+
                         <div class="modal-body">
                             <div class="container">
                                 <div class="col-md-12">
                                     <div class="text-center">
-                                        <img src="../../Assets/logo-black.png"
-                                            style="color:#5d9fc5 ;">
+                                        <img src="../../Assets/logo-black.png" width="20%">
                                         <p class="pt-0">
                                             servicxteam@gmail.com</p>
                                     </div>
-        
+
                                 </div>
-        
-        
+
+
                                 <div class="row">
                                     <div class="col-md-8">
                                         <ul class="list-unstyled">
@@ -80,28 +84,25 @@
                                             </li>
                                             {{-- <li class="text-muted">Street, City</li>
                         <li class="text-muted">State, Country</li> --}}
-                                            <li class="text-muted"><i
-                                                    class="fas fa-phone"></i> {{ $item->contact }}
+                                            <li class="text-muted"><i class="fas fa-phone"></i> {{ $item->contact }}
                                             </li>
-                                            <li class="text-muted"><i
-                                                    class="bi bi-envelope"></i> {{ $item->email }}
+                                            <li class="text-muted"><i class="bi bi-envelope"></i> {{ $item->email }}
                                             </li>
-                                            
+
                                         </ul>
                                     </div>
                                     <div class="col-md-4">
                                         {{-- <p class="text-muted"></p> --}}
                                         <ul class="list-unstyled">
-                                            <li class="text-muted"><i class="fas fa-map-marker" style="color:#84B0CA ;"></i> <span
-                            class="fw-bold">Servixc</span> <br>
-                            Zila School Road, Near BSNL tower, <br> Purnea (Bihar) - 854301
-                        </li>
-                        <li class="text-muted"><i class="fas fa-phone" style="color:#84B0CA ;"></i> <span
-                            class="fw-bold">(+91) 7856802002</span>
-                        </li>
-                                            <li class="text-muted"><i
-                                                    class="fas fa-circle"
-                                                    style="color:#84B0CA ;"></i>
+                                            <li class="text-muted"><i class="fas fa-map-marker"
+                                                    style="color:#84B0CA ;"></i> <span class="fw-bold">Servixc</span>
+                                                <br>
+                                                Zila School Road, Near BSNL tower, <br> Purnea (Bihar) - 854301
+                                            </li>
+                                            <li class="text-muted"><i class="fas fa-phone" style="color:#84B0CA ;"></i>
+                                                <span class="fw-bold">(+91) 7856802002</span>
+                                            </li>
+                                            <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i>
                                                 <span class="fw-bold">Creation
                                                     Date:
                                                 </span>{{ date('d M Y', strtotime($item->created_at)) }}
@@ -117,56 +118,57 @@
                                         </ul>
                                     </div>
                                 </div>
-        
-                                <div
-                                    class="row my-2 mx-1 justify-content-center">
-                                    <table
-                                        class="table table-striped table-bordered">
+
+                                <div class="row my-2 mx-1 justify-content-center">
+                                    <table class="table table-striped table-bordered">
                                         <tbody>
                                             <tr>
                                                 <th scope="col">Name</th>
                                                 <td class="text-uppercase">
-                                                    {{$item->owner_name}}
+                                                    {{ $item->owner_name }}
                                                 </td>
                                                 <th scope="col">Service code</th>
                                                 <td class="text-uppercase">
-                                                    <h4 class="m-0 text-info">{{$item->service_code}}</h4>
+                                                    <h4 class="m-0 text-info">{{ $item->service_code }}</h4>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                
+
                                                 <th scope="col">Problem</th>
-                                                <td class="text-uppercase">{{$item->problem}}</td>
-                                            
+                                                <td class="text-uppercase">{{ $item->problem }}</td>
+
                                                 <th scope="col">brand</th>
-                                                <td class="text-uppercase">{{$item->brand}}</td>
+                                                <td class="text-uppercase">{{ $item->brand }}</td>
                                             </tr>
                                             <tr>
-                                           
+
                                                 <th scope="col">Type</th>
-                                                <td class="text-uppercase">{{$item->type->typename}}</td>
+                                                <td class="text-uppercase">{{ $item->type->typename }}</td>
                                                 <th scope="col">S.N</th>
-                                                <td class="text-uppercase">{{$item->serial_no}}</td>
+                                                <td class="text-uppercase">{{ $item->serial_no }}</td>
                                             </tr>
                                             <tr>
                                                 <th scope="col">MAC</th>
-                                                <td class="text-uppercase">{{$item->MAC}}</td>
+                                                <td class="text-uppercase">{{ $item->MAC }}</td>
                                                 <th scope="col">Color</th>
-                                                <td class="text-uppercase">{{$item->color}}</td>
+                                                <td class="text-uppercase">{{ $item->color }}</td>
                                             </tr>
                                             <tr>
                                                 <th scope="col">Model No</th>
-                                                <td class="text-uppercase">{{$item->product_name}}</td>
+                                                <td class="text-uppercase">{{ $item->product_name }}</td>
                                                 <th scope="col">Est Delivery Date</th>
-                                                <td class="text-uppercase">{{date('d M Y', strtotime($item->estimate_delivery))}}</td>
-        
+                                                <td class="text-uppercase">
+                                                    {{ date('d M Y', strtotime($item->estimate_delivery)) }}</td>
+
                                             </tr>
                                             <tr>
                                                 <th scope="col">Status</th>
-                                                <td class="text-uppercase text-{{StatusColor($item->status)}}">{{$item->getStatus()}}</td>
+                                                <td class="text-uppercase text-{{ StatusColor($item->status) }}">
+                                                    {{ $item->getStatus() }}</td>
                                                 <th scope="col">Remark</th>
-                                                <td class="text-uppercase">{{($item->remark==null)?"N/A":$item->remark}}</td>
-        
+                                                <td class="text-uppercase">
+                                                    {{ $item->remark == null ? 'N/A' : $item->remark }}</td>
+
                                             </tr>
                                         </tbody>
                                     </table>
@@ -175,7 +177,7 @@
                                     <div class="col-xl-8">
                                         <p class="ms-3">Add additional notes
                                             and payment information</p>
-        
+
                                     </div>
                                     {{-- <div class="col-xl-3">
                                         <ul class="list-unstyled">
@@ -200,53 +202,56 @@
                                         <p>Thank you for your visiting</p>
                                     </div>
                                     <div class="col-xl-2 mt-4">
-                                          <h6>Sign & Stamp</h6>
+                                        <h6>Sign & Stamp</h6>
                                     </div>
                                 </div>
-        
+
                             </div>
                         </div>
                     </div>
                 </div>
-        
+
             </div>
         </div>
     </div>
-      <!-- jQuery -->
-      <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
-      <!-- jQuery UI 1.11.4 -->
-      <script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js') }}"></script>
-      <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-      <script>
-          $.widget.bridge('uibutton', $.ui.button)
-      </script>
-      <!-- Bootstrap 4 -->
-      <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-      <!-- ChartJS -->
-      <script src="{{ asset('plugins/chart.js/Chart.min.js') }}"></script>
-      <!-- Sparkline -->
-      <script src="{{ asset('plugins/sparklines/sparkline.js') }}"></script>
-      <!-- JQVMap -->
-      <script src="{{ asset('plugins/jqvmap/jquery.vmap.min.js') }}"></script>
-      <script src="{{ asset('plugins/jqvmap/maps/jquery.vmap.usa.js') }}"></script>
-      <!-- jQuery Knob Chart -->
-      <script src="{{ asset('plugins/jquery-knob/jquery.knob.min.js') }}"></script>
-      <!-- daterangepicker -->
-      <script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
-      <script src="{{ asset('plugins/daterangepicker/daterangepicker.js') }}"></script>
-      <!-- Tempusdominus Bootstrap 4 -->
-      <script src="{{ asset('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
-      <!-- Summernote -->
-      <script src="{{ asset('plugins/summernote/summernote-bs4.min.js') }}"></script>
-      <!-- overlayScrollbars -->
-      <script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
-      <!-- AdminLTE App -->
-      <script src="{{ asset('dist/js/adminlte.js') }}"></script>
-      <!-- AdminLTE for demo purposes -->
-      {{-- <script src="{{ asset("dist/js/demo.js") }}"></script> --}}
-      <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-      <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
-      <script src="{{ asset('js/printThis.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <!-- jQuery -->
+    <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button)
+    </script>
+    <!-- Bootstrap 4 -->
+    <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <!-- ChartJS -->
+    <script src="{{ asset('plugins/chart.js/Chart.min.js') }}"></script>
+    <!-- Sparkline -->
+    <script src="{{ asset('plugins/sparklines/sparkline.js') }}"></script>
+    <!-- JQVMap -->
+    <script src="{{ asset('plugins/jqvmap/jquery.vmap.min.js') }}"></script>
+    <script src="{{ asset('plugins/jqvmap/maps/jquery.vmap.usa.js') }}"></script>
+    <!-- jQuery Knob Chart -->
+    <script src="{{ asset('plugins/jquery-knob/jquery.knob.min.js') }}"></script>
+    <!-- daterangepicker -->
+    <script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
+    <script src="{{ asset('plugins/daterangepicker/daterangepicker.js') }}"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="{{ asset('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
+    <!-- Summernote -->
+    <script src="{{ asset('plugins/summernote/summernote-bs4.min.js') }}"></script>
+    <!-- overlayScrollbars -->
+    <script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
+    <!-- AdminLTE App -->
+    <script src="{{ asset('dist/js/adminlte.js') }}"></script>
+    <!-- AdminLTE for demo purposes -->
+    {{-- <script src="{{ asset("dist/js/demo.js") }}"></script> --}}
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
+    <script src="{{ asset('js/printThis.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+    </script>
 </body>
+
 </html>
