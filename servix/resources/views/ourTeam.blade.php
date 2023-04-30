@@ -33,45 +33,48 @@
         <nav class="navbar navbar-expand-lg navbar-light ">
             <div class="container">
                 <a href="{{ route('home') }}" class="navbar-brand" href="#">
-                    <img src="Assets/logo-black.png" class="img-logo w-[480px] px-16 " alt="logo">
+                    <img src="Assets/logo-black.png" class="img-logo ml-16 h-8" alt="logo"/>
                 </a>
-                <button data-collapse-toggle="navbar-dropdown" type="button" aria-controls="navbar-dropdown" aria-expanded="false" class="md:hidden ">
+
+                <button data-bs-toggle="collapse" data-bs-target="#navbar-dropdown" type="button" aria-controls="navbar-dropdown" aria-expanded="false" className="lg:hidden md:block ">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="hidden w-full md:block " id="navbar-dropdown">
-                    <ul class="navbar-nav justify-content-end float ms-auto d-flex gap-2">
-                        <li class=" pt-2 float-rightt ">
-                            <button type="button" class="btn" style="">
-                                <a class="nav_link btn-block" href="{{ route('home.contact') }}">Contact</a>
-                            </button>
-                        </li>
-                        <li class=" pt-2 float-right ">
-                            <button type="button" class="btn" style="">
-                                <a class="nav_link btn-block" href="{{ route('home.learn') }}">Learn</a>
-                            </button>
-                        </li>
-                        <li class=" pt-2 float-right ">
-                            <button type="button" class="btn" style="">
-                                <a class="nav_link " href="{{ route('track.status') }}">Track-Status</a>
-                            </button>
-                        </li>
-                        <li class=" pt-2 float-right ">
-                            <button class="btn btn-block " style="background-color: #e87605;">
-                                <a class="nav_link text-white" href="{{ route('request.form') }}">Request form</a>
-                            </button>
-                        </li>
-                    </ul>
+                <div class="hidden sm:hidden lg:w-full lg:inline-block lg:flex lg:flex-row " id="navbar-dropdown">
+                        <ul class="navbar-nav justify-content-end float ms-auto d-flex gap-2">
+                            <li class=" pt-2 float-rightt ">
+                                <button type="button" class="btn" style="">
+                                    <a class="nav_link btn-block text-2xl" href="{{ route('home.contact') }}">Contact</a>
+                                </button>
+                            </li>
+                            <li class=" pt-2 float-right ">
+                                <button type="button" class="btn" style="">
+                                    <a class="nav_link btn-block text-2xl" href="{{ route('home.learn') }}">Learn</a>
+                                </button>
+                            </li>
+                            <li class=" pt-2 float-right ">
+                                <button type="button" class="btn" style="">
+                                    <a class="nav_link  text-2xl" href="{{ route('track.status') }}">Track-Status</a>
+                                </button>
+                            </li>
+                            <li class=" pt-2 float-right ">
+                                <button class="btn btn-block " style="background-color: #e87605;">
+                                    <a class="nav_link text-white text-xl" href="{{ route('request.form') }}">Request form</a>
+                                </button>
+                            </li>
+                        </ul>
                 </div>
+            </div>
         </nav>
     </div>
     {{-- cards section --}}
     <div class="-mt-10 ">
-        <div class="h-100 justify-center items-center px-6 backdrop-blur">
+        <div class="h-100 justify-center items-center px-6  backdrop-blur">
             <div class="pt-[180px] text-center items-center text-center text-[35px] font-semibold tracking-widest text-gray-800">
                 <p>About Us</p>
             </div>
-            <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 gap-2 min-w-full px-[100px] pt-10 pb-36">
-                <div class="group w-full max-w-sm group-hover:items-center bg-slate-300 border border-gray-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
+
+            <div class="grid justify-center gap-2 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 xs:grid-cols-1 min-w-full pt-10 pb-36 md:px-5">
+                <div class="group w-full max-w-sm  group-hover:items-center bg-slate-300 border border-gray-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
                     <div class="flex flex-col items-center py-4">
                         <img class="w-[200px] h-[200px] group-hover:-translate-y-[30%] transition-all duration-500 ease-in-out mb-3 rounded-full shadow-lg" src="{{ asset('img/nirmalsah.png')}}" alt="Bonnie image"/>
                         <h5 class="mb-1 text-xl group-hover:scale-150 group-hover:-translate-y-[100%] transition-all duration-500 ease-in-out font-medium text-gray-900 dark:text-white">Nirmal Sah</h5>
@@ -108,6 +111,7 @@
             </div>
         </div>
     </div>
+    <div class="" id="root"></div>
     <hr class="my-0" style="color: #5e5b5b !important;">
 
      <!-- Footer Section -->

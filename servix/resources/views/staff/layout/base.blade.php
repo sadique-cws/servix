@@ -443,7 +443,7 @@
             
         </div>
         <!-- /.content-wrapper -->
-        <footer class="main-footer ">
+        <footer class="main-footer fw-bolder">
             © <script type="text/JavaScript"> 
                 var theDate=new Date() 
                 document.write(theDate.getFullYear()) 
