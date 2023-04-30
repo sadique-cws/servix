@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@section('title') Learn - @endsection
+@section('title'){{ env('APP_NAME') }} - Warrenty @endsection
 @section('contents')
 <div class="experience_back py-5">
     <div class="container py-5">

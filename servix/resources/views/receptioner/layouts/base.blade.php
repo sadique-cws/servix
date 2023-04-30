@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CRM | {{ env('APP_NAME') }}</title>
+    <link rel="shortcut icon" href="{{ asset('Assets/faviconn.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -65,7 +66,7 @@
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <!-- Navbar Search -->
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" data-widget="navbar-search" href="#" role="button">
                         <i class="fas fa-search"></i>
                     </a>
@@ -85,7 +86,7 @@
                             </div>
                         </form>
                     </div>
-                </li>
+                </li> --}}
 
                 <!-- Messages Dropdown Menu -->
                 {{-- <li class="nav-item dropdown">
@@ -238,7 +239,7 @@
                                 <p>
                                     New Request
                                     <span
-                                        class="right badge badge-danger">{{ countNewRequest(auth()->user()->type_id) }}</span>
+                                        class="right badge badge-danger">{{ $NewCountReq }}</span>
                                 </p>
                             </a>
                         </li>
@@ -288,6 +289,13 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
+                                    <a href="{{ route('crm.workDone.req') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p> Work Done</p>
+                                        <span class="badge badge-info right">{{$WorkdoneCountReq}}</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
                                     <a href="{{ route('crm.delivered.req') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p> Delivered</p>
@@ -332,6 +340,10 @@
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">
+            © <script type="text/JavaScript"> 
+                var theDate=new Date() 
+                document.write(theDate.getFullYear()) 
+            </script> All rights reserved. Developer team -  <a href="https://github.com/aditya-shekhar773">Aditya Sekhar</a> - <a href="https://github.com/md-wasik-alam">Wasik Alam</a> and <a href="https://github.com/LazyDeveloperr">intkhab Ahmad</a>
 
         </footer>
 

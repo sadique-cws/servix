@@ -1,18 +1,15 @@
-@extends('staff.layout.base')
+@extends('admin.layout.base')
 
 @section('content')
-    <div class="row ">
-        <div class="col-12">
-            <div class="card h-100">
-
-
-                {{-- card header --}}
+    <div class="row">
+        <div class="col-12 ">
+            <div class="card">
                 <div class="card-header d-flex flex-column">
 
                     <h3 class="card-title mb-3">{{ $title }}</h3>
                     <div class="d-flex justify-content-between align-items-center" style="gap:15px">
 
-                        <form action="{{ route('staff.request.filterbyinput') }}">
+                        <form action="{{ route('admin.request.filterbyinput') }}">
                             <div class="input-group" style="width: 300px;">
                                 <input type="text" name="search" value="{{ $search_value }}"
                                     class="form-control float-right w-25"placeholder="Search">
@@ -29,7 +26,7 @@
                         {{-- date and time filter --}}
 
                         <div class=" d-flex" style="gap:10px">
-                            <form action="{{ route('staff.request.filterbydate') }}" method="get" class="">
+                            <form action="{{ route('admin.request.filterbydate') }}" method="get" class="">
                                 <div class="d-flex justify-centent-center" style="gap:10px">
                                     <div class="input-group" inline="true">
                                         <div class="input-group-prepend">
@@ -52,7 +49,7 @@
                                 </div>
                             </form>
                             {{-- select to filter  --}}
-                            <form action="{{ route('staff.request.filterbyselect') }}" method="get">
+                            <form action="{{ route('admin.request.filterbyselect') }}" method="get">
                                 <select onchange="this.form.submit();" class="form-control" name='dateFilter'>
                                     <option selected>All</option>
                                     <option {{ $dateFilter == 'today' ? 'selected' : '' }} value="today">Today</option>
@@ -76,201 +73,52 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- /.card-header -->
-                <div class="card-body table-responsive p-0 " style="height: 61vh !important">
-                    <table class="table table-hover text-nowrap ">
+                <div class="card-body table-responsive p-0" style="height: 61vh !important">
+                    <table class="table table-hover text-nowrap">
                         <thead>
                             <tr>
-                                <th>S CODE</th>
-                                <th>owner_name</th>
-                                <th>product_name</th>
+
+                                <th>Service code</th>
+                                <th>Owner name</th>
+                                <th>Product name</th>
+
                                 <th>Contact</th>
-                                <th>color</th>
-                                <th>brand</th>
-                                <th>problem</th>
-                                <th>Status</th>
-                                <th>type</th>
-                                <th>Remark</th>
+                                <th>Type</th>
 
+                                <th>Problem</th>
+                                <th>status</th>
                                 <th>Action</th>
-
-
                             </tr>
                         </thead>
-                        <tbody class="">
-                            @foreach ($allRequests as $item)
+                        <tbody>
+                            @foreach ($new as $item)
                                 <tr>
-                                    <td class="text-uppercase text-success fw-bold">{{ $item->service_code }}</td>
+
+                                    <td class="text-uppercase">{{ $item->service_code }}</td>
                                     <td>{{ $item->owner_name }}</td>
                                     <td>{{ $item->product_name }}</td>
+
                                     <td>{{ $item->contact }}</td>
-                                    <td>{{ $item->color }}</td>
-                                    <td>{{ $item->brand }}</td>
+                                    <td>
+                                        {{ $item->type->typename }}
+                                        {{-- <span class="font-weight-bold">({{ $item->technician->name }})</span> --}}
+                                    </td>
                                     <td>{{ $item->problem }}</td>
                                     <td>{{ $item->getStatus() }}</td>
-                                    <td>{{ $item->type->typename }}</td>
-                                    <td>{{ $item->remark }}</td>
+                                    <td>
 
-                                    <td class="border border-slate-700 p-1.5  items-center justify-center flex btn-group"
-                                        role="group">
-                                        <div class="btn-group" role="group"
-                                            aria-label="Button group with nested dropdown">
-
-
-                                            <div class="btn-group" role="group">
-                                                <button type="button" class="btn btn-primary dropdown-toggle"
-                                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                                    Action
-                                                </button>
-                                                <ul class="dropdown-menu text-center " style="z-index:6;">
-
-                                                    {{-- Conform button --}}
-
-                                                    @switch($item->status)
-                                                        @case(0)
-                                                            <li>
-                                                                <a role="button" href="{{ route('request.confirm', $item->id) }}"
-                                                                    class="btn btn-success dropdown-item" href="">Confirm</a>
-                                                            </li>
-                                                            <li> <a role="button" class="btn btn-success dropdown-item"
-                                                                    href="{{ route('request.edit', $item->id) }}">Edit</a>
-                                                            </li>
-                                                        @break
-
-                                                        @case(1)
-                                                            <li>
-                                                                <a role="button"
-                                                                    href="{{ route('request.workProgress', $item->id) }}"
-                                                                    class="btn btn-success dropdown-item" href="">Work in
-                                                                    progress</a>
-                                                            </li>
-                                                            <li> <a role="button" class="btn btn-success dropdown-item"
-                                                                    href="{{ route('request.edit', $item->id) }}">Edit</a>
-                                                            </li>
-                                                        @break
-
-                                                        @case(2)
-                                                            <li>
-                                                                <a role="button"
-                                                                    href="{{ route('request.deassemble', $item->id) }}"
-                                                                    class="btn btn-success dropdown-item"
-                                                                    href="">deassemble</a>
-                                                            </li>
-                                                            <li> <a role="button" class="btn btn-success dropdown-item"
-                                                                    href="{{ route('request.edit', $item->id) }}">Edit</a>
-                                                            </li>
-                                                        @break
-
-                                                        @case(2.1)
-                                                            <li>
-                                                                <a role="button" href="{{ route('request.repair', $item->id) }}"
-                                                                    class="btn btn-success dropdown-item"
-                                                                    href="">Reparing</a>
-                                                            </li>
-                                                            <li> <a role="button" class="btn btn-success dropdown-item"
-                                                                    href="{{ route('request.edit', $item->id) }}">Edit</a>
-                                                            </li>
-                                                        @break
-
-                                                        @case(2.2)
-                                                            <li>
-                                                                <a role="button"
-                                                                    href="{{ route('request.assemble', $item->id) }}"
-                                                                    class="btn btn-success dropdown-item"
-                                                                    href="">Assemble</a>
-                                                            </li>
-                                                            <li> <a role="button" class="btn btn-danger dropdown-item"
-                                                                    data-bs-toggle="modal"
-                                                                    data-bs-target="#reject{{ $item->id }}">Reject</a>
-                                                            </li>
-                                                            <li> <a role="button" class="btn btn-success dropdown-item"
-                                                                    href="{{ route('request.edit', $item->id) }}">Edit</a>
-                                                            </li>
-                                                        @break
-
-                                                        @case(2.3)
-                                                            <li>
-                                                                <a role="button" href="{{ route('request.workDone', $item->id) }}"
-                                                                    class="btn btn-success dropdown-item"
-                                                                    href="">Work Done</a>
-                                                            </li>
-                                                            <li> <a role="button" class="btn btn-danger dropdown-item"
-                                                                data-bs-toggle="modal"
-                                                                data-bs-target="#reject{{ $item->id }}">Reject</a>
-                                                        </li>
-                                                            <li> <a role="button" class="btn btn-success dropdown-item"
-                                                                    href="{{ route('request.edit', $item->id) }}">Edit</a>
-                                                            </li>
-                                                        @break
-
-                                                        @case(3)
-                                                            <li> <a role="button" class="btn btn-warning dropdown-item"
-                                                                    href="{{ route('request.pending', $item) }}">Pending</a>
-                                                            </li>
-                                                            <li> <a role="button" class="btn btn-success dropdown-item"
-                                                                    href="{{ route('request.edit', $item->id) }}">Edit</a>
-                                                            </li>
-                                                        @break
-
-                                                        @case(4)
-                                                        @break
-
-                                                        @case(4)
-                                                        @break
-
-                                                        @default
-                                                    @endswitch
-
-                                                    {{-- view button  --}}
-                                                    <li> <a data-toggle="modal" data-target="#view{{ $item->id }}"
-                                                            role="button" class=" btn btn-info dropdown-item">View</a>
-                                                    </li>
-
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        {{-- Reject model  --}}
-                                        <!-- Button trigger modal -->
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="reject{{ $item->id }}" tabindex="-1"
-                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <form action="{{ route('request.reject', $item) }}" method="get"
-                                                class="fomr">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel">Why Rejected
-                                                                you
-                                                                <h4 class="text-uppercase text-danger">
-                                                                    {{ $item->service_code }}</h4>
-                                                            </h5>
-                                                            <button type="button" class="btn-close"
-                                                                data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <input type="text" placeholder="Reason" name="remark"
-                                                                class="form-control">
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary"
-                                                                data-bs-dismiss="modal">Close</button>
-                                                            <button type="submit" class="btn btn-primary">Save
-                                                                changes</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-
-                                        {{-- view details model  --}}
-                                        <div class="modal fade " id="view{{ $item->id }}" tabindex="-1"
-                                            role="dialog" aria-hidden="true">
+                                        <a data-toggle="modal" data-target="#view{{ $item->id }}" role="button"
+                                            class=" btn btn-info"><i class="fas fa-eye"></i> View</a>
+                                        <div class="modal fade " id="view{{ $item->id }}" tabindex="-1" role="dialog"
+                                            aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable "
                                                 role="document">
-                                                <div class="modal-content bg-light w-100 h-100">
+                                                <div class="modal-content ">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLongTitle">Profile
-                                                        </h5>
+                                                        <h5 class="modal-title" id="exampleModalLongTitle">All new
+                                                            Request</h5>
                                                         <button type="button" class="close" data-dismiss="modal"
                                                             aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
@@ -377,13 +225,15 @@
                                                 </div>
                                             </div>
                                         </div>
-
+                                        {{-- Delete button  --}}
+                                        <a href="{{ route('admin.request.delete', $item->id) }}" role="button"
+                                            class="btn btn-danger">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
 
                                     </td>
-
                                 </tr>
                             @endforeach
-
                         </tbody>
                     </table>
                 </div>
@@ -393,6 +243,6 @@
         </div>
     </div>
     <div class=" " style="justify-items: center; display: flex; justify-content: center">
-        {{$allRequests->links()}}
+        {{ $new->links() }}
     </div>
 @endsection

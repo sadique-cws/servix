@@ -26,6 +26,15 @@ class HomeController extends Controller
     public function warranty():View{
         return view('warrantyTerms');
     }
+    public function privacyPolicy():View{
+        return view('privacypolicy');
+    }
+    public function ourTeam():View{
+        return view('ourTeam');
+    }
+    public function termsAndCondition():View{
+        return view('termsAndCondition');
+    }
     
 
     public function register():View{
@@ -45,6 +54,10 @@ class HomeController extends Controller
 
         return $pdf->download('receipt-'.$id.'.pdf');
 
+    }
+
+    public function view():View{
+        return view('receipt.view');
     }
 
     

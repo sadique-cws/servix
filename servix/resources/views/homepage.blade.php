@@ -1,5 +1,7 @@
 @extends('layouts.layout')
-
+@section('title')
+{{ env('APP_NAME') }} - Laptop Desktop Printer Smartphone Reparing Center in Purnea
+@endsection
 @section('contents')
 
     <div class="container" style="margin-top: 200px;">

@@ -1,5 +1,7 @@
 @extends('layouts.layout')
-@section('title') Request For Repair - @endsection
+@section('title') 
+{{ env('APP_NAME') }} - Request For Repair
+@endsection
 
 @section('contents')
     <div class="container mt-5">
@@ -82,7 +84,7 @@
                                     class="form-control"></textarea>
                                     @error('problem')
                                     <p class="text-danger small">{{$message}} </p>
-                                @enderror
+                                    @enderror
                         </div>
                         <div class="w-full">
                             <button
@@ -94,3 +96,17 @@
         </div>
     </div>
 @endsection
+
+{{-- <<--  CREDIT - DON'T REMOVE -->> --}}
+{{-- 
+    
+    
+    ©  All rights reserved. Developer team -  
+    intkhab Ahmad ->> <a href="https://github.com/LazyDeveloperr">view profile</a> 
+
+    Aditya Sekhar ->> <a href="https://github.com/aditya-shekhar773">view profile</a>
+
+    Wasik Alam ->> <a href="https://github.com/md-wasik-alam">view profile</a> 
+    
+    
+--}}

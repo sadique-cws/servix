@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="{{ asset('index.css') }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="{{ asset('Assets/favicon.png') }}" type="image/x-icon">
-    <title>@yield('title') {{ env('APP_NAME') }} - Laptop Desktop Printer Smartphone Reparing Center in Purnea</title>
+    <link rel="shortcut icon" href="{{ asset('Assets/faviconn.png') }}" type="image/x-icon">
+    <title>@yield('title')</title>
     {{-- <link href="../unpkg.com/aos%402.3.1/dist/aos.css" rel="stylesheet">
     <script src="../unpkg.com/aos%402.3.1/dist/aos.js"></script> --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -28,7 +28,6 @@
         rel="stylesheet">
     <script src="{{ asset('js/lottie.js') }}"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-
 
 </head>
 
@@ -67,22 +66,13 @@
                         </li>
                     </ul>
                 </div>
+            </div>
         </nav>
     </div>
     </div>
-
-
-
-   
-
     @section('contents')
-            <!-- Don't write code here \\ -->
+        <!-- Don't write code here ! Also Don't remove space for commit credit 😀 -->
     @show
-
-
-    <!-- Page Contents -->
-
-
     <!-- Footer Section -->
     @section('footer')
         <div class="background-footer">
@@ -95,9 +85,10 @@
                         </div>
                         <ul class="navbar-nav pt-3">
                             <li class="nav-item py-1"><a href="{{ route('home.warranty') }}" class="nav-lnk footer--art">Warranty Policy</a></li>
-                            <li class="nav-item py-1"><a href="#" class="nav-lnk footer--art">Terms & Conditions</a>
+                            <li class="nav-item py-1"><a href="{{route('home.termsAndCondition')}}" class="nav-lnk footer--art">Terms & Conditions</a>
                             </li>
-                            <li class="nav-item py-1"><a href="#" class="nav-lnk footer--art">Privacy Policy</a></li>
+                            <li class="nav-item py-1"><a href="{{ route('home.privacyPolicy') }}" class="nav-lnk footer--art">Privacy Policy</a></li>
+                            <li class="nav-item py-1"><a href="{{ route('home.ourTeam') }}" class="nav-lnk footer--art">Our Team</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-4 col-md-6 col-12 mb-4">
@@ -136,9 +127,14 @@
         </div>
 
     @show
-
-   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script>
+        var msg = '{{ Session::get('alert') }}';
+        var exist = '{{ Session::has('alert') }}';
+        if (exist) {
+            alert(msg);
+        }
+    </script>
 </body>
 
 </html>

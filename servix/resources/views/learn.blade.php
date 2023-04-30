@@ -1,5 +1,7 @@
 @extends('layouts.layout')
-@section('title') Learn - @endsection
+@section('title') 
+{{ env('APP_NAME') }} - Learn
+@endsection
 @section('contents')
 
 <div class="container" style="margin-top: 200px;">

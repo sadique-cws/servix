@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Print Receipt - {{$item->owner_name}}</title>
-    <link rel="shortcut icon" href="{{ asset('Assets/favicon.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('Assets/faviconn.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
@@ -44,6 +44,7 @@
                                 <p style="color: #7e8d9f;font-size: 20px;">Receipt No: <strong
                                         class="text-uppercase">SX-{{ $item->id }}-{{$item->type->id}}
                                     </strong></p>
+                                    
                             </div>
                             <div class="col-xl-3 float-end d-print-none">
                                 <a type="button" onclick="window.print()"  id="print-button" class="btn btn-light text-capitalize border-0"
@@ -123,10 +124,19 @@
                                         class="table table-striped table-bordered">
                                         <tbody>
                                             <tr>
+                                                <th scope="col">Name</th>
+                                                <td class="text-uppercase">
+                                                    {{$item->owner_name}}
+                                                </td>
                                                 <th scope="col">Service code</th>
                                                 <td class="text-uppercase">
-                                                    <h4 class="m-0 text-danger">{{$item->service_code}}</h4>
+                                                    <h4 class="m-0 text-info">{{$item->service_code}}</h4>
                                                 </td>
+                                            </tr>
+                                            <tr>
+                                                
+                                                <th scope="col">Problem</th>
+                                                <td class="text-uppercase">{{$item->problem}}</td>
                                             
                                                 <th scope="col">brand</th>
                                                 <td class="text-uppercase">{{$item->brand}}</td>
@@ -153,7 +163,7 @@
                                             </tr>
                                             <tr>
                                                 <th scope="col">Status</th>
-                                                <td class="text-uppercase">{{$item->status}}</td>
+                                                <td class="text-uppercase text-{{StatusColor($item->status)}}">{{$item->getStatus()}}</td>
                                                 <th scope="col">Remark</th>
                                                 <td class="text-uppercase">{{($item->remark==null)?"N/A":$item->remark}}</td>
         

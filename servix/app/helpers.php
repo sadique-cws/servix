@@ -4,15 +4,29 @@ use App\Models\Request as RequestModel;
 use Carbon\Carbon;
 
 if (! function_exists('countNewRequest')) {
-    function countNewRequest($type_id = NULL,$status = NULL,) {
+    function countNewRequest($type_id = NULL,$status = NULL) {
         if($status == NULL){
-            // $count = RequestModel::where('technician_id',NULL)->count();
-            $count = RequestModel::where('technician_id',NULL)->where('type_id',$type_id)->count();
+           
+                $count = RequestModel::where('technician_id',NULL)->count();
+    
         }
         else if($status == NULL){
+            $count = RequestModel::where('technician_id',NULL)->where('type_id',$type_id)->count();
         }
         else if($status != NULL){
             $count = RequestModel::where('technician_id','!=',NULL)->where('type_id',$type_id)->where('status',$status)->count();
+        }
+        return $count;
+    }
+}
+if (! function_exists('countTodayRequests')) {
+    function countTodayRequests($type_id = NULL,$status = NULL) {
+        
+        if($status == NULL){
+            $count=RequestModel::whereDate('created_at',Carbon::today())->count();
+        }
+        else if($type_id != NULL){
+            $count = RequestModel::where('type_id',$type_id)->whereDate('created_at',Carbon::today())->count();
         }
         return $count;
     }
@@ -71,6 +85,61 @@ for($i = 1; $i <= 12; $i++){
     }
 }
         return array_values($userArr);
+    }
+}
+
+if (! function_exists('CountStaffRequest')) {
+    function CountStaffRequest($status="all",$technician=NULL) {
+        if($status=="all" && $technician == null ){
+            $count = RequestModel::where('technician_id',Auth::user()->id)->where('type_id',Auth()->user()->type_id)->count();
+        }
+        elseif($status=="all" && $technician == true){
+            $count = RequestModel::where('technician_id',NULL)->where('type_id',Auth()->user()->type_id)->count();
+            
+        }
+        else{
+          
+            $count = RequestModel::where('technician_id',Auth::user()->id)->where("status",$status)->where('type_id',Auth()->user()->type_id)->count();
+            
+        }     
+        
+        return $count;
+    }
+}
+if (! function_exists('CountWorkProgress')) {
+    function CountWorkProgress() {
+        $count = RequestModel::where('technician_id',Auth::user()->id)->whereBetween("status",[2.0,3.0])->where('type_id',Auth()->user()->type_id)->count();
+        
+        
+        return $count;
+    }
+}
+if (! function_exists('StatusColor')) {
+    function StatusColor($status=NULL) {
+        switch($status){
+            case 0:
+                return "dark";
+                break;
+            case 1:
+                return "success";
+                break;
+            case 2:
+                return "warning";
+                break;
+            case 3:
+                 return "danger";
+                 break;
+            case 4:
+                return "success";
+                break;
+            case 5:
+                return "success";
+                break;
+            default:
+                return "warning";
+                break;
+           }
+    
     }
 }
 

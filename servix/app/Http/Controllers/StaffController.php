@@ -6,7 +6,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use App\Models\User;
 use App\Models\Request as  RequestModel;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Staff;
 
 class StaffController extends Controller
@@ -44,12 +44,21 @@ class StaffController extends Controller
         return redirect()->back();
     }
 
-  
+
     public function editRequest($id){
         $data=Request::where('id',$id)->first();
         return view("staff.panel",compact('data'));
     }
     
+    public function globalSearch(Request $req){
+        $data['search_value']="";
+        $data['allRequests']=RequestModel::where('service_code',"LIKE","%".$req->search."%")
+        ->orWhere('contact', 'like', '%' . $req->search . '%')
+        ->orWhere('owner_name', 'like', '%' . $req->search . '%')->get();
+        $data['title']='Search Record';
+        $data['dateFilter']='All';
+        return view('staff/requests',$data);
+    }
     
 
    
