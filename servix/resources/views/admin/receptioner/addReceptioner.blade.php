@@ -1,5 +1,8 @@
 @extends('admin.layout.base')
 
+@section('title')
+    Add Receptionist
+@endsection
 
 
 @section('content')

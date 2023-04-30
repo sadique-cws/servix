@@ -1,4 +1,4 @@
-@extends('admin.layout.layout')
+{{-- @extends('admin.layout.layout')
 
 
 
@@ -164,4 +164,4 @@
 
 </div>
 
-@endsection
+@endsection --}}

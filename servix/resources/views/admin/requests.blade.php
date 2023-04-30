@@ -1,4 +1,7 @@
 @extends('admin.layout.base')
+@section('title')
+    Requests 
+@endsection
 
 @section('content')
     <div class="row">

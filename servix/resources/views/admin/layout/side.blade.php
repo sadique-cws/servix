@@ -1,4 +1,4 @@
- <!-- Sidebar -->
+ {{-- <!-- Sidebar -->
  <div
  x-transition:enter="transform transition-transform duration-300"
  x-transition:enter-start="-translate-x-full"
@@ -79,4 +79,4 @@
      </a>
    </div>
  </div>
-</div>
+</div> --}}

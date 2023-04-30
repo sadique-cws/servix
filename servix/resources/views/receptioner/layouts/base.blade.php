@@ -347,7 +347,7 @@
             © <script type="text/JavaScript"> 
                 var theDate=new Date() 
                 document.write(theDate.getFullYear()) 
-            </script> All rights reserved. Developer team -  <a href="https://github.com/aditya-shekhar773">Aditya Sekhar</a> - <a href="https://github.com/md-wasik-alam">Wasik Alam</a> and <a href="https://github.com/LazyDeveloperr">intkhab Ahmad</a>
+            </script> All rights reserved. Developer team - <a href="https://github.com/LazyDeveloperr">intkhab Ahmad</a> - <a href="https://github.com/aditya-shekhar773">Aditya Sekhar</a> and <a href="https://github.com/md-wasik-alam">Wasik Alam</a>
 
         </footer>
 
