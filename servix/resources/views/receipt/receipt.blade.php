@@ -163,8 +163,9 @@
                                             </tr>
                                             <tr>
                                                 <th scope="col">Status</th>
-                                                <td class="text-uppercase text-{{ StatusColor($item->status) }}">
-                                                    {{ $item->getStatus() }}</td>
+                                                <td class="text-uppercase ">
+                                                    <span class="font-weight-bold   rounded px-2 py-1
+                            " style="color:{{StatusColor($item->status)}}; ">{{ $item->getStatus() }}</span></td>
                                                 <th scope="col">Remark</th>
                                                 <td class="text-uppercase">
                                                     {{ $item->remark == null ? 'N/A' : $item->remark }}</td>
