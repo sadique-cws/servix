@@ -1,9 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
-<!-- Mirrored from servixc.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 27 Mar 2023 09:46:29 GMT -->
-
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{{ asset('index.css') }}">
