@@ -2,7 +2,6 @@
 <html lang="en">
 
 
-<!-- Mirrored from servixc.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 27 Mar 2023 09:46:29 GMT -->
 
 <head>
     <meta charset="UTF-8">
@@ -63,7 +62,7 @@
                         </li>
                         <li class=" pt-2 float-right ">
                             <button class="btn btn-block " style="background-color: #e87605;">
-                                <a class="nav_link text-white" href="{{ route('request.form') }}">Request form</a>
+                                <a class="nav_link text-white" href="{{ route('request.form') }}">Request For Repair</a>
                             </button>
                         </li>
                     </ul>

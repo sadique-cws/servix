@@ -53,13 +53,15 @@ class AdminController extends Controller
             'aadhar' => 'required',
             'pan' => 'required',
             'address' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'password' => 'required',
         ]);
         $data['status'] = 1;
-        $imageName = time() . '.' . $request->image->extension();
-        $request->image->storeAs('public/images', $imageName);
-        $data['image']=$imageName;
+        if($request->image!=null){
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->storeAs('public/images', $imageName);
+            $data['image']=$imageName;
+        }
         Staff::create($data);
         return redirect()->route('admin.staff.manage');
 
@@ -118,9 +120,15 @@ class AdminController extends Controller
             'aadhar' => 'required',
             'pan' => 'required',
             'address' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
            
         ]);
         $data['status'] = ($req->status) ? 1 : 0 ;
+        if($req->image!=null){
+            $imageName = time() . '.' . $req->image->extension();
+            $req->image->storeAs('public/images', $imageName);
+            $data['image']=$imageName;
+        }
         $id = $req->id;
         Staff::where('id', $id)->update($data);
         return redirect()->route('admin.staff.manage');
