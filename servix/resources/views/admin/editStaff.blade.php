@@ -71,7 +71,7 @@
 
                     </div>
                     <div class="w-full px-3 mb-5 col">
-                        <label for="" class="text-black-100">Addhar no</label>
+                        <label for="" class="text-black-100">Aadhar no</label>
                         <div class="flex">
                             <input type="text" name="aadhar" value="{{ $data->aadhar }}" class="form-control"
                                 placeholder="">
