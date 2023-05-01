@@ -14,8 +14,8 @@
                 </div>
             </div>
             {{--- BTN ON SMALL SCREEN ONLY---}}
-            <div class="justify-content-center d-flex items-center p-3">
-                <div class="btn btn-info btn-outlined d-none d-xs-block d-sm-block d-md-none w-25 ">Hello Btn</div>
+            <div class="justify-content-center bg-danger d-flex items-center p-3 d-none d-xs-block d-sm-block d-md-none">
+                <div class="btn btn-info btn-outlined w-25 ">Hello Btn</div>
             </div>
             {{--- /BTN ON SMALL SCREEN ONLY---}}
 
