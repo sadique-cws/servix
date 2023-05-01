@@ -27,7 +27,7 @@
                     <div class="w-full px-3 mb-5 col">
                         <label for="" class="text-black-100">Name</label>
                         <div class="flex">
-                            <input type="text" name="name" class="form-control" {{old('name')}} placeholder="">
+                            <input type="text" name="name" class="form-control" value="{{ old('name') }}" placeholder="">
                         </div>
                         @error('name')
                             <p class="text-error text-danger">{{ $message }}</p>
@@ -36,7 +36,7 @@
                     <div class="w-full px-3 mb-5 col">
                         <label for="" class="text-black-100">Email</label>
                         <div class="flex">
-                            <input type="email" name="email" class="form-control" {{old('email')}} placeholder="example@gmail.com">
+                            <input type="email" name="email" class="form-control" value="{{ old('eamil') }}" placeholder="example@gmail.com">
                         </div>
                         @error('email')
                             <p class="text-error text-danger">{{ $message }}</p>
@@ -45,7 +45,7 @@
                     <div class="w-full px-3 mb-5 col">
                         <label for="" class="text-black-100">Contact</label>
                         <div class="flex">
-                            <input type="number" name="contact" class="form-control" {{old('contact')}} placeholder="">
+                            <input type="number" name="contact" class="form-control" value="{{ old('contact') }}" placeholder="">
                         </div>
                         @error('contact')
                             <p class="text-error text-danger">{{ $message }}</p>
@@ -56,7 +56,7 @@
                     <div class="w-full px-3 mb-5 col">
                         <label for="" class="text-black-100">Salary</label>
                         <div class="flex">
-                            <input type="text" name="salary" class="form-control" {{old('salary')}} placeholder="">
+                            <input type="text" name="salary" class="form-control" value="{{ old('salary') }}" placeholder="">
                         </div>
                         @error('salary')
                             <p class="text-error text-danger">{{ $message }}</p>
@@ -65,7 +65,7 @@
                     <div class="w-full px-3 mb-5 col">
                         <label for="" class="text-black-100">Addhar no</label>
                         <div class="flex">
-                            <input type="text" name="aadhar" class="form-control" {{old('aadhar')}} placeholder="">
+                            <input type="text" name="aadhar" class="form-control" value="{{ old('aadhar') }}" placeholder="">
                         </div>
                         @error('aadhar')
                             <p class="text-error text-danger">{{ $message }}</p>
@@ -74,7 +74,7 @@
                     <div class="w-full px-3 mb-5 col">
                         <label for="" class="text-black-100">Pan card no</label>
                         <div class="flex">
-                            <input type="text" name="pan" class="form-control" {{old('pan')}} placeholder="">
+                            <input type="text" name="pan" class="form-control" value="{{ old('pan') }}" placeholder="">
                         </div>
                         @error('pan')
                             <p class="text-error text-danger">{{ $message }}</p>
@@ -85,7 +85,7 @@
                     <div class="w-full px-3 mb-5 col">
                         <label for="" class="text-black-100">Address</label>
                         <div class="flex">
-                            <input type="text" name="address" class="form-control" {{old('address')}} placeholder="">
+                            <input type="text" name="address" class="form-control" value="{{ old('address') }}" placeholder="">
                         </div>
                         @error('salary')
                             <p class="text-error text-danger">{{ $message }}</p>
@@ -96,7 +96,7 @@
                     <div class="w-full px-3 mb-5 col">
                         <label for="" class="text-black-100">Password</label>
                         <div class="flex">
-                            <input type="password" name="password" {{old('password')}} class="form-control">
+                            <input type="password" name="password" value="{{ old('password') }}" class="form-control">
                         </div>
                         @error('password')
                             <p class="text-error text-danger">{{ $message }}</p>
