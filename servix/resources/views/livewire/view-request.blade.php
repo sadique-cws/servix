@@ -175,11 +175,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                {{-- Delete button  --}}
-                                <a href="{{ route('admin.request.delete', $item->id) }}" role="button"
-                                    class="btn btn-danger">
-                                    <i class="fas fa-trash"></i>
-                                </a>
+                               
 
                             </td>
                         </tr>
