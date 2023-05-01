@@ -14,7 +14,7 @@
                 </div>
             </div>
             {{--- BTN ON SMALL SCREEN ONLY---}}
-            <div class="justify-content-center d-flex items-center p-3 d-none d-xs-block d-sm-block d-md-none">
+            <div class="justify-content-center d-flex items-center p-3 d-xs-block d-block d-sm-none">
                 <div class="btn w-25 fs-poppins fw-bold p-2 " style="letter-spacing: 1px; background-color: #e87605; color:  #fff">Hello Btn</div>
             </div>
             {{--- /BTN ON SMALL SCREEN ONLY---}}
