@@ -25,24 +25,21 @@
                     <div class="w-full px-3 mb-5 col">
                         <label for="" class="text-black-100">Name</label>
                         <div class="flex">
-                            <input type="text" name="name" value="{{ $data->name }}"
-                                class="form-control"
+                            <input type="text" name="name" value="{{ $data->name }}" class="form-control"
                                 placeholder="">
                         </div>
                     </div>
                     <div class="w-full px-3 mb-5 col">
                         <label for="" class="text-black-100">Email</label>
                         <div class="flex">
-                            <input type="email" name="email" value="{{ $data->email }}"
-                                class="form-control"
+                            <input type="email" name="email" value="{{ $data->email }}" class="form-control"
                                 placeholder="example@gmail.com">
                         </div>
                     </div>
                     <div class="w-full px-3 mb-5 col">
                         <label for="" class="text-black-100">Contact</label>
                         <div class="flex">
-                            <input type="number" name="contact" value="{{ $data->contact }}"
-                                class="form-control"
+                            <input type="number" name="contact" value="{{ $data->contact }}" class="form-control"
                                 placeholder="">
                         </div>
                     </div>
@@ -51,8 +48,7 @@
                     <div class="w-full px-3 mb-5 col">
                         <label for="" class="text-black-100">Salary</label>
                         <div class="flex">
-                            <input type="text" name="salary" value="{{ $data->salary }}"
-                                class="form-control"
+                            <input type="text" name="salary" value="{{ $data->salary }}" class="form-control"
                                 placeholder="">
                         </div>
                     </div>
@@ -75,10 +71,9 @@
 
                     </div>
                     <div class="w-full px-3 mb-5 col">
-                        <label for="" class="text-black-100">Addhar no</label>
+                        <label for="" class="text-black-100">Aadhar no</label>
                         <div class="flex">
-                            <input type="text" name="aadhar" value="{{ $data->aadhar }}"
-                                class="form-control"
+                            <input type="text" name="aadhar" value="{{ $data->aadhar }}" class="form-control"
                                 placeholder="">
                         </div>
                     </div>
@@ -87,31 +82,38 @@
                     <div class="w-full px-3 mb-5 col">
                         <label for="" class="text-black-100">Pan card no</label>
                         <div class="flex">
-                            <input type="text" name="pan" value="{{ $data->pan }}"
-                                class="form-control"
+                            <input type="text" name="pan" value="{{ $data->pan }}" class="form-control"
                                 placeholder="">
                         </div>
                     </div>
                     <div class="w-full px-3 mb-5 col">
                         <label for="" class="text-black-100">Status</label>
                         <div class="form-check">
-                            <input class="form-check-input" name="status" type="checkbox" value="1" >
+                            <input class="form-check-input" name="status" type="checkbox" value="1">
                             <label class="form-check-label" for="defaultCheck1">
-                              Active
+                                Active
                             </label>
-                          </div>
+                        </div>
+                    </div>
+                    <div class="w-full px-3 mb-5 col">
+                        <label for="" class="text-black-100">Image</label>
+                        <div class="flex">
+
+                            <input class="" name="image" type="file" type="checkbox" value="1">
+                        </div>
+
+
                     </div>
                 </div>
                 <div class="row">
                     <div class="w-full px-3 mb-5 col">
                         <label for="" class="text-black-100">Address</label>
                         <div class="flex">
-                            <input type="text" name="address" value="{{ $data->address }}"
-                                class="form-control"
+                            <input type="text" name="address" value="{{ $data->address }}" class="form-control"
                                 placeholder="">
                         </div>
                     </div>
-                    
+
                 </div>
                 <div class="row">
                     <div class="w-full px-3 mb-5 col">
