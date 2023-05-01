@@ -17,15 +17,15 @@
         </div>
     </div>
 </div>
-<div class="container px-5" style="margin-top: 150px;">
+<div class="container px-5" style="margin-top: 100px;">
     <div class="text-center" style="margin-bottom: 170px">
         <h1 class="Ad_vance">Advance <span class="ser_vicess">chip level</span> </h1>
         <h1 class="ser_vices11">training in</h1>
     </div>
 
-    <div class="row justify-content-center laptop_section px-5">
+    <div class="row justify-content-center laptop_section " style="margin-top: 150px;">
         <div class="col-12">
-            <div class="row justify-content-center px-5">
+            <div class="row justify-content-center">
                 <div class="col-md-6 col-6 mb-3">
                     <div class="card card_service p-4">
                         <div class="text-center">
@@ -37,7 +37,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-6 mb-3 mt-5">
+                <div class="col-md-6 col-6 mb-3">
                     <div class="card card_service1 p-4">
                         <div class="text-center">
                             <img src="Assets/Desktop.png" class="img-fluid img_first1" alt="laptop">
@@ -52,9 +52,9 @@
         </div>
     </div>
 
-    <div class="row justify-content-center printer_section px-5">
+    <div class="row justify-content-center printer_section">
         <div class="col-12">
-            <div class="row justify-content-center px-5">
+            <div class="row justify-content-center">
                 <div class="col-md-6 col-6 mb-3">
                     <div class="card card_printer p-4">
                         <div class="text-center">
@@ -66,7 +66,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-6 mb-3 mt-5">
+                <div class="col-md-6 col-6 mb-3">
                     <div class="card card_mobile p-4">
                         <div class="text-center">
                             <img src="Assets/mobile2.png" class="img-fluid img_first1" alt="laptop">
@@ -81,10 +81,10 @@
         </div>
     </div>
 
-    <div class="row justify-content-center lcs_section px-5">
-        <div class="col-12 ">
-            <div class="row justify-content-center px-5">
-                <div class="col-md-6 col-6 mb-3 mt-5">
+    <div class="row justify-content-center lcs_section">
+        <div class="col-12">
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-6 mb-3">
                     <div class="card card_lcd p-4">
                         <div class="text-center">
                             <img src="Assets/lcd.png" class="img-fluid img_first" alt="laptop">
@@ -95,7 +95,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-6 mb-3 mt-4">
+                <div class="col-md-6 col-6 mb-3">
                     <div class="card card_tablet p-4">
                         <div class="text-center">
                             <img src="Assets/tablet.html" class="img-fluid img_first1" alt="laptop">
