@@ -63,6 +63,7 @@ class ReceptionerController extends Controller
                $data['service_code'] = $service_code;
                $data['date_of_delivery']=$date;
                
+           if($req->image!=null){
             $img = $req->image;
             $folderPath = "uploads/";
             
@@ -77,6 +78,7 @@ class ReceptionerController extends Controller
             Storage::put($file, $image_base64);
             // dd($fileName);
            $data['image'] = $fileName;
+           }
     
             RequestModel::create($data);
 
@@ -108,10 +110,11 @@ class ReceptionerController extends Controller
                 'MAC' => 'required',
                 'remark' => 'required',
                 'estimate_delivery' => 'required',
-                'image' => 'required',
+                'image' => 'nullable',
                
             ]);
             
+           if($req->image!=null){
             $img = $req->image;
             $folderPath = "public/uploads/";
             
@@ -126,6 +129,7 @@ class ReceptionerController extends Controller
             Storage::put($file, $image_base64);
             // dd($fileName);
             $data['image'] = $fileName;
+           }
             $id=$req->id;
             RequestModel::where('id',$id)->update($data);
             return redirect()->back();
