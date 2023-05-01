@@ -170,6 +170,12 @@
                         <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
                     </div>
                 </li> --}}
+                
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                        Hi, <span class="font-weight-bold">{{ auth()->user()->name }}</span>
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" data-widget="fullscreen" href="#" role="button">
                         <i class="fas fa-expand-arrows-alt"></i>
@@ -188,14 +194,11 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="{{ route('staff.panel') }}" class="brand-link">
-              
-                <span class="brand-text font-weight-light">Servicx Staff</span>
-            <a href="{{ route('staff.panel') }}" class="brand-link bg-white">
-                <img src="http://servixc.com/Assets/New-Logo.png" alt="AdminLTE Logo" class="brand-image"
-                    style="opacity: .8">
-                <span class="brand-text font-weight-light">Staff</span>
-            </a>
+                <a href="{{ route('staff.panel') }}" class="brand-link bg-white d-flex align-items-center">
+                    <img src="../../Assets/logo-black.png" alt="AdminLTE Logo" class="brand-image"
+                        style="width:70%">
+                    <span class="brand-text font-weight-bold">Staff</span>
+                </a>
 
             <!-- Sidebar -->
             <div class="sidebar">
@@ -225,8 +228,7 @@
                         <li class="nav-item menu-open">
                             <a href="{{ route('staff.panel') }}" class="nav-link active">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
-                                    Dashboard</p>
+                                <p>Dashboard</p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -238,7 +240,7 @@
                                 </p> 
                             </a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-copy"></i>
                                 <p>
@@ -248,63 +250,59 @@
                                     
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{ route('request.all') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p> All Request</p>
-                                        <h3 class="right badge badge-info">{{ CountStaffRequest("all")}}</h3> 
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('request.show.panding') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p> Total Pending</p>
-                                        <h3 class="right badge badge-info">{{ CountStaffRequest(0)}}</h3> 
-                                        
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('request.show.workProgress') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p> Work in Progress</p>
-                                        <h3 class="right badge badge-info">{{ CountWorkProgress()}}</h3> 
-                                        
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('request.show.reject') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p> Rejected</p>
-                                        <h3 class="right badge badge-info">{{ CountStaffRequest(3)}}</h3>
-                                        
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('request.show.workDone') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p> Work Done</p>
-                                        <h3 class="right badge badge-info">{{ CountStaffRequest(4)}}</h3>
-                                        
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('request.show.delivered') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p> Delivered</p>
-                                        
-                                        <h3 class="right badge badge-info">{{ CountStaffRequest(5)}}</h3>
-                                    </a>
-                                </li>
-                               
-
-                            </ul>
+                        </li> --}}
+                        <li class="nav-item">
+                            <a href="{{ route('request.all') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> All Request</p>
+                                <h3 class="right badge badge-info">{{ CountStaffRequest("all")}}</h3> 
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('request.show.pending') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> Total Pending</p>
+                                <h3 class="right badge badge-info">{{ CountStaffRequest(0)}}</h3> 
+                                
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('request.show.workProgress') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> Work in Progress</p>
+                                <h3 class="right badge badge-info">{{ CountWorkProgress()}}</h3> 
+                                
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('request.show.reject') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> Rejected</p>
+                                <h3 class="right badge badge-info">{{ CountStaffRequest(3)}}</h3>
+                                
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('request.show.workDone') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> Work Done</p>
+                                <h3 class="right badge badge-info">{{ CountStaffRequest(4)}}</h3>
+                                
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('request.show.delivered') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> Delivered</p>
+                                
+                                <h3 class="right badge badge-info">{{ CountStaffRequest(5)}}</h3>
+                            </a>
                         </li>
                         
                        
                     
                       
-                        <li class="nav-header">EXAMPLES</li>
+                        {{-- <li class="nav-header">EXAMPLES</li>
                         <li class="nav-item">
                             <a href="pages/calendar.html" class="nav-link">
                                 <i class="nav-icon far fa-calendar-alt"></i>
@@ -422,8 +420,8 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li>
-                        <li class="nav-header">LABELS</li>
+                        </li> --}}
+                        <li class="nav-header">Accounts</li>
                         <li class="nav-item">
                             <a href="{{ route('staff.logout') }}" class="nav-link">
                                 <i class="nav-icon far fa-circle text-danger"></i>
@@ -447,7 +445,7 @@
             © <script type="text/JavaScript"> 
                 var theDate=new Date() 
                 document.write(theDate.getFullYear()) 
-            </script> All rights reserved. Developer team -  <a href="https://github.com/md-wasik-alam">Wasik Alam</a> - <a href="https://github.com/LazyDeveloperr">intkhab Ahmad</a> and <a href="https://github.com/aditya-shekhar773">Aditya Sekhar</a> 
+            </script> All rights reserved. Developer team -  <a href="https://github.com/md-wasik-alam">Wasik Alam</a> - <a href="https://github.com/LazyDeveloperr">Intkhab Ahmad</a> and <a href="https://github.com/aditya-shekhar773">Aditya Sekhar</a> 
            {{-- this is Footer Credit --}}
         </footer>
 

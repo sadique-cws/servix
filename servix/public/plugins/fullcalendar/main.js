@@ -8908,7 +8908,7 @@ var FullCalendar = (function (exports) {
         }
         return true;
     }
-    function constraintToRanges(constraint, subjectRange, // for expanding a recurring constraint, or expanding business hours
+    function constraintToRanges(constraint, subjectRange, // for expending a recurring constraint, or expending business hours
     otherEventStore, // for if constraint is an even group ID
     businessHoursUnexpanded, // for if constraint is 'businessHours'
     context) {

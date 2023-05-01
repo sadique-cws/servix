@@ -203,7 +203,7 @@
   var CLASS_NAME_CARD = 'card';
   var CLASS_NAME_COLLAPSED$1 = 'collapsed-card';
   var CLASS_NAME_COLLAPSING = 'collapsing-card';
-  var CLASS_NAME_EXPANDING = 'expanding-card';
+  var CLASS_NAME_EXpending = 'expending-card';
   var CLASS_NAME_WAS_COLLAPSED = 'was-collapsed';
   var CLASS_NAME_MAXIMIZED = 'maximized-card';
   var SELECTOR_DATA_REMOVE = '[data-card-widget="remove"]';
@@ -253,8 +253,8 @@
     _proto.expand = function expand() {
       var _this2 = this;
 
-      this._parent.addClass(CLASS_NAME_EXPANDING).children(SELECTOR_CARD_BODY + ", " + SELECTOR_CARD_FOOTER).slideDown(this._settings.animationSpeed, function () {
-        _this2._parent.removeClass(CLASS_NAME_COLLAPSED$1).removeClass(CLASS_NAME_EXPANDING);
+      this._parent.addClass(CLASS_NAME_EXpending).children(SELECTOR_CARD_BODY + ", " + SELECTOR_CARD_FOOTER).slideDown(this._settings.animationSpeed, function () {
+        _this2._parent.removeClass(CLASS_NAME_COLLAPSED$1).removeClass(CLASS_NAME_EXpending);
       });
 
       this._parent.find("> " + SELECTOR_CARD_HEADER + " " + this._settings.collapseTrigger + " ." + this._settings.expandIcon).addClass(this._settings.collapseIcon).removeClass(this._settings.expandIcon);

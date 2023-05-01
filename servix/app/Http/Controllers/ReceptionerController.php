@@ -252,7 +252,7 @@ class ReceptionerController extends Controller
         $data['title'] = "rejected Requests";                                    
         return view("receptioner.requests",$data);   
     }
-    public function pandingRequest(Request $req){
+    public function pendingRequest(Request $req){
       
         $data['allRequests'] = RequestModel::where('status',0)
                                 ->orderBy('created_at', 'DESC')->paginate(8);

@@ -5515,7 +5515,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 		if ( newItem && newItem.length ) {
 			this._open( newItem.parent() );
 
-			// Delay so Firefox will not hide activedescendant change in expanding submenu from AT
+			// Delay so Firefox will not hide activedescendant change in expending submenu from AT
 			this._delay( function() {
 				this.focus( event, newItem );
 			} );

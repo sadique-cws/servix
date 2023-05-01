@@ -277,7 +277,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('crm.panding.req') }}" class="nav-link">
+                            <a href="{{ route('crm.pending.req') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p> pending</p>
                                 <span class="badge badge-info right">{{$PendingCountReq}}</span>

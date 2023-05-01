@@ -233,76 +233,58 @@
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-copy"></i>
-                                <p>
-                                    Request
-                                    <i class="fas fa-angle-left right"></i>
-                                    <span class="badge badge-info right"></span>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{route('admin.request.manageRequest')}}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Manage Request</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('admin.confirmed.req') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p> Confirmed</p>
-                                        <span class="badge badge-info right">{{$ConformCountReq}}</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('admin.panding.req') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p> pending</p>
-                                        <span class="badge badge-info right">{{$PendingCountReq}}</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('admin.rejected.req') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p> Rejected</p>
-                                        <span class="badge badge-info right">{{$RejectedCountReq}}</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('admin.workDone.req') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p> Work Done</p>
-                                        <span class="badge badge-info right">{{$WorkdoneCountReq}}</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('admin.delivered.req') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p> Delivered</p>
-                                        <span class="badge badge-info right">{{$DeliveredCountReq}}</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Daily Reports</p>
-                                    </a>
-                                </li>
+                        <li class="nav-header">Service Request</li>
 
-                            </ul>
+                        <li class="nav-item">
+                            <a href="{{route('admin.request.manageRequest')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Manage Request</p>
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-                                <p>
-                                    Staffs
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
+                            <a href="{{ route('admin.confirmed.req') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> Confirmed</p>
+                                <span class="badge badge-info right">{{$ConformCountReq}}</span>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.pending.req') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> pending</p>
+                                <span class="badge badge-info right">{{$PendingCountReq}}</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.rejected.req') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> Rejected</p>
+                                <span class="badge badge-info right">{{$RejectedCountReq}}</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.workDone.req') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> Work Done</p>
+                                <span class="badge badge-info right">{{$WorkdoneCountReq}}</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.delivered.req') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> Delivered</p>
+                                <span class="badge badge-info right">{{$DeliveredCountReq}}</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Daily Reports</p>
+                            </a>
+                        </li>
+                        <li class="nav-header">Staffs</li>
+
+                    <li class="nav-item">
                                     <a href="{{ route('admin.staff.manage') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Manage Staff</p>
@@ -328,8 +310,7 @@
                                         <p>Add Receptioner</p>
                                     </a>
                                 </li>
-                            </ul>
-                        </li>
+                        
                         {{-- <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-tree"></i>
@@ -453,7 +434,7 @@
                                 </li>
                             </ul>
                         </li> --}}
-                        <li class="nav-header">EXAMPLES</li>
+                        {{-- <li class="nav-header">EXAMPLES</li>
                         <li class="nav-item">
                             <a href="pages/calendar.html" class="nav-link">
                                 <i class="nav-icon far fa-calendar-alt"></i>
@@ -499,7 +480,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> --}}
                         {{-- <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-book"></i>
@@ -700,7 +681,7 @@
                                 </li>
                             </ul>
                         </li> --}}
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-search"></i>
                                 <p>
@@ -729,7 +710,7 @@
                                 <i class="nav-icon fas fa-file"></i>
                                 <p>Documentation</p>
                             </a>
-                        </li>
+                        </li> --}}
                         {{-- <li class="nav-header">MULTI LEVEL EXAMPLE</li> --}}
                         {{-- <li class="nav-item">
                             <a href="#" class="nav-link">
@@ -795,7 +776,7 @@
                                 <p>Level 1</p>
                             </a>
                         </li> --}}
-                        {{-- <li class="nav-header">LABELS</li> --}}
+                        <li class="nav-header">Accounts</li>
                         <li class="nav-item">
                             <a href="{{ route('admin.logout') }}" class="nav-link">
                                 <i class="nav-icon far fa-circle text-danger"></i>

@@ -22487,19 +22487,19 @@ body.text-sm .input-group-text {
   margin: .3rem .5rem;
 }
 
-.card.card-tabs:not(.expanding-card).collapsed-card .card-header {
+.card.card-tabs:not(.expending-card).collapsed-card .card-header {
   border-bottom: 0;
 }
 
-.card.card-tabs:not(.expanding-card).collapsed-card .card-header .nav-tabs {
+.card.card-tabs:not(.expending-card).collapsed-card .card-header .nav-tabs {
   border-bottom: 0;
 }
 
-.card.card-tabs:not(.expanding-card).collapsed-card .card-header .nav-tabs .nav-item {
+.card.card-tabs:not(.expending-card).collapsed-card .card-header .nav-tabs .nav-item {
   margin-bottom: 0;
 }
 
-.card.card-tabs.expanding-card .card-header .nav-tabs .nav-item {
+.card.card-tabs.expending-card .card-header .nav-tabs .nav-item {
   margin-bottom: -1px;
 }
 
@@ -22528,19 +22528,19 @@ body.text-sm .input-group-text {
   margin: .5rem .5rem .3rem;
 }
 
-.card.card-outline-tabs:not(.expanding-card).collapsed-card .card-header {
+.card.card-outline-tabs:not(.expending-card).collapsed-card .card-header {
   border-bottom: 0;
 }
 
-.card.card-outline-tabs:not(.expanding-card).collapsed-card .card-header .nav-tabs {
+.card.card-outline-tabs:not(.expending-card).collapsed-card .card-header .nav-tabs {
   border-bottom: 0;
 }
 
-.card.card-outline-tabs:not(.expanding-card).collapsed-card .card-header .nav-tabs .nav-item {
+.card.card-outline-tabs:not(.expending-card).collapsed-card .card-header .nav-tabs .nav-item {
   margin-bottom: 0;
 }
 
-.card.card-outline-tabs.expanding-card .card-header .nav-tabs .nav-item {
+.card.card-outline-tabs.expending-card .card-header .nav-tabs .nav-item {
   margin-bottom: -1px;
 }
 

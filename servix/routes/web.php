@@ -70,7 +70,7 @@ Route::prefix("admin")->group(function () {
             //show
             
         Route::get('/listRequest/confirm','confirmedRequest')->name('admin.confirmed.req');
-        Route::get('/listRequest/panding','pandingRequest')->name('admin.panding.req');
+        Route::get('/listRequest/pending','pendingRequest')->name('admin.pending.req');
         Route::get('/listRequest/rejected','rejectedRequest')->name('admin.rejected.req');
         Route::get('/listRequest/workDone','workDoneRequests')->name('admin.workDone.req');
         Route::get('/listRequest/delivered','deliveredRequest')->name('admin.delivered.req');
@@ -111,7 +111,7 @@ Route::prefix("staff")->group(function () {
             Route::get('/request/{id}/repair', [RequestController::class,'repair'])->name('request.repair');
             Route::get('/request/{id}/assemble', [RequestController::class,'assemble'])->name('request.assemble');
             Route::get('/request/{id}/workDone', [RequestController::class,'workDone'])->name('request.workDone');
-            Route::get('/request/pandingRequests', [RequestController::class,'pandingRequests'])->name('request.show.panding');
+            Route::get('/request/pendingRequests', [RequestController::class,'pendingRequests'])->name('request.show.pending');
             Route::get('/request/workDone', [RequestController::class,'workDoneRequests'])->name('request.show.workDone');
             Route::get("/request/datefilter",[RequestController::class,"dateFilter"])->name("staff.request.filterbydate");
             Route::get("/request/filterbyselect",[RequestController::class,"filterBySelect"])->name("staff.request.filterbyselect");
@@ -135,7 +135,7 @@ Route::prefix("crm")->group(function(){
         Route::get('/listRequest/view/{id}', 'viewRequest')->name('receptioner.viewRequest');
 
         Route::get('/listRequest/confirm','confirmedRequest')->name('crm.confirmed.req');
-        Route::get('/listRequest/panding','pandingRequest')->name('crm.panding.req');
+        Route::get('/listRequest/pending','pendingRequest')->name('crm.pending.req');
         Route::get('/listRequest/rejected','rejectedRequest')->name('crm.rejected.req');
         Route::get('/listRequest/workDone','workDoneRequests')->name('crm.workDone.req');
         Route::get('/listRequest/delivered','deliveredRequest')->name('crm.delivered.req');

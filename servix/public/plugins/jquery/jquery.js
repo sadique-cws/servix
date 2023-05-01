@@ -2876,7 +2876,7 @@ select = Sizzle.select = function( selector, context, results, seed ) {
 			}
 			if ( ( find = Expr.find[ type ] ) ) {
 
-				// Search, expanding context for leading sibling combinators
+				// Search, expending context for leading sibling combinators
 				if ( ( seed = find(
 					token.matches[ 0 ].replace( runescape, funescape ),
 					rsibling.test( tokens[ 0 ].type ) && testContext( context.parentNode ) ||

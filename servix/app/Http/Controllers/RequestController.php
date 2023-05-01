@@ -195,8 +195,8 @@ class RequestController extends Controller
         return view("staff.requests",$data);
     }
 
-    // show panding request
-    public function pandingRequests(){
+    // show pending request
+    public function pendingRequests(){
         $user = Auth::guard('staff')->user();
         $data['allRequests'] = RequestModel::where('type_id',$user->type_id)
                                     ->where('technician_id',$user->id)                              

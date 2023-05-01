@@ -265,7 +265,7 @@ class AdminController extends Controller
         $data['title'] = "rejected Requests";                                    
         return view("admin.requests",$data);   
     }
-    public function pandingRequest(Request $req){
+    public function pendingRequest(Request $req){
         
         $data['new'] = RequestModel::where('status',0)
                                 ->orderBy('created_at', 'DESC')->paginate(8);
