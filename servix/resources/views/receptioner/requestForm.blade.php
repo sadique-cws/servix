@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="ml-40">
-            <div class="container">
-                <div class="d-flex justify-content-between ">
+            <div class="container-fluid ">
+                <div class="d-flex justify-content-between  ">
                     <div class=" mt-2">
                         <h2 class="text-black-100">Service Request</h2>
                     </div>
@@ -13,7 +13,7 @@
                 </div>
                 <form action="{{ route('receptioner.request.form') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <div class="row">
+                    <div class="row ">
                         <div class="w-full px-3 mb-5 col">
                             <label for="" class="text-black-100">Name</label>
                             <input type="text" name="owner_name" class="form-control" value="{{old('owner_name')}}">
