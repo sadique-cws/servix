@@ -120,15 +120,9 @@ class AdminController extends Controller
             'aadhar' => 'required',
             'pan' => 'required',
             'address' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
            
         ]);
         $data['status'] = ($req->status) ? 1 : 0 ;
-        if($req->image!=null){
-            $imageName = time() . '.' . $req->image->extension();
-            $req->image->storeAs('public/images', $imageName);
-            $data['image']=$imageName;
-        }
         $id = $req->id;
         Staff::where('id', $id)->update($data);
         return redirect()->route('admin.staff.manage');

@@ -95,7 +95,7 @@
                             </label>
                         </div>
                     </div>
-                    <div class="w-full px-3 mb-5 col">
+                    {{-- <div class="w-full px-3 mb-5 col">
                         <label for="" class="text-black-100">Image</label>
                         <div class="flex">
 
@@ -103,7 +103,7 @@
                         </div>
 
 
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="row">
                     <div class="w-full px-3 mb-5 col">
