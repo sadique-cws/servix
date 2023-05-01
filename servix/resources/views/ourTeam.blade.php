@@ -58,7 +58,7 @@
                             </li>
                             <li class=" pt-2 float-right ">
                                 <button class="btn btn-block " style="background-color: #e87605;">
-                                    <a class="nav_link text-white text-xl" href="{{ route('request.form') }}">Request form</a>
+                                    <a class="nav_link text-white text-xl" href="{{ route('request.form') }}">Request For Repair</a>
                                 </button>
                             </li>
                         </ul>

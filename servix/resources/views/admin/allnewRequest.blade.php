@@ -110,9 +110,7 @@
                                     <td class="border border-slate-700 p-1.5  items-center justify-center flex btn-group"
                                         role="group">
 
-                                        {{-- edit button --}}
-                                        <a role="button" class="btn btn-warning"
-                                            href="{{ route('admin.staff.edit', $item->id) }}">Edit</a>
+                                    
                                         {{-- View button  --}}
                                         <a data-toggle="modal" data-target="#view{{ $item->id }}" role="button" class=" btn btn-info">View</a>
                                         <div class="modal fade " id="view{{ $item->id }}" tabindex="-1" role="dialog"

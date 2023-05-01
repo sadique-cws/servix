@@ -13,6 +13,12 @@
                     <h1 class="all_service pt-4">Get all services for your electronics</h1>
                 </div>
             </div>
+            {{--- BTN ON SMALL SCREEN ONLY---}}
+            <div class="justify-content-center bg-danger d-flex items-center p-3 d-none d-xs-block d-sm-block d-md-none">
+                <div class="btn btn-info btn-outlined w-25 ">Hello Btn</div>
+            </div>
+            {{--- /BTN ON SMALL SCREEN ONLY---}}
+
         </div>
         <div class="row justify-content-center pt-5">
             <div class="col-lg-8 col-md-8 col-12">
