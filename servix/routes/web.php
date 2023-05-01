@@ -132,6 +132,7 @@ Route::prefix("crm")->group(function(){
        Route::middleware('auth:receptioner')->group(function(){
         Route::get('/', 'index')->name('receptioner.panel');
         Route::get('/listRequest', 'allnewRequest')->name('receptioner.all.request');
+        Route::get('/listRequest/view/{id}', 'viewRequest')->name('receptioner.viewRequest');
 
         Route::get('/listRequest/confirm','confirmedRequest')->name('crm.confirmed.req');
         Route::get('/listRequest/panding','pandingRequest')->name('crm.panding.req');

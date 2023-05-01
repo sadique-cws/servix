@@ -1,5 +1,8 @@
 @extends('receptioner.layouts.base')
 
+@section('title')
+    {{ $title  }}
+@endsection
 @section('content')
     <div class="row">
         <div class="col-12 ">
@@ -120,7 +123,7 @@
                                                 <a href="{{ route('crm.request.deliver', $item->id) }}" role="button"
                                                     class=" btn btn-success btn-group ">Deliver</a>
                                                 @endif
-                                                <a href="{{ route('receipt.view', $item->id) }}" role="button"
+                                                <a href="{{ route('receptioner.viewRequest', $item->id) }}" role="button"
                                                     class=" btn btn-info btn-group ">View</a>
 
                                                 <a href="{{ route('receptioner.request.edit', $item->id) }}" role="button"

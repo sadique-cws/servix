@@ -6,7 +6,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use App\Models\User;
 use App\Models\Request as  RequestModel;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Staff;
 
 class StaffController extends Controller

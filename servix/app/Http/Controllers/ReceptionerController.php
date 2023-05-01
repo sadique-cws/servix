@@ -12,7 +12,7 @@ use App\Models\Type;
 use Illuminate\View\View;
 use App\Models\Request as RequestModel;
 use Illuminate\Support\Str;
-use Hash;
+use Illuminate\Support\Facades\Hash;
 
 class ReceptionerController extends Controller
 {
@@ -92,6 +92,12 @@ class ReceptionerController extends Controller
         $data['allRequests'] = RequestModel::where('technician_id',null)->orderBy('created_at', 'DESC')->paginate(8);
         $data['title'] = "All Request";
         return view('receptioner.requests',$data);
+    }
+    public function viewRequest(Request $req, $id){
+        
+        $item = RequestModel::FindOrFail($id);
+        $title = "View " . ucfirst($item->owner_name) . "'s Request";
+        return view('receptioner.viewRequests',compact("item","title"));
     }
 
    

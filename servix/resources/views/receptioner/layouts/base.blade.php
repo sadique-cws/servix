@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CRM | {{ env('APP_NAME') }}</title>
+    <title>@yield('title') - CRM | {{ env('APP_NAME') }}</title>
     <link rel="shortcut icon" href="{{ asset('Assets/faviconn.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
     <!-- Google Font: Source Sans Pro -->
@@ -199,10 +199,10 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="/crm" class="brand-link">
-                {{-- <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-                    style="opacity: .8"> --}}
-                <span class="brand-text font-weight-light">receptioner</span>
+            <a href="/crm" class="brand-link bg-white d-flex align-items-center">
+                <img src="../../Assets/logo-black.png" alt="AdminLTE Logo" class="brand-image"
+                    style="width:70%">
+                <span class="brand-text font-weight-light">CRM</span>
             </a>
 
             <!-- Sidebar -->
@@ -248,14 +248,9 @@
                             </a>
                         </li>
 
-                        {{-- <li class="nav-item">
-                            <a href="{{ route('receptioner.request.form') }}" class="nav-link">
-                                <i class="nav-icon fas fa-copy"></i>
-                                <p>Servixc Request</p>
-                            </a>
-                        </li> --}}
+                      
 
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-copy"></i>
                                 <p>
@@ -264,59 +259,56 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{ route('crm.all.req') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p> All Request</p>
-                                        <span class="badge badge-info right">{{$allReq}}</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('crm.confirmed.req') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p> Confirmed</p>
-                                        <span class="badge badge-info right">{{$ConformCountReq}}</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('crm.panding.req') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p> pending</p>
-                                        <span class="badge badge-info right">{{$PendingCountReq}}</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('crm.rejected.req') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p> Rejected</p>
-                                        <span class="badge badge-info right">{{$RejectedCountReq}}</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('crm.workDone.req') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p> Work Done</p>
-                                        <span class="badge badge-info right">{{$WorkdoneCountReq}}</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('crm.delivered.req') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p> Delivered</p>
-                                        <span class="badge badge-info right">{{$DeliveredCountReq}}</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('receptioner.request.form') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p> Add New Request</p>
-                                    </a>
-                                </li>
                                
-                              
-                               
-
                             </ul>
+                        </li> --}}
+                        <li class="nav-item">
+                            <a href="{{ route('crm.all.req') }}" class="nav-link">
+                                <i class="far fa-file nav-icon"></i>
+                                <p> All Request</p>
+                                <span class="badge badge-info right">{{$allReq}}</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('crm.confirmed.req') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> Confirmed</p>
+                                <span class="badge badge-info right">{{$ConformCountReq}}</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('crm.panding.req') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> pending</p>
+                                <span class="badge badge-info right">{{$PendingCountReq}}</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('crm.rejected.req') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> Rejected</p>
+                                <span class="badge badge-info right">{{$RejectedCountReq}}</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('crm.workDone.req') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> Work Done</p>
+                                <span class="badge badge-info right">{{$WorkdoneCountReq}}</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('crm.delivered.req') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> Delivered</p>
+                                <span class="badge badge-info right">{{$DeliveredCountReq}}</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('receptioner.request.form') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> Add New Request</p>
+                            </a>
                         </li>
 
 
