@@ -50,7 +50,7 @@
               <div class="inner">
                 <h3>{{$ConformCountReq}}<sup style="font-size: 20px"></sup></h3>
 
-                <p>Conform Rquest</p>
+                <p>Confirm Rquest</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>

@@ -62,7 +62,7 @@
                 <div class="card-header  float">
                     <div class=" float-left">
                         <h2 class="card-title  mb-3">
-                            <h2>Letest 10 Records</h2>
+                            <h2>Latest 10 Records</h2>
                         </h2>
                     </div>
                     <div class=" float-right  ">
