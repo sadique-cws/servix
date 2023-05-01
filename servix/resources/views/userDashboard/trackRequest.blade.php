@@ -76,8 +76,9 @@
                                     </tr>
                                     <tr class="bg-light">
                                         <th>status</th>
-                                        <th class="text-{{ StatusColor($item->status) }} font-weight-bold">
-                                            {{ !$item->status ? 'Pending' : $item->getStatus() }}</th>
+                                        <th class="">
+                                            <span class="font-weight-bold   rounded px-2 py-1
+                                            " style="color:{{StatusColor($item->status)}}; ">{{ $item->getStatus() }}</span></th>
                                     </tr>
                                     <tr>
                                         <th>Remark</th>

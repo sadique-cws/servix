@@ -443,11 +443,11 @@
             
         </div>
         <!-- /.content-wrapper -->
-        <footer class="main-footer ">
+        <footer class="main-footer fw-bolder">
             © <script type="text/JavaScript"> 
                 var theDate=new Date() 
                 document.write(theDate.getFullYear()) 
-            </script> All rights reserved. Developer team -  <a href="https://github.com/aditya-shekhar773">Aditya Sekhar</a> - <a href="https://github.com/md-wasik-alam">Wasik Alam</a> and <a href="https://github.com/LazyDeveloperr">intkhab Ahmad</a>
+            </script> All rights reserved. Developer team -  <a href="https://github.com/md-wasik-alam">Wasik Alam</a> - <a href="https://github.com/LazyDeveloperr">intkhab Ahmad</a> and <a href="https://github.com/aditya-shekhar773">Aditya Sekhar</a> 
            {{-- this is Footer Credit --}}
         </footer>
 

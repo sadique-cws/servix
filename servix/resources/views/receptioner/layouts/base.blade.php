@@ -66,6 +66,10 @@
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <!-- Navbar Search -->
+                <li class="nav-item">
+                    <a href="{{ route('receptioner.request.form') }}" type="button" class="nav-link text-light btn btn-info">Add New Request</a>
+
+                </li>
                 {{-- <li class="nav-item">
                     <a class="nav-link" data-widget="navbar-search" href="#" role="button">
                         <i class="fas fa-search"></i>
@@ -335,7 +339,7 @@
             © <script type="text/JavaScript"> 
                 var theDate=new Date() 
                 document.write(theDate.getFullYear()) 
-            </script> All rights reserved. Developer team -  <a href="https://github.com/aditya-shekhar773">Aditya Sekhar</a> - <a href="https://github.com/md-wasik-alam">Wasik Alam</a> and <a href="https://github.com/LazyDeveloperr">intkhab Ahmad</a>
+            </script> All rights reserved. Developer team - <a href="https://github.com/LazyDeveloperr">intkhab Ahmad</a> - <a href="https://github.com/aditya-shekhar773">Aditya Sekhar</a> and <a href="https://github.com/md-wasik-alam">Wasik Alam</a>
 
         </footer>
 

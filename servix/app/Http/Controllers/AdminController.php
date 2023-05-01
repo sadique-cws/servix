@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Receptioner;
 use App\Models\Staff;
 use App\Models\Type;
 use Carbon\Carbon;
@@ -69,6 +70,11 @@ class AdminController extends Controller
         Staff::where('id', $id)->delete();
         return redirect()->route('admin.staff.manage');
     }
+    public function crmDelete($id): RedirectResponse
+    {
+        Receptioner::where('id', $id)->delete();
+        return redirect()->route('receptioner.showAllreceptioner');
+    }
 
     public function deleteRequest($id): RedirectResponse
     {
@@ -112,9 +118,8 @@ class AdminController extends Controller
             'aadhar' => 'required',
             'pan' => 'required',
             'address' => 'required',
-            'password' => 'required',
+           
         ]);
-        $data['password']=Hash::make($req->password);
         $data['status'] = ($req->status) ? 1 : 0 ;
         $id = $req->id;
         Staff::where('id', $id)->update($data);

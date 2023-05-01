@@ -1,5 +1,8 @@
 @extends('admin.layout.base')
 
+@section('title')
+    Manage Receptionist
+@endsection
 
 
 @section('content')
@@ -122,7 +125,7 @@
                                             </div>
                                         </div>
                                         {{-- Delete button  --}}
-                                        <a href="{{ route('admin.staff.delete', $item->id) }}"  role="button"
+                                        <a href="{{ route('admin.crm.delete', $item->id) }}"  role="button"
                                             class="btn btn-danger"><svg width="20" height="20" viewBox="0 0 24 24"
                                                 class="NSy2Hd cdByRd RTiFqe undefined">
                                                 <path fill='#b8c2cc'

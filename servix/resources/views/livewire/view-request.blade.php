@@ -56,7 +56,8 @@
                                 <span class="font-weight-bold">({{ $item->technician->name }})</span>
                             </td>
                             <td>{{ $item->problem }}</td>
-                            <td>{{ $item->getStatus() }}</td>
+                            <td><span class="font-weight-bold   rounded px-2 py-1
+                                " style="color:{{StatusColor($item->status)}}; ">{{ $item->getStatus() }}</span></td>
                             <td>
 
                                 <a data-toggle="modal" data-target="#view{{ $item->id }}" role="button"
@@ -103,7 +104,8 @@
                                                         </tr>
                                                         <tr>
                                                             <th>Status</th>
-                                                            <td>{{ !$item->status ? 'Pending' : ($item->status == 1 ? 'Delivered' : 'Reject') }}
+                                                            <td><span class="font-weight-bold   rounded px-2 py-1
+                                                                " style="color:{{StatusColor($item->status)}}; ">{{ $item->getStatus() }}</span>
                                                             </td>
                                                         </tr>
                                                         <tr>

@@ -107,7 +107,8 @@
                                     <td>{{ $item->color }}</td>
                                     <td>{{ $item->brand }}</td>
                                     <td>{{ $item->problem }}</td>
-                                    <td>{{ $item->getStatus() }}</td>
+                                    <td><span class="font-weight-bold   rounded px-2 py-1
+                                        " style="color:{{StatusColor($item->status)}}; ">{{ $item->getStatus() }}</span></td>
                                     <td>{{ $item->type->typename }}</td>
                                     <td>{{ $item->remark }}</td>
 
@@ -306,7 +307,8 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <th>Status</th>
-                                                                    <td>{{ !$item->status ? 'Pending' : ($item->status == 1 ? 'Delivered' : 'Reject') }}
+                                                                    <td><span class="font-weight-bold   rounded px-2 py-1
+                                                                        " style="color:{{StatusColor($item->status)}}; ">{{ $item->getStatus() }}</span></h5>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>

@@ -1,5 +1,8 @@
 @extends('admin.layout.base')
 
+@section('title')
+ Admin | Insert staff 
+@endsection
 
 
 @section('content')

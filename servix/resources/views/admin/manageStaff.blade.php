@@ -1,6 +1,8 @@
 @extends('admin.layout.base')
 
-
+@section('title')
+    Manage Staffs
+@endsection
 
 @section('content')
     <div class="row">

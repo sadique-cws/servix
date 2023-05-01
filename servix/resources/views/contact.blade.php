@@ -35,14 +35,14 @@
 <body>
     <div class="main_background fixed-top py-1">
         <nav class="navbar navbar-expand-lg navbar-light ">
-            <div class="container">
+            <div class="container ">
                 <a href="{{ route('home') }}" class="navbar-brand" href="#">
-                    <img src="Assets/logo-black.png" class="img-logo ml-16" alt="logo">
+                    <img src="Assets/logo-black.png" class="img-logo h-8 ml-16" alt="logo">
                 </a>
-                <button data-collapse-toggle="navbar-dropdown" type="button" aria-controls="navbar-dropdown" aria-expanded="false" class="md:hidden ">
+                <button data-collapse-toggle="navbar-dropdown" type="button" aria-controls="navbar-dropdown" aria-expanded="false" class="lg:hidden md:block ">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="hidden w-full md:block " id="navbar-dropdown">
+                <div class="hidden sm:hidden lg:w-full lg:inline-block lg:flex lg:flex-row " id="navbar-dropdown">
                     <ul class="navbar-nav justify-content-end float ms-auto d-flex gap-2">
                         <li class=" pt-2 float-rightt ">
                             <button type="button" class="btn" style="">
@@ -66,6 +66,7 @@
                         </li>
                     </ul>
                 </div>
+            </div>
         </nav>
     </div>
 

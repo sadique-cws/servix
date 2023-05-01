@@ -1,5 +1,8 @@
 @extends('admin.layout.base')
 
+@section('title')
+    Insert Staff
+@endsection
 
 
 @section('content')
@@ -88,15 +91,7 @@
                             <p class="text-error">{{ $message }}</p>
                         @enderror
                     </div>
-                    <div class="w-full px-3 mb-5 col">
-                        <label for="" class="text-black-100">Status</label>
-                        <div class="flex">
-                            <input type="text" name="status" class="form-control" placeholder="">
-                        </div>
-                        @error('status')
-                            <p class="text-error">{{ $message }}</p>
-                        @enderror
-                    </div>
+                   
                     <div class="w-full px-3 mb-5 col">
 
                         <label for="inputState" class="text-black-100">Type</label>

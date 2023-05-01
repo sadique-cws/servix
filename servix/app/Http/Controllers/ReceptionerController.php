@@ -231,7 +231,7 @@ class ReceptionerController extends Controller
             $data['status']=1;
             
             Receptioner::create($data);
-            return redirect()->back();       
+            return redirect()->route("receptioner.showAllreceptioner");       
 
         }
         return view('admin.receptioner.addReceptioner');
@@ -299,11 +299,9 @@ class ReceptionerController extends Controller
             'aadhar' => 'required',
             'pan' => 'required',
             'address' => 'required',
-            'password' => 'required',
             
         ]);
         $data['status'] = ($req->status) ? 1 : 0 ;
-        $data['password']=Hash::make($req->password);
         $id = $req->id;
         Receptioner::where('id', $id)->update($data);
         return redirect()->route('receptioner.showAllreceptioner');

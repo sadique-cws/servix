@@ -96,7 +96,8 @@
                                     <td>{{ $item->color }}</td>
                                     <td>{{ $item->brand }}</td>
                                     <td>{{ $item->problem }}</td>
-                                    <td>{{ $item->getStatus() }}</td>
+                                    <td><span class="font-weight-bold   rounded px-2 py-1
+                                      " style="color:{{StatusColor($item->status)}}; ">{{ $item->getStatus() }}</span></td>
                                     <td>{{ $item->remark }}</td>
                                     <td>{{ date('d M Y', strtotime($item->created_at)) }}</td>
                                     <td class="border border-slate-700 p-1.5  items-center justify-center flex btn-group"

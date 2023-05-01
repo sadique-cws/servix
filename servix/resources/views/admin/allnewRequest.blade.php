@@ -1,6 +1,8 @@
 @extends('admin.layout.base')
 
-
+@section('title')
+    All New Requests
+@endsection
 
 @section('content')
     <div class="row">
@@ -153,7 +155,8 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <th>Status</th>
-                                                                    <td>{{ (!$item->status)? "Pending" : (($item->status == 1)? "Delivered" : "Reject") }}</td>
+                                                                    <td><span class="font-weight-bold   rounded px-2 py-1
+                                                                        " style="color:{{StatusColor($item->status)}}; ">{{ $item->getStatus() }}</span></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th>Serial No</th>

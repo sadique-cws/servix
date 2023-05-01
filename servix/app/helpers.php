@@ -118,22 +118,31 @@ if (! function_exists('StatusColor')) {
     function StatusColor($status=NULL) {
         switch($status){
             case 0:
-                return "dark";
+                return "#717D7E";
                 break;
             case 1:
-                return "success";
+                return "#145A32";
                 break;
             case 2:
-                return "warning";
+                return " #2ECC71";
+                break;
+            case 2.1:
+                return " #E67E22";
+                break;
+            case 2.2:
+                return " #9A7D0A";
+                break;
+            case 2.3:
+                return " #117A65";
                 break;
             case 3:
-                 return "danger";
+                 return "#A93226";
                  break;
             case 4:
-                return "success";
+                return "#52BE80";
                 break;
             case 5:
-                return "success";
+                return "#F39C12";
                 break;
             default:
                 return "warning";
