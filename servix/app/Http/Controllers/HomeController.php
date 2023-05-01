@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\touch_with_us;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -16,7 +17,22 @@ class HomeController extends Controller
     public function index():View{
         return view('homepage');
     }
-    public function contactUs():View{
+    public function contactUs(Request $req){
+        if($req->method() == "POST"){
+            $data = $req->validate([
+                'first_name' => 'required',
+                'last_name' => 'required',
+                'contact' => 'required',
+                'company' => 'nullable',
+                'email' => 'required',
+                'subject' => 'required',
+                'message' => 'required',
+                'inspired_from' => 'required',
+                
+            ]);
+            touch_with_us::create($data);
+            return redirect()->back();
+        }
         return view('contact');
     }
     public function learn():View{

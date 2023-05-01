@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage; //This is for image upload,
 
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('home');
-    Route::get('/contact', 'contactUs')->name('home.contact');
+    Route::match(['get','post'],'/contact', 'contactUs')->name('home.contact');
     Route::get('/learn', 'learn')->name('home.learn');
     Route::get('/warranty', 'warranty')->name('home.warranty');
     Route::get('/privacyPolicy', 'privacyPolicy')->name('home.privacyPolicy');

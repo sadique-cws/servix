@@ -24,7 +24,7 @@
                      <div id="error-animation" class="h-[400px]  self-center w-full"></div>
                     <h1 class="text-[23px] hover:scale-110 duration-300 ease-in-out hover:text-red-900 font-semibold ">Something went wrong!</h1>
                     <div class="p-5 m-1 overflow-hidden transition-all duration-500 ease-in-out translate-y-[100%] group-hover:translate-y-0">
-                        <button class="text-[20px]  bg-[#ffc800] drop-shadow-xl text-slate-800 font-semibold hover:tracking-[3px] transition-all duration-300 ease-in-out px-4 py-2 rounded-lg tracking-[widest] text-center self-center active:scale-110"> <a href="{{ route('home') }}">Move to servixc</a></button>
+                        <button class="text-[20px]  bg-[#ffc800] drop-shadow-xl text-slate-800 font-semibold hover:tracking-[3px] transition-all duration-300 ease-in-out px-4 py-2 rounded-lg tracking-[widest] text-center self-center active:scale-110"> <a href="{{ url()->previous() }}">Move to servixc</a></button>
                     </div>
                 </div>
             </div>
