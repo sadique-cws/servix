@@ -16,7 +16,9 @@
     <div class="container">
         <div class="row h-screen group ">
             <div class="py-3">
-                <img src="Assets/logo-black.png" class="img-logo"/>
+                <a href="{{ route('home') }}">
+                    <img src="Assets/logo-black.png" class="img-logo"/>
+                </a>
             </div>
             <div class="m-auto p-auto justify-items-center justify-content-center align-items-center ">
                 <div class="h-full  w-full items-center self-center justify-center text-center overflow-hidden">
