@@ -17,7 +17,7 @@
         </div>
     </div>
 </div>
-<div class="container px-5" style="margin-top: 100px;">
+<div class="container" style="margin-top: 100px;">
     <div class="text-center" style="margin-bottom: 170px">
         <h1 class="Ad_vance">Advance <span class="ser_vicess">chip level</span> </h1>
         <h1 class="ser_vices11">training in</h1>
@@ -32,7 +32,7 @@
                             <img src="Assets/Laptop.png" class="img-fluid img_first" alt="laptop">
                         </div>
                         <div class="">
-                            <h2 class="pro_vide1 my-0 pt-2"><b>Laptop</b></h2>
+                            <h2 class="pro_vide1 my-0 pt-2 sm-text-sm"><b>Laptop</b></h2>
                             <h3 class="title_serv">Service</h3>
                         </div>
                     </div>
