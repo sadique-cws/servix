@@ -110,11 +110,14 @@ class ReceptionerController extends Controller
                 'MAC' => 'required',
                 'remark' => 'required',
                 'estimate_delivery' => 'required',
-                'image' => 'nullable',
+                
                
             ]);
             
            if($req->image!=null){
+            $data['image']=$req->validate([
+                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ]);
             $img = $req->image;
             $folderPath = "public/uploads/";
             

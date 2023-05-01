@@ -73,23 +73,7 @@
                 <p>About Us</p>
             </div>
 
-            <div class="grid justify-center gap-2 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 xs:grid-cols-1 min-w-full pt-10 pb-36 md:px-5">
-                <div class="group w-full max-w-sm  group-hover:items-center bg-slate-300 border border-gray-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
-                    <div class="flex flex-col items-center py-4">
-                        <img class="w-[200px] h-[200px] group-hover:-translate-y-[30%] transition-all duration-500 ease-in-out mb-3 rounded-full shadow-lg" src="{{ asset('img/nirmalsah.png')}}" alt="Bonnie image"/>
-                        <h5 class="mb-1 text-xl group-hover:scale-150 group-hover:-translate-y-[100%] transition-all duration-500 ease-in-out font-medium text-gray-900 dark:text-white">Nirmal Sah</h5>
-                        <span class="text-sm text-gray-500 dark:text-gray-400 ">Laptop & Macbook engineer</span>
-                        <span class="text-xl text-gray-500 dark:text-gray-400 mt-3 "> <span class="">experience:</span> 7 Years</span>
-                    </div>
-                </div>
-                <div class="group w-full max-w-sm group-hover:items-center bg-slate-300 border border-gray-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
-                    <div class="flex flex-col items-center py-4">
-                        <img class="w-[200px] h-[200px] group-hover:-translate-y-[30%] transition-all duration-500 ease-in-out mb-3 rounded-full shadow-lg" src="{{ asset('img/chandansah.png')}}" alt="Bonnie image"/>
-                        <h5 class="mb-1 text-xl group-hover:scale-150 group-hover:-translate-y-[100%] transition-all duration-500 ease-in-out font-medium text-gray-900 dark:text-white">Chandan Sah</h5>
-                        <span class="text-sm text-gray-500 dark:text-gray-400">LED tv engineer</span>
-                        <span class="text-lg text-gray-500 dark:text-gray-400 mt-3 "> <span class="">experience:</span> 17 Years</span>
-                    </div>
-                </div>
+            <div class="grid  gap-2 justify-center items-center lg:grid-cols-4 md:grid-cols-2 grid-cols-1 xs:grid-cols-1 min-w-full pt-10 pb-36 md:px-5 place-items-center">
                 <div class="group w-full max-w-sm group-hover:items-center bg-slate-300 border border-gray-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
                     <div class="flex flex-col items-center py-4">
                         <img class="w-[200px] h-[200px] group-hover:-translate-y-[30%] transition-all duration-500 ease-in-out mb-3 rounded-full shadow-lg" src="{{ asset('img/sahidalam.png')}}" alt="Bonnie image"/>
@@ -99,6 +83,23 @@
                         <span class="text-sm text-gray-500 dark:text-gray-400 ">10 year job in Samsung (senior engineer)</span>
                     </div>
                 </div>
+                <div class="group w-full max-w-sm group-hover:items-center bg-slate-300 border border-gray-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
+                        <div class="flex flex-col items-center py-4">
+                            <img class="w-[200px] h-[200px] group-hover:-translate-y-[30%] transition-all duration-500 ease-in-out mb-3 rounded-full shadow-lg" src="{{ asset('img/nirmalsah.png')}}" alt="Bonnie image"/>
+                            <h5 class="mb-1 text-xl group-hover:scale-150 group-hover:-translate-y-[100%] transition-all duration-500 ease-in-out font-medium text-gray-900 dark:text-white">Nirmal Sah</h5>
+                            <span class="text-sm text-gray-500 dark:text-gray-400 ">Laptop & Macbook engineer</span>
+                            <span class="text-xl text-gray-500 dark:text-gray-400 mt-3 "> <span class="">experience:</span> 7 Years</span>
+                        </div>
+                </div>
+                <div class="group w-full max-w-sm group-hover:items-center bg-slate-300 border border-gray-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
+                    <div class="flex flex-col items-center py-4">
+                        <img class="w-[200px] h-[200px] group-hover:-translate-y-[30%] transition-all duration-500 ease-in-out mb-3 rounded-full shadow-lg" src="{{ asset('img/chandansah.png')}}" alt="Bonnie image"/>
+                        <h5 class="mb-1 text-xl group-hover:scale-150 group-hover:-translate-y-[100%] transition-all duration-500 ease-in-out font-medium text-gray-900 dark:text-white">Chandan Sah</h5>
+                        <span class="text-sm text-gray-500 dark:text-gray-400">LED tv engineer</span>
+                        <span class="text-lg text-gray-500 dark:text-gray-400 mt-3 "> <span class="">experience:</span> 17 Years</span>
+                    </div>
+                </div>
+
                 <div class="group w-full max-w-sm group-hover:items-center bg-slate-300 border border-gray-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
                     <div class="flex flex-col items-center py-4">
                         <img class="w-[200px] h-[200px] group-hover:-translate-y-[30%] transition-all duration-500 ease-in-out mb-3 rounded-full shadow-lg " src="{{ asset('img/vijaykumar.png')}}" alt="Bonnie image"/>
@@ -115,20 +116,20 @@
     <hr class="my-0" style="color: #5e5b5b !important;">
 
      <!-- Footer Section -->
-     <div class="background-footer mt-2">
+     <div class="background-footer mt-2 ">
         <div class="container pt-5 pb-2">
             <div class="row pt-3 all_text-center justify-center items-center lg:px-20">
-                <div class="col-lg-4 col-md-6 col-12 mb-4">
+                <div class="col-lg-4 col-md-6 col-12 mb-4 ">
                     <div class="pl-0">
                         <a href="#" class="nav-link p-0"><img src="Assets/logo-black.png" class="img-logo w-[200px]"
                                 alt="logo"></a>
                     </div>
-                    <ul class="navbar-nav pt-3">
-                        <li class="nav-item py-1"><a href="{{ route('home.warranty') }}" class="nav-lnk footer--art">Warranty Policy</a></li>
-                        <li class="nav-item py-1"><a href="{{route('home.termsAndCondition')}}" class="nav-lnk footer--art">Terms & Conditions</a>
+                    <ul class="navbar-nav pt-3 ">
+                        <li class="nav-item py-1"><a href="{{ route('home.warranty') }}" class="nav-lnk footer--art text-[21px] font-bold hover:text-red-600/90">Warranty Policy</a></li>
+                        <li class="nav-item py-1"><a href="{{route('home.termsAndCondition')}}" class="nav-lnk footer--art text-[21px] font-bold hover:text-red-600/90">Terms & Conditions</a>
                         </li>
-                        <li class="nav-item py-1"><a href="{{ route('home.privacyPolicy') }}" class="nav-lnk footer--art">Privacy Policy</a></li>
-                        <li class="nav-item py-1"><a href="{{ route('home.ourTeam')}}" class="nav-lnk footer--art">Our Team</a></li>
+                        <li class="nav-item py-1"><a href="{{ route('home.privacyPolicy') }}" class="nav-lnk footer--art text-[21px] font-bold hover:text-red-600/90">Privacy Policy</a></li>
+                        <li class="nav-item py-1"><a href="{{ route('home.ourTeam')}}" class="nav-lnk footer--art text-[21px] font-bold hover:text-red-600/90">Our Team</a></li>
 
                     </ul>
                 </div>
@@ -159,7 +160,7 @@
         </div>
     </div>
     <hr class="my-0" style="color: #5e5b5b !important;">
-    <div class="background-footer pt-0">
+    <div class="background-footer pt-0 ">
         <div class="container py-2">
             <p class="text-center pb-2 pt-3 m-0" style="font-size:17px; color: #000;">Copyright ©<span
                     id="aftab"></span> All

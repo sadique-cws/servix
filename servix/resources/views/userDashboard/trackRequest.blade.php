@@ -10,7 +10,7 @@
 
             <div class="container">
                 <div class="row">
-                    <div class="col-12 col-lg-6 mx-auto">
+                    <div class="col-12 col-lg-6 mx-auto mt-5">
                         <div class="card" style="background: #eee">
                             <div class="card-body">
                                 <form action="{{ route('track.status') }}" method="POST" class="text-center p-10">

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string("salary");
             $table->foreignId("type_id")->constrained();
             $table->string("status");
-            $table->string("image");
+            $table->string("image")->nullable();
             $table->string("aadhar");
             $table->string("pan");
             $table->string("address");
