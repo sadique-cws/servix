@@ -57,8 +57,9 @@
                         <label for="inputState" class="text-black-100">Type</label>
                         <div class="flex w-full">
                             {{-- <input type="text" name="type" class="form-control" placeholder=""> --}}
-                            <select id="inputState" name="type_id" class=" form-control">
-                                <option selected>Choose...</option>
+                            <select id="inputState" name="type_id"  class="form-control">
+                                <option selected value="{{$data->type_id}}">{{$data->type->typename}}</option>
+                                <option disabled>Choose...</option>
                                 @foreach ($Types as $item)
                                     <option value="{{ $item->id }}">{{ $item->typename }}</option>
                                 @endforeach
@@ -95,15 +96,6 @@
                             </label>
                         </div>
                     </div>
-                    {{-- <div class="w-full px-3 mb-5 col">
-                        <label for="" class="text-black-100">Image</label>
-                        <div class="flex">
-
-                            <input class="" name="image" type="file" type="checkbox" value="1">
-                        </div>
-
-
-                    </div> --}}
                 </div>
                 <div class="row">
                     <div class="w-full px-3 mb-5 col">
