@@ -6,7 +6,7 @@
 @section('contents')
     <div class="container mt-5">
         <div class="row mt-5 py-5 px-2">
-            <div class="card p-5 mx-auto mt-5 rounded-5 col-12 col-lg-6 col-md-8 col-12">
+            <div class="card p-5 mx-auto mt-5 rounded-5 col-12 col-lg-6 col-md-9 col-12">
                 <div class="d-flex justify-content-center">
                     <h1 class="font-bold text-3xl text-gray-900 mb-4">Service Request</h1>
                 </div>
