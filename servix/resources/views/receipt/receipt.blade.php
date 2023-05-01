@@ -64,7 +64,7 @@
                                 <div class="col-md-12">
                                     <div class="text-center">
                                         <img src="../../Assets/logo-black.png"
-                                            style="color:#5d9fc5 ;">
+                                            style="color:#5d9fc5 ; width:300px">
                                         <p class="pt-0">
                                             servicxteam@gmail.com</p>
                                     </div>

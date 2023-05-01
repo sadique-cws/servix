@@ -1,5 +1,8 @@
 @extends('receptioner.layouts.base')
 
+@section('title')
+    {{ $title  }}
+@endsection
 @section('content')
     <div class="row">
         <div class="col-12 ">
@@ -98,7 +101,7 @@
                                     <td>{{ $item->product_name }}</td>
                                     <td>{{ $item->contact }}</td>
                                     <td>{{ $item->problem }}</td>
-                                    <td>{{ $item->getStatus() }}</td>
+                                    <td class="text-capitalize">{{ $item->getStatus() }}</td>
                                     <td>{{ $item->remark }}</td>
                                     <td>{{ date('d M Y', strtotime($item->created_at)) }}</td>
                                     <td class=" p-1.5  items-center justify-center flex btn-group"
@@ -117,7 +120,7 @@
                                                 <a href="{{ route('crm.request.deliver', $item->id) }}" role="button"
                                                     class=" btn btn-success btn-group ">Deliver</a>
                                                 @endif
-                                                <a href="{{ route('receipt.view', $item->id) }}" role="button"
+                                                <a href="{{ route('receptioner.viewRequest', $item->id) }}" role="button"
                                                     class=" btn btn-info btn-group ">View</a>
 
                                                 <a href="{{ route('receptioner.request.edit', $item->id) }}" role="button"
