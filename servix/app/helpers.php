@@ -22,7 +22,7 @@ if (! function_exists('countNewRequest')) {
 }
 if (! function_exists('messageCounting')) {
     function messageCounting() {
-       $count=touch_with_us::count();
+       $count=touch_with_us::where('isRead',0)->count();
         return $count;
     }
 }

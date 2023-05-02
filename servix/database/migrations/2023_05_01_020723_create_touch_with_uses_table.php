@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string("subject");
             $table->string("message");
             $table->string("inspired_from");
+            $table->string("isRead");
             $table->timestamps();
         });
     }

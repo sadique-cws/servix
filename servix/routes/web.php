@@ -75,6 +75,7 @@ Route::prefix("admin")->group(function () {
         Route::get('/listRequest/workDone','workDoneRequests')->name('admin.workDone.req');
         Route::get('/listRequest/delivered','deliveredRequest')->name('admin.delivered.req');
         Route::get('/listRequest/messages','messages')->name('admin.messages.req');
+        Route::get('/listRequest/{id}/readmessages','messagesRead')->name('admin.messagesRead.req');
 
          // filter 
          Route::get("/request/datefilter","dateFilter")->name("admin.request.filterbydate");
