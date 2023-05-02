@@ -301,9 +301,17 @@ class AdminController extends Controller
         return view('admin/requests',$data);
     }
 
-    public function touch_with_us(){
+    public function messages(){
        $data['touch_with_us']= touch_with_us::paginate(10);
-       return view('admin.touch_with_us',$data);
+       return view('admin.messages',$data);
+    }
+    public function messagesRead($id){
+       $request=touch_with_us::where('id',$id)->first();
+
+       $request->isRead=1;
+       $request->save();
+       return redirect()->back();
+    
     }
 
     

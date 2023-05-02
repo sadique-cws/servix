@@ -54,9 +54,9 @@
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="/admin" class="nav-link">Home</a>
                 </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
-                </li>
+                {{-- <li class="nav-item d-none d-sm-inline-block">
+                    <a href="{{ route('admin.messages.req') }}" class="nav-link">Messages {{messageCounting()}}</a>
+                </li> --}}
             </ul>
 
             <!-- Right navbar links -->
@@ -147,6 +147,10 @@
                     </div>
                 </li> --}}
                 <!-- Notifications Dropdown Menu -->
+                <a class="nav-link"  href="{{ route('admin.messages.req') }}">
+                    <i class="far fa-envelope"></i>
+                    <span class="badge badge-warning navbar-badge">{{messageCounting()}}</span> 
+                </a>
                 {{-- <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
                         <i class="far fa-bell"></i>

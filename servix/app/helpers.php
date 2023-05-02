@@ -1,6 +1,7 @@
 <?php 
 
 use App\Models\Request as RequestModel;
+use App\Models\touch_with_us;
 use Carbon\Carbon;
 
 if (! function_exists('countNewRequest')) {
@@ -16,6 +17,12 @@ if (! function_exists('countNewRequest')) {
         else if($status != NULL){
             $count = RequestModel::where('technician_id','!=',NULL)->where('type_id',$type_id)->where('status',$status)->count();
         }
+        return $count;
+    }
+}
+if (! function_exists('messageCounting')) {
+    function messageCounting() {
+       $count=touch_with_us::where('isRead',0)->count();
         return $count;
     }
 }
