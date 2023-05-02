@@ -14,11 +14,11 @@
                 <tr>
     
                     <th>id</th>
-                    <th>First name</th>
+                    <th>Name</th>
                     <th>Contact</th>
     
                     <th>Email</th>
-                    <th>Inspired_from</th>
+                    <th>Refferal</th>
                 </tr>
             </thead>
             <tbody>
@@ -26,7 +26,7 @@
                     <tr style="background-color:{{($item->isRead)?" rgb(227 239 246)":null}}" >
     
                         <td class="text-uppercase">{{ $item->id }}</td>
-                        <td>{{ $item->first_name }}</td>
+                        <td>{{ $item->first_name }} @if($item-> last_name) {{$item-> last_name}} @endif </td>
                         <td>{{ $item->contact  }}</td>
     
                         <td>{{ $item->email }}</td>
