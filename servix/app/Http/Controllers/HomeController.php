@@ -21,10 +21,10 @@ class HomeController extends Controller
         if($req->method() == "POST"){
             $data = $req->validate([
                 'first_name' => 'required',
-                'last_name' => 'required',
-                'contact' => 'required',
+                'last_name' => 'nullable',
+                'contact' => 'required|integer|digits:10',
                 'company' => 'nullable',
-                'email' => 'required',
+                'email' => 'required|email',
                 'subject' => 'required',
                 'message' => 'required',
                 'inspired_from' => 'required',
