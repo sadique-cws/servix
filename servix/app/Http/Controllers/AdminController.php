@@ -306,11 +306,10 @@ class AdminController extends Controller
        return view('admin.messages',$data);
     }
     public function messagesRead($id){
-       $request=touch_with_us::where('id',$id)->first();
-
-       $request->isRead=1;
-       $request->save();
-       return redirect()->back();
+       $item=touch_with_us::where('id',$id)->first();
+        $item->isRead=1;
+       $item->save();
+       return view('admin.messagesView',compact("item"));
     
     }
 
