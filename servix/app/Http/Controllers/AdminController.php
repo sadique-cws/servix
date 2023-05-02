@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Receptioner;
 use App\Models\Staff;
+use App\Models\touch_with_us;
 use App\Models\Type;
 use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
@@ -29,7 +30,7 @@ class AdminController extends Controller
                 
                 return redirect()->route("admin.panel");
             } else {
-                return redirect()->back();
+                return redirect()->back()->with("alert","Please enter valid email or password");
             }
         }
         return view('admin.adminLogin');
@@ -298,6 +299,11 @@ class AdminController extends Controller
         $data['title']='Search Record';
         $data['dateFilter']='All';
         return view('admin/requests',$data);
+    }
+
+    public function touch_with_us(){
+       $data['touch_with_us']= touch_with_us::paginate(10);
+       return view('admin.touch_with_us',$data);
     }
 
     

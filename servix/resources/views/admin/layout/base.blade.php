@@ -852,6 +852,13 @@
         var sale_data = @json(MonthlyCount())
     </script>
     <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
+    <script>
+        var msg = '{{ Session::get('alert') }}';
+        var exist = '{{ Session::has('alert') }}';
+        if (exist) {
+            alert(msg);
+        }
+    </script>
 
 
 </body>

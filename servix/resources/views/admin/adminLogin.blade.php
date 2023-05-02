@@ -115,5 +115,12 @@
 {{-- <script src="{{ asset("dist/js/demo.js") }}"></script> --}}
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset("dist/js/pages/dashboard.js")}}"></script>
+<script>
+  var msg = '{{ Session::get('alert') }}';
+  var exist = '{{ Session::has('alert') }}';
+  if (exist) {
+      alert(msg);
+  }
+</script>
 </body>
 </html>

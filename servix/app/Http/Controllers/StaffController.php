@@ -29,11 +29,11 @@ class StaffController extends Controller
                     return redirect()->route("staff.panel");
                 }
                 else{
-                    return "your account is disabled";
+                    return redirect()->back()->with("alert","your account is disabled");
                 }
            }
            else{
-                return redirect()->route("staff.login");
+                return redirect()->route("staff.login")->with("alert","Please enter valid email or password");;
            }
         }
         return view('staff.staffLogin');

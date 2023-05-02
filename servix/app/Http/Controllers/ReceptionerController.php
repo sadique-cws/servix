@@ -30,7 +30,7 @@ class ReceptionerController extends Controller
                 
                 return redirect()->route("receptioner.panel");
             } else {
-                return redirect()->back();
+                return redirect()->back()->with("alert","Please enter valid email or password");;
             }
         }
         return view('receptioner.receptionerLogin');

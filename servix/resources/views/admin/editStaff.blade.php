@@ -57,19 +57,14 @@
                         <label for="inputState" class="text-black-100">Type</label>
                         <div class="flex w-full">
                             {{-- <input type="text" name="type" class="form-control" placeholder=""> --}}
-                            <select id="inputState" name="type_id"  class="form-control">
-                                <option selected value="{{$data->type_id}}">{{$data->type->typename}}</option>
+                            <select id="inputState" name="type_id" class="form-control">
+                                <option selected value="{{ $data->type_id }}">{{ $data->type->typename }}</option>
                                 <option disabled>Choose...</option>
                                 @foreach ($Types as $item)
                                     <option value="{{ $item->id }}">{{ $item->typename }}</option>
                                 @endforeach
-                                {{-- <option>Mobile</option>
-                                <option>Laptop</option>
-                                <option>Assessories</option> --}}
                             </select>
                         </div>
-
-
                     </div>
                     <div class="w-full px-3 mb-5 col">
                         <label for="" class="text-black-100">Aadhar no</label>
@@ -116,9 +111,6 @@
                 </div>
 
             </form>
-
-            {{-- form end --}}
-
         </div>
     </div>
 @endsection
