@@ -141,7 +141,7 @@
         </div>
 
         {{-- Contact us form  --}}
-        <div class="gap-2 lg:px-32 px-0 group px-1 grid col-12">
+        <div  class="gap-2 lg:px-32  group sm:px-1 grid col-12">
             <div class="bg-gray-800 lg:px-32 px-3 py-12 rounded-lg">
                 <div class="text-slate-300 text-[30px] w-full  text-center font-semibold py-4 mb-3">
                     Touch with us
@@ -163,9 +163,9 @@
                             @enderror
                         </div>
                         <div class="relative z-0 w-full mb-6 group">
-                            <input type="text" name="last_name" id="last_name"
+                            <input value="{{ old('last_name') }}" type="text" name="last_name" id="last_name"
                                 class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-500 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                placeholder=" " required />
+                                placeholder=" " />
                             <label for="last_name"
                                 class="group-hover:text-[18px] peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Last
                                 name</label>
@@ -178,7 +178,7 @@
                     </div>
                     <div class="grid md:grid-cols-2 md:gap-6">
                         <div class="relative z-0 w-full mb-6 group">
-                            <input type="number" pattern="[0-9]{10}" name="contact" id="phone"
+                            <input value="{{ old('contact') }}" type="phone" pattern="[0-9]{10}" name="contact" id="phone"
                                 class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-500 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                                 placeholder=" " required />
                             <label for="phone"
@@ -191,7 +191,7 @@
                             @enderror
                         </div>
                         <div class="relative z-0 w-full mb-6 group">
-                            <input type="text" name="company" id="company"
+                            <input value="{{ old('company') }}" type="text" name="company" id="company"
                                 class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-500 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                                 placeholder=" "  />
                             <label for="company"
@@ -207,7 +207,7 @@
                         </div>
                     </div>
                     <div class="relative z-0 w-full mb-6">
-                        <input type="email" name="email" id="email"
+                        <input value="{{ old('email') }}" type="email" name="email" id="email"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-500 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                             placeholder=" " required />
                         <label for="email"
@@ -220,7 +220,7 @@
                         @enderror
                     </div>
                     <div class="relative z-0 w-full mb-6">
-                        <input type="text" name="subject" id="subject"
+                        <input value="{{ old('subject') }}" type="text" name="subject" id="subject"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-500 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                             placeholder=" " required />
                         <label for="subject"
@@ -232,7 +232,7 @@
                         @enderror
                     </div>
                     <div class="relative z-0 w-full mb-6">
-                        <input type="text" name="message" id="message"
+                        <input value="{{ old('message') }}" type="text" name="message" id="message"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-500 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                             placeholder=" " required />
                         <label for="message"
@@ -244,7 +244,7 @@
                         @enderror
                     </div>
                     <div class="relative z-0 w-full mb-6 group">
-                        <input type="inspired_from" name="inspired_from" id="inspired_from"
+                        <input value="{{ old('inspired_from') }}" type="inspired_from" name="inspired_from" id="inspired_from"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-500 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                             placeholder=" " required />
                         <label for="inspired_from"
