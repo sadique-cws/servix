@@ -29,7 +29,7 @@
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}">
 
-    
+
     @livewireStyles
 
 
@@ -199,9 +199,9 @@
 
                 <div class="form-inline">
                     <form action="{{ route('admin.request.globalSearch') }}" method="GET">
-                        <div class="input-group" >
-                            <input class="form-control form-control-sidebar" type="search" name="search" placeholder="Search"
-                               >
+                        <div class="input-group">
+                            <input class="form-control form-control-sidebar" type="search" name="search"
+                                placeholder="Search">
                             <div class="input-group-append">
                                 <button class="btn btn-sidebar" type="submit">
                                     <i class="fas fa-search fa-fw"></i>
@@ -229,14 +229,14 @@
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     New Request
-                                    <span class="right badge badge-danger">{{$NewCountReq}}</span>
+                                    <span class="right badge badge-danger">{{ $NewCountReq }}</span>
                                 </p>
                             </a>
                         </li>
                         <li class="nav-header">Service Request</li>
 
                         <li class="nav-item">
-                            <a href="{{route('admin.request.manageRequest')}}" class="nav-link">
+                            <a href="{{ route('admin.request.manageRequest') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Manage Request</p>
                             </a>
@@ -245,35 +245,35 @@
                             <a href="{{ route('admin.confirmed.req') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p> Confirmed</p>
-                                <span class="badge badge-info right">{{$ConformCountReq}}</span>
+                                <span class="badge badge-info right">{{ $ConformCountReq }}</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.pending.req') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p> pending</p>
-                                <span class="badge badge-info right">{{$PendingCountReq}}</span>
+                                <span class="badge badge-info right">{{ $PendingCountReq }}</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.rejected.req') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p> Rejected</p>
-                                <span class="badge badge-info right">{{$RejectedCountReq}}</span>
+                                <span class="badge badge-info right">{{ $RejectedCountReq }}</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.workDone.req') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p> Work Done</p>
-                                <span class="badge badge-info right">{{$WorkdoneCountReq}}</span>
+                                <span class="badge badge-info right">{{ $WorkdoneCountReq }}</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.delivered.req') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p> Delivered</p>
-                                <span class="badge badge-info right">{{$DeliveredCountReq}}</span>
+                                <span class="badge badge-info right">{{ $DeliveredCountReq }}</span>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -284,33 +284,33 @@
                         </li>
                         <li class="nav-header">Staffs</li>
 
-                    <li class="nav-item">
-                                    <a href="{{ route('admin.staff.manage') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Manage Staff</p>
-                                        {{-- <P class='ml-4'>{{$staffs->count()}}</P> --}}
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('receptioner.showAllreceptioner') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Manage receptioner</p>
-                                        {{-- <P class='ml-4'>{{$staffs->count()}}</P> --}}
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('admin.staff.create') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Add Staff</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ route('receptioner.add') }}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Add Receptioner</p>
-                                    </a>
-                                </li>
-                        
+                        <li class="nav-item">
+                            <a href="{{ route('admin.staff.manage') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Manage Staff</p>
+                                {{-- <P class='ml-4'>{{$staffs->count()}}</P> --}}
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('receptioner.showAllreceptioner') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Manage receptioner</p>
+                                {{-- <P class='ml-4'>{{$staffs->count()}}</P> --}}
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.staff.create') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Staff</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('receptioner.add') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Receptioner</p>
+                            </a>
+                        </li>
+
                         {{-- <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-tree"></i>
@@ -796,10 +796,14 @@
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">
-            © <script type="text/JavaScript"> 
+            ©
+            <script type="text/JavaScript">
                 var theDate=new Date() 
-                document.write(theDate.getFullYear()) 
-            </script> All rights reserved. Developer team -  <a href="https://github.com/aditya-shekhar773">Aditya Sekhar</a> - <a href="https://github.com/md-wasik-alam">Wasik Alam</a> and <a href="https://github.com/LazyDeveloperr">intkhab Ahmad</a>
+                                        document.write(theDate.getFullYear()) 
+                                    </script> All rights reserved. Developer team - <a
+                href="https://github.com/aditya-shekhar773">Aditya Sekhar</a> - <a
+                href="https://github.com/md-wasik-alam">Wasik Alam</a> and <a
+                href="https://github.com/LazyDeveloperr">intkhab Ahmad</a>
         </footer>
 
         <!-- Control Sidebar -->
@@ -842,13 +846,15 @@
     <script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('dist/js/adminlte.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+    </script>
     <!-- AdminLTE for demo purposes -->
     {{-- <script src="{{ asset("dist/js/demo.js") }}"></script> --}}
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 
     <script type="text/javascript">
-        var chart_data = @json(WeeklyCount()); 
+        var chart_data = @json(WeeklyCount());
         var sale_data = @json(MonthlyCount())
     </script>
     <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
