@@ -22,11 +22,11 @@
             </div>
             <div class="m-auto p-auto justify-items-center justify-content-center align-items-center ">
                 <div class="h-full  w-full items-center self-center justify-center text-center overflow-hidden">
-                    <h1 class="text-[80px] md:group-hover:tracking-[100px] group-hover:tracking-[40px] md:group-hover:translate-x-[30px] group-hover:translate-x-[20px] transition-all group-hover:scale-110 duration-500 ease-in-out ">404</h1>
+                    <h1 class="text-[80px] md:tracking-[100px] tracking-[40px] md:translate-x-[30px] translate-x-[20px] transition-all scale-110 duration-500 ease-in-out ">404</h1>
                      <div id="error-animation" class="h-[400px]  self-center w-full"></div>
                     <h1 class="text-[23px] hover:scale-110 duration-300 ease-in-out hover:text-red-900 font-semibold ">Something went wrong!</h1>
-                    <div class="p-5 m-1 overflow-hidden transition-all duration-500 ease-in-out translate-y-[100%] group-hover:translate-y-0">
-                        <button class="text-[20px]  bg-[#ffc800] drop-shadow-xl text-slate-800 font-semibold hover:tracking-[3px] transition-all duration-300 ease-in-out px-4 py-2 rounded-lg tracking-[widest] text-center self-center active:scale-110"> <a href="{{ url()->previous() }}">Move to servixc</a></button>
+                    <div class="p-5 m-1 overflow-hidden transition-all duration-500 ease-in-out translate-y-0">
+                        <button class="text-[20px] bg-[#ffc800] drop-shadow-xl text-slate-700 font-semibold tracking-[3px] transition-all duration-300 ease-in-out px-4 py-2 rounded-lg tracking-[widest] text-center self-center hover:scale-110 active:scale-125 "> <a href="{{ url()->previous() }}">↼ Go Back</a></button>
                     </div>
                 </div>
             </div>

@@ -37,11 +37,11 @@
         <nav class="navbar navbar-expand-lg navbar-light ">
             <div class="container ">
                 <a href="{{ route('home') }}" class="navbar-brand" href="#">
-                    <img src="Assets/logo-black.png" class="img-logo h-8 ml-16" alt="logo">
+                    <img src="Assets/logo-black.png" class="img-logo h-8 lg:ml-28 " alt="logo">
                 </a>
                 <button data-collapse-toggle="navbar-dropdown" type="button" aria-controls="navbar-dropdown"
-                    aria-expanded="false" class="lg:hidden md:block ">
-                    <span class="navbar-toggler-icon"></span>
+                    aria-expanded="false" class="lg:hidden md:block flex rounded-lg p-1 active:border-2 visited:border-2 border-gray-800 ">
+                    <span class="navbar-toggler-icon text-xl"></span>
                 </button>
                 <div class="hidden sm:hidden lg:w-full lg:inline-block lg:flex lg:flex-row " id="navbar-dropdown">
                     <ul class="navbar-nav justify-content-end float ms-auto d-flex gap-2">
@@ -72,9 +72,9 @@
     </div>
 
 
-    @section('title')
+    {{-- @section('title')
         Contact Us |
-    @endsection
+    @endsection --}}
 
     <div class="container px-5" style="margin-top: 200px">
         <div class="row justify-content-center px-auto">
@@ -87,12 +87,12 @@
         </div>
         <div class="container" style="margin-top: 150px;">
             <div class="row justify-content-center">
-                <div class="col-10">
+                <div class="col-lg-10 col-12">
                     <div class="row justify-content-center">
                         <div
                             class="col-md-6 col-12 mb-3 hover:scale-110 overflow-hidden hover:-translate-x-[10px] hover:-translate-y-[5px] transition-all duration-500 ease-in-out">
                             <div class="card card_contact px-4 py-3">
-                                <h3 class="my-0 text-[30px] tracking-wide"><b>Services</b></h3>
+                                <h3 class="my-0 lg:text-[30px] text-[25px] tracking-wide"><b>Services</b></h3>
                                 <h4 class="my-0">Ask Query</h4>
                                 {{-- <div class="d-flex pt-5">
                                     <img src="Assets/Whatsapp.svg" class="img_whats" alt="logo">
@@ -107,7 +107,7 @@
                         <div
                             class="col-md-6 col-12 mb-3 hover:scale-110 overflow-hidden hover:translate-x-[10px] hover:-translate-y-[5px] transition-all duration-500 ease-in-out">
                             <div class="card card_contact1 p-3">
-                                <h3 class="my-0 text-[30px] tracking-wide"><b>Training</b></h3>
+                                <h3 class="my-0 lg:text-[30px] text-[25px] tracking-wide"><b>Training</b></h3>
                                 <h4 class="my-0">Ask Query</h4>
                                 {{-- <div class="d-flex pt-5">
                                     <img src="Assets/Whatsapp.svg" class="img_whats" alt="logo">
@@ -141,8 +141,8 @@
         </div>
 
         {{-- Contact us form  --}}
-        <div class="gap-2 lg:px-32 group grid col-12">
-            <div class="bg-gray-800 lg:px-32 px-5 py-12 rounded-lg">
+        <div class="gap-2 lg:px-32 px-0 group px-1 grid col-12">
+            <div class="bg-gray-800 lg:px-32 px-3 py-12 rounded-lg">
                 <div class="text-slate-300 text-[30px] w-full  text-center font-semibold py-4 mb-3">
                     Touch with us
                 </div>
