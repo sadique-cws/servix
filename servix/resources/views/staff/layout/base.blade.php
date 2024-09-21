@@ -195,8 +195,7 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
                 <a href="{{ route('staff.panel') }}" class="brand-link bg-white d-flex align-items-center">
-                    <img src="../../Assets/logo-black.png" alt="AdminLTE Logo" class="brand-image"
-                        style="width:70%">
+                   
                     <span class="brand-text font-weight-bold">Staff</span>
                 </a>
 

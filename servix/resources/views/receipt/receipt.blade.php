@@ -68,11 +68,9 @@
                             <div class="container">
                                 <div class="col-md-12">
                                     <div class="text-center">
-                                        <img src="../../Assets/logo-black.png" width="20%">
-                                        <p class="pt-0">
+                                        <h1 class="fw-bold text-dark">NovaFix</h1>
                                             servicxteam@gmail.com</p>
                                     </div>
-
                                 </div>
 
 
@@ -95,7 +93,7 @@
                                         {{-- <p class="text-muted"></p> --}}
                                         <ul class="list-unstyled">
                                             <li class="text-muted"><i class="fas fa-map-marker"
-                                                    style="color:#84B0CA ;"></i> <span class="fw-bold">Servixc</span>
+                                                    style="color:#84B0CA ;"></i> <span class="fw-bold">NovaFix</span>
                                                 <br>
                                                 Zila School Road, Near BSNL tower, <br> Purnea (Bihar) - 854301
                                             </li>

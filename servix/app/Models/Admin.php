@@ -12,11 +12,11 @@ class Admin extends Authenticatable
 {
     use HasFactory;
 
-    protected $guard = "admin";
-
     protected $guarded=[];
 
-    public function setPasswordAttribute($value){
-        $this->attributes['password'] = Hash::make($value);
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = Hash::needsRehash($value) ? Hash::make($value) : $value;
     }
+    
 }

@@ -15,7 +15,7 @@
       <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
           <a href="{{route('home')}}">
-          <span class="ml-8 text-xl hover:text-gray-300">Servix</span>
+          <span class="ml-8 text-xl hover:text-gray-300">NovaFix</span>
           </a>
         </a>
         <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">

@@ -69,8 +69,8 @@
                                         role="group">
                                         {{-- status button  --}}
                                         {{-- <input type="button" id="status" name="status" value="{{$staff->status ? 'Active' : 'Inactive' }}"> --}}
-                                        <a role="button" class="btn btn-info"
-                                        data-bs-toggle="modal" data-bs-target="#ban{{ $item->id }}">{{ $item->status == 0 ? 'Active' : 'DeActive' }}</a>
+                                        <a role="button" class="btn btn-info" data-bs-toggle="modal"
+                                            data-bs-target="#ban{{ $item->id }}">{{ $item->status == 0 ? 'Active' : 'DeActive' }}</a>
                                         {{-- edit button --}}
                                         <a role="button" class="btn btn-warning"
                                             href="{{ route('admin.staff.edit', $item->id) }}">Edit</a>
@@ -83,7 +83,8 @@
                                             <div class="modal-dialog modal-dialog-centered " role="document">
                                                 <div class="modal-content bg-info">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLongTitle">Staff Details</h5>
+                                                        <h5 class="modal-title" id="exampleModalLongTitle">Staff Details
+                                                        </h5>
                                                         <button type="button" class="close" data-dismiss="modal"
                                                             aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
@@ -92,53 +93,57 @@
                                                     <div class="modal-body">
                                                         <div class="flex-row col-12">
                                                             <table class="table">
-                                                            <tr>
-                                                                <th>Name</th>
-                                                                <td>{{ $item->name }}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Email</th>
-                                                                <td>{{ $item->email }}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Contact</th>
-                                                                <td>{{ $item->contact }}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Salary</th>
-                                                                <td>{{ $item->salary }}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Status</th>
-                                                                <td>{{ (!$item->status)? "Pending" : (($item->status == 1)? "Delivered" : "Reject") }}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Type</th>
-                                                                <td>{{ $item->type_id }}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Aadhar Card No</th>
-                                                                <td>{{ $item->MAC }}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Color</th>
-                                                                <td>{{ $item->color }}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Create At</th>
-                                                                <td>{{($item->created_at)? date('d M Y', strtotime($item->estimate_delivery)) : "N/A"  }}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Product Image</th>
-                                                                <td>
-                                                                    @if($item->image)
-                                                                        <img src="{{ asset('storage/uploads/'.$item->image) }}" style="height: 80px; width:100px;" class="img-thumbnail">
-                                                                    @else 
-                                                                        <span>No image found!</span>
-                                                                    @endif
-                                                                </td>
-                                                            </tr>
-                                                        </table>
+                                                                <tr>
+                                                                    <th>Name</th>
+                                                                    <td>{{ $item->name }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Email</th>
+                                                                    <td>{{ $item->email }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Contact</th>
+                                                                    <td>{{ $item->contact }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Salary</th>
+                                                                    <td>{{ $item->salary }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Status</th>
+                                                                    <td>{{ !$item->status ? 'Pending' : ($item->status == 1 ? 'Delivered' : 'Reject') }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Type</th>
+                                                                    <td>{{ $item->type_id }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Aadhar Card No</th>
+                                                                    <td>{{ $item->MAC }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Color</th>
+                                                                    <td>{{ $item->color }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Create At</th>
+                                                                    <td>{{ $item->created_at ? date('d M Y', strtotime($item->estimate_delivery)) : 'N/A' }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Product Image</th>
+                                                                    <td>
+                                                                        @if ($item->image)
+                                                                            <img src="{{ asset('storage/uploads/' . $item->image) }}"
+                                                                                style="height: 80px; width:100px;"
+                                                                                class="img-thumbnail">
+                                                                        @else
+                                                                            <span>No image found!</span>
+                                                                        @endif
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
                                                         </div>
                                                     </div>
 
@@ -163,29 +168,35 @@
                                 {{-- active and deactive model  --}}
                                 <!-- Button trigger modal -->
 
-                                 <!-- Button trigger modal -->
+                                <!-- Button trigger modal -->
 
-  
-  <!-- Modal -->
-  <div class="modal fade" id="ban{{ $item->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Alert</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-           Do you really want to {{ $item->status == 0 ? 'activate' : 'deactivate' }} this account
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">no</button>
-          <a href="{{ route('admin.staff.status', $item) }}" type="button" class="btn btn-primary">yes</a>
-        </div>
-      </div>
-    </div>
-  </div>
 
-                                
+                                <!-- Modal -->
+                                <div class="modal fade" id="ban{{ $item->id }}" data-bs-backdrop="static"
+                                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="staticBackdropLabel">Alert</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Do you really want to {{ $item->status == 0 ? 'activate' : 'deactivate' }}
+                                                this account
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">no</button>
+                                                <a href="{{ route('admin.staff.status', $item) }}" type="button"
+                                                    class="btn btn-primary">yes</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
 
                                 {{-- view model  --}}
                                 <div class="modal fade " id="view{{ $item->id }}" tabindex="-1" role="dialog"
@@ -203,10 +214,10 @@
                                                 <div class="d-flex flex-row col-12">
                                                     <div class="col-6">
                                                         <div class="border border-dark p-1 text-center">
-                                                            <label for=""><span><svg width="40px" height="40px"
-                                                                        viewBox="0 0 1024.00 1024.00" class="icon"
-                                                                        version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                                                        fill="#000000">
+                                                            <label for=""><span><svg width="40px"
+                                                                        height="40px" viewBox="0 0 1024.00 1024.00"
+                                                                        class="icon" version="1.1"
+                                                                        xmlns="http://www.w3.org/2000/svg" fill="#000000">
                                                                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                                                         <g id="SVGRepo_tracerCarrier"
                                                                             stroke-linecap="round"
@@ -387,8 +398,8 @@
                                                                                     </cc:license>
                                                                                 </rdf:rdf>
                                                                             </metadata>
-                                                                            <circle r="7.5" cy="9.5"
-                                                                                cx="16" id="path839"
+                                                                            <circle r="7.5" cy="9.5" cx="16"
+                                                                                id="path839"
                                                                                 style="opacity:1;vector-effect:none;fill:#373737;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.20000005;stroke-opacity:1">
                                                                             </circle>
                                                                             <path id="rect841"

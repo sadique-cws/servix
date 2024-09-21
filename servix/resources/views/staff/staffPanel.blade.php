@@ -16,7 +16,7 @@
           x-ref="loading"
           class="fixed inset-0 z-50 flex items-center justify-center text-2xl font-semibold text-white bg-blue-600"
         >
-          Loading servixc.....
+          Loading NovaFix.....
         </div>
 
         <!-- Sidebar -->
@@ -37,9 +37,7 @@
           <div class="z-10 flex flex-col flex-1">
             <div class="flex items-center justify-between flex-shrink-0 w-64 p-4">
               <!-- Logo -->
-              <a href="#">
-                servixc
-              </a>
+              <h1 class="fw-bold text-dark">NovaFix</h1>
               <!-- Close btn -->
               <button @click="isSidebarOpen = false" class="p-1 rounded-lg focus:outline-none focus:ring">
                 <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" ><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />

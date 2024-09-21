@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Admin;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class AdminSeeder extends Seeder
 {
@@ -13,12 +14,15 @@ class AdminSeeder extends Seeder
      */
     public function run(): void
     {
-         $data = [
+        $data = [
             'name' => 'sadique',
             'email' => 'rock@gmail.com',
-            'password' => '123456789'
+            'password' => Hash::make('123456789')
         ];
 
-        Admin::create($data);
+        Admin::updateOrCreate(
+            ['email' => $data['email']], // Condition to check if the record exists
+            $data // Data to insert or update
+        );
     }
 }

@@ -36,11 +36,12 @@
     <div class="main_background fixed-top py-1">
         <nav class="navbar navbar-expand-lg navbar-light ">
             <div class="container ">
-                <a href="{{ route('home') }}" class="navbar-brand" href="#">
-                    <img src="Assets/logo-black.png" class="img-logo h-8 lg:ml-28 " alt="logo">
+                <a href="{{ route('home') }}" class="text-dark text-decoration-none h1">
+                    <h1 class="fw-bold">NovaFix</h1>
                 </a>
                 <button data-collapse-toggle="navbar-dropdown" type="button" aria-controls="navbar-dropdown"
-                    aria-expanded="false" class="lg:hidden md:block flex rounded-lg p-1 active:border-2 visited:border-2 border-gray-800 ">
+                    aria-expanded="false"
+                    class="lg:hidden md:block flex rounded-lg p-1 active:border-2 visited:border-2 border-gray-800 ">
                     <span class="navbar-toggler-icon text-xl"></span>
                 </button>
                 <div class="hidden sm:hidden lg:w-full lg:inline-block lg:flex lg:flex-row " id="navbar-dropdown">
@@ -141,7 +142,7 @@
         </div>
 
         {{-- Contact us form  --}}
-        <div  class="gap-2 lg:px-32  group sm:px-1 grid col-12">
+        <div class="gap-2 lg:px-32  group sm:px-1 grid col-12">
             <div class="bg-gray-800 lg:px-32 px-3 py-12 rounded-lg">
                 <div class="text-slate-300 text-[30px] w-full  text-center font-semibold py-4 mb-3">
                     Touch with us
@@ -178,7 +179,8 @@
                     </div>
                     <div class="grid md:grid-cols-2 md:gap-6">
                         <div class="relative z-0 w-full mb-6 group">
-                            <input value="{{ old('contact') }}" type="phone" pattern="[0-9]{10}" name="contact" id="phone"
+                            <input value="{{ old('contact') }}" type="phone" pattern="[0-9]{10}" name="contact"
+                                id="phone"
                                 class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-500 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                                 placeholder=" " required />
                             <label for="phone"
@@ -193,7 +195,7 @@
                         <div class="relative z-0 w-full mb-6 group">
                             <input value="{{ old('company') }}" type="text" name="company" id="company"
                                 class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-500 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                placeholder=" "  />
+                                placeholder=" " />
                             <label for="company"
                                 class="group-hover:text-[18px] peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Company
                                 (Ex. Google) <span
@@ -244,7 +246,8 @@
                         @enderror
                     </div>
                     <div class="relative z-0 w-full mb-6 group">
-                        <input value="{{ old('inspired_from') }}" type="inspired_from" name="inspired_from" id="inspired_from"
+                        <input value="{{ old('inspired_from') }}" type="inspired_from" name="inspired_from"
+                            id="inspired_from"
                             class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-500 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                             placeholder=" " required />
                         <label for="inspired_from"
@@ -273,8 +276,10 @@
             <div class="row justify-content-center pt-3 all_text-center lg:px-20">
                 <div class="col-lg-4 col-md-6 col-12 mb-4">
                     <div class="pl-0">
-                        <a href="#" class="nav-link p-0"><img src="Assets/logo-black.png" class="img-logo"
-                                alt="logo"></a>
+                        <a href="{{ route('home') }}" class="text-dark text-decoration-none h1">
+                            <h1 class="fw-bold">NovaFix</h1>
+                        </a>
+
                     </div>
                     <ul class="navbar-nav pt-3">
                         <li class="nav-item py-1"><a href="{{ route('home.warranty') }}"
@@ -293,7 +298,7 @@
                     <ul class="navbar-nav">
                         <li class="nav-item" style="font-size:31px; color: #000;"><b>+91 7856802002</b></li>
                         <li class="nav-item"><a href="#" class="nav-link "><b
-                                    class="footer--art">servicxteam@gmail.com</b></a>
+                                    class="footer--art">novafixteam@gmail.com</b></a>
                         </li>
                         <li class="nav-item footer--art1">Zila School Road, Near BSNL tower, Purnea (Bihar) - 854301
                         </li>
