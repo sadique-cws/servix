@@ -19,7 +19,7 @@ class RequestController extends Controller
 {
     public function requestForm(): View
     {
-        $data['Types'] = Type::all();
+        $data['Types'] = Type::all();        
         return view('requestForm',$data);
     }
 

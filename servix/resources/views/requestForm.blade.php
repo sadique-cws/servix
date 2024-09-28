@@ -64,12 +64,11 @@
                         <div class="mb-3 col-4">
                             <label for="" class="text-xs font-semibold px-1">Type</label>
                             <select name="type_id" class="form-select font-semibold text-xs px-1">
-                                <option value="">Select Type</option>
+                            <option value="">Select Type</option>
                                 @foreach ($Types as $item)
-                                <option value="{{$item->id}}">{{$item->typename}}</option>
-                                    
-                                @endforeach
-                            
+                                <option value="{{$item->id}}">
+                                    {{$item->typename}}</option>
+                                    @endforeach                                                                   
                             </select>
                             @error('type_id')
                             <p class="text-danger small">{{$message}} </p>
