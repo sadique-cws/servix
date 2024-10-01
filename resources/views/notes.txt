@@ -1,0 +1,47 @@
+
+================================== @LazyDeveloper ============================================
+---> Contact Us page has its own footer and header !! (i am not using pre-Built LayOut on this page) 
+---> 
+<<<<<<< HEAD
+
+
+
+
+
+***Privacy Policy: 
+=======
+***Privacy Policy:
+>>>>>>> a59f4705b95116688689496f98ab4fb36488d1d5
+1. Personal information collected: List the types of personal information you collect from users such as names, email addresses, phone numbers, and addresses.
+
+2. How information is collected: Explain how you collect information from users, such as through forms, cookies, or other tracking technologies.
+
+3. Use of information: Describe how you use the personal information you collect from users, such as to provide repair services, communicate with users, or improve your website.
+
+4. Third-party access: If you share user information with third parties such as payment processors or advertising partners, disclose the types of information you share and the purpose for sharing.
+
+5. Security measures: Explain the security measures you have in place to protect user information, such as encryption or firewalls.
+
+6. User rights: Explain how users can access, update, or delete their personal information, and their rights regarding their data.
+
+7. Legal requirements: Explain any legal requirements that may apply to your website and how you comply with them, such as data protection laws.
+
+Remember to use clear and concise language, and ensure that your privacy policy is easily accessible and understandable for your users.
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+================================== @wDeveloperr ============================================
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
+================================== @AdityaSekhar ============================================
+
